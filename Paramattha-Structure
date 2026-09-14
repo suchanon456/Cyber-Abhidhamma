@@ -24,8 +24,17 @@
             },
             "oop_implementation": {
               "class_name": "AbstractPrimaryElement",
-              "properties": ["density", "temperature", "flow_rate", "state_vector"],
-              "methods": ["allocate_resource()", "dissipate_heat()", "transfer_state()"]
+              "properties": [
+                "density",
+                "temperature",
+                "flow_rate",
+                "state_vector"
+              ],
+              "methods": [
+                "allocate_resource()",
+                "dissipate_heat()",
+                "transfer_state()"
+              ]
             }
           },
           {
@@ -40,8 +49,15 @@
             },
             "oop_implementation": {
               "class_name": "SensorInterface extends HardwareComponent",
-              "properties": ["sensor_id", "sensitivity_threshold", "signal_buffer"],
-              "methods": ["read_input()", "calibrate_signal()"]
+              "properties": [
+                "sensor_id",
+                "sensitivity_threshold",
+                "signal_buffer"
+              ],
+              "methods": [
+                "read_input()",
+                "calibrate_signal()"
+              ]
             }
           },
           {
@@ -52,8 +68,14 @@
             },
             "oop_implementation": {
               "class_name": "EnvironmentalStimulus",
-              "properties": ["payload_type", "raw_bytes", "timestamp"],
-              "methods": ["inject_to_runtime()"]
+              "properties": [
+                "payload_type",
+                "raw_bytes",
+                "timestamp"
+              ],
+              "methods": [
+                "inject_to_runtime()"
+              ]
             }
           },
           {
@@ -64,8 +86,13 @@
             },
             "oop_implementation": {
               "class_name": "PolarityConfig",
-              "properties": ["polarity_type", "access_privilege_vector"],
-              "methods": ["validate_context()"]
+              "properties": [
+                "polarity_type",
+                "access_privilege_vector"
+              ],
+              "methods": [
+                "validate_context()"
+              ]
             }
           },
           {
@@ -76,8 +103,15 @@
             },
             "oop_implementation": {
               "class_name": "KernelCoreRegistry",
-              "properties": ["active_citta_pointer", "thread_id", "execution_lock"],
-              "methods": ["bind_runtime_engine()", "switch_context()"]
+              "properties": [
+                "active_citta_pointer",
+                "thread_id",
+                "execution_lock"
+              ],
+              "methods": [
+                "bind_runtime_engine()",
+                "switch_context()"
+              ]
             }
           },
           {
@@ -88,8 +122,14 @@
             },
             "oop_implementation": {
               "class_name": "SystemWatchdog",
-              "properties": ["ttl_counter", "heartbeat_interval"],
-              "methods": ["trigger_system_panic()", "refresh_pulse()"]
+              "properties": [
+                "ttl_counter",
+                "heartbeat_interval"
+              ],
+              "methods": [
+                "trigger_system_panic()",
+                "refresh_pulse()"
+              ]
             }
           },
           {
@@ -100,8 +140,14 @@
             },
             "oop_implementation": {
               "class_name": "EnergyProvider",
-              "properties": ["wattage_pool", "consumption_rate"],
-              "methods": ["inject_energy()", "throttle_power()"]
+              "properties": [
+                "wattage_pool",
+                "consumption_rate"
+              ],
+              "methods": [
+                "inject_energy()",
+                "throttle_power()"
+              ]
             }
           }
         ]
@@ -124,8 +170,14 @@
             },
             "oop_implementation": {
               "class_name": "SpatialBoundary",
-              "properties": ["boundary_offset", "memory_address_range"],
-              "methods": ["check_collision()", "restrict_access()"]
+              "properties": [
+                "boundary_offset",
+                "memory_address_range"
+              ],
+              "methods": [
+                "check_collision()",
+                "restrict_access()"
+              ]
             }
           },
           {
@@ -136,8 +188,14 @@
             },
             "oop_implementation": {
               "class_name": "TelemetryEmitter",
-              "properties": ["log_level", "stream_channel"],
-              "methods": ["emit_signal()", "broadcast_intent()"]
+              "properties": [
+                "log_level",
+                "stream_channel"
+              ],
+              "methods": [
+                "emit_signal()",
+                "broadcast_intent()"
+              ]
             }
           },
           {
@@ -148,8 +206,14 @@
             },
             "oop_implementation": {
               "class_name": "DynamicElasticity",
-              "properties": ["elasticity_index", "latency_modifier"],
-              "methods": ["optimize_performance()", "scale_resources()"]
+              "properties": [
+                "elasticity_index",
+                "latency_modifier"
+              ],
+              "methods": [
+                "optimize_performance()",
+                "scale_resources()"
+              ]
             }
           },
           {
@@ -160,8 +224,16 @@
             },
             "oop_implementation": {
               "class_name": "LifecycleManager",
-              "properties": ["creation_timestamp", "entropy_level", "decay_rate"],
-              "methods": ["initialize_state()", "garbage_collect()", "terminate_instance()"]
+              "properties": [
+                "creation_timestamp",
+                "entropy_level",
+                "decay_rate"
+              ],
+              "methods": [
+                "initialize_state()",
+                "garbage_collect()",
+                "terminate_instance()"
+              ]
             }
           }
         ]
