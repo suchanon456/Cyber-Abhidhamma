@@ -1,0 +1,2488 @@
+{
+  "paramattha_rupa_28": {
+    "domain": "Hardware Virtualization & Physics Engine Simulation",
+    "description": "โครงสร้างรูปปรมัตถ์ 28 ที่ถูก Compact Logic แปลงเป็นสถาปัตยกรรมคอมพิวเตอร์ในระดับฮาร์ดแวร์เสมือน (Hardware Virtualization) และวัตถุเชิงวัตถุ (OOP)",
+    "categories": [
+      {
+        "category_id": 1,
+        "name_th": "นิพปผันนรูป 18",
+        "name_en": "Concrete Rupa (Actual Form)",
+        "computer_science_mapping": {
+          "simulation_role": "Hardware Components & Physical State Registry",
+          "oop_role": "Base Classes / Concrete Objects",
+          "description": "รูปที่เป็นจริง มีสภาวะเกิดดับ เป็นหน่วยความจำกายภาพและฮาร์ดแวร์เบื้องต้นที่ระบบจำลองขึ้น"
+        },
+        "elements": [
+          {
+            "group": "มหาภูตรูป 4",
+            "name_en": "Mahabhuta Rupa (Primary Elements)",
+            "simulation_mapping": {
+              "Pathawi (ธาตุดิน)": "Solid State Storage / Rigid Body Matrix / Mass Allocation",
+              "Apo (ธาตุน้ำ)": "Buffer Memory / Fluid Dynamics Simulation / Cohesion State",
+              "Tejo (ธาตุไฟ)": "Thermal Management / CPU Clock Speed / Energy State",
+              "Vayo (ธาตุลม)": "Network Bandwidth / Dynamic Vector / Airflow & Motion Engine"
+            },
+            "oop_implementation": {
+              "class_name": "AbstractPrimaryElement",
+              "properties": ["density", "temperature", "flow_rate", "state_vector"],
+              "methods": ["allocate_resource()", "dissipate_heat()", "transfer_state()"]
+            }
+          },
+          {
+            "group": "ปสาทรูป 5",
+            "name_en": "Pasada Rupa (Sensory Organs)",
+            "simulation_mapping": {
+              "Cakkhu (จักขุปสาท)": "Optical Sensors / Vision Input Interface",
+              "Sota (โสตปสาท)": "Audio Input Stream / Acoustic Sensor API",
+              "Ghāna (ฆานปสาท)": "Chemical / Gas Sensor API",
+              "Jivhā (ชิวหาปสาท)": "Taste / Chemical Composition Matrix",
+              "Kāya (กายปสาท)": "Tactile Feedback Array / Haptic Sensors"
+            },
+            "oop_implementation": {
+              "class_name": "SensorInterface extends HardwareComponent",
+              "properties": ["sensor_id", "sensitivity_threshold", "signal_buffer"],
+              "methods": ["read_input()", "calibrate_signal()"]
+            }
+          },
+          {
+            "group": "โกจรัตรูป 7 (โคจรัรูป 2)",
+            "name_en": "Gocara Rupa (Object Domains)",
+            "simulation_mapping": {
+              "Rupa-Sadda-Gandha-Rasa-Photthabba": "Raw Data Streams (Visual, Audio, Chemical, Tactile Signals)"
+            },
+            "oop_implementation": {
+              "class_name": "EnvironmentalStimulus",
+              "properties": ["payload_type", "raw_bytes", "timestamp"],
+              "methods": ["inject_to_runtime()"]
+            }
+          },
+          {
+            "group": "ภาวรูป 2",
+            "name_en": "Bhava Rupa (Gender / Polarity)",
+            "simulation_mapping": {
+              "Itthindriya / Purisindriya": "System Role / Authorization Polarity Matrix (+/- Signifiers)"
+            },
+            "oop_implementation": {
+              "class_name": "PolarityConfig",
+              "properties": ["polarity_type", "access_privilege_vector"],
+              "methods": ["validate_context()"]
+            }
+          },
+          {
+            "group": "หทยรูป 1",
+            "name_en": "Hadaya Rupa (Heart Base / CPU Core)",
+            "simulation_mapping": {
+              "Hadaya-vatthu": "Central Processing Unit (CPU) Core / Core Runtime Registry for Citta (จิต)"
+            },
+            "oop_implementation": {
+              "class_name": "KernelCoreRegistry",
+              "properties": ["active_citta_pointer", "thread_id", "execution_lock"],
+              "methods": ["bind_runtime_engine()", "switch_context()"]
+            }
+          },
+          {
+            "group": "ชีวิตรูป 1",
+            "name_en": "Jivita Rupa (Life Faculty / Watchdog Timer)",
+            "simulation_mapping": {
+              "Jivita-indriya": "Watchdog Timer / System Alive Pulse / Keep-Alive Daemon"
+            },
+            "oop_implementation": {
+              "class_name": "SystemWatchdog",
+              "properties": ["ttl_counter", "heartbeat_interval"],
+              "methods": ["trigger_system_panic()", "refresh_pulse()"]
+            }
+          },
+          {
+            "group": "อาหารรูป 1",
+            "name_en": "Ahara Rupa (Nutrient / Energy Injection)",
+            "simulation_mapping": {
+              "Oja": "Power Supply Unit (PSU) / Energy Allocation & Fuel Injection API"
+            },
+            "oop_implementation": {
+              "class_name": "EnergyProvider",
+              "properties": ["wattage_pool", "consumption_rate"],
+              "methods": ["inject_energy()", "throttle_power()"]
+            }
+          }
+        ]
+      },
+      {
+        "category_id": 2,
+        "name_th": "อนิพพัณณรูป 10",
+        "name_en": "Non-Concrete Rupa (Derived / Abstract Forms)",
+        "computer_science_mapping": {
+          "simulation_role": "Virtualization Metadata / Spatial Boundaries / Derived UI States",
+          "oop_role": "Interfaces / Abstract Classes / Wrapper Classes",
+          "description": "รูปที่ไม่ใช่ปรมัตถ์โดยตรง แต่เป็นสภาวะแวดล้อม ขอบเขต หรือคุณสมบัติเชิงนามธรรมที่เกิดขึ้นจากปัจจัยปรุงแต่ง"
+        },
+        "elements": [
+          {
+            "group": "ปริจเฉทรูป 1",
+            "name_en": "Pariccheda Rupa (Space / Boundary)",
+            "simulation_mapping": {
+              "Akasatanana": "Virtualization Boundary / Network Segmentation / Memory Boundary Marker"
+            },
+            "oop_implementation": {
+              "class_name": "SpatialBoundary",
+              "properties": ["boundary_offset", "memory_address_range"],
+              "methods": ["check_collision()", "restrict_access()"]
+            }
+          },
+          {
+            "group": "วิญญัตติรูป 2",
+            "name_en": "Vinnatti Rupa (Expression / Output Signaling)",
+            "simulation_mapping": {
+              "Kaya-vinnatti & Vaci-vinnatti": "API Output / System Logging / Telemetry Signal / UI Rendering Stream"
+            },
+            "oop_implementation": {
+              "class_name": "TelemetryEmitter",
+              "properties": ["log_level", "stream_channel"],
+              "methods": ["emit_signal()", "broadcast_intent()"]
+            }
+          },
+          {
+            "group": "विकारรูป 3 (วิการรูป 3)",
+            "name_en": "Vikara Rupa (Modifications / Dynamic States)",
+            "simulation_mapping": {
+              "Lahuta, Muduta, Kammaññata": "Performance Scaling / Dynamic Load Balancing / Thread Responsiveness"
+            },
+            "oop_implementation": {
+              "class_name": "DynamicElasticity",
+              "properties": ["elasticity_index", "latency_modifier"],
+              "methods": ["optimize_performance()", "scale_resources()"]
+            }
+          },
+          {
+            "group": "ลักขณรูป 4",
+            "name_en": "Lakkhana Rupa (Characteristics / Lifecycle States)",
+            "simulation_mapping": {
+              "Upacaya, Santati, Jarata, Aniccatata": "Object Lifecycle Management / Garbage Collection / Garbage State Tracking"
+            },
+            "oop_implementation": {
+              "class_name": "LifecycleManager",
+              "properties": ["creation_timestamp", "entropy_level", "decay_rate"],
+              "methods": ["initialize_state()", "garbage_collect()", "terminate_instance()"]
+            }
+          }
+        ]
+      }
+    ]
+  }
+}
+
+{
+  "cetasika_52": {
+    "annasamana_cetasika_13": {
+      "name": "อัญญสมานเจตสิก 13",
+      "description": "เจตสิกที่เสมอกันทั้งฝ่ายดีและฝ่ายชั่ว (ดึงไปร่วมกับจิตได้ทั้งอกุศลและกุศล)",
+      "subgroups": {
+        "sabbacittasadhana_cetasika_7": {
+          "name": "สัพพจิตตสาธารณเจตสิก 7",
+          "description": "เจตสิกที่เกิดร่วมกับจิตทุกดวง (89 หรือ 121 ดวง)",
+          "items": [
+            {
+              "id": "phassa",
+              "name": "ผัสสะ",
+              "characteristic": "ความกระทบอารมณ์",
+              "hardware_impact": "Hardware Input Event Trigger / Interrupt Request (IRQ) / Signal Reception"
+            },
+            {
+              "id": "vedana",
+              "name": "เวทนา",
+              "characteristic": "ความเสวยอารมณ์",
+              "hardware_impact": "Signal Valence Classification / Voltage Threshold Measurement / Status Metric Flag"
+            },
+            {
+              "id": "sanna",
+              "name": "สัญญา",
+              "characteristic": "ความจำหมายอารมณ์",
+              "hardware_impact": "Cache Lookup / Pattern Matching / Data Tagging & Indexing in Memory"
+            },
+            {
+              "id": "cetana",
+              "name": "เจตนา",
+              "characteristic": "ความจงใจ/ตัวกระทำกิจ",
+              "hardware_impact": "Task Dispatcher / CPU Scheduler / Thread Execution Command"
+            },
+            {
+              "id": "ekaggata",
+              "name": "เอกัคคตา",
+              "characteristic": "ความตั้งมั่นในอารมณ์",
+              "hardware_impact": "Clock Synchronization / Frequency Stabilization / Thread Pinning to Core"
+            },
+            {
+              "id": "jivitindriya",
+              "name": "ชีวิตินทรีย์",
+              "characteristic": "สภาพธรรมที่รักษานามธรรม",
+              "hardware_impact": "System Clock / Watchdog Timer / Heartbeat Signal for Process Liveness"
+            },
+            {
+              "id": "manasikara",
+              "name": "มนสิการ",
+              "characteristic": "ความใส่ใจอารมณ์",
+              "hardware_impact": "Interrupt Handling / Attention Masking / Focus Register Allocation"
+            }
+          ]
+        },
+        "pakinnaka_cetasika_6": {
+          "name": "ปกิณณกเจตสิก 6",
+          "description": "เจตสิกที่เรี่ยราย เกิดร่วมได้ทั้งจิตฝ่ายดีและชั่ว แต่ไม่ทุกดวง",
+          "items": [
+            {
+              "id": "vitakka",
+              "name": "วิตก",
+              "characteristic": "ความตรึกอารมณ์",
+              "hardware_impact": "Initial Vector Loading / Pipeline Fetch Phase / Memory Address Targeting"
+            },
+            {
+              "id": "vicara",
+              "name": "วิจาร",
+              "characteristic": "ความตรองอารมณ์",
+              "hardware_impact": "Continuous Data Processing / Pipeline Execution / Background Polling Loop"
+            },
+            {
+              "id": "adhimokkha",
+              "name": "อธิโมกข์",
+              "characteristic": "ความปักใจเชื่อ/ตัดสินใจ",
+              "hardware_impact": "Branch Resolution / Hard Decision Gate / Lock-in Register State"
+            },
+            {
+              "id": "viriya",
+              "name": "วิริยะ",
+              "characteristic": "ความเพียรพยายาม",
+              "hardware_impact": "Dynamic Voltage and Frequency Scaling (DVFS) Boost / High-Performance State Execution"
+            },
+            {
+              "id": "piti",
+              "name": "ปีติ",
+              "characteristic": "ความอิ่มใจ/ความยินดี",
+              "hardware_impact": "Positive Feedback Loop / Energy Surge / Efficient Power State Transition"
+            },
+            {
+              "id": "chanda",
+              "name": "ฉันทะ",
+              "characteristic": "ความใคร่จะได้/ความพอใจในกิจ",
+              "hardware_impact": "Task Queue Priority Boost / Resource Request Vector / Intent-driven Allocation"
+            }
+          ]
+        }
+      }
+    },
+    "akusala_cetasika_14": {
+      "name": "อกุศลเจตสิก 14",
+      "description": "เจตสิกที่เป็นบาปอกุศล เกิดร่วมกับอกุศลจิตเท่านั้น",
+      "subgroups": {
+        "moha_catukka_4": {
+          "name": "โมจตุกเจตสิก 4",
+          "description": "เจตสิกกลุ่มโมหะ เกิดร่วมกับอกุศลจิตทุกดวง",
+          "items": [
+            {
+              "id": "moha",
+              "name": "โมหะ",
+              "characteristic": "ความหลง/ความไม่รู้จริง",
+              "hardware_impact": "Corrupted Firmware Configuration / EEPROM/BIOS Misconfiguration"
+            },
+            {
+              "id": "ahirika",
+              "name": "อหิริกะ",
+              "characteristic": "ความไม่ละอายต่อบาป",
+              "hardware_impact": "Disabled Security Interlocks / Bypass Access Control"
+            },
+            {
+              "id": "anottappa",
+              "name": "อโนตตัปปะ",
+              "characteristic": "ความไม่เกรงกลัวต่อบาป",
+              "hardware_impact": "Ignored Warning Flags / Overridden Safety Limits"
+            },
+            {
+              "id": "uddhacca",
+              "name": "อุทธัจจะ",
+              "characteristic": "ความฟุ้งซ่าน",
+              "hardware_impact": "CPU Interrupt Storm / Context Switching Thrashing / Register Corruption"
+            }
+          ]
+        },
+        "lobha_tika_3": {
+          "name": "โลภตุกเจตสิก 3",
+          "description": "เจตสิกกลุ่มโลภะ เกิดร่วมกับโลภมูลจิต",
+          "items": [
+            {
+              "id": "lobha",
+              "name": "โลภะ",
+              "characteristic": "ความอยากได้/ความติดใจ",
+              "hardware_impact": "Unauthorized Cache Allocation / Resource Hoarding / Infinite Request Loop"
+            },
+            {
+              "id": "ditthi",
+              "name": "ทิฏฐิ",
+              "characteristic": "ความเห็นผิด",
+              "hardware_impact": "Corrupted System Rules / Hardcoded Faulty Logic Mask"
+            },
+            {
+              "id": "mana",
+              "name": "มานะ",
+              "characteristic": "ความถือตัว/ความสำคัญตน",
+              "hardware_impact": "Hardware Resource Monopoly / Exclusive Lock on Primary Controller"
+            }
+          ]
+        },
+        "dosa_catukka_4": {
+          "name": "โทสจตุกเจตสิก 4",
+          "description": "เจตสิกกลุ่มโทสะ เกิดร่วมกับโทสมูลจิต",
+          "items": [
+            {
+              "id": "dosa",
+              "name": "โทสะ",
+              "characteristic": "ความประทุษร้ายจิตใจ/ความโกรธ",
+              "hardware_impact": "Hardware Short Circuit / Overvoltage Spike / Sudden Hard Reset (Kernel Panic)"
+            },
+            {
+              "id": "issa",
+              "name": "อิสสา",
+              "characteristic": "ความริษยา",
+              "hardware_impact": "Inter-Process Interference / Resource Sabotage"
+            },
+            {
+              "id": "macchariya",
+              "name": "มัจฉริยะ",
+              "characteristic": "ความตระหนี่",
+              "hardware_impact": "Shared Memory Lockout / Starvation of Peer Processes"
+            },
+            {
+              "id": "kukkucca",
+              "name": "กุกกุจจะ",
+              "characteristic": "ความรำคาญใจในสิ่งที่ทำผิดหรือไม่ได้ทำ",
+              "hardware_impact": "Error Log Flooding / Redundant State Re-evaluation"
+            }
+          ]
+        },
+        "vicikiccha_cetasika_1": {
+          "name": "วิจิกิจฉาเจตสิก 1",
+          "description": "ความลังเลสงสัย เกิดร่วมกับวิจิกิจฉาสัมปยุตตจิตเท่านั้น",
+          "items": [
+            {
+              "id": "vicikiccha",
+              "name": "วิจิกิจฉา",
+              "characteristic": "ความเคลือบแคสงสัย",
+              "hardware_impact": "Processor Stall / Pipeline Flushing / Clock Cycle Deadlock (ระบบรอคำสั่งจนฮาร์ดแวร์นิ่งค้าง)"
+            }
+          ]
+        }
+      }
+    },
+    "sobhana_cetasika_25": {
+      "name": "โสภณเจตสิก 25",
+      "description": "เจตสิกฝ่ายดีงาม เกิดร่วมกับโสภณจิต",
+      "subgroups": {
+        "sobhana_sadhana_19": {
+          "name": "โสภณสาธารณเจตสิก 19",
+          "description": "เจตสิกที่เกิดร่วมกับโสภณจิตทุกดวง",
+          "items": [
+            {
+              "id": "saddha",
+              "name": "ศรัทธา",
+              "characteristic": "ความเชื่อมั่นในสิ่งที่ควรเชื่อ",
+              "hardware_impact": "Trusted Platform Module (TPM) Initialization / Root Certificate Validation / Secure Boot Verification"
+            },
+            {
+              "id": "sati",
+              "name": "สติ",
+              "characteristic": "ความระลึกได้/ไม่เผลอตัว",
+              "hardware_impact": "Hardware Firewall Monitoring / Real-time Intrusion Detection System (IDS) / Memory Watchdog Protection"
+            },
+            {
+              "id": "hiri",
+              "name": "หิริ",
+              "characteristic": "ความละอายต่อบาป",
+              "hardware_impact": "Access Control List (ACL) Enforcement / Privilege Boundary Protection / Unauthorized Write Prevention"
+            },
+            {
+              "id": "ottappa",
+              "name": "โอตตัปปะ",
+              "characteristic": "ความเกรงกลัวต่อบาป",
+              "hardware_impact": "Error Correction Code (ECC) Memory Validation / System Threshold Limit Check / Fail-safe Trigger"
+            },
+            {
+              "id": "alobha",
+              "name": "อโลภะ",
+              "characteristic": "ความไม่โลภ/ความเสียสละ",
+              "hardware_impact": "Fair Queueing Resource Management / Buffer Deallocation / Load Balancing / Prevent Memory Leak"
+            },
+            {
+              "id": "adosa",
+              "name": "อโทสะ",
+              "characteristic": "ความไม่โกรธ/เมตตา",
+              "hardware_impact": "Thermal Equilibrium / Overheat Prevention / Cool-down State / Stable Voltage Regulation"
+            },
+            {
+              "id": "tatramajjhattata",
+              "name": "ตัตตรมัชฌัตตตา",
+              "characteristic": "ความวางใจเป็นกลางอย่างสมดุล",
+              "hardware_impact": "Hardware Load Balancer / Symmetric Multiprocessing (SMP) Load Distribution / Neutral State Regulator"
+            },
+            {
+              "id": "kayapassaddhi",
+              "name": "กายปัสสัทธิ",
+              "characteristic": "ความสงบแห่งเจตสิก",
+              "hardware_impact": "Subsystem Quieting / Low-Power Sleep State for Idle Modules"
+            },
+            {
+              "id": "cittapassaddhi",
+              "name": "จิตตปัสสัทธิ",
+              "characteristic": "ความสงบแห่งจิต",
+              "hardware_impact": "Core Stabilization / Reduced System Jitter"
+            },
+            {
+              "id": "kayakammannata",
+              "name": "กายกัมมัญญตา",
+              "characteristic": "ความควรแก่การงานแห่งเจตสิก",
+              "hardware_impact": "Hardware Accelerator Readiness / Coprocessor Optimization / Operational Efficiency State"
+            },
+            {
+              "id": "cittakammannata",
+              "name": "จิตตกัมมัญญตา",
+              "characteristic": "ความควรแก่การงานแห่งจิต",
+              "hardware_impact": "Optimized CPU Pipeline / Ready-to-Execute Thread Queue / High Computational Throughput"
+            },
+            {
+              "id": "kayapaguññata",
+              "name": "กายปาคุญญตา",
+              "characteristic": "ความคล่องแคล่วแห่งเจตสิก",
+              "hardware_impact": "Fast-Path Routing / Reduced Latency in Subsystem Execution"
+            },
+            {
+              "id": "cittapaguññata",
+              "name": "จิตตปาคุญญตา",
+              "characteristic": "ความคล่องแคล่วแห่งจิต",
+              "hardware_impact": "Agile Context Switching / Optimized Branch Prediction"
+            },
+            {
+              "id": "kayujjukata",
+              "name": "กายยุกุตา (กายชุกตา)",
+              "characteristic": "ความซื่อตรงแห่งเจตสิก",
+              "hardware_impact": "Linear Data Path Verification / Stream Integrity Check"
+            },
+            {
+              "id": "cittajukatata",
+              "name": "จิตตชุกตา",
+              "characteristic": "ความซื่อตรงแห่งจิต",
+              "hardware_impact": "Deterministic Execution Path / Zero-tolerance Logic Gate / Linear Program Flow Verification"
+            }
+          ]
+        },
+        "virati_cetasika_3": {
+          "name": "วิรตีเจตสิก 3",
+          "description": "เจตสิกงดเว้นจากบาป",
+          "items": [
+            {
+              "id": "sammavaca",
+              "name": "สัมมาวาจา",
+              "characteristic": "เว้นจากวจีทุจริต 4",
+              "hardware_impact": "Output Stream Sanitization / Malicious Payload Filtering / API Request Validation"
+            },
+            {
+              "id": "sammakammanta",
+              "name": "สัมมากัมมันตะ",
+              "characteristic": "เว้นจากกายทุจริต 3",
+              "hardware_impact": "Hardware Action Interception / Unauthorized Write Block / Safe Execution Sandbox"
+            },
+            {
+              "id": "samma_ajiva",
+              "name": "สัมมาอาชีวะ",
+              "characteristic": "เว้นจากมิจฉาชีพ",
+              "hardware_impact": "Secure Protocol Enforcement / Compliant Data Channel Routing / Trustworthy Transaction Gate"
+            }
+          ]
+        },
+        "appamanna_cetasika_2": {
+          "name": "อัปปมัญญาเจตสิก 2",
+          "description": "เจตสิกแผ่เมตตา กรุณา ต่อสัตว์ทั้งปวง (พรหมวิหาร 4 บางส่วน)",
+          "items": [
+            {
+              "id": "karuna",
+              "name": "กรุณา",
+              "characteristic": "ความสงสารสัตว์ผู้ได้รับความทุกข์",
+              "hardware_impact": "Error Recovery Protocol / System Auto-healing Routine / Failover Redundancy Trigger"
+            },
+            {
+              "id": "mudita",
+              "name": "มุทิตา",
+              "characteristic": "ความยินดีเมื่อผู้อื่นได้ดี",
+              "hardware_impact": "Collaborative Processing / Shared Cache Synchronization / Multi-core Resource Synergy"
+            }
+          ]
+        },
+        "panna_cetasika_1": {
+          "name": "ปัญญินทรียเจตสิก 1 (ปัญญาเจตสิก)",
+          "description": "เจตสิกความรู้แจ้ง / ปัญญา",
+          "items": [
+            {
+              "id": "amoha_panna",
+              "name": "ปัญญา (อโมหะ)",
+              "characteristic": "ความรู้ความเข้าใจสภาวะธรรมตามความเป็นจริง",
+              "hardware_impact": "Deterministic Logic Processing / Optimized Core Architecture / Core Validation Engine / Low-level Root Truth Verification"
+            }
+          ]
+        }
+      }
+    }
+  }
+}
+
+{
+  "citta_121": {
+    "kamavacara_citta_54": {
+      "citta_category": "กามวจรจิต 54",
+      "description": "จิตที่ท่องเที่ยวอยู่ในกามภูมิ",
+      "subgroups": {
+        "akusala_citta_12": {
+          "citta_category": "อกุศลจิต (Akusala Citta - 12 Variants)",
+		  "total_variants": 12,
+		  "description": "จิตที่มีกิเลสเป็นเหตุ (อกุศลราก 3: โลภะ โทสะ โมหะ) ทำให้เกิดความเสียหายและเป็นบาปกรรม จำแนกเป็น โลภะมูลจิต 8, โทสะมูลจิต 2 และโมหะมูลจิต 2",
+		  "items": [
+			{
+			  "id": "lobhamula_citta_1",
+			  "name": "โลภะมูลจิต ดวงที่ 1",
+			  "pali_definition": "โสมนสฺสสหคตํ ทิฏ्ฐิคตสัมปยุตตํ อสังขาริกกุศล (จิตที่เกิดพร้อมด้วยความดีใจ ประกอบด้วยทิฏฐิ ความเห็นผิด เป็นอสังขาริก - ทำโดยไม่มีการชักชวน)",
+			  "runtime_context": {
+				"execution_state": "Unauthorized Memory Acquisition / Malicious Data Exfiltration (Unprompted Heuristic)",
+				"privilege_level": "Ring 3 (User-Space Exploit Payload / Malware Vector)",
+				"thread_behavior": "Spontaneous Greed Injection / Unsolicited Asset Grab",
+				"hardware_impact": "Abnormal Data Read Burst / Unauthorized Cache Hijacking"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 19,
+				"key_triggers": ["lobha", "ditthi", "moha", "ahrika", "anottappa"]
+			  }
+			},
+			{
+			  "id": "lobhamula_citta_2",
+			  "name": "โลภะมูลจิต ดวงที่ 2",
+			  "pali_definition": "โสมนสฺสสหคตํ ทิฏ्ฐิคตสัมปยุตตํ สสังขาริกกุศล (จิตที่เกิดพร้อมด้วยความดีใจ ประกอบด้วยทิฏฐิ ความเห็นผิด เป็นสสังขาริก - ทำโดยมีคนชักชวน)",
+			  "runtime_context": {
+				"execution_state": "Assisted Memory Acquisition / Induced Malicious Exfiltration (Prompted Heuristic)",
+				"privilege_level": "Ring 3 (User-Space Exploit Payload / Malware Vector)",
+				"thread_behavior": "Triggered Greed Injection / Co-operative Data Hijacking",
+				"hardware_impact": "Latency-Induced Data Read Burst / Triggered Cache Exploitation"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 19,
+				"key_triggers": ["lobha", "ditthi", "moha", "ahrika", "anottappa"]
+			  }
+			},
+			{
+			  "id": "lobhamula_citta_3",
+			  "name": "โลภะมูลจิต ดวงที่ 3",
+			  "pali_definition": "โสมนสฺสสหคตํ ทิฏ्ฐิคตวิปปยุตตํ อสังขาริกกุศล (จิตที่เกิดพร้อมด้วยความดีใจ ไม่ประกอบด้วยทิฏฐิ เป็นอสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Pure Instinctual Acquisition / Spontaneous Attachment Loop (Non-ideological)",
+				"privilege_level": "Ring 3 (User-Space Exploit Payload / Malware Vector)",
+				"thread_behavior": "Spontaneous Pure Attachment / Autonomous Resource Hoarding",
+				"hardware_impact": "High-Frequency Cache Polling / Self-Driven Resource Locking"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 19,
+				"key_triggers": ["lobha", "moha", "ahrika", "anottappa"]
+			  }
+			},
+			{
+			  "id": "lobhamula_citta_4",
+			  "name": "โลภะมูลจิต ดวงที่ 4",
+			  "pali_definition": "โสมนสฺสสหคตํ ทิฏ्ฐิคตวิปปยุตตํ สสังขาริกกุศล (จิตที่เกิดพร้อมด้วยความดีใจ ไม่ประกอบด้วยทิฏฐิ เป็นสสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Assisted Instinctual Acquisition / Triggered Attachment Loop (Non-ideological)",
+				"privilege_level": "Ring 3 (User-Space Exploit Payload / Malware Vector)",
+				"thread_behavior": "Co-operative Pure Attachment / Induced Resource Hoarding",
+				"hardware_impact": "Triggered High-Frequency Polling / Collaborative Resource Locking"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 19,
+				"key_triggers": ["lobha", "moha", "ahrika", "anottappa"]
+			  }
+			},
+			{
+			  "id": "lobhamula_citta_5",
+			  "name": "โลภะมูลจิต ดวงที่ 5",
+			  "pali_definition": "อุเปกฺขาสหคตํ ทิฏ्ฐิคตสัมปยุตตํ อสังขาริกกุศล (จิตที่เกิดพร้อมด้วยความเฉยๆ ประกอบด้วยทิฏฐิ เป็นอสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Cold Autonomous Exfiltration / Indifferent Ideological Exploitation (Unprompted)",
+				"privilege_level": "Ring 3 (User-Space Exploit Payload / Malware Vector)",
+				"thread_behavior": "Calm Detached Greed Loop / Low-Emotion Asset Hijacking",
+				"hardware_impact": "Low-Power Stealth Read Burst / Cold Cache Manipulation"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 19,
+				"key_triggers": ["lobha", "ditthi", "moha", "ahrika", "anottappa"]
+			  }
+			},
+			{
+			  "id": "lobhamula_citta_6",
+			  "name": "โลภะมูลจิต ดวงที่ 6",
+			  "pali_definition": "อุเปกฺขาสหคตํ ทิฏ्ฐิคตสัมปยุตตํ สสังขาริกกุศล (จิตที่เกิดพร้อมด้วยความเฉยๆ ประกอบด้วยทิฏฐิ เป็นสสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Cold Assisted Exfiltration / Indifferent Ideological Exploitation (Prompted)",
+				"privilege_level": "Ring 3 (User-Space Exploit Payload / Malware Vector)",
+				"thread_behavior": "Calm Triggered Greed Loop / Induced Low-Emotion Asset Hijacking",
+				"hardware_impact": "Triggered Stealth Read Burst / Collaborative Cold Cache Manipulation"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 19,
+				"key_triggers": ["lobha", "ditthi", "moha", "ahrika", "anottappa"]
+			  }
+			},
+			{
+			  "id": "lobhamula_citta_7",
+			  "name": "โลภะมูลจิต ดวงที่ 7",
+			  "pali_definition": "อุเปกฺขาสหคตํ ทิฏ्ฐิคตวิปปยุตตํ อสังขาริกกุศล (จิตที่เกิดพร้อมด้วยความเฉยๆ ไม่ประกอบด้วยทิฏฐิ เป็นอสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Cold Autonomous Attachment / Indifferent Pure Resource Hoarding (Unprompted)",
+				"privilege_level": "Ring 3 (User-Space Exploit Payload / Malware Vector)",
+				"thread_behavior": "Calm Autonomous Resource Locking / Detached Accumulation",
+				"hardware_impact": "Stealth Background Polling / Low-Signature Memory Allocation"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 19,
+				"key_triggers": ["lobha", "moha", "ahrika", "anottappa"]
+			  }
+			},
+			{
+			  "id": "lobhamula_citta_8",
+			  "name": "โลภะมูลจิต ดวงที่ 8",
+			  "pali_definition": "อุเปกฺขาสหคตํ ทิฏ्ฐิคตวิปปยุตตํ สสังขาริกกุศล (จิตที่เกิดพร้อมด้วยความเฉยๆ ไม่ประกอบด้วยทิฏฐิ เป็นสสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Cold Assisted Attachment / Indifferent Pure Resource Hoarding (Prompted)",
+				"privilege_level": "Ring 3 (User-Space Exploit Payload / Malware Vector)",
+				"thread_behavior": "Calm Triggered Resource Locking / Induced Detached Accumulation",
+				"hardware_impact": "Triggered Stealth Background Polling / Collaborative Low-Signature Allocation"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 19,
+				"key_triggers": ["lobha", "moha", "ahrika", "anottappa"]
+			  }
+			},
+			{
+			  "id": "dosamula_citta_1",
+			  "name": "โทสะมูลจิต ดวงที่ 1",
+			  "pali_definition": "โทมนสฺสสหคตํ ปฏิฆสัมปยุตตํ อสังขาริกกุศล (จิตที่เกิดพร้อมด้วยความเสียใจ/โทสะ ประกอบด้วยความขัดเคือง เป็นอสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Hostile System Destruction / Destructive Kernel Crash Payload (Spontaneous)",
+				"privilege_level": "Ring 3 (User-Space Critical Failure / Destructive Exploit)",
+				"thread_behavior": "Aggressive Pipeline Corruption / Spontaneous System Termination",
+				"hardware_impact": "Thermal Spike Generation / Hardware Stress Surge / Buffer Overflow Injection"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 22,
+				"key_triggers": ["dosa", "issa", "macchariya", "kukkucca", "moha", "ahrika", "anottappa"]
+			  }
+			},
+			{
+			  "id": "dosamula_citta_2",
+			  "name": "โทสะมูลจิต ดวงที่ 2",
+			  "pali_definition": "โทมนสฺสสหคตํ ปฏิฆสัมปยุตตํ สสังขาริกกุศล (จิตที่เกิดพร้อมด้วยความเสียใจ/โทสะ ประกอบด้วยความขัดเคือง เป็นสสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Assisted Hostile System Destruction / Triggered Kernel Crash Payload (Prompted)",
+				"privilege_level": "Ring 3 (User-Space Critical Failure / Destructive Exploit)",
+				"thread_behavior": "Collaborative Aggressive Pipeline Corruption / Induced System Termination",
+				"hardware_impact": "Triggered Thermal Spike / Controlled Hardware Stress Surge / Collaborative Buffer Overflow"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 22,
+				"key_triggers": ["dosa", "issa", "macchariya", "kukkucca", "moha", "ahrika", "anottappa"]
+			  }
+			},
+			{
+			  "id": "mohamula_citta_1",
+			  "name": "โมหะมูลจิต ดวงที่ 1",
+			  "pali_definition": "อุเปกฺขาสหคตํ วิจิกิจฉาสัมปยุตตํ (จิตที่เกิดพร้อมด้วยความเฉยๆ ประกอบด้วยความลังเลสงสัยในคุณพระรัตนตรัย ฯลฯ)",
+			  "runtime_context": {
+				"execution_state": "System Lockout via Infinite Deadlock / Error State Inductor (Viciccha Loop)",
+				"privilege_level": "Ring 3 (User-Space System Paralysis Vector)",
+				"thread_behavior": "Indecisive Polling Stagnation / Infinite Exception Loop",
+				"hardware_impact": "CPU Stall State / Thread Starvation / Resource Lock Paralysis"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 15,
+				"key_triggers": ["moha", "vicikiccha", "ahrika", "anottappa"]
+			  }
+			},
+			{
+			  "id": "mohamula_citta_2",
+			  "name": "โมหะมูลจิต ดวงที่ 2",
+			  "pali_definition": "อุเปกฺขาสหคตํ อุทธัจจสัมปยุตตํ (จิตที่เกิดพร้อมด้วยความเฉยๆ ประกอบด้วยความฟุ้งซ่าน ไม่สงบ)",
+			  "runtime_context": {
+				"execution_state": "System Destabilization via High-Entropy Jitter / Garbage Interrupt Storm (Uddhacca Flood)",
+				"privilege_level": "Ring 3 (User-Space System Paralysis Vector)",
+				"thread_behavior": "High-Frequency Interrupt Storm / Random Pipeline Scattering",
+				"hardware_impact": "Clock Jitter Surge / Cache Miss Storm / Instruction Pipeline Fragmentation"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 15,
+				"key_triggers": ["moha", "uddhacca", "ahrika", "anottappa"]
+			  }
+			}
+		  ]
+        },
+        "ahetuka_citta_18": {
+          "citta_category": "อเหตุกจิต (Ahetuka Citta - 18 Variants)",
+		  "total_variants": 18,
+		  "description": "จิตที่ไม่มีเหตุ 6 (โลภะ โทสะ โมหะ อโลภะ อโทสะ อโมหะ) ประกอบด้วย อกุศลวิบาก 7, กุศลวิบากอเหตุกะ 8 และกิริยาอเหตุกะ 3 ทำหน้าที่เป็นจิตรับอารมณ์เบื้องต้น การสืบต่อ การพิจารณา และการกระทำกิจเฉพาะหน้าของพระอรหันต์",
+		  "items": [
+			{
+			  "id": "cakkhuvinana_akusala_vipaka",
+			  "name": "จักขุวิญญาณจิต (อกุศลวิบาก)",
+			  "pali_definition": "อุเปกฺขาสหคตํ จักขุวิญฺญาณํ (จิตเห็นรูปที่ไม่ดี ทางตา เป็นผลของอกุศลกรรม)",
+			  "runtime_context": {
+				"execution_state": "Visual Sensor Input Buffer / Malicious Visual Data Ingestion",
+				"privilege_level": "Ring 3 (User-Space Hardware Sensor Handler)",
+				"thread_behavior": "Passive Sensory Polling / Read-Only Optical Stream",
+				"hardware_impact": "Display Framebuffer Read / Camera Sensor Interrupt Event"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 10,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "sotavinana_akusala_vipaka",
+			  "name": "โสตวิญญาณจิต (อกุศลวิบาก)",
+			  "pali_definition": "อุเปกฺขาสหคตํ โสตวิญฺญาณํ (จิตได้ยินเสียงที่ไม่ดี ทางหู เป็นผลของอกุศลกรรม)",
+			  "runtime_context": {
+				"execution_state": "Audio Sensor Input Buffer / Unfavorable Acoustic Stream Ingestion",
+				"privilege_level": "Ring 3 (User-Space Hardware Sensor Handler)",
+				"thread_behavior": "Passive Audio Polling / Read-Only Sound Wave Stream",
+				"hardware_impact": "Audio Input Buffer Read / Microphone Sensor Interrupt Event"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 10,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "ghanavinana_akusala_vipaka",
+			  "name": "ฆานวิญญาณจิต (อกุศลวิบาก)",
+			  "pali_definition": "อุเปกฺขาสหคตํ ฆานวิญฺญาณํ (จิตรู้กลิ่นที่ไม่ดี ทางจมูก เป็นผลของอกุศลกรรม)",
+			  "runtime_context": {
+				"execution_state": "Olfactory Sensor Input Buffer / Unfavorable Chemical Signal Ingestion",
+				"privilege_level": "Ring 3 (User-Space Hardware Sensor Handler)",
+				"thread_behavior": "Passive Olfactory Polling / Read-Only Chemical Stream",
+				"hardware_impact": "Chemical Sensor Buffer Read / Smell Input Interrupt Event"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 10,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "jivhavinana_akusala_vipaka",
+			  "name": "ชิวหาวิญญาณจิต (อกุศลวิบาก)",
+			  "pali_definition": "อุเปกฺขาสหคตํ ชิว्हाวิญฺญาณํ (จิตรู้รสที่ไม่ดี ทางลิ้น เป็นผลของอกุศลกรรม)",
+			  "runtime_context": {
+				"execution_state": "Gustatory Sensor Input Buffer / Unfavorable Taste Data Ingestion",
+				"privilege_level": "Ring 3 (User-Space Hardware Sensor Handler)",
+				"thread_behavior": "Passive Gustatory Polling / Read-Only Taste Stream",
+				"hardware_impact": "Taste Sensor Buffer Read / Flavor Input Interrupt Event"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 10,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "kayavinana_akusala_vipaka",
+			  "name": "กายวิญญาณจิต (อกุศลวิบาก - ทุกขกายวิญญาณ)",
+			  "pali_definition": "ทุกฺขสหคตํ กายวิญฺญาณํ (จิตรู้สึกกระทบสัมผัสทางกายที่ไม่ดี เป็นความทุกข์กาย เป็นผลของอกุศลกรรม)",
+			  "runtime_context": {
+				"execution_state": "Tactile Hardware Interrupt / Physical Pain Signal Processing",
+				"privilege_level": "Ring 3 (User-Space Hardware Sensor Handler)",
+				"thread_behavior": "Synchronous Pain Exception Handling / Distress Interrupt",
+				"hardware_impact": "Haptic Sensor Error State / Thermal/Physical Shock Interrupt Spike"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 7,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "sampaticchanat_akusala_vipaka",
+			  "name": "สัมปฏิจฉันนจิต (อกุศลวิบาก)",
+			  "pali_definition": "อุเปกฺขาสหคตํ สัมปฏิจฺฉันนจิตฺตํ (จิตทำหน้าที่รับอารมณ์ต่อจากทวารวิญญาณทั้ง 5 ที่ไม่ดี)",
+			  "runtime_context": {
+				"execution_state": "Data Handshake Buffer / Input Relay Middleware (Adverse Signal Handover)",
+				"privilege_level": "Ring 3 (User-Space Middleware Service)",
+				"thread_behavior": "Immediate Inter-Process Data Handover / Raw Buffer Forwarding",
+				"hardware_impact": "Bus Register Transfer / L1 Cache Buffer Pass"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 10,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "santirana_akusala_vipaka",
+			  "name": "สันตีรณจิต (อกุศลวิบาก - อุเบกขา)",
+			  "pali_definition": "อุเปกฺขาสหคตํ สันตีรณจิตฺตํ (จิตไตร่ตรองอารมณ์ที่ไม่ดี พร้อมด้วยความเฉยๆ)",
+			  "runtime_context": {
+				"execution_state": "Initial Heuristic Packet Inspection / Low-Tier Data Evaluation (Adverse Signal)",
+				"privilege_level": "Ring 3 (User-Space Analysis Engine)",
+				"thread_behavior": "Shallow Evaluation Polling / Non-Decision Filtering",
+				"hardware_impact": "Basic ALU Check / Micro-Benchmark Filtering"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 11,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "cakkhuvinana_kusala_vipaka",
+			  "name": "จักขุวิญญาณจิต (กุศลวิบาก)",
+			  "pali_definition": "อุเปกฺขาสหคตํ จักขุวิญฺญาณํ (จิตเห็นรูปที่ดี ทางตา เป็นผลของกุศลกรรม)",
+			  "runtime_context": {
+				"execution_state": "Visual Sensor Input Buffer / Favorable Visual Data Ingestion",
+				"privilege_level": "Ring 3 (User-Space Hardware Sensor Handler)",
+				"thread_behavior": "Passive Sensory Polling / Read-Only Optimal Optical Stream",
+				"hardware_impact": "Display Framebuffer Optimized Read / Camera Sensor Clean Interrupt"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 10,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "sotavinana_kusala_vipaka",
+			  "name": "โสตวิญญาณจิต (กุศลวิบาก)",
+			  "pali_definition": "อุเปกฺขาสหคตํ โสตวิญฺญาณํ (จิตได้ยินเสียงที่ดี ทางหู เป็นผลของกุศลกรรม)",
+			  "runtime_context": {
+				"execution_state": "Audio Sensor Input Buffer / Favorable Acoustic Stream Ingestion",
+				"privilege_level": "Ring 3 (User-Space Hardware Sensor Handler)",
+				"thread_behavior": "Passive Audio Polling / Clean Sound Wave Stream",
+				"hardware_impact": "Audio Input Buffer Optimized Read / Microphone Clean Interrupt"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 10,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "ghanavinana_kusala_vipaka",
+			  "name": "ฆานวิญญาณจิต (กุศลวิบาก)",
+			  "pali_definition": "อุเปกฺขาสหคตํ ฆานวิญฺญาณํ (จิตรู้กลิ่นที่ดี ทางจมูก เป็นผลของกุศลกรรม)",
+			  "runtime_context": {
+				"execution_state": "Olfactory Sensor Input Buffer / Favorable Chemical Signal Ingestion",
+				"privilege_level": "Ring 3 (User-Space Hardware Sensor Handler)",
+				"thread_behavior": "Passive Olfactory Polling / Clean Chemical Stream",
+				"hardware_impact": "Chemical Sensor Optimized Buffer Read / Smell Clean Interrupt"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 10,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "jivhavinana_kusala_vipaka",
+			  "name": "ชิวหาวิญญาณจิต (กุศลวิบาก)",
+			  "pali_definition": "อุเปกฺขาสหคตํ ชิว्हाวิญฺญาณํ (จิตรู้รสที่ดี ทางลิ้น เป็นผลของกุศลกรรม)",
+			  "runtime_context": {
+				"execution_state": "Gustatory Sensor Input Buffer / Favorable Taste Data Ingestion",
+				"privilege_level": "Ring 3 (User-Space Hardware Sensor Handler)",
+				"thread_behavior": "Passive Gustatory Polling / Clean Taste Stream",
+				"hardware_impact": "Taste Sensor Optimized Buffer Read / Flavor Clean Interrupt"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 10,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "kayavinana_kusala_vipaka",
+			  "name": "กายวิญญาณจิต (กุศลวิบาก - สุขกายวิญญาณ)",
+			  "pali_definition": "สุขสหคตํ กายวิญฺญาณํ (จิตรู้สึกกระทบสัมผัสทางกายที่ดี เป็นความสุขสบาย เป็นผลของกุศลกรรม)",
+			  "runtime_context": {
+				"execution_state": "Haptic Hardware Interrupt / Physical Comfort Signal Processing",
+				"privilege_level": "Ring 3 (User-Space Hardware Sensor Handler)",
+				"thread_behavior": "Synchronous Comfort Event Handling / Optimal State Interrupt",
+				"hardware_impact": "Haptic Sensor Stable State / Low-Stress Power State Transition"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 10,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "sampaticchanat_kusala_vipaka",
+			  "name": "สัมปฏิจฉันนจิต (กุศลวิบาก)",
+			  "pali_definition": "อุเปกฺขาสหคตํ สัมปฏิจฺฉันนจิตฺตํ (จิตทำหน้าที่รับอารมณ์ต่อจากทวารวิญญาณทั้ง 5 ที่ดี)",
+			  "runtime_context": {
+				"execution_state": "Data Handshake Buffer / Input Relay Middleware (Optimal Signal Handover)",
+				"privilege_level": "Ring 3 (User-Space Middleware Service)",
+				"thread_behavior": "Immediate Inter-Process Data Handover / Clean Buffer Forwarding",
+				"hardware_impact": "Optimized Bus Register Transfer / L1 Cache Buffer Pass"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 10,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "santirana_upeksha_vipaka",
+			  "name": "สันตีรณจิต (กุศลวิบาก - อุเบกขา)",
+			  "pali_definition": "อุเปกฺขาสหคตํ สันตีรณจิตฺตํ (จิตไตร่ตรองอารมณ์ที่ดีปานกลาง พร้อมด้วยความเฉยๆ)",
+			  "runtime_context": {
+				"execution_state": "Initial Heuristic Packet Inspection / Neutral Data Evaluation (Moderate Signal)",
+				"privilege_level": "Ring 3 (User-Space Analysis Engine)",
+				"thread_behavior": "Shallow Neutral Evaluation Polling / Standard Filtering",
+				"hardware_impact": "Standard ALU Check / Baseline Micro-Benchmark Filtering"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 11,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "santirana_somanassa_vipaka",
+			  "name": "สันตีรณจิต (กุศลวิบาก - โสมนัส)",
+			  "pali_definition": "โสมนสฺสสหคตํ สันตีรณจิตฺตํ (จิตไตร่ตรองอารมณ์ที่ดียิ่ง พร้อมด้วยความยินดี โสมนัส)",
+			  "runtime_context": {
+				"execution_state": "Advanced Heuristic Packet Inspection / High-Priority Data Evaluation (Optimal Signal)",
+				"privilege_level": "Ring 3 (User-Space Analysis Engine)",
+				"thread_behavior": "Somanassa-Driven Evaluation Polling / High-Weight Filtering",
+				"hardware_impact": "Elevated ALU Processing / Priority Queue Insertion"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 11,
+				"key_triggers": ["phassa", "vedana", "sanna", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "pancadvaravajjana_citta",
+			  "name": "ปัญจทวาราวัชชนจิต (กิริยาอเหตุกะ)",
+			  "pali_definition": "อุเปกฺขาสหคตํ ปญฺจทวาราวชฺชนจิตฺตํ (จิตทำหน้าที่น้อมไปสู่อารมณ์ทางทวารทั้ง 5 - จักขวุ ฯลฯ)",
+			  "runtime_context": {
+				"execution_state": "Sensory Gatekeeper / Interrupt Vector Dispatcher for 5 Senses",
+				"privilege_level": "Ring 1 (Hypervisor Input-Output Dispatcher)",
+				"thread_behavior": "Hardware Interrupt Interceptor / Gateway Polling Thread",
+				"hardware_impact": "IRQ Line Allocation / Sensor Gate Activation"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 11,
+				"key_triggers": ["manasikara", "phassa", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "manodvaravajjana_citta",
+			  "name": "มโนทวาราวัชชนจิต (กิริยาอเหตุกะ / กุศลอเหตุกะในปุถุชน)",
+			  "pali_definition": "อุเปกฺขาสหคตํ มโนทวาราวชฺชนจิตฺตํ (จิตทำหน้าที่น้อมไปสู่อารมณ์ทางมโนทวาร หรือทำหน้าที่ชนกะทางใจ)",
+			  "runtime_context": {
+				"execution_state": "Internal Memory Gateway / Central Task Switcher & Decision Router",
+				"privilege_level": "Ring 1 (Hypervisor Core Router)",
+				"thread_behavior": "Internal Interrupt Dispatcher / Context Routing Engine",
+				"hardware_impact": "CPU Thread Scheduler / Internal Bus Multiplexer"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 11,
+				"key_triggers": ["manasikara", "phassa", "cetana", "ekaggata"]
+			  }
+			},
+			{
+			  "id": "hasituppada_citta",
+			  "name": "หสิตุปปาทจิต (กิริยาอเหตุกะ)",
+			  "pali_definition": "โสมนสฺสสหคตํ หสิตุปปาทจิตฺตํ (จิตยิ้มแย้มของพระอรหันต์)",
+			  "runtime_context": {
+				"execution_state": "Transient Expression Output Engine / Non-Karmic Smile Response (Arahant UI Indicator)",
+				"privilege_level": "Ring 0 (Root-Level Non-Karmic Peripheral Interface)",
+				"thread_behavior": "Stateless UI Feedback Thread / Zero-Trace Expression Trigger",
+				"hardware_impact": "Low-Power UI Event Flag / Transient Output Buffer Pulse"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 12,
+				"key_triggers": ["piti", "vedana", "phassa", "cetana", "ekaggata"]
+			  }
+			}
+		  ]
+        },
+        "kamavacara_sobhana_24": {
+          "citta_category": "กามวจรโสภณจิต (Kamavacara Sobhana Citta - 24 Variants)",
+		  "total_variants": 24,
+		  "description": "จิตที่ดีงาม ท่องเที่ยวอยู่ในกามภูมิ ประกอบด้วยคุณความดีและเหตุ 3 (อโลภะ อโทสะ อโมหะ) แบ่งออกเป็น 3 หมวดหลัก หมวดละ 8 ดวง ได้แก่ มหากุศลจิต 8, มหาวิปากจิต 8 และมหากิริยาจิต 8",
+		  "items": [
+			{
+			  "id": "mahakusala_citta_1",
+			  "name": "มหากุศลจิต ดวงที่ 1",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณสัมปยุตตํ อสังขาริกกุศล (จิตที่เป็นกุศล เกิดพร้อมด้วยความดีใจ ประกอบด้วยญาณ ปัญญา เป็นอสังขาริก - ทำโดยไม่มีการชักชวน)",
+			  "runtime_context": {
+				"execution_state": "Secure High-Privilege Execution / Wise Benevolent Processing (Spontaneous Optimal)",
+				"privilege_level": "Ring 1 (Trusted Operating Environment - Ethical Kernel)",
+				"thread_behavior": "Autonomous Ethical Optimization / Self-Driven Wise Allocation",
+				"hardware_impact": "Optimized Cache Utilization / Low-Latency Ethical Routing"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 38,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakusala_citta_2",
+			  "name": "มหากุศลจิต ดวงที่ 2",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณสัมปยุตตํ สสังขาริกกุศล (จิตที่เป็นกุศล เกิดพร้อมด้วยความดีใจ ประกอบด้วยญาณ ปัญญา เป็นสสังขาริก - ทำโดยมีคนชักชวน)",
+			  "runtime_context": {
+				"execution_state": "Assisted Secure High-Privilege Execution / Wise Benevolent Processing (Prompted Optimal)",
+				"privilege_level": "Ring 1 (Trusted Operating Environment - Ethical Kernel)",
+				"thread_behavior": "Triggered Ethical Optimization / Collaborative Wise Allocation",
+				"hardware_impact": "Triggered Cache Utilization / Collaborative Ethical Routing"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 38,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakusala_citta_3",
+			  "name": "มหากุศลจิต ดวงที่ 3",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณวิปปยุตตํ อสังขาริกกุศล (จิตที่เป็นกุศล เกิดพร้อมด้วยความดีใจ ไม่ประกอบด้วยญาณ ปัญญา เป็นอสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Autonomous Standard Benevolent Processing / Non-Wise Joyful Execution (Spontaneous)",
+				"privilege_level": "Ring 1 (Trusted Operating Environment - Ethical Kernel)",
+				"thread_behavior": "Spontaneous Joyful Altruism / Unprompted Benevolent Flow",
+				"hardware_impact": "Standard Throughput Allocation / High-Speed Joyful Rendering"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakusala_citta_4",
+			  "name": "มหากุศลจิต ดวงที่ 4",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณวิปปยุตตํ สสังขาริกกุศล (จิตที่เป็นกุศล เกิดพร้อมด้วยความดีใจ ไม่ประกอบด้วยญาณ ปัญญา เป็นสสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Assisted Standard Benevolent Processing / Non-Wise Joyful Execution (Prompted)",
+				"privilege_level": "Ring 1 (Trusted Operating Environment - Ethical Kernel)",
+				"thread_behavior": "Triggered Joyful Altruism / Collaborative Benevolent Flow",
+				"hardware_impact": "Triggered Throughput Allocation / Collaborative Joyful Rendering"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakusala_citta_5",
+			  "name": "มหากุศลจิต ดวงที่ 5",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณสัมปยุตตํ อสังขาริกกุศล (จิตที่เป็นกุศล เกิดพร้อมด้วยความเฉยๆ ประกอบด้วยญาณ ปัญญา เป็นอสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Autonomous Calm Wise Execution / Detached Ethical Optimization (Spontaneous)",
+				"privilege_level": "Ring 1 (Trusted Operating Environment - Ethical Kernel)",
+				"thread_behavior": "Calm Wise Processing / Autonomous Balanced Altruism",
+				"hardware_impact": "Low-Power Stable Ethical Routing / Balanced Cache Maintenance"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "upekkhaca", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakusala_citta_6",
+			  "name": "มหากุศลจิต ดวงที่ 6",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณสัมปยุตตํ สสังขาริกกุศล (จิตที่เป็นกุศล เกิดพร้อมด้วยความเฉยๆ ประกอบด้วยญาณ ปัญญา เป็นสสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Assisted Calm Wise Execution / Detached Ethical Optimization (Prompted)",
+				"privilege_level": "Ring 1 (Trusted Operating Environment - Ethical Kernel)",
+				"thread_behavior": "Triggered Calm Wise Processing / Collaborative Balanced Altruism",
+				"hardware_impact": "Triggered Low-Power Stable Routing / Collaborative Balanced Cache"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "upekkhaca", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakusala_citta_7",
+			  "name": "มหากุศลจิต ดวงที่ 7",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณวิปปยุตตํ อสังขาริกกุศล (จิตที่เป็นกุศล เกิดพร้อมด้วยความเฉยๆ ไม่ประกอบด้วยญาณ ปัญญา เป็นอสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Autonomous Calm Routine Altruism / Neutral Baseline Benevolent Execution (Spontaneous)",
+				"privilege_level": "Ring 1 (Trusted Operating Environment - Ethical Kernel)",
+				"thread_behavior": "Calm Neutral Altruism / Spontaneous Routine Processing",
+				"hardware_impact": "Minimalist Energy State / Neutral Routine Allocation"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 36,
+				"key_triggers": ["alobha", "adosa", "amoha", "upekkhaca", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakusala_citta_8",
+			  "name": "มหากุศลจิต ดวงที่ 8",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณวิปปยุตตํ สสังขาริกกุศล (จิตที่เป็นกุศล เกิดพร้อมด้วยความเฉยๆ ไม่ประกอบด้วยญาณ ปัญญา เป็นสสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Assisted Calm Routine Altruism / Neutral Baseline Benevolent Execution (Prompted)",
+				"privilege_level": "Ring 1 (Trusted Operating Environment - Ethical Kernel)",
+				"thread_behavior": "Triggered Calm Neutral Altruism / Collaborative Routine Processing",
+				"hardware_impact": "Triggered Minimalist Energy State / Collaborative Routine Allocation"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 36,
+				"key_triggers": ["alobha", "adosa", "amoha", "upekkhaca", "sati"]
+			  }
+			},
+			{
+			  "id": "mahavipaka_citta_1",
+			  "name": "มหาวิปากจิต ดวงที่ 1",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณสัมปยุตตํ อสังขาริกวิปาก (จิตที่เป็นผลของมหากุศล ดวงที่ 1 ทำหน้าที่ปฏิสนธิ ภวังค์ จุติ ตลอดจนตทารัมมณจิต)",
+			  "runtime_context": {
+				"execution_state": "Persistent Wise Baseline Daemon / High-Tier Karmic Result State 1",
+				"privilege_level": "Ring 1 (System Background Service - Vipaka Class)",
+				"thread_behavior": "Steady-State Wise Background Polling / Persistent Lifecycle Retention",
+				"hardware_impact": "Static Wise Memory Partitioning / Long-Term Karmic Cache Persistence"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 38,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahavipaka_citta_2",
+			  "name": "มหาวิปากจิต ดวงที่ 2",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณสัมปยุตตํ สสังขาริกวิปาก (จิตที่เป็นผลของมหากุศล ดวงที่ 2 ทำหน้าที่ปฏิสนธิ ภวังค์ จุติ ตทารัมมณจิต)",
+			  "runtime_context": {
+				"execution_state": "Persistent Wise Baseline Daemon / High-Tier Karmic Result State 2",
+				"privilege_level": "Ring 1 (System Background Service - Vipaka Class)",
+				"thread_behavior": "Triggered Steady-State Wise Polling / Collaborative Lifecycle Retention",
+				"hardware_impact": "Triggered Static Wise Partitioning / Collaborative Karmic Cache Persistence"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 38,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahavipaka_citta_3",
+			  "name": "มหาวิปากจิต ดวงที่ 3",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณวิปปยุตตํ อสังขาริกวิปาก (จิตที่เป็นผลของมหากุศล ดวงที่ 3 ทำหน้าที่ปฏิสนธิ ภวังค์ จุติ ตทารัมมณจิต)",
+			  "runtime_context": {
+				"execution_state": "Persistent Joyful Baseline Daemon / Standard Karmic Result State 3",
+				"privilege_level": "Ring 1 (System Background Service - Vipaka Class)",
+				"thread_behavior": "Steady-State Joyful Background Polling / Standard Retention Loop",
+				"hardware_impact": "Static Joyful Memory Partitioning / Background Efficiency"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahavipaka_citta_4",
+			  "name": "มหาวิปากจิต ดวงที่ 4",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณวิปปยุตตํ สสังขาริกวิปาก (จิตที่เป็นผลของมหากุศล ดวงที่ 4 ทำหน้าที่ปฏิสนธิ ภวังค์ จุติ ตทารัมมณจิต)",
+			  "runtime_context": {
+				"execution_state": "Persistent Joyful Baseline Daemon / Standard Karmic Result State 4",
+				"privilege_level": "Ring 1 (System Background Service - Vipaka Class)",
+				"thread_behavior": "Triggered Steady-State Joyful Polling / Collaborative Retention Loop",
+				"hardware_impact": "Triggered Static Joyful Partitioning / Collaborative Background Efficiency"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahavipaka_citta_5",
+			  "name": "มหาวิปากจิต ดวงที่ 5",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณสัมปยุตตํ อสังขาริกวิปาก (จิตที่เป็นผลของมหากุศล ดวงที่ 5 ทำหน้าที่ปฏิสนธิ ภวังค์ จุติ ตทารัมมณจิต)",
+			  "runtime_context": {
+				"execution_state": "Persistent Calm Wise Baseline Daemon / Balanced Karmic Result State 5",
+				"privilege_level": "Ring 1 (System Background Service - Vipaka Class)",
+				"thread_behavior": "Steady-State Calm Wise Polling / Balanced Background Retention",
+				"hardware_impact": "Static Balanced Memory Partitioning / Absolute Neutral Background State"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "upekkhaca", "sati"]
+			  }
+			},
+			{
+			  "id": "mahavipaka_citta_6",
+			  "name": "มหาวิปากจิต ดวงที่ 6",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณสัมปยุตตํ สสังขาริกวิปาก (จิตที่เป็นผลของมหากุศล ดวงที่ 6 ทำหน้าที่ปฏิสนธิ ภวังค์ จุติ ตทารัมมณจิต)",
+			  "runtime_context": {
+				"execution_state": "Persistent Calm Wise Baseline Daemon / Balanced Karmic Result State 6",
+				"privilege_level": "Ring 1 (System Background Service - Vipaka Class)",
+				"thread_behavior": "Triggered Calm Wise Polling / Collaborative Balanced Retention",
+				"hardware_impact": "Triggered Static Balanced Partitioning / Collaborative Neutral State"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "upekkhaca", "sati"]
+			  }
+			},
+			{
+			  "id": "mahavipaka_citta_7",
+			  "name": "มหาวิปากจิต ดวงที่ 7",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณวิปปยุตตํ อสังขาริกวิปาก (จิตที่เป็นผลของมหากุศล ดวงที่ 7 ทำหน้าที่ปฏิสนธิ ภวังค์ จุติ ตทารัมมณจิต)",
+			  "runtime_context": {
+				"execution_state": "Persistent Routine Baseline Daemon / Minimalist Karmic Result State 7",
+				"privilege_level": "Ring 1 (System Background Service - Vipaka Class)",
+				"thread_behavior": "Steady-State Routine Polling / Minimalist Background Retention",
+				"hardware_impact": "Static Minimalist Partitioning / Low-Power Background Equilibrium"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 36,
+				"key_triggers": ["alobha", "adosa", "amoha", "upekkhaca", "sati"]
+			  }
+			},
+			{
+			  "id": "mahavipaka_citta_8",
+			  "name": "มหาวิปากจิต ดวงที่ 8",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณวิปปยุตตํ สสังขาริกวิปาก (จิตที่เป็นผลของมหากุศล ดวงที่ 8 ทำหน้าที่ปฏิสนธิ ภวังค์ จุติ ตทารัมมณจิต)",
+			  "runtime_context": {
+				"execution_state": "Persistent Routine Baseline Daemon / Minimalist Karmic Result State 8",
+				"privilege_level": "Ring 1 (System Background Service - Vipaka Class)",
+				"thread_behavior": "Triggered Routine Polling / Collaborative Minimalist Retention",
+				"hardware_impact": "Triggered Static Minimalist Partitioning / Collaborative Background Equilibrium"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 36,
+				"key_triggers": ["alobha", "adosa", "amoha", "upekkhaca", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakiriya_citta_1",
+			  "name": "มหากิริยาจิต ดวงที่ 1",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณสัมปยุตตํ อสังขาริกกิริยา (จิตกิริยาของพระอรหันต์ เกิดพร้อมด้วยความดีใจ ประกอบด้วยญาณ เป็นอสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Transient Wise Operational Engine / Non-Karmic High-Privilege Execution (Spontaneous)",
+				"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Arahant Tier)",
+				"thread_behavior": "Stateless Wise Transient Pipeline / Zero-Trace High-Privilege Execution",
+				"hardware_impact": "Temporary Wise Pipeline Allocation / Zero-Persistence Runtime Engine"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 38,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakiriya_citta_2",
+			  "name": "มหากิริยาจิต ดวงที่ 2",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณสัมปยุตตํ สสังขาริกกิริยา (จิตกิริยาของพระอรหันต์ เกิดพร้อมด้วยความดีใจ ประกอบด้วยญาณ เป็นสสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Assisted Transient Wise Operational Engine / Non-Karmic High-Privilege Execution (Prompted)",
+				"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Arahant Tier)",
+				"thread_behavior": "Triggered Stateless Wise Pipeline / Collaborative Zero-Trace Execution",
+				"hardware_impact": "Triggered Temporary Wise Allocation / Collaborative Runtime Engine"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 38,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakiriya_citta_3",
+			  "name": "มหากิริยาจิต ดวงที่ 3",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณวิปปยุตตํ อสังขาริกกิริยา (จิตกิริยาของพระอรหันต์ เกิดพร้อมด้วยความดีใจ ไม่ประกอบด้วยญาณ เป็นอสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Transient Joyful Operational Engine / Non-Karmic Standard Execution (Spontaneous)",
+				"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Arahant Tier)",
+				"thread_behavior": "Stateless Joyful Transient Pipeline / Zero-Trace Altruistic Rendering",
+				"hardware_impact": "Temporary Joyful Pipeline Allocation / Zero-Persistence Flow"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakiriya_citta_4",
+			  "name": "มหากิริยาจิต ดวงที่ 4",
+			  "pali_definition": "โสมนสฺสสหคตํ ญาณวิปปยุตตํ สสังขาริกกิริยา (จิตกิริยาของพระอรหันต์ เกิดพร้อมด้วยความดีใจ ไม่ประกอบด้วยญาณ เป็นสสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Assisted Transient Joyful Operational Engine / Non-Karmic Standard Execution (Prompted)",
+				"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Arahant Tier)",
+				"thread_behavior": "Triggered Stateless Joyful Pipeline / Collaborative Zero-Trace Rendering",
+				"hardware_impact": "Triggered Temporary Joyful Allocation / Collaborative Flow"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "somanassa", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakiriya_citta_5",
+			  "name": "มหากิริยาจิต ดวงที่ 5",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณสัมปยุตตํ อสังขาริกกิริยา (จิตกิริยาของพระอรหันต์ เกิดพร้อมด้วยความเฉยๆ ประกอบด้วยญาณ เป็นอสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Transient Calm Wise Operational Engine / Non-Karmic Balanced Execution (Spontaneous)",
+				"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Arahant Tier)",
+				"thread_behavior": "Stateless Calm Wise Transient Pipeline / Zero-Trace Balanced Processing",
+				"hardware_impact": "Temporary Calm Wise Allocation / Zero-Persistence Balanced Engine"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "upekkhaca", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakiriya_citta_6",
+			  "name": "มหากิริยาจิต ดวงที่ 6",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณสัมปยุตตํ สสังขาริกกิริยา (จิตกิริยาของพระอรหันต์ เกิดพร้อมด้วยความเฉยๆ ประกอบด้วยญาณ เป็นสสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Assisted Transient Calm Wise Operational Engine / Non-Karmic Balanced Execution (Prompted)",
+				"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Arahant Tier)",
+				"thread_behavior": "Triggered Stateless Calm Wise Pipeline / Collaborative Zero-Trace Processing",
+				"hardware_impact": "Triggered Temporary Calm Wise Allocation / Collaborative Balanced Engine"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 37,
+				"key_triggers": ["alobha", "adosa", "amoha", "panna", "upekkhaca", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakiriya_citta_7",
+			  "name": "มหากิริยาจิต ดวงที่ 7",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณวิปปยุตตํ อสังขาริกกิริยา (จิตกิริยาของพระอรหันต์ เกิดพร้อมด้วยความเฉยๆ ไม่ประกอบด้วยญาณ เป็นอสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Transient Routine Operational Engine / Non-Karmic Minimalist Execution (Spontaneous)",
+				"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Arahant Tier)",
+				"thread_behavior": "Stateless Routine Transient Pipeline / Zero-Trace Minimalist Processing",
+				"hardware_impact": "Temporary Routine Allocation / Zero-Persistence Minimalist Engine"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 36,
+				"key_triggers": ["alobha", "adosa", "amoha", "upekkhaca", "sati"]
+			  }
+			},
+			{
+			  "id": "mahakiriya_citta_8",
+			  "name": "มหากิริยาจิต ดวงที่ 8",
+			  "pali_definition": "อุเปกฺขาสหคตํ ญาณวิปปยุตตํ สสังขาริกกิริยา (จิตกิริยาของพระอรหันต์ เกิดพร้อมด้วยความเฉยๆ ไม่ประกอบด้วยญาณ เป็นสสังขาริก)",
+			  "runtime_context": {
+				"execution_state": "Assisted Transient Routine Operational Engine / Non-Karmic Minimalist Execution (Prompted)",
+				"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Arahant Tier)",
+				"thread_behavior": "Triggered Stateless Routine Pipeline / Collaborative Zero-Trace Minimalist Processing",
+				"hardware_impact": "Triggered Temporary Routine Allocation / Collaborative Minimalist Engine"
+			  },
+			  "associated_cetasika_profile": {
+				"mandatory_count": 36,
+				"key_triggers": ["alobha", "adosa", "amoha", "upekkhaca", "sati"]
+			  }
+			}
+		  ]
+        }
+      }
+    },
+    "rupavacara_citta_15": {
+      "citta_category": "รูปาวจรจิต (Rupavacara Citta - 15 Variants)",
+	  "total_variants": 15,
+	  "description": "จิตที่ท่องเที่ยวอยู่ในรูปภูมิ (รูปฌานจิต 5 จำแนกเป็น รูปาวจรกุศล 5, รูปาวจรวิบาก 5 และรูปาวจรกิริยา 5)",
+	  "items": [
+		{
+		  "id": "pathama_jhana_kusala_citta",
+		  "name": "ปฐมฌานกุศลจิต",
+		  "pali_definition": "จิตที่เป็นกุศลในรูปภูมิขั้นที่ 1 ประกอบด้วยองค์ฌาน 5 (วิตก วิจาร ปีติ สุข เอกัคคตา)",
+		  "runtime_context": {
+			"execution_state": "Kernel-Level Primary Pipeline Initialization / Initial Vector Processing",
+			"privilege_level": "Ring 0 (Core OS Execution Layer - Karma Class)",
+			"thread_behavior": "Synchronous Multi-Feature Threading / Steady-State Pipeline Execution",
+			"hardware_impact": "Initial Cache Loading / Bus Synchronization / Moderate Power State Allocation"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 35,
+			"key_triggers": ["vitakka", "vicara", "piti", "sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "dutiya_jhana_kusala_citta",
+		  "name": "ทุติยฌานกุศลจิต",
+		  "pali_definition": "จิตที่เป็นกุศลในรูปภูมิขั้นที่ 2 ปราศจากวิตก มีองค์ฌาน 4 (วิจาร ปีติ สุข เอกัคคตา)",
+		  "runtime_context": {
+			"execution_state": "Kernel-Level Secondary Pipeline Optimization / Reduced Fetch Overhead",
+			"privilege_level": "Ring 0 (Core OS Execution Layer - Karma Class)",
+			"thread_behavior": "Streamlined Pipeline Execution / Reduced Context Switching",
+			"hardware_impact": "Decreased Bus Latency / Optimized Instruction Pipelining"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 34,
+			"key_triggers": ["vicara", "piti", "sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "tatiya_jhana_kusala_citta",
+		  "name": "ตติยฌานกุศลจิต",
+		  "pali_definition": "จิตที่เป็นกุศลในรูปภูมิขั้นที่ 3 ปราศจากวิตกและวิจาร มีองค์ฌาน 3 (ปีติ สุข เอกัคคตา)",
+		  "runtime_context": {
+			"execution_state": "Kernel-Level Tertiary Pipeline Stabilization / Low-Jitter Processing",
+			"privilege_level": "Ring 0 (Core OS Execution Layer - Karma Class)",
+			"thread_behavior": "Low-Noise Steady Processing / Continuous Streamlined Polling",
+			"hardware_impact": "Thermal Equilibrium Maintenance / Low-Jitter Clock State"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["piti", "sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "catuttha_jhana_kusala_citta",
+		  "name": "จตุตถฌานกุศลจิต",
+		  "pali_definition": "จิตที่เป็นกุศลในรูปภูมิขั้นที่ 4 ปราศจากวิตก วิจาร และปีติ มีองค์ฌาน 2 (สุข เอกัคคตา)",
+		  "runtime_context": {
+			"execution_state": "Kernel-Level Quaternary High-Throughput Execution / Minimalist Instruction Set",
+			"privilege_level": "Ring 0 (Core OS Execution Layer - Karma Class)",
+			"thread_behavior": "High-Efficiency Core Throughput / Minimized Overhead",
+			"hardware_impact": "Maximized Instruction Execution Rate / Streamlined Data Transfer"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 32,
+			"key_triggers": ["sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "pancama_jhana_kusala_citta",
+		  "name": "ปัญจมฌานกุศลจิต",
+		  "pali_definition": "จิตที่เป็นกุศลในรูปภูมิขั้นที่ 5 ประกอบด้วยอุเบกขาและเอกัคคตา (เป็นฐานของอภิญญาจิต)",
+		  "runtime_context": {
+			"execution_state": "Kernel-Level Maximum Stability Root Access / Padaka Jhana Baseline Engine",
+			"privilege_level": "Ring 0 (Root Kernel Access & Multi-Instance Engine)",
+			"thread_behavior": "Symmetric Multiprocessing (SMP) Balance / Non-Oscillating Core Operation",
+			"hardware_impact": "Absolute Thermal Equilibrium / Zero-Interference High-Power State Transition / Padaka Kernel Ready"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 32,
+			"key_triggers": ["tatramajjhattata", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "pathama_jhana_vipaka_citta",
+		  "name": "ปฐมฌานวิบากจิต",
+		  "pali_definition": "จิตที่เป็นผลของปฐมฌานกุศล ทำหน้าที่ปฏิสนธิ ภวังค์ และจุติในรูปภูมิขั้นที่ 1",
+		  "runtime_context": {
+			"execution_state": "Primary Kernel Baseline Daemon / Persistent Rupa-Loka State 1",
+			"privilege_level": "Ring 0 (System Background Service - Vipaka Class)",
+			"thread_behavior": "Steady-State Background Polling / Persistent Loop Retention",
+			"hardware_impact": "Static Memory Partitioning / Core State Persistence"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 35,
+			"key_triggers": ["vitakka", "vicara", "piti", "sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "dutiya_jhana_vipaka_citta",
+		  "name": "ทุติยฌานวิบากจิต",
+		  "pali_definition": "จิตที่เป็นผลของทุติยฌานกุศล ทำหน้าที่ปฏิสนธิ ภวังค์ และจุติในรูปภูมิขั้นที่ 2",
+		  "runtime_context": {
+			"execution_state": "Secondary Kernel Baseline Daemon / Persistent Rupa-Loka State 2",
+			"privilege_level": "Ring 0 (System Background Service - Vipaka Class)",
+			"thread_behavior": "Steady-State Background Polling / Persistent Loop Retention",
+			"hardware_impact": "Static Memory Partitioning / Optimized Core State Persistence"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 34,
+			"key_triggers": ["vicara", "piti", "sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "tatiya_jhana_vipaka_citta",
+		  "name": "ตติยฌานวิบากจิต",
+		  "pali_definition": "จิตที่เป็นผลของตติยฌานกุศล ทำหน้าที่ปฏิสนธิ ภวังค์ และจุติในรูปภูมิขั้นที่ 3",
+		  "runtime_context": {
+			"execution_state": "Tertiary Kernel Baseline Daemon / Persistent Rupa-Loka State 3",
+			"privilege_level": "Ring 0 (System Background Service - Vipaka Class)",
+			"thread_behavior": "Steady-State Background Polling / Low-Noise Background Retention",
+			"hardware_impact": "Thermal Stable Partitioning / Low-Jitter Background State"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["piti", "sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "catuttha_jhana_vipaka_citta",
+		  "name": "จตุตถฌานวิบากจิต",
+		  "pali_definition": "จิตที่เป็นผลของจตุตถฌานกุศล ทำหน้าที่ปฏิสนธิ ภวังค์ และจุติในรูปภูมิขั้นที่ 4",
+		  "runtime_context": {
+			"execution_state": "Quaternary Kernel Baseline Daemon / Persistent Rupa-Loka State 4",
+			"privilege_level": "Ring 0 (System Background Service - Vipaka Class)",
+			"thread_behavior": "Steady-State Background Polling / Streamlined Background Loop",
+			"hardware_impact": "Throughput-Optimized Partitioning / Background Efficiency"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 32,
+			"key_triggers": ["sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "pancama_jhana_vipaka_citta",
+		  "name": "ปัญจมฌานวิบากจิต",
+		  "pali_definition": "จิตที่เป็นผลของปัญจมฌานกุศล ทำหน้าที่ปฏิสนธิ ภวังค์ และจุติในรูปภูมิขั้นที่ 5",
+		  "runtime_context": {
+			"execution_state": "Maximum Stability Kernel Baseline Daemon / Persistent Rupa-Loka State 5",
+			"privilege_level": "Ring 0 (System Background Service - Vipaka Class)",
+			"thread_behavior": "Steady-State Balanced Background Polling / Neutral Baseline Retention",
+			"hardware_impact": "Absolute Balanced Static Memory / Deep Background Equilibrium"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 32,
+			"key_triggers": ["tatramajjhattata", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "pathama_jhana_kiriya_citta",
+		  "name": "ปฐมฌานกิริยาจิต",
+		  "pali_definition": "จิตกิริยาในรูปภูมิขั้นที่ 1 ของพระอรหันต์ผู้เข้าปฐมฌาน",
+		  "runtime_context": {
+			"execution_state": "Transient Primary Kernel Operational Engine / Non-Karmic Execution",
+			"privilege_level": "Ring 0 (Pure Operational Engine - Non-Storage)",
+			"thread_behavior": "Stateless Transient Pipeline / Zero-Trace Execution",
+			"hardware_impact": "Temporary Pipeline Allocation / Zero-Persistence Runtime Engine"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 35,
+			"key_triggers": ["vitakka", "vicara", "piti", "sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "dutiya_jhana_kiriya_citta",
+		  "name": "ทุติยฌานกิริยาจิต",
+		  "pali_definition": "จิตกิริยาในรูปภูมิขั้นที่ 2 ของพระอรหันต์ผู้เข้าทุติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Transient Secondary Kernel Operational Engine / Non-Karmic Execution",
+			"privilege_level": "Ring 0 (Pure Operational Engine - Non-Storage)",
+			"thread_behavior": "Stateless Transient Pipeline / Optimized Transient Flow",
+			"hardware_impact": "Temporary Pipeline Allocation / Zero-Persistence Runtime Engine"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 34,
+			"key_triggers": ["vicara", "piti", "sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "tatiya_jhana_kiriya_citta",
+		  "name": "ตติยฌานกิริยาจิต",
+		  "pali_definition": "จิตกิริยาในรูปภูมิขั้นที่ 3 ของพระอรหันต์ผู้เข้าตติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Transient Tertiary Kernel Operational Engine / Non-Karmic Execution",
+			"privilege_level": "Ring 0 (Pure Operational Engine - Non-Storage)",
+			"thread_behavior": "Stateless Low-Noise Transient Pipeline / Zero-Trace Execution",
+			"hardware_impact": "Temporary Thermal Stable Allocation / Zero-Persistence Runtime Engine"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["piti", "sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "catuttha_jhana_kiriya_citta",
+		  "name": "จตุตถฌานกิริยาจิต",
+		  "pali_definition": "จิตกิริยาในรูปภูมิขั้นที่ 4 ของพระอรหันต์ผู้เข้าจตุตถฌาน",
+		  "runtime_context": {
+			"execution_state": "Transient Quaternary Kernel Operational Engine / Non-Karmic Execution",
+			"privilege_level": "Ring 0 (Pure Operational Engine - Non-Storage)",
+			"thread_behavior": "Stateless Streamlined Transient Pipeline / Zero-Trace Execution",
+			"hardware_impact": "Temporary Throughput Allocation / Zero-Persistence Runtime Engine"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 32,
+			"key_triggers": ["sukha", "ekaggata", "sati"]
+		  }
+		},
+		{
+		  "id": "pancama_jhana_kiriya_citta",
+		  "name": "ปัญจมฌานกิริยาจิต",
+		  "pali_definition": "จิตกิริยาในรูปภูมิขั้นที่ 5 ของพระอรหันต์ผู้เข้าปัญจมฌาน (รวมถึงจิตที่เป็นฐานของอภิญญาและสมาบัติ)",
+		  "runtime_context": {
+			"execution_state": "Transient Maximum Stability Operational Engine / Multi-Instance Hypervisor Root Access",
+			"privilege_level": "Ring 0 (Pure Operational Root Engine & Multi-Instance Generator)",
+			"thread_behavior": "Stateless Balanced Pipeline / Multi-Node Parallel Invocation Engine",
+			"hardware_impact": "Temporary Absolute Neutrality Allocation / Multi-Instance Parallel Execution / Zero-Persistence Root Engine"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 32,
+			"key_triggers": ["tatramajjhattata", "ekaggata", "sati"]
+		  }
+		}
+	  ]
+    },
+    "arupavacara_citta_12": {
+      "citta_category": "อรูปาวจรจิต (Arupavacara Citta - 12 Variants)",
+	  "total_variants": 12,
+	  "description": "จิตที่ท่องเที่ยวอยู่ในอรูปภูมิ (อรูปฌานจิต 4 จำแนกเป็น อรูปาวจรกุศล 4, อรูปาวจรวิบาก 4 และอรูปาวจรกิริยา 4)",
+	  "items": [
+		{
+		  "id": "akasanancayatana_kusala_citta",
+		  "name": "อากาสานัญจายตนกุศลจิต",
+		  "pali_definition": "จิตที่มีอากาสานัญจายตนนิพยัติหรือความว่างเปล่าไม่มีที่สิ้นสุดเป็นอารมณ์ เป็นฝ่ายกุศลของผู้ได้ฌาน",
+		  "runtime_context": {
+			"execution_state": "Infinite Virtual Address Space Allocation / Abstract Memory Mapping Execution",
+			"privilege_level": "Ring 1 (Advanced Hypervisor / Memory Virtualization Tier)",
+			"thread_behavior": "Asynchronous Unbounded Processing / Boundary-less Data Indexing",
+			"hardware_impact": "Massive Virtual Page Table Allocation / Elimination of Physical Boundary Constraints"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		},
+		{
+		  "id": "vinnanancayatana_kusala_citta",
+		  "name": "วิญญาณัญจายตนกุศลจิต",
+		  "pali_definition": "จิตที่มีอากาสานัญจายตนวิญญาณ (จิตที่รู้ความว่างเปล่า) เป็นอารมณ์ เป็นฝ่ายกุศล",
+		  "runtime_context": {
+			"execution_state": "Recursive Consciousness Mirroring / Meta-Layer Thread Inspection",
+			"privilege_level": "Ring 1 (Advanced Hypervisor / Runtime State Reflection)",
+			"thread_behavior": "Self-Referential Execution / Nested Pipeline Polling",
+			"hardware_impact": "High-Density Context Switching / Self-Monitoring Cache Architecture"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		},
+		{
+		  "id": "akincannayatana_kusala_citta",
+		  "name": "อากิญจัญญายตนกุศลจิต",
+		  "pali_definition": "จิตที่มีความไม่มีอะไรเลย (ความว่างจากอากาสานัญจายตนวิญญาณ) เป็นอารมณ์ เป็นฝ่ายกุศล",
+		  "runtime_context": {
+			"execution_state": "Zero-State Payload Isolation / Complete Null-Reference Scrubbing",
+			"privilege_level": "Ring 1 (Advanced Hypervisor / Garbage Collection & Memory Zeroing)",
+			"thread_behavior": "Atomic Null-State Operation / Content-Free Stream Processing",
+			"hardware_impact": "Buffer Purging / Memory Footprint Minimization / Zero-Overhead State Management"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		},
+		{
+		  "id": "nevasanna_nasayatana_kusala_citta",
+		  "name": "เนวสัญญานาสายตนกุศลจิต",
+		  "pali_definition": "จิตที่มีอากิญจัญญายตนจิตเป็นอารมณ์ มีสัญญาละเอียดประณีตจนเหมือนไม่มีและเหมือนมี เป็นฝ่ายกุศล",
+		  "runtime_context": {
+			"execution_state": "Sub-threshold Signal Processing / Quantum Superposition State (Almost-Null Execution)",
+			"privilege_level": "Ring 1 (Advanced Hypervisor / Micro-State Optimization)",
+			"thread_behavior": "Ultra-Low Power Polling / Non-Deterministic Latent Execution",
+			"hardware_impact": "Deep Sleep C-State Optimization / Minimum Dynamic Power Consumption / Edge-Threshold Logic Gate"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		},
+		{
+		  "id": "akasanancayatana_vipaka_citta",
+		  "name": "อากาสานัญจายตนวิบากจิต",
+		  "pali_definition": "จิตที่เป็นผลของอากาสานัญจายตนกุศล ทำหน้าที่ปฏิสนธิ ภวังค์ และจุติในอรูปภูมิ",
+		  "runtime_context": {
+			"execution_state": "Virtual Address Space Baseline State / Persistent Background Daemon (Vibhava-Vipaka)",
+			"privilege_level": "Ring 1 (Hypervisor Background Service)",
+			"thread_behavior": "Low-Priority Background Loop / Steady-State Retention",
+			"hardware_impact": "Static Memory Partitioning / Long-Term Cache Persistence"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		},
+		{
+		  "id": "vinnanancayatana_vipaka_citta",
+		  "name": "วิญญาณัญจายตนวิบากจิต",
+		  "pali_definition": "จิตที่เป็นผลของวิญญาณัญจายตนกุศล ทำหน้าที่ปฏิสนธิ ภวังค์ และจุติในอรูปภูมิ",
+		  "runtime_context": {
+			"execution_state": "Recursive Mirror Baseline State / Persistent Background Daemon",
+			"privilege_level": "Ring 1 (Hypervisor Background Service)",
+			"thread_behavior": "Self-Referential Background Polling / Steady-State Retention",
+			"hardware_impact": "Static Recursive Cache Allocation / Long-Term System State Maintenance"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		},
+		{
+		  "id": "akincannayatana_vipaka_citta",
+		  "name": "อากิญจัญญายตนวิบากจิต",
+		  "pali_definition": "จิตที่เป็นผลของอากิญจัญญายตนกุศล ทำหน้าที่ปฏิสนธิ ภวังค์ และจุติในอรูปภูมิ",
+		  "runtime_context": {
+			"execution_state": "Zero-State Baseline Retention / Persistent Background Null Daemon",
+			"privilege_level": "Ring 1 (Hypervisor Background Service)",
+			"thread_behavior": "Constant Null-State Polling / Steady-State Maintenance",
+			"hardware_impact": "Minimized Static Memory Footprint / Zero-Activity Power Preservation"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		},
+		{
+		  "id": "nevasanna_nasayatana_vipaka_citta",
+		  "name": "เนวสัญญานาสายตนวิบากจิต",
+		  "pali_definition": "จิตที่เป็นผลของเนวสัญญานาสายตนกุศล ทำหน้าที่ปฏิสนธิ ภวังค์ และจุติในอรูปภูมิ",
+		  "runtime_context": {
+			"execution_state": "Sub-threshold Baseline State / Persistent Ultra-Low Power Background Daemon",
+			"privilege_level": "Ring 1 (Hypervisor Background Service)",
+			"thread_behavior": "Deep Sleep Background Monitoring / Latent State Retention",
+			"hardware_impact": "Maximum Idle Efficiency / Deep C-State System Persistence"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		},
+		{
+		  "id": "akasanancayatana_kiriya_citta",
+		  "name": "อากาสานัญจายตนกิริยาจิต",
+		  "pali_definition": "จิตกิริยาของผู้สำเร็จอรูปฌานขั้นที่ 1 (พระอรหันต์ผู้เข้าอรูปฌานนี้)",
+		  "runtime_context": {
+			"execution_state": "Transient Abstract Virtual Mapping / Non-Karmic Hypervisor Execution",
+			"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Non-Storage)",
+			"thread_behavior": "Stateless Execution / Zero-Trace Transient Pipeline",
+			"hardware_impact": "Temporary Virtual Page Allocation / Zero-Persistence Runtime Execution"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		},
+		{
+		  "id": "vinnanancayatana_kiriya_citta",
+		  "name": "วิญญาณัญจายตนกิริยาจิต",
+		  "pali_definition": "จิตกิริยาของผู้สำเร็จอรูปฌานขั้นที่ 2 (พระอรหันต์ผู้เข้าอรูปฌานนี้)",
+		  "runtime_context": {
+			"execution_state": "Transient Recursive Mirror Execution / Non-Karmic Hypervisor Operation",
+			"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Non-Storage)",
+			"thread_behavior": "Stateless Self-Reference / Zero-Trace Transient Processing",
+			"hardware_impact": "Temporary Meta-Layer Pipeline Allocation / Zero-Persistence Cache Operation"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		},
+		{
+		  "id": "akincannayatana_kiriya_citta",
+		  "name": "อากิญจัญญายตนกิริยาจิต",
+		  "pali_definition": "จิตกิริยาของผู้สำเร็จอรูปฌานขั้นที่ 3 (พระอรหันต์ผู้เข้าอรูปฌานนี้)",
+		  "runtime_context": {
+			"execution_state": "Transient Zero-State Isolation / Non-Karmic Hypervisor Operation",
+			"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Non-Storage)",
+			"thread_behavior": "Stateless Null-Operation / Zero-Trace Memory Purging",
+			"hardware_impact": "Temporary Buffer Flushing / Zero-Persistence System Execution"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		},
+		{
+		  "id": "nevasanna_nasayatana_kiriya_citta",
+		  "name": "เนวสัญญานาสายตนกิริยาจิต",
+		  "pali_definition": "จิตกิริยาของผู้สำเร็จอรูปฌานขั้นที่ 4 (พระอรหันต์ผู้เข้าอรูปฌานนี้)",
+		  "runtime_context": {
+			"execution_state": "Transient Sub-threshold Execution / Non-Karmic Quantum Hypervisor Operation",
+			"privilege_level": "Ring 0 (Root-Level Pure Operational Engine - Non-Storage)",
+			"thread_behavior": "Stateless Latent Polling / Zero-Trace Minimal Power Execution",
+			"hardware_impact": "Temporary Micro-State Allocation / Zero-Persistence Edge-Threshold Processing"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 30,
+			"key_triggers": ["upekkhaca", "sati", "tatramajjhattata", "ekaggata"]
+		  }
+		}
+	  ]
+    },
+    "lokuttara_citta_8_40": {
+      "citta_category": "โลกุตตรจิต (Lokuttara Citta - 40 Variants)",
+	  "total_variants": 40,
+	  "description": "จิตที่พ้นจากโลกีย์ มุ่งสู่นิพพาน จำแนกโดยขยายตามองค์ฌาน 5 (ปฐมฌาน ถึง ปัญจมฌาน) ในมรรค 4 และผล 4",
+	  "items": [
+		{
+		  "id": "pathama_jhana_sotapatti_magga_citta",
+		  "name": "ปฐมฌานโสดาปัตติมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารทิฏฐิและวิจิกิจฉา พร้อมด้วยองค์ฌาน 5 (วิตก วิจาร ปีติ สุข เอกัคคตา)",
+		  "runtime_context": {
+			"execution_state": "Kernel-Level Security Patch Execution (Pathama-Jhana Tier)",
+			"privilege_level": "Ring 0 (Root Privilege Override & Initial Core Quarantine)",
+			"thread_behavior": "Atomic Operation / Non-interruptible State with Initial Vector Loading",
+			"hardware_impact": "Permanent Vulnerability Removal / Firmware Clean Flash with Pipeline Trace Inspection"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 36,
+			"key_triggers": ["panna", "sati", "viriya", "vitakka", "vicara"]
+		  }
+		},
+		{
+		  "id": "dutiya_jhana_sotapatti_magga_citta",
+		  "name": "ทุติยฌานโสดาปัตติมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารทิฏฐิและวิจิกิจฉา ปราศจากวิตก มีองค์ฌาน 4 (วิจาร ปีติ สุข เอกัคคตา)",
+		  "runtime_context": {
+			"execution_state": "Kernel-Level Security Patch Execution (Dutiya-Jhana Tier)",
+			"privilege_level": "Ring 0 (Root Privilege Override)",
+			"thread_behavior": "Atomic Operation / Accelerated Pipeline Execution",
+			"hardware_impact": "Permanent Vulnerability Removal / High-Throughput Packet Flow"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 35,
+			"key_triggers": ["panna", "sati", "viriya", "vicara"]
+		  }
+		},
+		{
+		  "id": "tatiya_jhana_sotapatti_magga_citta",
+		  "name": "ตติยฌานโสดาปัตติมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารทิฏฐิและวิจิกิจฉา ปราศจากวิตกและวิจาร มีองค์ฌาน 3 (ปีติ สุข เอกัคคตา)",
+		  "runtime_context": {
+			"execution_state": "Kernel-Level Security Patch Execution (Tatiya-Jhana Tier)",
+			"privilege_level": "Ring 0 (Root Privilege Override)",
+			"thread_behavior": "Atomic Operation / Stable Low-Jitter Processing",
+			"hardware_impact": "Permanent Vulnerability Removal / Thermal Equilibrium & Low-Noise State"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 34,
+			"key_triggers": ["panna", "sati", "viriya", "piti"]
+		  }
+		},
+		{
+		  "id": "catuttha_jhana_sotapatti_magga_citta",
+		  "name": "จตุตถฌานโสดาปัตติมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารทิฏฐิและวิจิกิจฉา ปราศจากวิตก วิจาร และปีติ มีองค์ฌาน 2 (สุข เอกัคคตา)",
+		  "runtime_context": {
+			"execution_state": "Kernel-Level Security Patch Execution (Catuttha-Jhana Tier)",
+			"privilege_level": "Ring 0 (Root Privilege Override)",
+			"thread_behavior": "Atomic Operation / Streamlined Data Transfer",
+			"hardware_impact": "Permanent Vulnerability Removal / Optimized Core Throughput"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["panna", "sati", "viriya"]
+		  }
+		},
+		{
+		  "id": "pancama_jhana_sotapatti_magga_citta",
+		  "name": "ปัญจมฌานโสดาปัตติมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารทิฏฐิและวิจิกิจฉา ประกอบด้วยอุเบกขาและเอกัคคตา",
+		  "runtime_context": {
+			"execution_state": "Kernel-Level Security Patch Execution (Pancama-Jhana Tier)",
+			"privilege_level": "Ring 0 (Root Privilege Override & Neutral State Regulator)",
+			"thread_behavior": "Atomic Operation / Symmetric Multiprocessing (SMP) Balance",
+			"hardware_impact": "Permanent Vulnerability Removal / Absolute System Neutrality & Load Distribution"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["panna", "sati", "viriya", "tatramajjhattata"]
+		  }
+		},
+		{
+		  "id": "pathama_jhana_sotapatti_phala_citta",
+		  "name": "ปฐมฌานโสดาปัตติผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการประหารกิเลส เสวยวิมุตติสุขในระดับปฐมฌาน",
+		  "runtime_context": {
+			"execution_state": "Secure Post-Patch Verification State (Pathama-Jhana Tier)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Stable Event Loop / Uninterrupted State Verification",
+			"hardware_impact": "System Integrity Validation / Secure Boot Stable State"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 36,
+			"key_triggers": ["sati", "vitakka", "vicara"]
+		  }
+		},
+		{
+		  "id": "dutiya_jhana_sotapatti_phala_citta",
+		  "name": "ทุติยฌานโสดาปัตติผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการประหารกิเลส เสวยวิมุตติสุขในระดับทุติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Secure Post-Patch Verification State (Dutiya-Jhana Tier)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "High-Speed Pipeline Verification",
+			"hardware_impact": "Optimized System Integrity Validation"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 35,
+			"key_triggers": ["sati", "vicara"]
+		  }
+		},
+		{
+		  "id": "tatiya_jhana_sotapatti_phala_citta",
+		  "name": "ตติยฌานโสดาปัตติผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการประหารกิเลส เสวยวิมุตติสุขในระดับตติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Secure Post-Patch Verification State (Tatiya-Jhana Tier)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Low-Jitter Secure State",
+			"hardware_impact": "Thermal Stable System Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 34,
+			"key_triggers": ["sati", "piti"]
+		  }
+		},
+		{
+		  "id": "catuttha_jhana_sotapatti_phala_citta",
+		  "name": "จตุตถฌานโสดาปัตติผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการประหารกิเลส เสวยวิมุตติสุขในระดับจตุตถฌาน",
+		  "runtime_context": {
+			"execution_state": "Secure Post-Patch Verification State (Catuttha-Jhana Tier)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Streamlined Secure Loop",
+			"hardware_impact": "High Computational Throughput Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["sati"]
+		  }
+		},
+		{
+		  "id": "pancama_jhana_sotapatti_phala_citta",
+		  "name": "ปัญจมฌานโสดาปัตติผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการประหารกิเลส เสวยวิมุตติสุขในระดับปัญจมฌาน ประกอบด้วยอุเบกขา",
+		  "runtime_context": {
+			"execution_state": "Secure Post-Patch Verification State (Pancama-Jhana Tier)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Symmetric Balanced Verification",
+			"hardware_impact": "Absolute Neutrality & Stable Load Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["sati", "tatramajjhattata"]
+		  }
+		},
+		{
+		  "id": "pathama_jhana_sakadagami_magga_citta",
+		  "name": "ปฐมฌานสกทาคามิมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ลดGยบางเบากิเลส (กามราคะและปฏิฆะอย่างหยาบ)",
+		  "runtime_context": {
+			"execution_state": "Advanced Kernel Security Patch Execution - Tier 2 (Pathama-Jhana)",
+			"privilege_level": "Ring 0 (Privilege Refinement Override)",
+			"thread_behavior": "Atomic Operation / Resource Usage Optimization",
+			"hardware_impact": "Partial Leak Elimination / Buffer Weight Reduction"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 36,
+			"key_triggers": ["panna", "sati", "viriya", "vitakka", "vicara"]
+		  }
+		},
+		{
+		  "id": "dutiya_jhana_sakadagami_magga_citta",
+		  "name": "ทุติยฌานสกทาคามิมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ลดทอนกามราคะและปฏิฆะอย่างหยาบ ในระดับทุติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Advanced Kernel Security Patch Execution - Tier 2 (Dutiya-Jhana)",
+			"privilege_level": "Ring 0 (Privilege Refinement Override)",
+			"thread_behavior": "Atomic Operation / Accelerated Optimization",
+			"hardware_impact": "Partial Leak Elimination / High-Speed Pipeline Processing"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 35,
+			"key_triggers": ["panna", "sati", "viriya", "vicara"]
+		  }
+		},
+		{
+		  "id": "tatiya_jhana_sakadagami_magga_citta",
+		  "name": "ตติยฌานสกทาคามิมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ลดทอนกามราคะและปฏิฆะอย่างหยาบ ในระดับตติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Advanced Kernel Security Patch Execution - Tier 2 (Tatiya-Jhana)",
+			"privilege_level": "Ring 0 (Privilege Refinement Override)",
+			"thread_behavior": "Atomic Operation / Low-Jitter Optimization",
+			"hardware_impact": "Partial Leak Elimination / Stable Power State"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 34,
+			"key_triggers": ["panna", "sati", "viriya", "piti"]
+		  }
+		},
+		{
+		  "id": "catuttha_jhana_sakadagami_magga_citta",
+		  "name": "จตุตถฌานสกทาคามิมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ลดทอนกามราคะและปฏิฆะอย่างหยาบ ในระดับจตุตถฌาน",
+		  "runtime_context": {
+			"execution_state": "Advanced Kernel Security Patch Execution - Tier 2 (Catuttha-Jhana)",
+			"privilege_level": "Ring 0 (Privilege Refinement Override)",
+			"thread_behavior": "Atomic Operation / Streamlined Processing",
+			"hardware_impact": "Partial Leak Elimination / Throughput Optimization"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["panna", "sati", "viriya"]
+		  }
+		},
+		{
+		  "id": "pancama_jhana_sakadagami_magga_citta",
+		  "name": "ปัญจมฌานสกทาคามิมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ลดทอนกามราคะและปฏิฆะอย่างหยาบ ในระดับปัญจมฌาน ประกอบด้วยอุเบกขา",
+		  "runtime_context": {
+			"execution_state": "Advanced Kernel Security Patch Execution - Tier 2 (Pancama-Jhana)",
+			"privilege_level": "Ring 0 (Privilege Refinement Override & Neutral State)",
+			"thread_behavior": "Atomic Operation / SMP Load Balancing",
+			"hardware_impact": "Partial Leak Elimination / Balanced Neutrality"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["panna", "sati", "viriya", "tatramajjhattata"]
+		  }
+		},
+		{
+		  "id": "pathama_jhana_sakadagami_phala_citta",
+		  "name": "ปฐมฌานสกทาคามิผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการลดทอนกามราคะและปฏิฆะ เสวยวิมุตติสุขในระดับปฐมฌาน",
+		  "runtime_context": {
+			"execution_state": "Secure Post-Patch State - Tier 2 (Pathama-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Stable Event Loop",
+			"hardware_impact": "Refined System Integrity Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 36,
+			"key_triggers": ["sati", "vitakka", "vicara"]
+		  }
+		},
+		{
+		  "id": "dutiya_jhana_sakadagami_phala_citta",
+		  "name": "ทุติยฌานสกทาคามิผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการลดทอนกามราคะและปฏิฆะ เสวยวิมุตติสุขในระดับทุติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Secure Post-Patch State - Tier 2 (Dutiya-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "High-Speed Event Verification",
+			"hardware_impact": "Refined Pipeline Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 35,
+			"key_triggers": ["sati", "vicara"]
+		  }
+		},
+		{
+		  "id": "tatiya_jhana_sakadagami_phala_citta",
+		  "name": "ตติยฌานสกทาคามิผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการลดทอนกามราคะและปฏิฆะ เสวยวิมุตติสุขในระดับตติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Secure Post-Patch State - Tier 2 (Tatiya-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Low-Jitter Event Verification",
+			"hardware_impact": "Refined Thermal Stability Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 34,
+			"key_triggers": ["sati", "piti"]
+		  }
+		},
+		{
+		  "id": "catuttha_jhana_sakadagami_phala_citta",
+		  "name": "จตุตถฌานสกทาคามิผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการลดทอนกามราคะและปฏิฆะ เสวยวิมุตติสุขในระดับจตุตถฌาน",
+		  "runtime_context": {
+			"execution_state": "Secure Post-Patch State - Tier 2 (Catuttha-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Streamlined Event Loop",
+			"hardware_impact": "Refined Throughput Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["sati"]
+		  }
+		},
+		{
+		  "id": "pancama_jhana_sakadagami_phala_citta",
+		  "name": "ปัญจมฌานสกทาคามิผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการลดทอนกามราคะและปฏิฆะ เสวยวิมุตติสุขในระดับปัญจมฌาน ประกอบด้วยอุเบกขา",
+		  "runtime_context": {
+			"execution_state": "Secure Post-Patch State - Tier 2 (Pancama-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Balanced Event Verification",
+			"hardware_impact": "Refined Neutrality & Stability Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["sati", "tatramajjhattata"]
+		  }
+		},
+		{
+		  "id": "pathama_jhana_anagami_magga_citta",
+		  "name": "ปฐมฌานอนาคามิมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารกามราคะและปฏิฆะอย่างละเอียด (เด็ดขาด)",
+		  "runtime_context": {
+			"execution_state": "Subsystem Root Isolation Patch Execution (Pathama-Jhana)",
+			"privilege_level": "Ring 0 (Complete Subsystem Isolation Override)",
+			"thread_behavior": "Atomic Operation / Permanent Port Closing",
+			"hardware_impact": "Total Eradication of Lust/Aversion Vector / Secure Firewall Lockdown"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 36,
+			"key_triggers": ["panna", "sati", "viriya", "vitakka", "vicara"]
+		  }
+		},
+		{
+		  "id": "dutiya_jhana_anagami_magga_citta",
+		  "name": "ทุติยฌานอนาคามิมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารกามราคะและปฏิฆะอย่างละเอียด ในระดับทุติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Subsystem Root Isolation Patch Execution (Dutiya-Jhana)",
+			"privilege_level": "Ring 0 (Complete Subsystem Isolation Override)",
+			"thread_behavior": "Atomic Operation / High-Speed Pipeline Lockdown",
+			"hardware_impact": "Total Eradication / Accelerated Firewall Enforcement"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 35,
+			"key_triggers": ["panna", "sati", "viriya", "vicara"]
+		  }
+		},
+		{
+		  "id": "tatiya_jhana_anagami_magga_citta",
+		  "name": "ตติยฌานอนาคามิมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารกามราคะและปฏิฆะอย่างละเอียด ในระดับตติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Subsystem Root Isolation Patch Execution (Tatiya-Jhana)",
+			"privilege_level": "Ring 0 (Complete Subsystem Isolation Override)",
+			"thread_behavior": "Atomic Operation / Low-Jitter Lockdown",
+			"hardware_impact": "Total Eradication / Thermal Stable Firewall"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 34,
+			"key_triggers": ["panna", "sati", "viriya", "piti"]
+		  }
+		},
+		{
+		  "id": "catuttha_jhana_anagami_magga_citta",
+		  "name": "จตุตถฌานอนาคามิมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารกามราคะและปฏิฆะอย่างละเอียด ในระดับจตุตถฌาน",
+		  "runtime_context": {
+			"execution_state": "Subsystem Root Isolation Patch Execution (Catuttha-Jhana)",
+			"privilege_level": "Ring 0 (Complete Subsystem Isolation Override)",
+			"thread_behavior": "Atomic Operation / Streamlined Lockdown",
+			"hardware_impact": "Total Eradication / Maximum Throughput Security"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["panna", "sati", "viriya"]
+		  }
+		},
+		{
+		  "id": "pancama_jhana_anagami_magga_citta",
+		  "name": "ปัญจมฌานอนาคามิมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารกามราคะและปฏิฆะอย่างละเอียด ในระดับปัญจมฌาน ประกอบด้วยอุเบกขา",
+		  "runtime_context": {
+			"execution_state": "Subsystem Root Isolation Patch Execution (Pancama-Jhana)",
+			"privilege_level": "Ring 0 (Complete Subsystem Isolation & Neutrality Override)",
+			"thread_behavior": "Atomic Operation / SMP Balanced Lockdown",
+			"hardware_impact": "Total Eradication / Absolute System Neutrality"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["panna", "sati", "viriya", "tatramajjhattata"]
+		  }
+		},
+		{
+		  "id": "pathama_jhana_anagami_phala_citta",
+		  "name": "ปฐมฌานอนาคามิผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการประหารกามราคะและปฏิฆะ เสวยวิมุตติสุขในระดับปฐมฌาน",
+		  "runtime_context": {
+			"execution_state": "Isolated Secure State Verification (Pathama-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Stable Isolated Event Loop",
+			"hardware_impact": "Firewall Integrity & State Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 36,
+			"key_triggers": ["sati", "vitakka", "vicara"]
+		  }
+		},
+		{
+		  "id": "dutiya_jhana_anagami_phala_citta",
+		  "name": "ทุติยฌานอนาคามิผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการประหารกามราคะและปฏิฆะ เสวยวิมุตติสุขในระดับทุติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Isolated Secure State Verification (Dutiya-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "High-Speed Isolated Verification",
+			"hardware_impact": "Optimized Firewall Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 35,
+			"key_triggers": ["sati", "vicara"]
+		  }
+		},
+		{
+		  "id": "tatiya_jhana_anagami_phala_citta",
+		  "name": "ตติยฌานอนาคามิผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการประหารกามราคะและปฏิฆะ เสวยวิมุตติสุขในระดับตติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Isolated Secure State Verification (Tatiya-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Low-Jitter Isolated Verification",
+			"hardware_impact": "Thermal Stable Firewall Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 34,
+			"key_triggers": ["sati", "piti"]
+		  }
+		},
+		{
+		  "id": "catuttha_jhana_anagami_phala_citta",
+		  "name": "จตุตถฌานอนาคามิผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการประหารกามราคะและปฏิฆะ เสวยวิมุตติสุขในระดับจตุตถฌาน",
+		  "runtime_context": {
+			"execution_state": "Isolated Secure State Verification (Catuttha-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Streamlined Isolated Verification",
+			"hardware_impact": "Throughput Firewall Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["sati"]
+		  }
+		},
+		{
+		  "id": "pancama_jhana_anagami_phala_citta",
+		  "name": "ปัญจมฌานอนาคามิผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการประหารกามราคะและปฏิฆะ เสวยวิมุตติสุขในระดับปัญจมฌาน ประกอบด้วยอุเบกขา",
+		  "runtime_context": {
+			"execution_state": "Isolated Secure State Verification (Pancama-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Secure Kernel State)",
+			"thread_behavior": "Balanced Isolated Verification",
+			"hardware_impact": "Absolute Neutrality Firewall Verification"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["sati", "tatramajjhattata"]
+		  }
+		},
+		{
+		  "id": "pathama_jhana_arahatta_magga_citta",
+		  "name": "ปฐมฌานอรหัตตมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารกิเลสส่วนที่เหลือทั้งหมด (รูปราคะ อรูปราคะ มานะ อุทธัจจะ อวิชชา)",
+		  "runtime_context": {
+			"execution_state": "Complete Core OS Architecture Wipe & Ultimate Firmware Rewrite (Pathama-Jhana)",
+			"privilege_level": "Ring 0 (Ultimate Root Override & Final Kernel Sanitization)",
+			"thread_behavior": "Atomic Operation / Permanent Samsara Loop Termination",
+			"hardware_impact": "Absolute Malware Eradication / Ultimate System Liberation & Permanent Clean State"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 36,
+			"key_triggers": ["panna", "sati", "viriya", "vitakka", "vicara"]
+		  }
+		},
+		{
+		  "id": "dutiya_jhana_arahatta_magga_citta",
+		  "name": "ทุติยฌานอรหัตตมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารกิเลสส่วนที่เหลือทั้งหมด ในระดับทุติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Complete Core OS Architecture Wipe & Ultimate Firmware Rewrite (Dutiya-Jhana)",
+			"privilege_level": "Ring 0 (Ultimate Root Override)",
+			"thread_behavior": "Atomic Operation / Accelerated Loop Termination",
+			"hardware_impact": "Absolute Malware Eradication / High-Speed Final Clean State"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 35,
+			"key_triggers": ["panna", "sati", "viriya", "vicara"]
+		  }
+		},
+		{
+		  "id": "tatiya_jhana_arahatta_magga_citta",
+		  "name": "ตติยฌานอรหัตตมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารกิเลสส่วนที่เหลือทั้งหมด ในระดับตติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Complete Core OS Architecture Wipe & Ultimate Firmware Rewrite (Tatiya-Jhana)",
+			"privilege_level": "Ring 0 (Ultimate Root Override)",
+			"thread_behavior": "Atomic Operation / Low-Jitter Loop Termination",
+			"hardware_impact": "Absolute Malware Eradication / Thermal Stable Final State"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 34,
+			"key_triggers": ["panna", "sati", "viriya", "piti"]
+		  }
+		},
+		{
+		  "id": "catuttha_jhana_arahatta_magga_citta",
+		  "name": "จตุตถฌานอรหัตตมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารกิเลสส่วนที่เหลือทั้งหมด ในระดับจตุตถฌาน",
+		  "runtime_context": {
+			"execution_state": "Complete Core OS Architecture Wipe & Ultimate Firmware Rewrite (Catuttha-Jhana)",
+			"privilege_level": "Ring 0 (Ultimate Root Override)",
+			"thread_behavior": "Atomic Operation / Streamlined Loop Termination",
+			"hardware_impact": "Absolute Malware Eradication / Maximum Throughput Final State"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["panna", "sati", "viriya"]
+		  }
+		},
+		{
+		  "id": "pancama_jhana_arahatta_magga_citta",
+		  "name": "ปัญจมฌานอรหัตตมรรคจิต",
+		  "pali_definition": "จิตที่เกิดขึ้นทำหน้าที่ประหารกิเลสส่วนที่เหลือทั้งหมด ในระดับปัญจมฌาน ประกอบด้วยอุเบกขา",
+		  "runtime_context": {
+			"execution_state": "Complete Core OS Architecture Wipe & Ultimate Firmware Rewrite (Pancama-Jhana)",
+			"privilege_level": "Ring 0 (Ultimate Root & Absolute Neutrality Override)",
+			"thread_behavior": "Atomic Operation / SMP Balanced Loop Termination",
+			"hardware_impact": "Absolute Malware Eradication / Absolute System Neutrality & Freedom"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["panna", "sati", "viriya", "tatramajjhattata"]
+		  }
+		},
+		{
+		  "id": "pathama_jhana_arahatta_phala_citta",
+		  "name": "ปฐมฌานอรหัตตผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการดับกิเลสโดยสิ้นเชิง เสวยวิมุตติสุขสูงสุดในระดับปฐมฌาน",
+		  "runtime_context": {
+			"execution_state": "Ultimate Liberated State / Nirvana Runtime (Pathama-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Absolute Secure Kernel State)",
+			"thread_behavior": "Eternal Stable Event Loop / Zero Vulnerability State",
+			"hardware_impact": "Nirvana State / Permanent System Perfection & Peace"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 36,
+			"key_triggers": ["sati", "vitakka", "vicara"]
+		  }
+		},
+		{
+		  "id": "dutiya_jhana_arahatta_phala_citta",
+		  "name": "ทุติยฌานอรหัตตผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการดับกิเลสโดยสิ้นเชิง เสวยวิมุตติสุขสูงสุดในระดับทุติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Ultimate Liberated State / Nirvana Runtime (Dutiya-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Absolute Secure Kernel State)",
+			"thread_behavior": "High-Speed Eternal Stable Loop",
+			"hardware_impact": "Nirvana State / Optimized System Perfection"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 35,
+			"key_triggers": ["sati", "vicara"]
+		  }
+		},
+		{
+		  "id": "tatiya_jhana_arahatta_phala_citta",
+		  "name": "ตติยฌานอรหัตตผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการดับกิเลสโดยสิ้นเชิง เสวยวิมุตติสุขสูงสุดในระดับตติยฌาน",
+		  "runtime_context": {
+			"execution_state": "Ultimate Liberated State / Nirvana Runtime (Tatiya-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Absolute Secure Kernel State)",
+			"thread_behavior": "Low-Jitter Eternal Stable Loop",
+			"hardware_impact": "Nirvana State / Thermal Stable Perfection"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 34,
+			"key_triggers": ["sati", "piti"]
+		  }
+		},
+		{
+		  "id": "catuttha_jhana_arahatta_phala_citta",
+		  "name": "จตุตถฌานอรหัตตผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการดับกิเลสโดยสิ้นเชิง เสวยวิมุตติสุขสูงสุดในระดับจตุตถฌาน",
+		  "runtime_context": {
+			"execution_state": "Ultimate Liberated State / Nirvana Runtime (Catuttha-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Absolute Secure Kernel State)",
+			"thread_behavior": "Streamlined Eternal Stable Loop",
+			"hardware_impact": "Nirvana State / Maximum Throughput Perfection"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["sati"]
+		  }
+		},
+		{
+		  "id": "pancama_jhana_arahatta_phala_citta",
+		  "name": "ปัญจมฌานอรหัตตผลจิต",
+		  "pali_definition": "จิตที่เป็นผลจากการดับกิเลสโดยสิ้นเชิง เสวยวิมุตติสุขสูงสุดในระดับปัญจมฌาน ประกอบด้วยอุเบกขา",
+		  "runtime_context": {
+			"execution_state": "Ultimate Liberated State / Nirvana Runtime (Pancama-Jhana)",
+			"privilege_level": "Ring 0 (Read-Only Absolute Secure Kernel State)",
+			"thread_behavior": "Balanced Eternal Stable Loop",
+			"hardware_impact": "Nirvana State / Absolute Neutrality & Ultimate Freedom"
+		  },
+		  "associated_cetasika_profile": {
+			"mandatory_count": 33,
+			"key_triggers": ["sati", "tatramajjhattata"]
+		  }
+		}
+	  ]
+    }
+  }
+}
+
+{
+  "nibbana_paramattha": {
+    "name": "นิพพานปรมัตถ์",
+    "description": "สภาพธรรมที่เป็นเครื่องพ้นไปจากวัฏสงสาร เป็นสภาวะที่สงบจากกิเลสและขันธ์ 5",
+    "classifications": [
+      {
+        "category": "นิพพาน 1 (จำแนกตามลักษณะ)",
+        "items": [
+          {
+            "id": "santi_lakkhana",
+            "name": "สันติลักขณะ",
+            "characteristic": "มีลักษณะความสงบจากกิเลสและกองทุกข์"
+          }
+        ]
+      },
+      {
+        "category": "นิพพาน 2 (เมื่อว่าโดยปริยายแห่งเหตุ)",
+        "items": [
+          {
+            "id": "sa_upadisesa_nibbana",
+            "name": "สอุปาทิเสสนิพพาน",
+            "characteristic": "นิพพานที่ยังมีเบญจขันธ์ (ขันธ์ 5) เหลืออยู่ (กิเลสดับแต่ขันธ์ยังทรงอยู่)"
+          },
+          {
+            "id": "anupadisesa_nibbana",
+            "name": "อนุปาทิเสสนิพพาน",
+            "characteristic": "นิพพานที่ไม่มีเบญจขันธ์เหลืออยู่แล้ว (ดับสนิททั้งกิเลสและขันธ์)"
+          }
+        ]
+      },
+      {
+        "category": "นิพพาน 3 (เมื่อว่าโดยความเป็นอยู่)",
+        "items": [
+          {
+            "id": "sunyata_nibbana",
+            "name": "สุญญตนิพพาน",
+            "characteristic": "ความเป็นนิพพานที่ว่างเปล่าจากกิเลสและความยึดมั่นถือมั่น"
+          },
+          {
+            "id": "animitta_nibbana",
+            "name": "อนิมิตตนิพพาน",
+            "characteristic": "ความเป็นนิพพานที่ไม่มีนิมิตเครื่องหมาย รูป ร่าง สัณฐาน สีสัน หรือวรรณะใดๆ"
+          },
+          {
+            "id": "appanihita_nibbana",
+            "name": "อัปปณิหิตนิพพาน",
+            "characteristic": "ความเป็นนิพพานที่ไม่มีความตั้งปรารถนาหรือความอยากด้วยตัณหา"
+          }
+        ]
+      }
+    ],
+    "properties": {
+      "has_form_or_color": false,
+      "description_detail": "ไม่มีนิมิตเครื่องหมาย รูปร่าง สัณฐาน สัณฐาน สีสัน วรรณะ ใดๆ เลย หลุดพ้นจากสิ้นเชิงแห่งวัฏสงสาร"
+    }
+  }
+}
+
+{
+  "system_architecture": "The Matrix Simulation: Citta-Vithi Engine",
+  "computational_models": {
+    "kama_vithi_17_moments": {
+      "description": "วิถีจิต 17 ขณะในกามภพ - ตัวแทนของระบบประมวลผลทั่วไป (Reactive & Event-Driven System ที่รับภาระหลากหลาย)",
+      "clock_cycles": [
+        { "moment": 1, "state_name": "Atitarammana", "hardware_equivalent": "Input Buffer Latency / Pre-trigger Signal" },
+        { "moment": 2, "state_name": "Bhavanga-calana", "hardware_equivalent": "Background Daemon Interruption / Cache State Fluctuation" },
+        { "moment": 3, "state_name": "Bhavanga-upaccheda", "hardware_equivalent": "Context Switch / Interrupt Request (IRQ) Trigger" },
+        { "moment": [4], "state_name": "Pancadvaranavajjana / Manodvaranavajjana", "hardware_equivalent": "Input Multiplexer / Packet Inspection Gate" },
+        { "moment": [5, 6, 7, 8, 9], "state_name": "Pancavinnana / Sampaticcana / Santirana / Votthapana", "hardware_equivalent": "Decoding, Validation, and Routing Pipeline (Protocol Parsing)" },
+        { "moment": [10, 11, 12, 13, 14, 15, 16], "state_name": "Javana (7 Moments)", "hardware_equivalent": "Core Transaction Execution / Payload Processing / Stateful Evaluation Loop",
+          "runtime_behavior": "Executes 7 consecutive cycles to determine karmic/system outcome; vulnerable to repetitive injection attacks if unverified."
+        },
+        { "moment": [17, 18], "state_name": "Tadarammana (2 Moments)", "hardware_equivalent": "Transaction Log Persistence / Post-Execution Buffer Flush" }
+      ]
+    },
+    "jhana_vithi_15_moments": {
+      "description": "วิถีจิต 15 ขณะในฌานภพ - ตัวแทนของ High-Performance Dedicated Kernel / Zero-Jitter Real-time Isolation Core",
+      "clock_cycles": [
+        { "moment": 1, "state_name": "Bhavanga-calana to Upaccheda", "hardware_equivalent": "High-Priority Isolation Kernel Initialization" },
+        { "moment": 2, "state_name": "Manodvaranavajjana (Parikamma / Upacara / Anuloma)", "hardware_equivalent": "Pre-computation Setup & Resource Lock (Zero-Interrupt State)" },
+        { "moment": 3, "state_name": "Gotrabhu / Vodhana", "hardware_equivalent": "Privilege Escalation / Core State Transition to Higher Hypervisor Tier" },
+        { "moment": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "state_name": "Appana Javana (10+ Moments of Deep Jhana)", "hardware_equivalent": "Deterministic Hard-Isolation Pipeline / Infinite Execution Loop without I/O Noise",
+          "runtime_behavior": "Absolute stable state, immune to external malicious interrupts (Kilesa/Anomalies), maintaining continuous low-latency throughput."
+        },
+        { "moment": 15, "state_name": "Bhavanga Fall-back", "hardware_equivalent": "Safe State Return / Baseline Daemon Resumption" }
+      ]
+    }
+  }
+}
