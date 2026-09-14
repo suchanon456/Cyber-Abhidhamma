@@ -239,10 +239,7 @@
         ]
       }
     ]
-  }
-}
-
-{
+  },
   "cetasika_52": {
     "annasamana_cetasika_13": {
       "name": "อัญญสมานเจตสิก 13",
@@ -598,10 +595,7 @@
         }
       }
     }
-  }
-}
-
-{
+  },
   "citta_121": {
     "kamavacara_citta_54": {
       "citta_category": "กามวจรจิต 54",
@@ -3096,10 +3090,7 @@
         }
       ]
     }
-  }
-}
-
-{
+  },
   "nibbana_paramattha": {
     "name": "นิพพานปรมัตถ์",
     "description": "สภาพธรรมที่เป็นเครื่องพ้นไปจากวัฏสงสาร เป็นสภาวะที่สงบจากกิเลสและขันธ์ 5",
@@ -3154,36 +3145,110 @@
       "has_form_or_color": false,
       "description_detail": "ไม่มีนิมิตเครื่องหมาย รูปร่าง สัณฐาน สัณฐาน สีสัน วรรณะ ใดๆ เลย หลุดพ้นจากสิ้นเชิงแห่งวัฏสงสาร"
     }
-  }
-}
-
-{
+  },
   "system_architecture": "The Matrix Simulation: Citta-Vithi Engine",
   "computational_models": {
     "kama_vithi_17_moments": {
       "description": "วิถีจิต 17 ขณะในกามภพ - ตัวแทนของระบบประมวลผลทั่วไป (Reactive & Event-Driven System ที่รับภาระหลากหลาย)",
       "clock_cycles": [
-        { "moment": 1, "state_name": "Atitarammana", "hardware_equivalent": "Input Buffer Latency / Pre-trigger Signal" },
-        { "moment": 2, "state_name": "Bhavanga-calana", "hardware_equivalent": "Background Daemon Interruption / Cache State Fluctuation" },
-        { "moment": 3, "state_name": "Bhavanga-upaccheda", "hardware_equivalent": "Context Switch / Interrupt Request (IRQ) Trigger" },
-        { "moment": [4], "state_name": "Pancadvaranavajjana / Manodvaranavajjana", "hardware_equivalent": "Input Multiplexer / Packet Inspection Gate" },
-        { "moment": [5, 6, 7, 8, 9], "state_name": "Pancavinnana / Sampaticcana / Santirana / Votthapana", "hardware_equivalent": "Decoding, Validation, and Routing Pipeline (Protocol Parsing)" },
-        { "moment": [10, 11, 12, 13, 14, 15, 16], "state_name": "Javana (7 Moments)", "hardware_equivalent": "Core Transaction Execution / Payload Processing / Stateful Evaluation Loop",
+        {
+          "moment": 1,
+          "state_name": "Atitarammana",
+          "hardware_equivalent": "Input Buffer Latency / Pre-trigger Signal"
+        },
+        {
+          "moment": 2,
+          "state_name": "Bhavanga-calana",
+          "hardware_equivalent": "Background Daemon Interruption / Cache State Fluctuation"
+        },
+        {
+          "moment": 3,
+          "state_name": "Bhavanga-upaccheda",
+          "hardware_equivalent": "Context Switch / Interrupt Request (IRQ) Trigger"
+        },
+        {
+          "moment": [
+            4
+          ],
+          "state_name": "Pancadvaranavajjana / Manodvaranavajjana",
+          "hardware_equivalent": "Input Multiplexer / Packet Inspection Gate"
+        },
+        {
+          "moment": [
+            5,
+            6,
+            7,
+            8,
+            9
+          ],
+          "state_name": "Pancavinnana / Sampaticcana / Santirana / Votthapana",
+          "hardware_equivalent": "Decoding, Validation, and Routing Pipeline (Protocol Parsing)"
+        },
+        {
+          "moment": [
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16
+          ],
+          "state_name": "Javana (7 Moments)",
+          "hardware_equivalent": "Core Transaction Execution / Payload Processing / Stateful Evaluation Loop",
           "runtime_behavior": "Executes 7 consecutive cycles to determine karmic/system outcome; vulnerable to repetitive injection attacks if unverified."
         },
-        { "moment": [17, 18], "state_name": "Tadarammana (2 Moments)", "hardware_equivalent": "Transaction Log Persistence / Post-Execution Buffer Flush" }
+        {
+          "moment": [
+            17,
+            18
+          ],
+          "state_name": "Tadarammana (2 Moments)",
+          "hardware_equivalent": "Transaction Log Persistence / Post-Execution Buffer Flush"
+        }
       ]
     },
     "jhana_vithi_15_moments": {
       "description": "วิถีจิต 15 ขณะในฌานภพ - ตัวแทนของ High-Performance Dedicated Kernel / Zero-Jitter Real-time Isolation Core",
       "clock_cycles": [
-        { "moment": 1, "state_name": "Bhavanga-calana to Upaccheda", "hardware_equivalent": "High-Priority Isolation Kernel Initialization" },
-        { "moment": 2, "state_name": "Manodvaranavajjana (Parikamma / Upacara / Anuloma)", "hardware_equivalent": "Pre-computation Setup & Resource Lock (Zero-Interrupt State)" },
-        { "moment": 3, "state_name": "Gotrabhu / Vodhana", "hardware_equivalent": "Privilege Escalation / Core State Transition to Higher Hypervisor Tier" },
-        { "moment": [4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14], "state_name": "Appana Javana (10+ Moments of Deep Jhana)", "hardware_equivalent": "Deterministic Hard-Isolation Pipeline / Infinite Execution Loop without I/O Noise",
+        {
+          "moment": 1,
+          "state_name": "Bhavanga-calana to Upaccheda",
+          "hardware_equivalent": "High-Priority Isolation Kernel Initialization"
+        },
+        {
+          "moment": 2,
+          "state_name": "Manodvaranavajjana (Parikamma / Upacara / Anuloma)",
+          "hardware_equivalent": "Pre-computation Setup & Resource Lock (Zero-Interrupt State)"
+        },
+        {
+          "moment": 3,
+          "state_name": "Gotrabhu / Vodhana",
+          "hardware_equivalent": "Privilege Escalation / Core State Transition to Higher Hypervisor Tier"
+        },
+        {
+          "moment": [
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14
+          ],
+          "state_name": "Appana Javana (10+ Moments of Deep Jhana)",
+          "hardware_equivalent": "Deterministic Hard-Isolation Pipeline / Infinite Execution Loop without I/O Noise",
           "runtime_behavior": "Absolute stable state, immune to external malicious interrupts (Kilesa/Anomalies), maintaining continuous low-latency throughput."
         },
-        { "moment": 15, "state_name": "Bhavanga Fall-back", "hardware_equivalent": "Safe State Return / Baseline Daemon Resumption" }
+        {
+          "moment": 15,
+          "state_name": "Bhavanga Fall-back",
+          "hardware_equivalent": "Safe State Return / Baseline Daemon Resumption"
+        }
       ]
     }
   }
