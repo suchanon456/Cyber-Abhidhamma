@@ -40,6 +40,61 @@ This project is an attempt to do that.
 
 ---
 
+## 📚 Documentation
+
+### Core Logic
+
+The foundation of this project — the mapping between Abhidhamma and computer science.
+
+| Document | Description |
+|---|---|
+| [Documentation Index](./docs/INDEX.md) | Overview of all docs in this repository |
+| [Core Logic v1](./docs/Core-Logic-v1.md) | Initial mapping: Mind = Computer, Karma = Algorithm, Rūpa = OOP Simulation |
+| [Core Logic v2](./docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta, and security architecture |
+
+### Paramattha Structure
+
+The 28 rūpa-paramattha mapped to hardware, OOP, and virtualization layers.
+
+| File | Description |
+|---|---|
+| [Paramattha-Structure.json](./docs/Paramattha-Structure.json) | Complete Rūpa 28 mapping — Mahābhūta, Pasāda, Bhava, Hadaya, Jīvita, Āhāra, and 10 derived forms |
+
+### Source Code
+
+Reference implementations of the framework's core concepts.
+
+| File | Description |
+|---|---|
+| [CetasikaVector.php](./src/CetasikaVector.php) | 52-dimensional behavioral state vector — maps all 52 cetasikas to computable dimensions |
+
+---
+
+## 🧭 Where to Start
+
+If you are new to this project, start here:
+
+1. **Read [Why this exists](#-why-this-exists)** — understand the problem
+2. **Look at the [Core Mapping](#-core-mapping) table** — see the big picture
+3. **Read [Core Logic v1](./docs/Core-Logic-v1.md)** — the initial foundation
+4. **Then [Core Logic v2](./docs/Core-Logic-v2.md)** — the expanded architecture
+5. **Explore [Paramattha-Structure.json](./docs/Paramattha-Structure.json)** — the hardware layer
+6. **Inspect [CetasikaVector.php](./src/CetasikaVector.php)** — the reference code
+
+---
+
+## 🛠️ Status
+
+| Layer | Status |
+|---|---|
+| Documentation (Core Logic, Paramattha Structure) | ✅ Complete |
+| Reference code (CetasikaVector) | ✅ Available |
+| Citta 121 State Machine | 🚧 Planned |
+| Vīthi-Citta Scheduler | 🚧 Planned |
+| Magga 8 Security Middleware | 🚧 Planned |
+| Paṭiccasamuppāda Causal Engine | 🚧 Planned |
+| Examples | 🚧 Planned |
+
 ## 🏗️ Architecture Overview
 
 ```
