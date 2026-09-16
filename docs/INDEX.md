@@ -6,3 +6,6 @@
 
 ## Paramattha Structure
 - [Overview](./Paramattha-Structure.json) — Rūpa 28 mapped to OS/Hardware
+
+## The Seven Practices Vattapada (Admin AI)
+- [Vattapada 7](./The-Seven-Practices-Vattapada.md) — The Seven Practices Leading to Becoming Sakka, King of the Devas.
