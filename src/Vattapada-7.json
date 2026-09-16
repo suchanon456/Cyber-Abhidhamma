@@ -9,7 +9,7 @@
     "_warning": "This is a heuristic model, not a canonical Abhidhamma formula. Weights and penalties are approximations for experimental purposes. Do not cite as authoritative.",
     "_source": [
       "docs/The-Seven-Practices-Vattapada.md",
-      "docs/Paramattha-Structure.json",
+      "src/Paramattha-Structure.json",
       "docs/Core-Logic-v2.md"
     ],
     "_principle": "Anatta — No Sovereign Admin. The system self-regulates via natural deterministic consequences (Vipaka). No one revokes; the system decays by itself.",
