@@ -53,14 +53,6 @@ The foundation of this project — the mapping between Abhidhamma and computer s
 | [Core Logic v2](./docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta, and security architecture |
 | [Vattapada 7](./docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka, King of the Devas. |
 
-### Paramattha Structure
-
-The 28 rūpa-paramattha mapped to hardware, OOP, and virtualization layers.
-
-| File | Description |
-|---|---|
-| [Paramattha-Structure.json](./docs/Paramattha-Structure.json) | Complete Rūpa 28 mapping — Mahābhūta, Pasāda, Bhava, Hadaya, Jīvita, Āhāra, and 10 derived forms |
-
 ### Source Code
 
 Reference implementations and policy specs.
@@ -81,7 +73,7 @@ If you are new to this project, start here:
 2. **Look at the [Core Mapping](#-core-mapping) table** — see the big picture
 3. **Read [Core Logic v1](./docs/Core-Logic-v1.md)** — the initial foundation
 4. **Then [Core Logic v2](./docs/Core-Logic-v2.md)** — the expanded architecture
-5. **Explore [Paramattha-Structure.json](./docs/Paramattha-Structure.json)** — the hardware layer
+5. **Explore [Paramattha-Structure.json](./src/Paramattha-Structure.json)** — the hardware layer
 6. **Inspect [CetasikaVector.php](./src/CetasikaVector.php)** — the reference code
 
 ---
@@ -133,12 +125,15 @@ If you are new to this project, start here:
 
 ```
 cyber-abhidhamma/
-├── docs/               # Core logic, mappings, architecture notes
-├── src/                # Reference implementation (PHP / Java)
-│   ├── cetasika/       # 52-dim vector implementation
-│   ├── citta/          # 121-state machine
-│   ├── vithi/          # 17/15-moment scheduler
-│   └── magga/          # 8-fold security middleware
+├── docs/
+│   ├── INDEX.md
+│   ├── Core-Logic-v1.md
+│   ├── Core-Logic-v2.md
+│   └── The-Seven-Practices-Vattapada.md
+├── src/
+│   ├── CetasikaVector.php
+│   ├── Vattapada-7.json
+│   └── Paramattha-Structure.json
 ├── examples/           # Runnable demos
 └── README.md
 ```
