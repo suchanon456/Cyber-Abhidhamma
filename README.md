@@ -183,7 +183,7 @@ you are welcome. Open an issue, fork, or reach out.
 
 ## 📜 License
 
-Apache-2.0 — see LICENSE
+Apache-2.0 — see [LICENSE](./LICENSE)
 
 ---
 
