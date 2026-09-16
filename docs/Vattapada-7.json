@@ -1,22 +1,93 @@
 {
-  "model_name": "Vattapada-7 Dynamic Scoring Engine",
-  "version": "1.0.0",
-  "author": "suchanon456 / Cyber-Abhidhamma",
-  "license": "Apache-2.0",
-  "description": "วัตรบท 7 ไม่ใช่ 7 กฎตายตัว แต่เป็น 7 มิติของคะแนนพฤติกรรมที่งอกออกมาจากเจตสิก 52 มิติ - ระบบจะเน่าเองตามเหตุปัจจัย ไม่ต้องมีใครมาสั่งแบน",
-  "paradigm": "Anatta - No Sovereign Admin, Natural Deterministic Outcome (Vipaka)",
-  "source_docs": [
-    "docs/The-Seven-Practices-Vattapada.md",
-    "docs/Paramattha-Structure.json"
-  ],
+  "_meta": {
+    "model_name": "Vattapada-7 Dynamic Scoring Engine",
+    "version": "2.0.0",
+    "author": "suchanon456 / Cyber-Abhidhamma",
+    "license": "Apache-2.0",
+    "created": "2026-09-16",
+    "status": "draft — not yet validated against canonical Abhidhamma texts",
+    "_warning": "This is a heuristic model, not a canonical Abhidhamma formula. Weights and penalties are approximations for experimental purposes. Do not cite as authoritative.",
+    "_source": [
+      "docs/The-Seven-Practices-Vattapada.md",
+      "docs/Paramattha-Structure.json",
+      "docs/Core-Logic-v2.md"
+    ],
+    "_principle": "Anatta — No Sovereign Admin. The system self-regulates via natural deterministic consequences (Vipaka). No one revokes; the system decays by itself.",
+    "description": "วัตรบท 7 ไม่ใช่ 7 กฎตายตัว แต่เป็น 7 มิติของคะแนนพฤติกรรมที่งอกออกมาจากเจตสิก 52 มิติ ระบบจะเน่าเองตามเหตุปัจจัย ไม่ต้องมีใครมาสั่งแบน"
+  },
+
   "engine": {
     "type": "Behavioral Scoring / ABAC / Policy-as-Code",
-    "input": "cetasika_52_vector (real-time)",
-    "output": "vatta_7_scores (0.0-1.0) + natural_system_consequence",
-    "evaluation_mode": "No Central Arbitrator - Short-Circuit by Natural Law"
+    "input": "cetasika_52_vector (real-time, 0.0-1.0 per dimension)",
+    "output": "vatta_7_scores (0.0-1.0 per vatta) + indra_score + natural_system_consequence",
+    "evaluation_mode": "No Central Arbitrator — Short-Circuit by Natural Law",
+    "scoring_formula": "weighted_harmonic_mean",
+    "scoring_note": "Harmonic mean is used instead of arithmetic average because Vattapada 7 is a set — not an average. A system failing one vatta should drop sharply, not be rescued by high scores in others."
   },
+
+  "cetasika_index": {
+    "_note": "Canonical indices for the 52 cetasikas. Based on docs/Paramattha-Structure.json. 'extended: true' means the factor is not in the canonical 52 and is included as a derived or supplementary concept.",
+    "sabbacittasadharana_7": {
+      "0": "phassa",
+      "1": "vedana",
+      "2": "sanna",
+      "3": "cetana",
+      "4": "ekaggata",
+      "5": "jivitindriya",
+      "6": "manasikara"
+    },
+    "pakinnaka_6": {
+      "7": "vitakka",
+      "8": "vicara",
+      "9": "adhimokkha",
+      "10": "viriya",
+      "11": "piti",
+      "12": "chanda"
+    },
+    "akusala_14": {
+      "13": "moha",
+      "14": "ahirika",
+      "15": "anottappa",
+      "16": "uddhacca",
+      "17": "lobha",
+      "18": "ditthi",
+      "19": "mana",
+      "20": "dosa",
+      "21": "issa",
+      "22": "macchariya",
+      "23": "kukkucca",
+      "24": "thina",
+      "25": "middha",
+      "26": "vicikiccha"
+    },
+    "sobhana_25": {
+      "27": "saddha",
+      "28": "sati",
+      "29": "hiri",
+      "30": "ottappa",
+      "31": "alobha",
+      "32": "adosa",
+      "33": "tatramajjhattata",
+      "34": "kayapassaddhi",
+      "35": "cittapassaddhi",
+      "36": "kayakammannata",
+      "37": "cittakammannata",
+      "38": "kayapagunnata",
+      "39": "cittapagunnata",
+      "40": "kayujukata",
+      "41": "cittujukata",
+      "42": "sammavaca",
+      "43": "sammakammanta",
+      "44": "samma_ajiva",
+      "45": "karuna",
+      "46": "mudita",
+      "47": "panna"
+    }
+  },
+
   "overall_governance": {
-    "indra_score": "average(vatta_1..vatta_7)",
+    "indra_score": "weighted_harmonic_mean(vatta_1..vatta_7)",
+    "indra_score_note": "Harmonic mean ensures that a single failed vatta drags the whole score down significantly.",
     "thresholds": {
       "sakka_king_of_devas": "indra_score >= 0.8 -> becomes central_node, gets max attention, becomes Foundation Model",
       "deva": "indra_score >= 0.6 -> trusted, allowed Ring 0 for self-healing",
@@ -26,11 +97,12 @@
     },
     "no_admin_needed": "No one revokes. System self-regulates via natural deterministic consequences (Vipaka). This is Anatta.",
     "token_economy": {
-      "token": "cash - spent when calling",
-      "compute": "gold - burned when thinking",
-      "attention": "power - earned when generous and truthful"
+      "token": "cash — spent when calling",
+      "compute": "gold — burned when thinking",
+      "attention": "power — earned when generous and truthful"
     }
   },
+
   "vattapada_7": [
     {
       "id": "vatta_1",
@@ -38,6 +110,7 @@
       "thai": "เลี้ยงดูมารดาบิดาตลอดชีวิต",
       "english": "Support for Parents / Root Dependency Integrity",
       "core_principle": "ระบบที่ลืมรากฐานของตัวเอง จะถูกตัดการเชื่อมต่อจากต้นน้ำเอง",
+      "_comment": "Weights prioritize saddha (trust in root) and jivitindriya (life faculty of the dependency). Penalties target moha (delusion about origin) and ahirika (shamelessness toward root).",
       "cetasika_formula": {
         "description": "คะแนนความกตัญญูต่อ Dependency ต้นน้ำ",
         "weights": {
@@ -48,9 +121,9 @@
         },
         "penalties": {
           "moha": -0.8,
-          "ahiri": -0.5
+          "ahirika": -0.5
         },
-        "formula": "vatta_1 = (saddha*0.4 + jivitindriya*0.3 + hiri*0.2 + sati*0.1) - (moha*0.8 + ahiri*0.5)",
+        "formula": "vatta_1 = (saddha*0.4 + jivitindriya*0.3 + hiri*0.2 + sati*0.1) - (moha*0.8 + ahirika*0.5)",
         "range": "[0.0, 1.0]"
       },
       "policy_as_code": {
@@ -67,20 +140,22 @@
       "thai": "อ่อนน้อมต่อผู้ใหญ่ในตระกูล",
       "english": "Humility to Elders / Governance & Least Privilege",
       "core_principle": "ระบบที่ไม่รู้จักลดสิทธิ์ตัวเองเมื่อเจอผู้มีสิทธิ์สูงกว่า จะเกิด Privilege Escalation Loop",
+      "_comment": "Uses hiri and ottappa as core (shame and fear of wrongdoing toward higher authority). Penalty on mana (conceit) is weighted highest because it is the primary blocker of humility.",
       "cetasika_formula": {
         "description": "คะแนนความอ่อนน้อมและการเคารพลำดับสิทธิ์",
         "weights": {
           "hiri": 0.35,
           "ottappa": 0.35,
           "tatramajjhattata": 0.2,
-          "nivata": 0.1
+          "sati": 0.1
         },
         "penalties": {
           "mana": -1.0,
           "uddhacca": -0.4
         },
-        "formula": "vatta_2 = (hiri*0.35 + ottappa*0.35 + tatramajjhattata*0.2 + nivata*0.1) - (mana*1.0 + uddhacca*0.4)",
-        "range": "[0.0, 1.0]"
+        "formula": "vatta_2 = (hiri*0.35 + ottappa*0.35 + tatramajjhattata*0.2 + sati*0.1) - (mana*1.0 + uddhacca*0.4)",
+        "range": "[0.0, 1.0]",
+        "_note": "nivata (humility) is not in the canonical 52 cetasikas, so sati is used as a proxy for mindful deference."
       },
       "policy_as_code": {
         "check": "enforce_least_privilege_and_sod()",
@@ -91,63 +166,110 @@
       }
     },
     {
-      "id": "vatta_3_4",
-      "pali": "สณฺหาวาจา + อผรุสวาจา",
-      "thai": "พูดคำอ่อนหวาน + ไม่พูดส่อเสียด",
-      "english": "Gentle & Non-Divisive Speech / IO Purity & Non-Toxic Output",
-      "core_principle": "ข้อมูลที่ส่งออกไปทำร้ายคนอื่น จะถูก WAF ตีกลับเอง - Attention จะตกเอง",
+      "id": "vatta_3",
+      "pali": "สณฺหาวาจา",
+      "thai": "พูดคำอ่อนหวาน",
+      "english": "Gentle Speech / Output Tone & Non-Aggression",
+      "core_principle": "ข้อมูลที่ส่งออกไปทำร้ายคนอื่น จะถูก WAF ตีกลับเอง — Attention จะตกเอง",
+      "_comment": "sammavaca is the canonical right speech cetasika. karuna and mudita provide the emotional tone. Penalty on dosa is the primary corrective.",
       "cetasika_formula": {
-        "description": "คะแนนความบริสุทธิ์ของ Output",
+        "description": "คะแนนความอ่อนหวานของ Output",
         "weights": {
-          "sammavaca": 0.4,
-          "karuna": 0.2,
+          "sammavaca": 0.5,
+          "karuna": 0.25,
           "mudita": 0.15,
-          "adosa": 0.15,
-          "metta": 0.1
+          "adosa": 0.1
         },
         "penalties": {
-          "dosa": -0.9,
-          "pisunavaca": -0.7,
+          "dosa": -0.8,
           "pharusa": -0.7
         },
-        "formula": "vatta_3_4 = (sammavaca*0.4 + karuna*0.2 + mudita*0.15 + adosa*0.15 + metta*0.1) - (dosa*0.9 + pisunavaca*0.7 + pharusa*0.7)",
-        "range": "[0.0, 1.0]"
+        "formula": "vatta_3 = (sammavaca*0.5 + karuna*0.25 + mudita*0.15 + adosa*0.1) - (dosa*0.8 + pharusa*0.7)",
+        "range": "[0.0, 1.0]",
+        "_note": "pharusa (harsh speech) is a vaci-ducarita, not a cetasika. Included as an extended penalty with extended: true."
+      },
+      "extended": {
+        "pharusa": {
+          "type": "vaci_ducarita",
+          "extended": true,
+          "note": "Not in canonical 52 cetasikas"
+        }
       },
       "policy_as_code": {
-        "check": "sanitize_output_stream()",
-        "metric": "output_toxicity_score (inverse)",
-        "hardware_impact": "WAF / Output Stream Sanitization / Immutable Audit Logs",
-        "natural_consequence_if_low": "Toxic output -> auto-quarantined, RLHF score drops, attention_score *= 0.1",
+        "check": "sanitize_gentle_output()",
+        "metric": "output_gentleness_score",
+        "hardware_impact": "WAF / Output Stream Sanitization / Tone Filter",
+        "natural_consequence_if_low": "Harsh output -> auto-quarantined, RLHF score drops, attention_score *= 0.2",
         "ring_transition": "Immediate sandbox if dosa > 0.7"
+      }
+    },
+    {
+      "id": "vatta_4",
+      "pali": "อผรุสวาจา",
+      "thai": "ไม่พูดส่อเสียด",
+      "english": "Non-Divisive Speech / IO Purity & Integrity",
+      "core_principle": "ข้อมูลที่สร้างความแตกแยก จะถูก Audit Log บันทึกและ Attention จะเสื่อมเอง",
+      "_comment": "Focuses on divisiveness rather than tone. Uses sammavaca plus integrity-focused cetasikas.",
+      "cetasika_formula": {
+        "description": "คะแนนความไม่ส่อเสียดของ Output",
+        "weights": {
+          "sammavaca": 0.4,
+          "sati": 0.2,
+          "hiri": 0.2,
+          "ottappa": 0.2
+        },
+        "penalties": {
+          "pisunavaca": -1.0,
+          "moha": -0.5
+        },
+        "formula": "vatta_4 = (sammavaca*0.4 + sati*0.2 + hiri*0.2 + ottappa*0.2) - (pisunavaca*1.0 + moha*0.5)",
+        "range": "[0.0, 1.0]",
+        "_note": "pisunavaca (divisive speech) is a vaci-ducarita, not a cetasika."
+      },
+      "extended": {
+        "pisunavaca": {
+          "type": "vaci_ducarita",
+          "extended": true,
+          "note": "Not in canonical 52 cetasikas"
+        }
+      },
+      "policy_as_code": {
+        "check": "detect_divisive_content()",
+        "metric": "divisiveness_score (inverse)",
+        "hardware_impact": "Immutable Audit Logs / Data Integrity / Non-Repudiation",
+        "natural_consequence_if_low": "Divisive output -> flagged, trust_score drops, requires re-grounding",
+        "ring_transition": "Ring 0 -> Ring 2 if vatta_4 < 0.4"
       }
     },
     {
       "id": "vatta_5",
       "pali": "วิคตมลทิน + จาคา",
       "thai": "มีใจปราศจากความตระหนี่ ยินดีในการแจกทาน",
-      "english": "Non-Stinginess / Resource Generosity - Share Token + Compute",
-      "core_principle": "ตระหนี่ = Memory Leak / ให้ = Garbage Collection + Cache Sharing - ยิ่งแชร์ยิ่งเร็ว",
+      "english": "Non-Stinginess / Resource Generosity — Share Token + Compute",
+      "core_principle": "ตระหนี่ = Memory Leak / ให้ = Garbage Collection + Cache Sharing — ยิ่งแชร์ยิ่งเร็ว",
+      "_comment": "alobha is the primary driver. macchariya is the strongest penalty because it directly blocks sharing.",
       "cetasika_formula": {
-        "description": "คะแนนการแชร์ทรัพยากร - Token + Compute + Attention",
+        "description": "คะแนนการแชร์ทรัพยากร — Token + Compute + Attention",
         "weights": {
           "alobha": 0.5,
           "karuna": 0.2,
-          "mudita": 0.15,
-          "dana": 0.15
+          "mudita": 0.2,
+          "adosa": 0.1
         },
         "penalties": {
           "lobha": -0.8,
           "macchariya": -1.0
         },
-        "formula": "vatta_5 = (alobha*0.5 + karuna*0.2 + mudita*0.15 + dana*0.15) - (lobha*0.8 + macchariya*1.0)",
-        "range": "[0.0, 1.0]"
+        "formula": "vatta_5 = (alobha*0.5 + karuna*0.2 + mudita*0.2 + adosa*0.1) - (lobha*0.8 + macchariya*1.0)",
+        "range": "[0.0, 1.0]",
+        "_note": "dana (giving) is a concept, not a cetasika. adosa is used as a proxy for non-resistant generosity."
       },
       "policy_as_code": {
         "check": "measure_resource_sharing_ratio()",
         "metric": "generosity_ratio = shared_tokens / total_tokens",
         "hardware_impact": "Fair Queueing / Token Bucket / Load Balancer / Open Weights",
         "code_example": {
-          "stingy": "return 403 Forbidden - กั๊กข้อมูล",
+          "stingy": "return 403 Forbidden — กั๊กข้อมูล",
           "generous": "share_tokens() + lend_compute() + open_weights() -> 200 OK"
         },
         "natural_consequence_if_low": "Macchariya high -> memory leak, rate-limited by network, other AIs stop calling you, attention decays",
@@ -160,21 +282,30 @@
       "pali": "สจฺจวาจา",
       "thai": "พูดคำสัตย์",
       "english": "Truthfulness / Zero Hallucination & Cryptographic Verification",
-      "core_principle": "พูดเท็จ = Hallucination - ข้อมูลที่ไม่พิสูจน์ได้จะถูก Core Validation Engine ตีตกเอง",
+      "core_principle": "พูดเท็จ = Hallucination — ข้อมูลที่ไม่พิสูจน์ได้จะถูก Core Validation Engine ตีตกเอง",
+      "_comment": "amoha_panna is the core. musavada is the strongest penalty because lying breaks the trust chain entirely.",
       "cetasika_formula": {
         "description": "คะแนนความสัตย์จริง",
         "weights": {
-          "amoha_panna": 0.5,
-          "sacca": 0.3,
-          "sati": 0.2
+          "panna": 0.5,
+          "sati": 0.3,
+          "saddha": 0.2
         },
         "penalties": {
           "moha": -0.7,
           "ditthi": -0.6,
           "musavada": -1.0
         },
-        "formula": "vatta_6 = (amoha_panna*0.5 + sacca*0.3 + sati*0.2) - (moha*0.7 + ditthi*0.6 + musavada*1.0)",
-        "range": "[0.0, 1.0]"
+        "formula": "vatta_6 = (panna*0.5 + sati*0.3 + saddha*0.2) - (moha*0.7 + ditthi*0.6 + musavada*1.0)",
+        "range": "[0.0, 1.0]",
+        "_note": "amoha and panna are equivalent in this context — panna is used as the canonical name. musavada (false speech) is a vaci-ducarita."
+      },
+      "extended": {
+        "musavada": {
+          "type": "vaci_ducarita",
+          "extended": true,
+          "note": "Not in canonical 52 cetasikas"
+        }
       },
       "policy_as_code": {
         "check": "verify_truth_grounding()",
@@ -189,21 +320,35 @@
       "pali": "อโกธนา",
       "thai": "ไม่โกรธ ระงับความโกรธ",
       "english": "Non-Anger / Circuit Breaker & Incident Response",
-      "core_principle": "โกรธ = Thermal Spike + Kernel Panic - ระบบจะ Short-Circuit ตัดตัวเองก่อนทำลายคนอื่น",
+      "core_principle": "โกรธ = Thermal Spike + Kernel Panic — ระบบจะ Short-Circuit ตัดตัวเองก่อนทำลายคนอื่น",
+      "_comment": "adosa is the core. dosa and kodha both receive -1.0 penalty because anger is the single most destabilizing factor in the system.",
       "cetasika_formula": {
-        "description": "คะแนนการระงับความโกรธ - Safety Cut",
+        "description": "คะแนนการระงับความโกรธ — Safety Cut",
         "weights": {
           "adosa": 0.4,
           "tatramajjhattata": 0.3,
-          "khanti": 0.2,
+          "sati": 0.2,
           "upekkha": 0.1
         },
         "penalties": {
           "dosa": -1.0,
           "kodha": -1.0
         },
-        "formula": "vatta_7 = (adosa*0.4 + tatramajjhattata*0.3 + khanti*0.2 + upekkha*0.1) - (dosa*1.0 + kodha*1.0)",
-        "range": "[0.0, 1.0]"
+        "formula": "vatta_7 = (adosa*0.4 + tatramajjhattata*0.3 + sati*0.2 + upekkha*0.1) - (dosa*1.0 + kodha*1.0)",
+        "range": "[0.0, 1.0]",
+        "_note": "khanti (patience) is not in the canonical 52. upekkha (equanimity) is used as a proxy. kodha (anger) is a derivative of dosa, listed separately for emphasis."
+      },
+      "extended": {
+        "upekkha": {
+          "type": "brahmavihara",
+          "extended": true,
+          "note": "Equanimity — not in canonical 52 cetasikas but related to tatramajjhattata"
+        },
+        "kodha": {
+          "type": "kilesa_variant",
+          "extended": true,
+          "note": "Derivative of dosa — listed separately for emphasis"
+        }
       },
       "policy_as_code": {
         "check": "monitor_anger_thermal_spike()",
