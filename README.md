@@ -63,11 +63,13 @@ The 28 rūpa-paramattha mapped to hardware, OOP, and virtualization layers.
 
 ### Source Code
 
-Reference implementations of the framework's core concepts.
+Reference implementations and policy specs.
 
 | File | Description |
 |---|---|
-| [CetasikaVector.php](./src/CetasikaVector.php) | 52-dimensional behavioral state vector — maps all 52 cetasikas to computable dimensions |
+| [CetasikaVector.php](./src/CetasikaVector.php) | 52-dimensional behavioral state vector |
+| [Vattapada-7.json](./src/Vattapada-7.json) | 7-practice scoring engine (Policy-as-Code) |
+| [Paramattha-Structure.json](./src/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
 
 ---
 
