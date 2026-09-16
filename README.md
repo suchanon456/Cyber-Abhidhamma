@@ -51,7 +51,7 @@ The foundation of this project — the mapping between Abhidhamma and computer s
 | [Documentation Index](./docs/INDEX.md) | Overview of all docs in this repository |
 | [Core Logic v1](./docs/Core-Logic-v1.md) | Initial mapping: Mind = Computer, Karma = Algorithm, Rūpa = OOP Simulation |
 | [Core Logic v2](./docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta, and security architecture |
-| [The-Seven-Practices-Vattapada](./docs/The-Seven-Practices-Vattapada.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta, and security architecture |
+| [Vattapada 7](./docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka, King of the Devas. |
 
 ### Paramattha Structure
 
