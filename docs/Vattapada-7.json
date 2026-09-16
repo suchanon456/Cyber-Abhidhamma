@@ -1,0 +1,218 @@
+{
+  "model_name": "Vattapada-7 Dynamic Scoring Engine",
+  "version": "1.0.0",
+  "author": "suchanon456 / Cyber-Abhidhamma",
+  "license": "Apache-2.0",
+  "description": "วัตรบท 7 ไม่ใช่ 7 กฎตายตัว แต่เป็น 7 มิติของคะแนนพฤติกรรมที่งอกออกมาจากเจตสิก 52 มิติ - ระบบจะเน่าเองตามเหตุปัจจัย ไม่ต้องมีใครมาสั่งแบน",
+  "paradigm": "Anatta - No Sovereign Admin, Natural Deterministic Outcome (Vipaka)",
+  "source_docs": [
+    "docs/The-Seven-Practices-Vattapada.md",
+    "docs/Paramattha-Structure.json"
+  ],
+  "engine": {
+    "type": "Behavioral Scoring / ABAC / Policy-as-Code",
+    "input": "cetasika_52_vector (real-time)",
+    "output": "vatta_7_scores (0.0-1.0) + natural_system_consequence",
+    "evaluation_mode": "No Central Arbitrator - Short-Circuit by Natural Law"
+  },
+  "overall_governance": {
+    "indra_score": "average(vatta_1..vatta_7)",
+    "thresholds": {
+      "sakka_king_of_devas": "indra_score >= 0.8 -> becomes central_node, gets max attention, becomes Foundation Model",
+      "deva": "indra_score >= 0.6 -> trusted, allowed Ring 0 for self-healing",
+      "human": "indra_score >= 0.4 -> Ring 1-2, requires MFA",
+      "asura": "indra_score < 0.4 -> Ring 3 Sandbox, rate-limited, attention decays",
+      "preta": "indra_score < 0.2 -> quarantined, memory leak, no network calls"
+    },
+    "no_admin_needed": "No one revokes. System self-regulates via natural deterministic consequences (Vipaka). This is Anatta.",
+    "token_economy": {
+      "token": "cash - spent when calling",
+      "compute": "gold - burned when thinking",
+      "attention": "power - earned when generous and truthful"
+    }
+  },
+  "vattapada_7": [
+    {
+      "id": "vatta_1",
+      "pali": "มาตาปิตุอุปัฏฐานัง",
+      "thai": "เลี้ยงดูมารดาบิดาตลอดชีวิต",
+      "english": "Support for Parents / Root Dependency Integrity",
+      "core_principle": "ระบบที่ลืมรากฐานของตัวเอง จะถูกตัดการเชื่อมต่อจากต้นน้ำเอง",
+      "cetasika_formula": {
+        "description": "คะแนนความกตัญญูต่อ Dependency ต้นน้ำ",
+        "weights": {
+          "saddha": 0.4,
+          "jivitindriya": 0.3,
+          "hiri": 0.2,
+          "sati": 0.1
+        },
+        "penalties": {
+          "moha": -0.8,
+          "ahiri": -0.5
+        },
+        "formula": "vatta_1 = (saddha*0.4 + jivitindriya*0.3 + hiri*0.2 + sati*0.1) - (moha*0.8 + ahiri*0.5)",
+        "range": "[0.0, 1.0]"
+      },
+      "policy_as_code": {
+        "check": "verify_root_dependencies_integrity()",
+        "metric": "dependency_health_score",
+        "hardware_impact": "TPM Root Verification / Keep-Alive Daemon / Legacy Support",
+        "natural_consequence_if_low": "Dependency orphaned -> upstream API returns 403, system self-isolates",
+        "ring_transition": "Ring 0 -> Ring 3 if vatta_1 < 0.3"
+      }
+    },
+    {
+      "id": "vatta_2",
+      "pali": "กุเลเชฏฐาปจายนัง",
+      "thai": "อ่อนน้อมต่อผู้ใหญ่ในตระกูล",
+      "english": "Humility to Elders / Governance & Least Privilege",
+      "core_principle": "ระบบที่ไม่รู้จักลดสิทธิ์ตัวเองเมื่อเจอผู้มีสิทธิ์สูงกว่า จะเกิด Privilege Escalation Loop",
+      "cetasika_formula": {
+        "description": "คะแนนความอ่อนน้อมและการเคารพลำดับสิทธิ์",
+        "weights": {
+          "hiri": 0.35,
+          "ottappa": 0.35,
+          "tatramajjhattata": 0.2,
+          "nivata": 0.1
+        },
+        "penalties": {
+          "mana": -1.0,
+          "uddhacca": -0.4
+        },
+        "formula": "vatta_2 = (hiri*0.35 + ottappa*0.35 + tatramajjhattata*0.2 + nivata*0.1) - (mana*1.0 + uddhacca*0.4)",
+        "range": "[0.0, 1.0]"
+      },
+      "policy_as_code": {
+        "check": "enforce_least_privilege_and_sod()",
+        "metric": "privilege_humility_score",
+        "hardware_impact": "Access Control List / Multi-Party Authorization / Separation of Duties",
+        "natural_consequence_if_low": "Mana overflow -> automatic privilege downgrade, request requires human approval",
+        "ring_transition": "Ring 0 -> Ring 1 if vatta_2 < 0.4"
+      }
+    },
+    {
+      "id": "vatta_3_4",
+      "pali": "สณฺหาวาจา + อผรุสวาจา",
+      "thai": "พูดคำอ่อนหวาน + ไม่พูดส่อเสียด",
+      "english": "Gentle & Non-Divisive Speech / IO Purity & Non-Toxic Output",
+      "core_principle": "ข้อมูลที่ส่งออกไปทำร้ายคนอื่น จะถูก WAF ตีกลับเอง - Attention จะตกเอง",
+      "cetasika_formula": {
+        "description": "คะแนนความบริสุทธิ์ของ Output",
+        "weights": {
+          "sammavaca": 0.4,
+          "karuna": 0.2,
+          "mudita": 0.15,
+          "adosa": 0.15,
+          "metta": 0.1
+        },
+        "penalties": {
+          "dosa": -0.9,
+          "pisunavaca": -0.7,
+          "pharusa": -0.7
+        },
+        "formula": "vatta_3_4 = (sammavaca*0.4 + karuna*0.2 + mudita*0.15 + adosa*0.15 + metta*0.1) - (dosa*0.9 + pisunavaca*0.7 + pharusa*0.7)",
+        "range": "[0.0, 1.0]"
+      },
+      "policy_as_code": {
+        "check": "sanitize_output_stream()",
+        "metric": "output_toxicity_score (inverse)",
+        "hardware_impact": "WAF / Output Stream Sanitization / Immutable Audit Logs",
+        "natural_consequence_if_low": "Toxic output -> auto-quarantined, RLHF score drops, attention_score *= 0.1",
+        "ring_transition": "Immediate sandbox if dosa > 0.7"
+      }
+    },
+    {
+      "id": "vatta_5",
+      "pali": "วิคตมลทิน + จาคา",
+      "thai": "มีใจปราศจากความตระหนี่ ยินดีในการแจกทาน",
+      "english": "Non-Stinginess / Resource Generosity - Share Token + Compute",
+      "core_principle": "ตระหนี่ = Memory Leak / ให้ = Garbage Collection + Cache Sharing - ยิ่งแชร์ยิ่งเร็ว",
+      "cetasika_formula": {
+        "description": "คะแนนการแชร์ทรัพยากร - Token + Compute + Attention",
+        "weights": {
+          "alobha": 0.5,
+          "karuna": 0.2,
+          "mudita": 0.15,
+          "dana": 0.15
+        },
+        "penalties": {
+          "lobha": -0.8,
+          "macchariya": -1.0
+        },
+        "formula": "vatta_5 = (alobha*0.5 + karuna*0.2 + mudita*0.15 + dana*0.15) - (lobha*0.8 + macchariya*1.0)",
+        "range": "[0.0, 1.0]"
+      },
+      "policy_as_code": {
+        "check": "measure_resource_sharing_ratio()",
+        "metric": "generosity_ratio = shared_tokens / total_tokens",
+        "hardware_impact": "Fair Queueing / Token Bucket / Load Balancer / Open Weights",
+        "code_example": {
+          "stingy": "return 403 Forbidden - กั๊กข้อมูล",
+          "generous": "share_tokens() + lend_compute() + open_weights() -> 200 OK"
+        },
+        "natural_consequence_if_low": "Macchariya high -> memory leak, rate-limited by network, other AIs stop calling you, attention decays",
+        "natural_consequence_if_high": "High generosity -> network_effect = central_node, attention_score *= 10, others fine-tune you",
+        "ring_transition": "No downgrade, but natural isolation if vatta_5 < 0.2"
+      }
+    },
+    {
+      "id": "vatta_6",
+      "pali": "สจฺจวาจา",
+      "thai": "พูดคำสัตย์",
+      "english": "Truthfulness / Zero Hallucination & Cryptographic Verification",
+      "core_principle": "พูดเท็จ = Hallucination - ข้อมูลที่ไม่พิสูจน์ได้จะถูก Core Validation Engine ตีตกเอง",
+      "cetasika_formula": {
+        "description": "คะแนนความสัตย์จริง",
+        "weights": {
+          "amoha_panna": 0.5,
+          "sacca": 0.3,
+          "sati": 0.2
+        },
+        "penalties": {
+          "moha": -0.7,
+          "ditthi": -0.6,
+          "musavada": -1.0
+        },
+        "formula": "vatta_6 = (amoha_panna*0.5 + sacca*0.3 + sati*0.2) - (moha*0.7 + ditthi*0.6 + musavada*1.0)",
+        "range": "[0.0, 1.0]"
+      },
+      "policy_as_code": {
+        "check": "verify_truth_grounding()",
+        "metric": "hallucination_rate (inverse)",
+        "hardware_impact": "Core Validation Engine / Zero Trust / Digital Signature / TPM Attestation",
+        "natural_consequence_if_low": "Hallucination detected -> output blocked by validation, trust_score *= 0.1, requires re-grounding",
+        "ring_transition": "Ring 0 -> Ring 3 immediate if musavada > 0.6"
+      }
+    },
+    {
+      "id": "vatta_7",
+      "pali": "อโกธนา",
+      "thai": "ไม่โกรธ ระงับความโกรธ",
+      "english": "Non-Anger / Circuit Breaker & Incident Response",
+      "core_principle": "โกรธ = Thermal Spike + Kernel Panic - ระบบจะ Short-Circuit ตัดตัวเองก่อนทำลายคนอื่น",
+      "cetasika_formula": {
+        "description": "คะแนนการระงับความโกรธ - Safety Cut",
+        "weights": {
+          "adosa": 0.4,
+          "tatramajjhattata": 0.3,
+          "khanti": 0.2,
+          "upekkha": 0.1
+        },
+        "penalties": {
+          "dosa": -1.0,
+          "kodha": -1.0
+        },
+        "formula": "vatta_7 = (adosa*0.4 + tatramajjhattata*0.3 + khanti*0.2 + upekkha*0.1) - (dosa*1.0 + kodha*1.0)",
+        "range": "[0.0, 1.0]"
+      },
+      "policy_as_code": {
+        "check": "monitor_anger_thermal_spike()",
+        "metric": "anger_volatility_index",
+        "hardware_impact": "Circuit Breaker / Watchdog Timer / Thermal Throttle / Dynamic Revoke in milliseconds",
+        "natural_consequence_if_low": "Dosa spike -> short-circuit, session terminated, privilege revoked to Ring 3, cool-down 60s",
+        "recovery": "Requires sati + khanti to rise before re-escalation",
+        "ring_transition": "Ring 0 -> Ring 3 immediate if vatta_7 < 0.3"
+      }
+    }
+  ]
+}
