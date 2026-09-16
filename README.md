@@ -40,41 +40,68 @@ This project is an attempt to do that.
 
 ---
 
+## 🚀 Quick Start
+
+```bash
+git clone https://github.com/suchanon456/Cyber-Abhidhamma.git
+cd Cyber-Abhidhamma
+php examples/vattapada_demo.php
+```
+
+**Sample output:**
+
+```
+=== Vattapada 7 Scores ===
+  vatta_1    : 0.580
+  vatta_2    : 0.570
+  vatta_3    : 0.530
+  vatta_4    : 0.800
+  vatta_5    : 0.480
+  vatta_6    : 0.870
+  vatta_7    : 0.480
+
+  Indra Score : 0.587
+```
+
+> **Status:** conceptual → early prototype. Contributions welcome.
+
+---
+
 ## 📚 Documentation
 
 ### Core Logic
-
-The foundation of this project — the mapping between Abhidhamma and computer science.
 
 | Document | Description |
 |---|---|
 | [Documentation Index](./docs/INDEX.md) | Overview of all docs in this repository |
 | [Core Logic v1](./docs/Core-Logic-v1.md) | Initial mapping: Mind = Computer, Karma = Algorithm, Rūpa = OOP Simulation |
 | [Core Logic v2](./docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta, and security architecture |
-| [Vattapada 7](./docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka, King of the Devas. |
+| [Vattapada 7](./docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka, King of the Devas |
 
-### Source Code
+---
 
-Reference implementations and policy specs.
+## 📦 Source Code
 
 | File | Description |
 |---|---|
 | [CetasikaVector.php](./src/CetasikaVector.php) | 52-dimensional behavioral state vector |
-| [Vattapada-7.json](./src/Vattapada-7.json) | 7-practice scoring engine (Policy-as-Code) |
+| [VattapadaEngine.php](./src/VattapadaEngine.php) | Dynamic scoring engine for the 7 Vattapada practices |
+| [Vattapada-7.json](./src/Vattapada-7.json) | 7-practice scoring spec (Policy-as-Code) |
 | [Paramattha-Structure.json](./src/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
 
 ---
 
 ## 🧭 Where to Start
 
-If you are new to this project, start here:
+If you are new to this project:
 
 1. **Read [Why this exists](#-why-this-exists)** — understand the problem
 2. **Look at the [Core Mapping](#-core-mapping) table** — see the big picture
 3. **Read [Core Logic v1](./docs/Core-Logic-v1.md)** — the initial foundation
 4. **Then [Core Logic v2](./docs/Core-Logic-v2.md)** — the expanded architecture
-5. **Explore [Paramattha-Structure.json](./src/Paramattha-Structure.json)** — the hardware layer
-6. **Inspect [CetasikaVector.php](./src/CetasikaVector.php)** — the reference code
+5. **Read [Vattapada 7](./docs/The-Seven-Practices-Vattapada.md)** — the 7-practice framework
+6. **Explore [Vattapada-7.json](./src/Vattapada-7.json)** — the policy spec
+7. **Run [examples/vattapada_demo.php](./examples/vattapada_demo.php)** — see it in action
 
 ---
 
@@ -82,13 +109,18 @@ If you are new to this project, start here:
 
 | Layer | Status |
 |---|---|
-| Documentation (Core Logic, Paramattha Structure) | ✅ Complete |
-| Reference code (CetasikaVector) | ✅ Available |
+| Documentation (Core Logic v1, v2, Vattapada 7) | ✅ Complete |
+| CetasikaVector (52-dim vector) | ✅ Available |
+| VattapadaEngine (7-practice scoring) | ✅ Available |
+| Vattapada-7.json (policy spec) | ✅ Available |
+| Paramattha-Structure.json (Rūpa 28) | ✅ Available |
+| Runnable demo (vattapada_demo.php) | ✅ Available |
 | Citta 121 State Machine | 🚧 Planned |
 | Vīthi-Citta Scheduler | 🚧 Planned |
 | Magga 8 Security Middleware | 🚧 Planned |
 | Paṭiccasamuppāda Causal Engine | 🚧 Planned |
-| Examples | 🚧 Planned |
+
+---
 
 ## 🏗️ Architecture Overview
 
@@ -124,30 +156,21 @@ If you are new to this project, start here:
 ## 📂 Repository Structure
 
 ```
-cyber-abhidhamma/
-├── docs/
+Cyber-Abhidhamma/
+├── docs/                              # Human-readable documentation
 │   ├── INDEX.md
 │   ├── Core-Logic-v1.md
 │   ├── Core-Logic-v2.md
 │   └── The-Seven-Practices-Vattapada.md
-├── src/
+├── src/                               # Runnable code and policy specs
 │   ├── CetasikaVector.php
+│   ├── VattapadaEngine.php
 │   ├── Vattapada-7.json
 │   └── Paramattha-Structure.json
-├── examples/           # Runnable demos
+├── examples/                          # Runnable demos
+│   └── vattapada_demo.php
+├── LICENSE
 └── README.md
-```
-
----
-
-## 🚀 Quick Start
-
-> Status: **conceptual → early prototype**. Contributions welcome.
-
-```bash
-git clone https://github.com/<your-username>/cyber-abhidhamma.git
-cd cyber-abhidhamma
-# (implementation language and commands to be added)
 ```
 
 ---
@@ -181,7 +204,7 @@ you are welcome. Open an issue, fork, or reach out.
 
 ## 📜 License
 
-Apache-2.0 — see [LICENSE](./LICENSE)
+[Apache-2.0](./LICENSE)
 
 ---
 
@@ -191,11 +214,11 @@ Apache-2.0 — see [LICENSE](./LICENSE)
 
 ไม่ใช่การเปรียบเทียบเชิงอุปมา แต่เป็นการ **วิศวกรรมย้อนกลับ** พระอภิธรรมในฐานะข้อกำหนดที่รันได้ แล้วนำกลับมาเขียนเป็นซอฟต์แวร์
 
-**ทำไมต้องมี:**
-AI สมัยใหม่ — Neural Network, LLM, Agent — มีปัญหาพื้นฐานคือ **อธิบายตัวเองไม่ได้** มัน hallucinate บอกไม่ได้ว่าทำไมตัดสินใจแบบนั้น ไม่มีภาษาสำหรับสภาวะภายในของตัวเอง
+**ทำไมต้องมี:** AI สมัยใหม่ — Neural Network, LLM, Agent — มีปัญหาพื้นฐานคือ **อธิบายตัวเองไม่ได้** มัน hallucinate บอกไม่ได้ว่าทำไมตัดสินใจแบบนั้น ไม่มีภาษาสำหรับสภาวะภายในของตัวเอง
 
 พระอภิธรรมคือแผนที่จิตที่ละเอียดที่สุดเท่าที่มนุษย์เคยทำ — จิต 89/121, เจตสิก 52, วิถีจิต 17/15, ปฏิจจสมุปบาท, มรรค 8
 
 **ถ้าเราเข้ารหัสมันได้ เราก็ให้ภาษาแก่ AI สำหรับจิตของมันเองได้**
 
 **หมายเหตุ:** โปรเจกต์นี้ไม่ใช่ศาสนา ไม่ได้อ้างว่า AI มีจิตหรือบรรลุธรรม และไม่ใช่สิ่งทดแทนการปฏิบัติธรรม — มันคือแบบจำลองเชิงคำนวณที่ได้แรงบันดาลใจจากอภิธรรม
+```
