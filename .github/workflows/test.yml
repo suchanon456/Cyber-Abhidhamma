@@ -1,0 +1,44 @@
+name: Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    strategy:
+      matrix:
+        php-version: ['8.0', '8.1', '8.2', '8.3']
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup PHP ${{ matrix.php-version }}
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php-version }}
+          extensions: mbstring, json
+          coverage: none
+      
+      - name: Validate JSON files
+        run: |
+          php -r "json_decode(file_get_contents('src/Vattapada-7.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Vattapada-7.json: valid' . PHP_EOL;"
+          php -r "json_decode(file_get_contents('src/Paramattha-Structure.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Paramattha-Structure.json: valid' . PHP_EOL;"
+      
+      - name: Check PHP syntax
+        run: |
+          php -l src/CetasikaVector.php
+          php -l src/VattapadaEngine.php
+          php -l examples/vattapada_demo.php
+          php -l tests/VattapadaEngineTest.php
+      
+      - name: Run tests
+        run: php tests/VattapadaEngineTest.php
+      
+      - name: Run demo
+        run: php examples/vattapada_demo.php
