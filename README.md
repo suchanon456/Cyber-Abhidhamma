@@ -73,10 +73,10 @@ php examples/vattapada_demo.php
 
 | Document | Description |
 |---|---|
-| [Documentation Index](./docs/INDEX.md) | Overview of all docs in this repository |
-| [Core Logic v1](./docs/Core-Logic-v1.md) | Initial mapping: Mind = Computer, Karma = Algorithm, Rūpa = OOP Simulation |
-| [Core Logic v2](./docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta, and security architecture |
-| [Vattapada 7](./docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka, King of the Devas |
+| [Documentation Index](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/INDEX.md) | Overview of all docs in this repository |
+| [Core Logic v1](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v1.md) | Initial mapping: Mind = Computer, Karma = Algorithm, Rūpa = OOP Simulation |
+| [Core Logic v2](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta, and security architecture |
+| [Vattapada 7](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka, King of the Devas |
 
 ---
 
@@ -84,10 +84,10 @@ php examples/vattapada_demo.php
 
 | File | Description |
 |---|---|
-| [CetasikaVector.php](./src/CetasikaVector.php) | 52-dimensional behavioral state vector |
-| [VattapadaEngine.php](./src/VattapadaEngine.php) | Dynamic scoring engine for the 7 Vattapada practices |
-| [Vattapada-7.json](./src/Vattapada-7.json) | 7-practice scoring spec (Policy-as-Code) |
-| [Paramattha-Structure.json](./src/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
+| [CetasikaVector.php](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/src/CetasikaVector.php) | 52-dimensional behavioral state vector |
+| [VattapadaEngine.php](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/src/VattapadaEngine.php) | Dynamic scoring engine for the 7 Vattapada practices |
+| [Vattapada-7.json](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/src/Vattapada-7.json) | 7-practice scoring spec (Policy-as-Code) |
+| [Paramattha-Structure.json](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/src/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
 
 ---
 
@@ -97,11 +97,11 @@ If you are new to this project:
 
 1. **Read [Why this exists](#-why-this-exists)** — understand the problem
 2. **Look at the [Core Mapping](#-core-mapping) table** — see the big picture
-3. **Read [Core Logic v1](./docs/Core-Logic-v1.md)** — the initial foundation
-4. **Then [Core Logic v2](./docs/Core-Logic-v2.md)** — the expanded architecture
-5. **Read [Vattapada 7](./docs/The-Seven-Practices-Vattapada.md)** — the 7-practice framework
-6. **Explore [Vattapada-7.json](./src/Vattapada-7.json)** — the policy spec
-7. **Run [examples/vattapada_demo.php](./examples/vattapada_demo.php)** — see it in action
+3. **Read [Core Logic v1](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v1.md)** — the initial foundation
+4. **Then [Core Logic v2](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md)** — the expanded architecture
+5. **Read [Vattapada 7](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md)** — the 7-practice framework
+6. **Explore [Vattapada-7.json](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/src/Vattapada-7.json)** — the policy spec
+7. **Run [examples/vattapada_demo.php](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/examples/vattapada_demo.php)** — see it in action
 
 ---
 
@@ -204,7 +204,7 @@ you are welcome. Open an issue, fork, or reach out.
 
 ## 📜 License
 
-[Apache-2.0](./LICENSE)
+[Apache-2.0](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/LICENSE)
 
 ---
 
