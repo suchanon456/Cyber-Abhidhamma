@@ -118,6 +118,8 @@ If you are new to this project:
 | Vattapada-7.json (policy spec) | ✅ Available |
 | Paramattha-Structure.json (Rūpa 28) | ✅ Available |
 | Runnable demo (vattapada_demo.php) | ✅ Available |
+| Test suite (tests/) | ✅ Available |
+| CI/CD (.github/workflows/test.yml) | ✅ Passing |
 | Citta 121 State Machine | 🚧 Planned |
 | Vīthi-Citta Scheduler | 🚧 Planned |
 | Magga 8 Security Middleware | 🚧 Planned |
