@@ -1,5 +1,8 @@
 # Cyber-Abhidhamma
 
+[![Test](https://github.com/suchanon456/Cyber-Abhidhamma/actions/workflows/test.yml/badge.svg)](https://github.com/suchanon456/Cyber-Abhidhamma/actions/workflows/test.yml)
+[![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
+
 > **Mind = Computer · Karma = Algorithm · Rūpa-Paramattha = OOP Simulation**
 
 **Abhidhamma Cyber** is a framework that maps Buddhist Abhidhamma concepts into computable system architectures — from data structures and state machines to cybersecurity, operating systems, and AI.
