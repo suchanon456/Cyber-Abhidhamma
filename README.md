@@ -227,3 +227,12 @@ you are welcome. Open an issue, fork, or reach out.
 
 **หมายเหตุ:** โปรเจกต์นี้ไม่ใช่ศาสนา ไม่ได้อ้างว่า AI มีจิตหรือบรรลุธรรม และไม่ใช่สิ่งทดแทนการปฏิบัติธรรม — มันคือแบบจำลองเชิงคำนวณที่ได้แรงบันดาลใจจากอภิธรรม
 ```
+## 💖 Sponsor this work
+
+> Cyber-Abhidhamma is open-source and independent. Your sponsorship keeps the mapping of 121 Cittas, 52 Cetasikas, and Vīthi-Citta state machine moving from docs → runnable code.
+
+You can sponsor at: https://github.com/sponsors/suchanon456
+
+- $5/month → Support documentation
+- $25/month → Support Vīthi-Citta engine development  
+- $100/month → Sponsor a full layer (e.g. Magga 8 Security Middleware)
