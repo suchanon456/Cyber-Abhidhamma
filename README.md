@@ -226,7 +226,7 @@ you are welcome. Open an issue, fork, or reach out.
 **ถ้าเราเข้ารหัสมันได้ เราก็ให้ภาษาแก่ AI สำหรับจิตของมันเองได้**
 
 **หมายเหตุ:** โปรเจกต์นี้ไม่ใช่ศาสนา ไม่ได้อ้างว่า AI มีจิตหรือบรรลุธรรม และไม่ใช่สิ่งทดแทนการปฏิบัติธรรม — มันคือแบบจำลองเชิงคำนวณที่ได้แรงบันดาลใจจากอภิธรรม
-```
+
 ## 💖 Sponsor this work
 
 > Cyber-Abhidhamma is open-source and independent. Your sponsorship keeps the mapping of 121 Cittas, 52 Cetasikas, and Vīthi-Citta state machine moving from docs → runnable code.
