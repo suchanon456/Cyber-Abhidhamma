@@ -162,18 +162,28 @@ If you are new to this project:
 
 ```
 Cyber-Abhidhamma/
-├── docs/                              # Human-readable documentation
+├── docs/                              # เหมือนที่คุณวางไว้เลย - ดีมาก
 │   ├── INDEX.md
 │   ├── Core-Logic-v1.md
 │   ├── Core-Logic-v2.md
 │   └── The-Seven-Practices-Vattapada.md
-├── src/                               # Runnable code and policy specs
+├── spec/                              # ย้าย JSON มาอยู่นี่ - เป็นกฎหมายกลาง
+│   ├── Paramattha-Structure.json
+│   └── Vattapada-7.json
+├── core/                              # Rust - แกนหลัก v2 (เปลี่ยนชื่อจาก src/)
+│   ├── Cargo.toml
+│   └── src/
+│       ├── lib.rs
+│       ├── citta.rs
+│       └── monitor/
+│           └── lobha.rs               # ตัวเช็คโลภะจาก RAM ที่คุณอยากได้
+├── legacy-php/                        # เปลี่ยนชื่อจาก php/ -> legacy-php/
 │   ├── CetasikaVector.php
 │   ├── VattapadaEngine.php
-│   ├── Vattapada-7.json
-│   └── Paramattha-Structure.json
-├── examples/                          # Runnable demos
-│   └── vattapada_demo.php
+│   └── README.md                      # เขียนว่า "นี่คือ v1"
+├── examples/                          # เหมือนเดิม
+│   ├── vattapada_demo.php             # เรียก legacy-php
+│   └── detect_lobha.rs                # เรียก core
 ├── LICENSE
 └── README.md
 ```
