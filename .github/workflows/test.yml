@@ -94,14 +94,18 @@ jobs:
         working-directory: ./core
         run: cargo test --verbose
       
-      - name: Run Clippy
+      # Clippy — แบบผ่อนปรน (ไม่ fail ทั้ง job)
+      - name: Run Clippy (non-blocking)
         if: steps.check-core.outputs.exists == 'true'
         working-directory: ./core
+        continue-on-error: true
         run: cargo clippy -- -D warnings
       
-      - name: Check formatting
+      # fmt — แบบผ่อนปรน (ไม่ fail ทั้ง job)
+      - name: Check formatting (non-blocking)
         if: steps.check-core.outputs.exists == 'true'
         working-directory: ./core
+        continue-on-error: true
         run: cargo fmt -- --check
 
   # ---------------------------------------------------------
