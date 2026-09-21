@@ -27,13 +27,13 @@ jobs:
       
       - name: Validate JSON files
         run: |
-          php -r "json_decode(file_get_contents('src/Vattapada-7.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Vattapada-7.json: valid' . PHP_EOL;"
-          php -r "json_decode(file_get_contents('src/Paramattha-Structure.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Paramattha-Structure.json: valid' . PHP_EOL;"
+          php -r "json_decode(file_get_contents('spec/Vattapada-7.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Vattapada-7.json: valid' . PHP_EOL;"
+          php -r "json_decode(file_get_contents('spec/Paramattha-Structure.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Paramattha-Structure.json: valid' . PHP_EOL;"
       
       - name: Check PHP syntax
         run: |
-          php -l src/CetasikaVector.php
-          php -l src/VattapadaEngine.php
+          php -l legacy-php/CetasikaVector.php
+          php -l legacy-php/VattapadaEngine.php
           php -l examples/vattapada_demo.php
           php -l tests/VattapadaEngineTest.php
       
