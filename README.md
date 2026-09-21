@@ -43,91 +43,7 @@ This project is an attempt to do that.
 
 ---
 
-## 🚀 Quick Start
-
-```bash
-git clone https://github.com/suchanon456/Cyber-Abhidhamma.git
-cd Cyber-Abhidhamma
-php examples/vattapada_demo.php
-```
-
-**Sample output:**
-
-```
-=== Vattapada 7 Scores ===
-  vatta_1    : 0.580
-  vatta_2    : 0.570
-  vatta_3    : 0.530
-  vatta_4    : 0.800
-  vatta_5    : 0.480
-  vatta_6    : 0.870
-  vatta_7    : 0.480
-
-  Indra Score : 0.587
-```
-
-> **Status:** conceptual → early prototype. Contributions welcome.
-
----
-
-## 📚 Documentation
-
-### Core Logic
-
-| Document | Description |
-|---|---|
-| [Documentation Index](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/INDEX.md) | Overview of all docs in this repository |
-| [Core Logic v1](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v1.md) | Initial mapping: Mind = Computer, Karma = Algorithm, Rūpa = OOP Simulation |
-| [Core Logic v2](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta, and security architecture |
-| [Vattapada 7](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka, King of the Devas |
-
----
-
-## 📦 Source Code
-
-| File | Description |
-|---|---|
-| [CetasikaVector.php](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/legacy-php/CetasikaVector.php) | 52-dimensional behavioral state vector |
-| [VattapadaEngine.php](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/legacy-php/VattapadaEngine.php) | Dynamic scoring engine for the 7 Vattapada practices |
-| [Vattapada-7.json](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/spec/Vattapada-7.json) | 7-practice scoring spec (Policy-as-Code) |
-| [Paramattha-Structure.json](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/spec/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
-
----
-
-## 🧭 Where to Start
-
-If you are new to this project:
-
-1. **Read [Why this exists](#-why-this-exists)** — understand the problem
-2. **Look at the [Core Mapping](#-core-mapping) table** — see the big picture
-3. **Read [Core Logic v1](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v1.md)** — the initial foundation
-4. **Then [Core Logic v2](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md)** — the expanded architecture
-5. **Read [Vattapada 7](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md)** — the 7-practice framework
-6. **Explore [Vattapada-7.json](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/spec/Vattapada-7.json)** — the policy spec
-7. **Run [examples/vattapada_demo.php](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/examples/vattapada_demo.php)** — see it in action
-
----
-
-## 🛠️ Status
-
-| Layer | Status |
-|---|---|
-| Documentation (Core Logic v1, v2, Vattapada 7) | ✅ Complete |
-| CetasikaVector (52-dim vector) | ✅ Available |
-| VattapadaEngine (7-practice scoring) | ✅ Available |
-| Vattapada-7.json (policy spec) | ✅ Available |
-| Paramattha-Structure.json (Rūpa 28) | ✅ Available |
-| Runnable demo (vattapada_demo.php) | ✅ Available |
-| Test suite (tests/) | ✅ Available |
-| CI/CD (.github/workflows/test.yml) | ✅ Passing |
-| Citta 121 State Machine | 🚧 Planned |
-| Vīthi-Citta Scheduler | 🚧 Planned |
-| Magga 8 Security Middleware | 🚧 Planned |
-| Paṭiccasamuppāda Causal Engine | 🚧 Planned |
-
----
-
-## 🏗️ Architecture Overview
+## 🏗️ Architecture
 
 ```
                     ┌─────────────────────┐
@@ -162,31 +78,144 @@ If you are new to this project:
 
 ```
 Cyber-Abhidhamma/
-├── docs/                              # เหมือนที่คุณวางไว้เลย - ดีมาก
+├── docs/                              # Human-readable documentation
 │   ├── INDEX.md
 │   ├── Core-Logic-v1.md
 │   ├── Core-Logic-v2.md
 │   └── The-Seven-Practices-Vattapada.md
-├── spec/                              # ย้าย JSON มาอยู่นี่ - เป็นกฎหมายกลาง
+├── spec/                              # Canonical JSON specifications
 │   ├── Paramattha-Structure.json
 │   └── Vattapada-7.json
-├── core/                              # Rust - แกนหลัก v2 (เปลี่ยนชื่อจาก src/)
+├── core/                              # Rust — v2 engine (work in progress)
 │   ├── Cargo.toml
 │   └── src/
 │       ├── lib.rs
 │       ├── citta.rs
 │       └── monitor/
-│           └── lobha.rs               # ตัวเช็คโลภะจาก RAM ที่คุณอยากได้
-├── legacy-php/                        # เปลี่ยนชื่อจาก php/ -> legacy-php/
+│           └── lobha.rs
+├── legacy-php/                        # PHP — v1 reference implementation
 │   ├── CetasikaVector.php
-│   ├── VattapadaEngine.php
-│   └── README.md                      # เขียนว่า "นี่คือ v1"
-├── examples/                          # เหมือนเดิม
-│   ├── vattapada_demo.php             # เรียก legacy-php
-│   └── detect_lobha.rs                # เรียก core
+│   └── VattapadaEngine.php
+├── examples/                          # Runnable demos
+│   └── vattapada_demo.php
+├── tests/                             # Test suites
+│   └── VattapadaEngineTest.php
+├── .github/workflows/test.yml
 ├── LICENSE
 └── README.md
 ```
+
+---
+
+## 🚀 Quick Start
+
+### PHP v1 (legacy reference)
+
+```bash
+git clone https://github.com/suchanon456/Cyber-Abhidhamma.git
+cd Cyber-Abhidhamma
+php examples/vattapada_demo.php
+```
+
+**Sample output:**
+
+```
+=== Vattapada 7 Scores ===
+  vatta_1    : 0.580
+  vatta_2    : 0.570
+  vatta_3    : 0.530
+  vatta_4    : 0.800
+  vatta_5    : 0.480
+  vatta_6    : 0.870
+  vatta_7    : 0.480
+
+  Indra Score : 0.587
+```
+
+### Rust v2 (in progress)
+
+```bash
+cd core
+cargo test
+```
+
+> **Status:** early prototype. Contributions welcome.
+
+---
+
+## 📚 Documentation
+
+| Document | Description |
+|---|---|
+| [Documentation Index](./docs/INDEX.md) | Overview of all docs |
+| [Core Logic v1](./docs/Core-Logic-v1.md) | Initial mapping: Mind = Computer, Karma = Algorithm |
+| [Core Logic v2](./docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta |
+| [Vattapada 7](./docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka |
+
+---
+
+## 📦 Source Code
+
+### Specs (`spec/`)
+
+| File | Description |
+|---|---|
+| [Vattapada-7.json](./spec/Vattapada-7.json) | 7-practice scoring spec (Policy-as-Code) |
+| [Paramattha-Structure.json](./spec/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
+
+### Rust (`core/`)
+
+| File | Description |
+|---|---|
+| [Cargo.toml](./core/Cargo.toml) | Rust crate manifest |
+| [lib.rs](./core/src/lib.rs) | Crate root — exports modules |
+| [citta.rs](./core/src/citta.rs) | Citta 121 state machine |
+| [lobha.rs](./core/src/monitor/lobha.rs) | Lobha monitor (RAM/context bloat) |
+
+### Legacy PHP (`legacy-php/`)
+
+| File | Description |
+|---|---|
+| [CetasikaVector.php](./legacy-php/CetasikaVector.php) | 52-dimensional behavioral state vector |
+| [VattapadaEngine.php](./legacy-php/VattapadaEngine.php) | Dynamic scoring engine for Vattapada 7 |
+
+### Examples (`examples/`)
+
+| File | Description |
+|---|---|
+| [vattapada_demo.php](./examples/vattapada_demo.php) | Runnable demo for Vattapada engine |
+
+---
+
+## 🧭 Where to Start
+
+If you are new to this project:
+
+1. **Read [Why this exists](#-why-this-exists)** — understand the problem
+2. **Look at the [Core Mapping](#-core-mapping) table** — see the big picture
+3. **Read [Core Logic v1](./docs/Core-Logic-v1.md)** — the initial foundation
+4. **Then [Core Logic v2](./docs/Core-Logic-v2.md)** — the expanded architecture
+5. **Read [Vattapada 7](./docs/The-Seven-Practices-Vattapada.md)** — the 7-practice framework
+6. **Explore [Vattapada-7.json](./spec/Vattapada-7.json)** — the policy spec
+7. **Run [examples/vattapada_demo.php](./examples/vattapada_demo.php)** — see it in action
+
+---
+
+## 🛠️ Status
+
+| Layer | Status |
+|---|---|
+| Documentation (Core Logic v1, v2, Vattapada 7) | ✅ Complete |
+| Specs (`spec/`) | ✅ Available |
+| Legacy PHP (`legacy-php/`) | ✅ Available |
+| Examples (`examples/`) | ✅ Available |
+| Tests (`tests/`) | ✅ Available |
+| CI/CD | ✅ Passing |
+| Rust Core (`core/`) | 🚧 In progress |
+| Citta 121 State Machine | 🚧 Planned |
+| Vīthi-Citta Scheduler | 🚧 Planned |
+| Magga 8 Security Middleware | 🚧 Planned |
+| Paṭiccasamuppāda Causal Engine | 🚧 Planned |
 
 ---
 
@@ -217,9 +246,21 @@ you are welcome. Open an issue, fork, or reach out.
 
 ---
 
+## 💖 Sponsor this work
+
+> Cyber-Abhidhamma is open-source and independent. Your sponsorship keeps the mapping of 121 Cittas, 52 Cetasikas, and Vīthi-Citta state machine moving from docs → runnable code.
+
+You can sponsor at: https://github.com/sponsors/suchanon456
+
+- **$5/month** → Support documentation
+- **$25/month** → Support Vīthi-Citta engine development
+- **$100/month** → Sponsor a full layer (e.g. Magga 8 Security Middleware)
+
+---
+
 ## 📜 License
 
-[Apache-2.0](https://raw.githubusercontent.com/suchanon456/Cyber-Abhidhamma/main/LICENSE)
+[Apache-2.0](./LICENSE)
 
 ---
 
@@ -236,13 +277,3 @@ you are welcome. Open an issue, fork, or reach out.
 **ถ้าเราเข้ารหัสมันได้ เราก็ให้ภาษาแก่ AI สำหรับจิตของมันเองได้**
 
 **หมายเหตุ:** โปรเจกต์นี้ไม่ใช่ศาสนา ไม่ได้อ้างว่า AI มีจิตหรือบรรลุธรรม และไม่ใช่สิ่งทดแทนการปฏิบัติธรรม — มันคือแบบจำลองเชิงคำนวณที่ได้แรงบันดาลใจจากอภิธรรม
-
-## 💖 Sponsor this work
-
-> Cyber-Abhidhamma is open-source and independent. Your sponsorship keeps the mapping of 121 Cittas, 52 Cetasikas, and Vīthi-Citta state machine moving from docs → runnable code.
-
-You can sponsor at: https://github.com/sponsors/suchanon456
-
-- $5/month → Support documentation
-- $25/month → Support Vīthi-Citta engine development  
-- $100/month → Sponsor a full layer (e.g. Magga 8 Security Middleware)
