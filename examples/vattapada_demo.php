@@ -5,8 +5,8 @@
  * Run: php examples/vattapada_demo.php
  */
 
-require_once __DIR__ . '/../src/CetasikaVector.php';
-require_once __DIR__ . '/../src/VattapadaEngine.php';
+require_once __DIR__ . '/../legacy-php/CetasikaVector.php';
+require_once __DIR__ . '/../legacy-php/VattapadaEngine.php';
 
 echo "=== Vattapada 7 Demo ===\n";
 echo "Demonstrating the Vattapada scoring engine.\n\n";
