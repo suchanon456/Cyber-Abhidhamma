@@ -44,7 +44,7 @@ $wholesome->activate(42, 0.9); // sammavaca
 $wholesome->activate(47, 0.9); // panna
 
 $engine = new VattapadaEngine(
-    __DIR__ . '/../src/Vattapada-7.json',
+    __DIR__ . '/../spec/Vattapada-7.json',
     $wholesome
 );
 
@@ -62,7 +62,7 @@ $unwholesome->activate(20, 0.9); // dosa
 $unwholesome->activate(22, 0.9); // macchariya
 
 $engine2 = new VattapadaEngine(
-    __DIR__ . '/../src/Vattapada-7.json',
+    __DIR__ . '/../spec/Vattapada-7.json',
     $unwholesome
 );
 
