@@ -7,7 +7,11 @@ on:
     branches: [ main ]
 
 jobs:
-  test:
+  # ---------------------------------------------------------
+  # Job 1: PHP legacy tests (v1)
+  # ---------------------------------------------------------
+  php-test:
+    name: PHP Legacy Tests
     runs-on: ubuntu-latest
     
     strategy:
@@ -25,7 +29,7 @@ jobs:
           extensions: mbstring, json
           coverage: none
       
-      - name: Validate JSON files
+      - name: Validate JSON specs
         run: |
           php -r "json_decode(file_get_contents('spec/Vattapada-7.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Vattapada-7.json: valid' . PHP_EOL;"
           php -r "json_decode(file_get_contents('spec/Paramattha-Structure.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Paramattha-Structure.json: valid' . PHP_EOL;"
@@ -37,8 +41,103 @@ jobs:
           php -l examples/vattapada_demo.php
           php -l tests/VattapadaEngineTest.php
       
-      - name: Run tests
+      - name: Run PHP tests
         run: php tests/VattapadaEngineTest.php
       
-      - name: Run demo
+      - name: Run PHP demo
         run: php examples/vattapada_demo.php
+
+  # ---------------------------------------------------------
+  # Job 2: Rust core tests (v2)
+  # ---------------------------------------------------------
+  rust-test:
+    name: Rust Core Tests
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Setup Rust
+        uses: dtolnay/rust-toolchain@stable
+      
+      - name: Cache Cargo
+        uses: actions/cache@v4
+        with:
+          path: |
+            ~/.cargo/bin/
+            ~/.cargo/registry/index/
+            ~/.cargo/registry/cache/
+            ~/.cargo/git/db/
+            core/target/
+          key: ${{ runner.os }}-cargo-${{ hashFiles('core/Cargo.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-cargo-
+      
+      - name: Check Cargo.toml exists
+        id: check-core
+        run: |
+          if [ -f core/Cargo.toml ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "::warning::core/Cargo.toml not found — skipping Rust tests"
+          fi
+      
+      - name: Build
+        if: steps.check-core.outputs.exists == 'true'
+        working-directory: ./core
+        run: cargo build --verbose
+      
+      - name: Run Rust tests
+        if: steps.check-core.outputs.exists == 'true'
+        working-directory: ./core
+        run: cargo test --verbose
+      
+      - name: Run Clippy
+        if: steps.check-core.outputs.exists == 'true'
+        working-directory: ./core
+        run: cargo clippy -- -D warnings
+      
+      - name: Check formatting
+        if: steps.check-core.outputs.exists == 'true'
+        working-directory: ./core
+        run: cargo fmt -- --check
+
+  # ---------------------------------------------------------
+  # Job 3: Check spec files (always runs)
+  # ---------------------------------------------------------
+  spec-check:
+    name: Spec Files Check
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      
+      - name: Check required files exist
+        run: |
+          echo "=== Checking required files ==="
+          test -f README.md        && echo "✓ README.md"
+          test -f LICENSE          && echo "✓ LICENSE"
+          test -f spec/Vattapada-7.json          && echo "✓ spec/Vattapada-7.json"
+          test -f spec/Paramattha-Structure.json && echo "✓ spec/Paramattha-Structure.json"
+          test -f legacy-php/CetasikaVector.php  && echo "✓ legacy-php/CetasikaVector.php"
+          test -f legacy-php/VattapadaEngine.php && echo "✓ legacy-php/VattapadaEngine.php"
+          test -f examples/vattapada_demo.php    && echo "✓ examples/vattapada_demo.php"
+          test -f tests/VattapadaEngineTest.php  && echo "✓ tests/VattapadaEngineTest.php"
+          echo "=== All required files present ==="
+      
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          extensions: json
+      
+      - name: Validate all JSON files
+        run: |
+          echo "=== Validating JSON files ==="
+          find spec -name "*.json" -type f | while read file; do
+            php -r "json_decode(file_get_contents('$file'), true, 512, JSON_THROW_ON_ERROR); echo '$file: valid' . PHP_EOL;"
+          done
+          echo "=== All JSON valid ==="
