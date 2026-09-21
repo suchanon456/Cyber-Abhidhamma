@@ -25,7 +25,7 @@ $vector->activate(42, 0.9);  // sammavaca
 $vector->activate(47, 0.9);  // panna
 
 $engine = new VattapadaEngine(
-    __DIR__ . '/../src/Vattapada-7.json',
+    __DIR__ . '/../legacy-php/Vattapada-7.json',
     $vector
 );
 
