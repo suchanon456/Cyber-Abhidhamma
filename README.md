@@ -89,10 +89,11 @@ Cyber-Abhidhamma/
 ├── core/                              # Rust — v2 engine (work in progress)
 │   ├── Cargo.toml
 │   └── src/
-│       ├── lib.rs
-│       ├── citta.rs
-│       └── monitor/
-│           └── lobha.rs
+│       ├── lib.rs                     # Crate root — exports modules
+│       ├── citta.rs                   # Citta 121 state machine
+│       └── monitor/                   # Runtime monitors
+│           ├── mod.rs                 # Monitor module root
+│           └── lobha.rs               # Lobha monitor
 ├── legacy-php/                        # PHP — v1 reference implementation
 │   ├── CetasikaVector.php
 │   └── VattapadaEngine.php
@@ -170,7 +171,8 @@ cargo test
 | [Cargo.toml](./core/Cargo.toml) | Rust crate manifest |
 | [lib.rs](./core/src/lib.rs) | Crate root — exports modules |
 | [citta.rs](./core/src/citta.rs) | Citta 121 state machine |
-| [lobha.rs](./core/src/monitor/lobha.rs) | Lobha monitor (RAM/context bloat) |
+| [mod.rs](./core/src/monitor/mod.rs) | Monitor module root |
+| [lobha.rs](./core/src/monitor/lobha.rs) | Lobha monitor |
 
 ### Legacy PHP (`legacy-php/`)
 
