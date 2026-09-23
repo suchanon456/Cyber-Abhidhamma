@@ -16,5 +16,5 @@
 pub mod citta;
 pub mod monitor;
 
-pub use citta::Citta;
+pub use citta::{citta_knows, citta_moment, citta_stream, citta_anatta, citta_with_cetasika, Cognition};
 pub use monitor::lobha::LobhaMonitor;
