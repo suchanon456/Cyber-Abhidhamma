@@ -52,6 +52,7 @@ use crate::monitor::lobha::LobhaWithFields;
 /// ## ตัวอย่าง
 ///
 /// ```
+/// use cyber_abhidhamma::citta_knows;
 /// let cognition = citta_knows("gold");
 /// assert_eq!(cognition, "gold is known");
 /// ```
@@ -75,6 +76,7 @@ pub fn citta_knows(object: &str) -> String {
 /// ## ตัวอย่าง
 ///
 /// ```
+/// use cyber_abhidhamma::citta_moment;
 /// let moment1 = citta_moment(1);
 /// let moment2 = citta_moment(2);
 /// // moment1 และ moment2 ไม่มี "ความจำ" ร่วมกัน
@@ -99,9 +101,8 @@ pub fn citta_moment(id: u32) -> String {
 /// ## ตัวอย่าง
 ///
 /// ```
-/// let stream: Vec<String> = (1..=5)
-///     .map(citta_moment)
-///     .collect();
+/// use cyber_abhidhamma::citta_stream;
+/// let stream: Vec<String> = citta_stream(5);
 /// assert_eq!(stream.len(), 5);
 /// ```
 pub fn citta_stream(count: u32) -> Vec<String> {
@@ -124,10 +125,9 @@ pub fn citta_stream(count: u32) -> Vec<String> {
 /// ## ตัวอย่าง
 ///
 /// ```
-/// // ไม่มี "ตัวตน" ของ citta — มีแค่การทำงาน
+/// use cyber_abhidhamma::citta_knows;
 /// let a = citta_knows("red");
 /// let b = citta_knows("blue");
-/// // a และ b ไม่ได้ "เป็น" อะไร — มันแค่ "ทำงาน"
 /// ```
 pub fn citta_anatta(object: &str) -> String {
     citta_knows(object)
@@ -148,9 +148,9 @@ pub fn citta_anatta(object: &str) -> String {
 /// ## ตัวอย่าง
 ///
 /// ```
-/// let lobha = Lobha::new();
+/// use cyber_abhidhamma::{citta_with_cetasika, LobhaWithFields};
+/// let lobha = LobhaWithFields::new("gold");
 /// let cognition = citta_with_cetasika("gold", lobha);
-/// // "gold" = อารมณ์, lobha = เจตสิก
 /// ```
 pub fn citta_with_cetasika(object: &str, lobha: LobhaWithFields) -> Cognition {
     Cognition {
