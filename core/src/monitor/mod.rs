@@ -2,4 +2,4 @@
 
 pub mod lobha;
 
-pub use lobha::{Lobha, LobhaMonitor, LobhaObservation, CittaCognition, CittaKind};
+pub use lobha::{Lobha, LobhaWithFields};
