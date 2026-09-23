@@ -36,7 +36,7 @@
 //!
 //! ---
 
-use crate::monitor::lobha::Lobha;
+use crate::monitor::lobha::LobhaWithFields;
 
 // =========================================================
 // 1. จิต = fn — การรู้แจ้งอารมณ์
@@ -152,11 +152,11 @@ pub fn citta_anatta(object: &str) -> String {
 /// let cognition = citta_with_cetasika("gold", lobha);
 /// // "gold" = อารมณ์, lobha = เจตสิก
 /// ```
-pub fn citta_with_cetasika(object: &str, lobha: Lobha) -> Cognition {
+pub fn citta_with_cetasika(object: &str, lobha: LobhaWithFields) -> Cognition {
     Cognition {
         object: object.to_string(),
-        lobha_active: lobha.is_active(),
-        lobha_intensity: lobha.intensity(),
+        lobha_active: lobha.is_grasping(),
+        lobha_intensity: if lobha.is_grasping() { 1.0 } else { 0.0 },
     }
 }
 
@@ -225,21 +225,19 @@ mod tests {
 
     #[test]
     fn fn_with_cetasika_like_citta() {
-        // fn + parameter = จิต + เจตสิก
-        let mut lobha = Lobha::new();
-        lobha.arise(0.8, "gold");
-
+        let mut lobha = LobhaWithFields::new("gold");
+        lobha.grasp();
+    
         let cog = citta_with_cetasika("gold", lobha);
         assert_eq!(cog.object, "gold");
         assert!(cog.lobha_active);
-        assert_eq!(cog.lobha_intensity, 0.8);
+        assert_eq!(cog.lobha_intensity, 1.0);
     }
-
+    
     #[test]
     fn fn_without_cetasika_like_citta() {
-        // fn + parameter = จิต + เจตสิก
-        let lobha = Lobha::new(); // lobha ไม่ active
-
+        let lobha = LobhaWithFields::new("water");
+    
         let cog = citta_with_cetasika("water", lobha);
         assert_eq!(cog.object, "water");
         assert!(!cog.lobha_active);
