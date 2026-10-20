@@ -148,10 +148,10 @@ cargo test
 
 | Document | Description |
 |---|---|
-| [Documentation Index](./docs/INDEX.md) | Overview of all docs |
-| [Core Logic v1](./docs/Core-Logic-v1.md) | Initial mapping: Mind = Computer, Karma = Algorithm |
-| [Core Logic v2](./docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta |
-| [Vattapada 7](./docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka |
+| [Documentation Index](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/INDEX.md) | Overview of all docs |
+| [Core Logic v1](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v1.md) | Initial mapping: Mind = Computer, Karma = Algorithm |
+| [Core Logic v2](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta |
+| [Vattapada 7](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka |
 
 ---
 
@@ -161,31 +161,31 @@ cargo test
 
 | File | Description |
 |---|---|
-| [Vattapada-7.json](./spec/Vattapada-7.json) | 7-practice scoring spec (Policy-as-Code) |
-| [Paramattha-Structure.json](./spec/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
+| [Vattapada-7.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Vattapada-7.json) | 7-practice scoring spec (Policy-as-Code) |
+| [Paramattha-Structure.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
 
 ### Rust (`core/`)
 
 | File | Description |
 |---|---|
-| [Cargo.toml](./core/Cargo.toml) | Rust crate manifest |
-| [lib.rs](./core/src/lib.rs) | Crate root — exports modules |
-| [citta.rs](./core/src/citta.rs) | Citta 121 state machine |
-| [mod.rs](./core/src/monitor/mod.rs) | Monitor module root |
-| [lobha.rs](./core/src/monitor/lobha.rs) | Lobha monitor |
+| [Cargo.toml](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/Cargo.toml) | Rust crate manifest |
+| [lib.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/lib.rs) | Crate root — exports modules |
+| [citta.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/citta.rs) | Citta 121 state machine |
+| [mod.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/monitor/mod.rs) | Monitor module root |
+| [lobha.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/monitor/lobha.rs) | Lobha monitor |
 
 ### Legacy PHP (`legacy-php/`)
 
 | File | Description |
 |---|---|
-| [CetasikaVector.php](./legacy-php/CetasikaVector.php) | 52-dimensional behavioral state vector |
-| [VattapadaEngine.php](./legacy-php/VattapadaEngine.php) | Dynamic scoring engine for Vattapada 7 |
+| [CetasikaVector.php](https://github.com/suchanon456/Cyber-Abhidhamma/main/legacy-php/CetasikaVector.php) | 52-dimensional behavioral state vector |
+| [VattapadaEngine.php](https://github.com/suchanon456/Cyber-Abhidhamma/main/legacy-php/VattapadaEngine.php) | Dynamic scoring engine for Vattapada 7 |
 
 ### Examples (`examples/`)
 
 | File | Description |
 |---|---|
-| [vattapada_demo.php](./examples/vattapada_demo.php) | Runnable demo for Vattapada engine |
+| [vattapada_demo.php](https://github.com/suchanon456/Cyber-Abhidhamma/main/examples/vattapada_demo.php) | Runnable demo for Vattapada engine |
 
 ---
 
@@ -195,11 +195,11 @@ If you are new to this project:
 
 1. **Read [Why this exists](#-why-this-exists)** — understand the problem
 2. **Look at the [Core Mapping](#-core-mapping) table** — see the big picture
-3. **Read [Core Logic v1](./docs/Core-Logic-v1.md)** — the initial foundation
-4. **Then [Core Logic v2](./docs/Core-Logic-v2.md)** — the expanded architecture
-5. **Read [Vattapada 7](./docs/The-Seven-Practices-Vattapada.md)** — the 7-practice framework
-6. **Explore [Vattapada-7.json](./spec/Vattapada-7.json)** — the policy spec
-7. **Run [examples/vattapada_demo.php](./examples/vattapada_demo.php)** — see it in action
+3. **Read [Core Logic v1](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v1.md)** — the initial foundation
+4. **Then [Core Logic v2](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md)** — the expanded architecture
+5. **Read [Vattapada 7](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md)** — the 7-practice framework
+6. **Explore [Vattapada-7.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Vattapada-7.json)** — the policy spec
+7. **Run [examples/vattapada_demo.php](https://github.com/suchanon456/Cyber-Abhidhamma/main/examples/vattapada_demo.php)** — see it in action
 
 ---
 
@@ -262,7 +262,7 @@ You can sponsor at: https://github.com/sponsors/suchanon456
 
 ## 📜 License
 
-[Apache-2.0](./LICENSE)
+[Apache-2.0](https://github.com/suchanon456/Cyber-Abhidhamma/main/LICENSE)
 
 ---
 
