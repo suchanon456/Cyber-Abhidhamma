@@ -165,8 +165,8 @@ cargo test
 | File | Description |
 |---|---|
 | [Vattapada-7.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Vattapada-7.json) | 7-practice scoring spec (Policy-as-Code) |
-| [Paramattha-Structure-v1-OOP.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Paramattha-Structure-v1-OOP.json) | Rūpa 28 mapping — hardware layer |
-| [Paramattha-Structure-v2-Silicon.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Paramattha-Structure-v2-Silicon.json) | Rūpa 28 Hardware Silicon |
+| [Paramattha-Structure.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
+| [Rupa-Structure-Silicon.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Rupa-Structure-Silicon.json) | Rūpa 28 Hardware Silicon |
 
 ### Rust (`core/`)
 
