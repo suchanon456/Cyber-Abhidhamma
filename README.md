@@ -180,6 +180,7 @@ Log: kernel: Out of memory: Kill process 1234 (chrome) - 99% RAM used
 | [Core Logic v2](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta |
 | [Core Logic v3](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v3.md) | Expanded: Rūpa-Paramattha = On-board Dhamma Firmware / Self-aware Silicon |
 | [Vattapada 7](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka |
+| [Poetic Dhamma Prompt Lab](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/README.md) | Poetic Dhamma Prompt Lab |
 
 ---
 
