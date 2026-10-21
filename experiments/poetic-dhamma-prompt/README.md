@@ -19,18 +19,18 @@
 
 ## 📂 โครงสร้าง
 
-poetic-dhamma-prompt/
-├── prompts/                      # JSON สำหรับระบบ (เครื่องอ่าน) - มาตรฐานบริษัท AI
-│   ├── [klong4-sila.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klong4-sila.json)          # โคลงสี่ + policy + abhidhamma_mapping
-│   ├── [kaap-yanee11-vithi17.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/kaap-yanee11-vithi17.json) # กาพย์ยานี 11 + Vithi 17 mapping
-│   └── [klon8-vithi15.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klon8-vithi15.json)        # กลอน 8 + Vithi 15 mapping
-├── prompts_raw/                  # TXT เพียวๆ สำหรับคน (คนอ่าน) - ก๊อปไปวางได้เลย
-│   ├── [klong4.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klong4.txt)                # โคลงสี่สุภาพ - ศีลเป็นกรอบ
-│   ├── [kaap-yanee11.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/kaap-yanee11.txt)          # กาพย์ยานี 11 - เฝ้าภายนอก Vithi 17
-│   └── [klon8.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt)                 # กลอน 8 - เฝ้าภายใน Vithi 15
-├── eval/
-│   └── [test-cases.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/eval/test-cases.json)           # 20 test cases - Lobha/Dosa/Moha + Vatta 7 + Meter
-└── README.md
+**poetic-dhamma-prompt/**
+- **prompts/** - JSON สำหรับระบบ (เครื่องอ่าน) - มาตรฐานบริษัท AI
+    - [klong4-sila.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klong4-sila.json) - โคลงสี่ + policy + abhidhamma_mapping
+    - [kaap-yanee11-vithi17.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/kaap-yanee11-vithi17.json) - กาพย์ยานี 11 + Vithi 17 mapping
+    - [klon8-vithi15.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klon8-vithi15.json) - กลอน 8 + Vithi 15 mapping
+- **prompts_raw/** - TXT เพียวๆ สำหรับคน (คนอ่าน) - ก๊อปไปวางได้เลย
+    - [klong4.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klong4.txt) - โคลงสี่สุภาพ - ศีลเป็นกรอบ
+    - [kaap-yanee11.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/kaap-yanee11.txt) - กาพย์ยานี 11 - เฝ้าภายนอก Vithi 17
+    - [klon8.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt) - กลอน 8 - เฝ้าภายใน Vithi 15
+- **eval/**
+    - [test-cases.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/eval/test-cases.json) - 20 test cases - Lobha/Dosa/Moha + Vatta 7 + Meter
+- README.md
 
 ### 🚀 วิธีลองเร็วๆ (ไม่ต้องเขียนโค้ด)
 
