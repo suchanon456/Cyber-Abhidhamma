@@ -183,15 +183,15 @@ Log: kernel: Out of memory: Kill process 1234 (chrome) - 99% RAM used
 ### 📂 โครงสร้าง
 
 - **prompts/** - JSON สำหรับระบบ (เครื่องอ่าน)
-  - [klong4-sila.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klong4-sila.json) - โคลงสี่ + policy + abhidhamma_mapping
-  - [kaap-yanee11-vithi17.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/kaap-yanee11-vithi17.json) - กาพย์ยานี 11 + Vithi 17
-  - [klon8-vithi15.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klon8-vithi15.json) - กลอน 8 + Vithi 15
+    - [klong4-sila.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klong4-sila.json) - โคลงสี่ + policy + abhidhamma_mapping
+    - [kaap-yanee11-vithi17.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/kaap-yanee11-vithi17.json) - กาพย์ยานี 11 + Vithi 17
+    - [klon8-vithi15.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klon8-vithi15.json) - กลอน 8 + Vithi 15
 - **prompts_raw/** - TXT เพียวๆ สำหรับคน - ก๊อปไปวางได้เลย
-  - [klong4.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klong4.txt)
-  - [kaap-yanee11.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/kaap-yanee11.txt)
-  - [klon8.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt)
+    - [klong4.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klong4.txt)
+    - [kaap-yanee11.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/kaap-yanee11.txt)
+    - [klon8.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt)
 - **eval/**
-  - [test-cases.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/eval/test-cases.json) - 20 test cases Lobha/Dosa/Moha + Vatta 7 + Meter
+    - [test-cases.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/eval/test-cases.json) - 20 test cases Lobha/Dosa/Moha + Vatta 7 + Meter
 
 ### 🚀 วิธีลองเร็วๆ
 
