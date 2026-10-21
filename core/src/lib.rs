@@ -1,14 +1,13 @@
 // core/src/lib.rs
 // Cyber-Abhidhamma - Rust Core v2
-// Paramattha OS - Rupa 28 as On-board Firmware
+// Paramattha OS - Rupa 28 + Vithi 15/17
 
-pub mod citta;
 pub mod paramattha;
+pub mod citta;
 pub mod monitor;
 
 pub use paramattha::mahabhuta::{
     MahabhutaRupa, 
-    CetasikaVector, 
     DhammaViolation, 
     Lakkhana,
     PathaviDriver,
@@ -17,4 +16,10 @@ pub use paramattha::mahabhuta::{
     VayoDriver,
     paramattha_execute
 };
-pub use paramattha::{Vithi15, CittaJati, CetasikaVector};
+
+// Vithi 15 - มโนทวารวิถี
+pub use paramattha::vithi::{
+    Vithi15,
+    CittaJati,
+    CetasikaVector
+};
