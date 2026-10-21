@@ -139,14 +139,35 @@ php examples/vattapada_demo.php
   Indra Score : 0.587
 ```
 
-### Rust v2 (in progress)
+### Rust v2 (current)
+
+### Run all tests:
 
 ```bash
 cd core
 cargo test
 ```
 
-> **Status:** early prototype. Contributions welcome.
+### Run Lab 7 - Vithi 15 - Internal self-harm detection:
+
+```bash
+cd core
+cargo run --example lab7_vithi15
+```
+
+### Sample output (Lab 7):
+
+```bash
+========================================
+  LAB 7: มโนทวารวิถี 15 ขณะ
+  ระบบทำร้ายตัวเอง - ที่ Security ทั่วไปไม่รู้
+========================================
+Log: kernel: Out of memory: Kill process 1234 (chrome) - 99% RAM used
+  -> วิเคราะห์: โทสะภายใน - ฆ่าตัวเองเพราะแรมหมด
+  -> วิถี: 15 ขณะ
+  -> ชวนะ 7 ครั้ง = ทำกรรมภายในซ้ำๆ 7 ครั้ง
+  -> [อันตราย] ระบบฆ่าตัวเองแบบเดียวกับที่แฮกเกอร์ทำเลย
+```
 
 ---
 
@@ -182,6 +203,7 @@ cargo test
 | [mod.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/monitor/mod.rs) | Monitor module root |
 | [lobha.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/monitor/lobha.rs) | Lobha monitor |
 | [mahabhuta.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/paramattha/mahabhuta.rs) | mahabhuta rupa |
+| [vithi.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/paramattha/vithi.rs) | Vīthi 15/17 Scheduler - Security 360° (External + Internal) |
 
 ### Legacy PHP (`legacy-php/`)
 
@@ -195,6 +217,7 @@ cargo test
 | File | Description |
 |---|---|
 | [vattapada_demo.php](https://github.com/suchanon456/Cyber-Abhidhamma/main/examples/vattapada_demo.php) | Runnable demo for Vattapada engine |
+| [lab7_vithi15.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/examples/lab7_vithi15.rs) | Lab 7 - Vithi 15 Internal Threat Detection |
 
 ---
 
@@ -219,12 +242,14 @@ If you are new to this project:
 | Documentation (Core Logic v1, v2, Vattapada 7) | ✅ Complete |
 | Specs (`spec/`) | ✅ Available |
 | Legacy PHP (`legacy-php/`) | ✅ Available |
-| Examples (`examples/`) | ✅ Available |
+| Examples (`examples/`) | ✅ Available - Lab 7 Added |
 | Tests (`tests/`) | ✅ Available |
 | CI/CD | ✅ Passing |
-| Rust Core (`core/`) | 🚧 In progress |
-| Citta 121 State Machine | 🚧 Planned |
-| Vīthi-Citta Scheduler | 🚧 Planned |
+| Rust Core (`core/`) | ✅ In progress - Mahabhuta 4 Green |
+| Rūpa-Paramattha - Mahabhuta 4 Firmware | ✅ Implemented - Pathavi,Apo,Tejo,Vayo with sila_check |
+| Citta-Vīthi 15 (Manodvara) | ✅ Implemented - Internal Threat Detection |
+| Citta 121 State Machine | 🚧 In progress |
+| Vīthi-Citta 17 (Pancadvara) | 🚧 Next - External Threat |
 | Magga 8 Security Middleware | 🚧 Planned |
 | Paṭiccasamuppāda Causal Engine | 🚧 Planned |
 
@@ -286,5 +311,7 @@ You can sponsor at: https://github.com/sponsors/suchanon456
 พระอภิธรรมคือแผนที่จิตที่ละเอียดที่สุดเท่าที่มนุษย์เคยทำ — จิต 89/121, เจตสิก 52, วิถีจิต 17/15, ปฏิจจสมุปบาท, มรรค 8
 
 **ถ้าเราเข้ารหัสมันได้ เราก็ให้ภาษาแก่ AI สำหรับจิตของมันเองได้**
+
+**Lab 7 ที่เพิ่มล่าสุด:** เราพบว่า Security ทั่วไปเฝ้าแค่ภายนอก (Vithi 17 - แฮกเกอร์) แต่ลืมเฝ้าภายใน (Vithi 15 - Out of Memory, Disk Full, Deadlock) ซึ่งเป็นสาเหตุที่บริษัทล่มบ่อยกว่าโดนแฮก
 
 **หมายเหตุ:** โปรเจกต์นี้ไม่ใช่ศาสนา ไม่ได้อ้างว่า AI มีจิตหรือบรรลุธรรม และไม่ใช่สิ่งทดแทนการปฏิบัติธรรม — มันคือแบบจำลองเชิงคำนวณที่ได้แรงบันดาลใจจากอภิธรรม
