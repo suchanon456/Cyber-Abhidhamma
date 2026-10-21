@@ -93,6 +93,10 @@ Cyber-Abhidhamma/
 │   └── src/
 │       ├── lib.rs                     # Crate root — exports modules
 │       ├── citta.rs                   # Citta 121 state machine
+│       ├── paramattha/
+│       │   ├── mod.rs                 # Paramattha module root
+│       │   ├── mahabhuta.rs           # Rūpa 28 - Mahabhuta 4 Firmware (Pathavi,Apo,Tejo,Vayo)
+│       │   └── vithi.rs               # Vīthi 15/17 - Clock Cycle Scheduler
 │       └── monitor/                   # Runtime monitors
 │           ├── mod.rs                 # Monitor module root
 │           └── lobha.rs               # Lobha monitor
