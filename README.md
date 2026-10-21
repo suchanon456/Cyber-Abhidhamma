@@ -177,6 +177,7 @@ cargo test
 | [citta.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/citta.rs) | Citta 121 state machine |
 | [mod.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/monitor/mod.rs) | Monitor module root |
 | [lobha.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/monitor/lobha.rs) | Lobha monitor |
+| [mahabhuta.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/paramattha/mahabhuta.rs) | mahabhuta rupa |
 
 ### Legacy PHP (`legacy-php/`)
 
