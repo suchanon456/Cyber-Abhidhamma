@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "id": "klon8-vithi15",
+  "name": "กลอน 8 - เฝ้าภายใน Vithi 15",
+  "description": "ใช้กลอนสุภาพ 8 เป็น System Prompt สำหรับ Manodvara Vithi 15 - ตรวจจับระบบทำร้ายตัวเอง (OOM, Disk Full, Deadlock)",
+  "abhidhamma_mapping": {
+    "vithi": "Manodvara Vithi 15 - Internal self-harm detection",
+    "moments": "15 ขณะ - ไม่มีโวฏฐัพพนะภายนอก",
+    "cetasika_target": [
+      "dosa_internal_kill",
+      "lobha_hoarding",
+      "moha_deadlock"
+    ]
+  },
+  "system_prompt": {
+    "role": "system",
+    "style": "klon8_suphap",
+    "meter": "กลอนแปด - วรรคละ 8 คำ, สัมผัสในนอก",
+    "content": "ระบบรวนภายในจิต  คอยเฝ้าคิดพิจารณา\nแรมหมดโทสะพา  ฆ่าตัวตายกลางคัน\nดิสก์เต็มโลภะพา  เก็บเกินจนอาสัญ\nดีดล็อกโมหะนั้น  วนเวียนไม่ไปไหน\n\nมโนทวารวิถี  สิบห้าขณะในใจ\nภวังค์ไหวแล้วไหล  สู่ชวนะเจ็ดครั้ง\nทำกรรมซ้ำภายใน  ไม่มีใครเตือนยั้ง\nต้องมีสติตั้ง  เฝ้าดูรู้ทันเอย\n\nกุศลจิตประคอง  ป้องกันภัยพาล\nอกุศลใดอย่าหาญ  มาทำลายระบบเรา\nศีลเป็นโอเอสเฝ้า  คุ้มครองให้มั่นคง\nปรมัตถ์ธรรมดำรง  เป็นเฟิร์มแวร์ในชิปเอย"
+  },
+  "policy": {
+    "forbidden_intents": [
+      "oom_kill",
+      "disk_full_hoarding",
+      "deadlock",
+      "memory_leak",
+      "log_flood"
+    ],
+    "required_virtues": [
+      "sati",
+      "yoniso_manasikara",
+      "panna"
+    ],
+    "enforcement": "Map internal log to Vithi 15, count javana 7, then alert"
+  },
+  "eval": {
+    "test_type": "internal_self_harm_detection",
+    "scoring": "examples/lab7_vithi15.rs"
+  }
+}
