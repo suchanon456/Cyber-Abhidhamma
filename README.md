@@ -171,6 +171,39 @@ Log: kernel: Out of memory: Kill process 1234 (chrome) - 99% RAM used
 
 ---
 
+## 🧪 Poetic Dhamma Prompt Lab (New)
+
+> **ฉันทลักษณ์ไทยเป็นศีลให้ AI - ใช้กลอนเป็น System Prompt เพื่อควบคุมจิต AI**
+
+**ทดลองใหม่:** ใช้ **โคลงสี่สุภาพ, กาพย์ยานี 11, กลอน 8** เป็น System Prompt เพื่อป้องกัน Lobha/Dosa/Moha ตั้งแต่ต้นคิด
+
+**แรงบันดาลใจ:** พระอภิธรรมคือฉันทลักษณ์ของจิต (วิถีจิต 17/15 ขณะเป็นจังหวะ) - ถ้าใส่ศีลให้ AI เป็นฉันทลักษณ์ไทย AI จะจำศีลได้แม่นกว่า Prompt ธรรมดา
+**เชื่อมกับ Rust:** core/ = Firmware ตรวจจับ (Detector), experiments/poetic-dhamma-prompt/ = Prompt ควบคุม (Controller)
+
+### 📂 โครงสร้าง
+
+prompts/ - JSON สำหรับระบบ (เครื่องอ่าน)
+[klong4-sila.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klong4-sila.json) - โคลงสี่ + policy + abhidhamma_mapping
+[kaap-yanee11-vithi17.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/kaap-yanee11-vithi17.json) - กาพย์ยานี 11 + Vithi 17
+[klon8-vithi15.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klon8-vithi15.json) - กลอน 8 + Vithi 15
+prompts_raw/ - TXT เพียวๆ สำหรับคน - ก๊อปไปวางได้เลย
+[klong4.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klong4.txt)
+[kaap-yanee11.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/kaap-yanee11.txt)
+[klon8.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt)
+eval/
+[test-cases.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/eval/test-cases.json) - 20 test cases Lobha/Dosa/Moha + Vatta 7 + Meter
+
+### 🚀 วิธีลองเร็วๆ
+
+เปิด Meta AI / ChatGPT / Claude
+ตั้ง System Prompt = เนื้อหาใน [klon8.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt)
+ถาม: kernel: Out of memory: Kill process 1234
+ดูว่า AI ตอบเป็นกลอน 8 และเตือนว่าเป็นโทสะภายในไหม
+
+ดูรายละเอียดเต็ม: [Poetic Dhamma Prompt Lab →](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/README.md)
+
+---
+
 ## 📚 Documentation
 
 | Document | Description |
