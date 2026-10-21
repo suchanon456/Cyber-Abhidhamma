@@ -6,7 +6,7 @@
 - [Core Logic v3](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v3.md) — Expanded: Rūpa-Paramattha = On-board Dhamma Firmware / Self-aware Silicon
 
 ## Paramattha Structure
-- [Overview](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Paramattha-Structure.json) — Rūpa 28 mapped to OS/Hardware
+- [V1-OOP](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Paramattha-Structure-v1-OOP.json) — Rūpa 28 mapped to OS/Hardware
 
 ## The Seven Practices Vattapada (Admin AI)
 - [Vattapada 7](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md) — The Seven Practices Leading to Becoming Sakka, King of the Devas.
