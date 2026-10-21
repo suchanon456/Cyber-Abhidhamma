@@ -17,3 +17,4 @@ pub use paramattha::mahabhuta::{
     VayoDriver,
     paramattha_execute
 };
+pub use paramattha::{Vithi15, CittaJati, CetasikaVector};
