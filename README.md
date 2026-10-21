@@ -33,7 +33,7 @@ This project is an attempt to do that.
 |---|---|
 | Citta (Mind) | Runtime Engine / CPU |
 | Cetasika (52) | Behavioral Data Structure / Feature Vector |
-| Rūpa-Paramattha (28) | Hardware Virtualization / OOP Simulation |
+| Rūpa-Paramattha (28) | On-board Dhamma Firmware / Self-aware Silicon |  
 | Karma | Algorithm / Execution Logic |
 | Citta-Vīthi (17/15 moments) | Clock Cycles / State Machine |
 | Paṭiccasamuppāda | Causal Execution Graph |
@@ -84,7 +84,9 @@ Cyber-Abhidhamma/
 │   ├── Core-Logic-v2.md
 │   └── The-Seven-Practices-Vattapada.md
 ├── spec/                              # Canonical JSON specifications
-│   ├── Paramattha-Structure.json
+│   ├── Paramattha-Structure-v1-OOP.json   # Legacy OOP
+│   ├── Paramattha-Structure-v2-Silicon.json # Current Silicon
+│   ├── Paramattha-Structure.json -> v2 (symlink)
 │   └── Vattapada-7.json
 ├── core/                              # Rust — v2 engine (work in progress)
 │   ├── Cargo.toml
