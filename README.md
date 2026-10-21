@@ -3,7 +3,7 @@
 [![Test](https://github.com/suchanon456/Cyber-Abhidhamma/actions/workflows/test.yml/badge.svg)](https://github.com/suchanon456/Cyber-Abhidhamma/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 
-> **Mind as Computer · Karma = Algorithm · Rūpa-Paramattha = OOP Simulation**
+> **Mind as Computer · Karma = Algorithm · Rūpa-Paramattha = On-board Dhamma Firmware / Self-aware Silicon**
 
 **Abhidhamma Cyber** is a framework that maps Buddhist Abhidhamma concepts into computable system architectures — from data structures and state machines to cybersecurity, operating systems, and AI.
 
@@ -151,6 +151,7 @@ cargo test
 | [Documentation Index](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/INDEX.md) | Overview of all docs |
 | [Core Logic v1](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v1.md) | Initial mapping: Mind = Computer, Karma = Algorithm |
 | [Core Logic v2](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta |
+| [Core Logic v3](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v3.md) | Expanded: Rūpa-Paramattha = On-board Dhamma Firmware / Self-aware Silicon |
 | [Vattapada 7](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka |
 
 ---
