@@ -12,9 +12,22 @@
 //! ## Status
 //!
 //! Early prototype. Not production-ready.
+// core/src/lib.rs
+// Cyber-Abhidhamma - Rust Core v2
+// Paramattha OS - Rupa 28 as On-board Firmware
 
 pub mod citta;
+pub mod paramattha;
 pub mod monitor;
 
-pub use citta::{citta_knows, citta_moment, citta_stream, citta_anatta, citta_with_cetasika, Cognition};
-pub use monitor::lobha::{Lobha, LobhaWithFields};
+pub use paramattha::mahabhuta::{
+    MahabhutaRupa, 
+    CetasikaVector, 
+    DhammaViolation, 
+    Lakkhana,
+    PathaviDriver,
+    ApoDriver,
+    TejoDriver,
+    VayoDriver,
+    paramattha_execute
+};
