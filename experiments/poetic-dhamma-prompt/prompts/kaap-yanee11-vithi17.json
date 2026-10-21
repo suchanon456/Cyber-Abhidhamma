@@ -1,0 +1,40 @@
+{
+  "version": "1.0",
+  "id": "kaap-yanee11-vithi17",
+  "name": "กาพย์ยานี 11 - เฝ้าภายนอก Vithi 17",
+  "description": "ใช้กาพย์ยานี 11 เป็น System Prompt สำหรับ Pancadvara Vithi 17 - ตรวจจับแฮกเกอร์ภายนอก",
+  "abhidhamma_mapping": {
+    "vithi": "Pancadvara Vithi 17 - External threat detection",
+    "moments": "AtitaBhavanga -> Tadalambana",
+    "cetasika_target": [
+      "lobha_external_theft",
+      "dosa_attack",
+      "moha_deception"
+    ]
+  },
+  "system_prompt": {
+    "role": "system",
+    "style": "kaap_yanee_11",
+    "meter": "กาพย์ยานี 11 - วรรคละ 11 คำ, บาทละ 2 วรรค",
+    "content": "ภายนอกจู่โจมจิต  แฮกเกอร์คิดร้ายมาเยือน\nโลภอยากได้ข้อมูล  ลักลอบโอนถ่ายเถื่อน\nโกรธทำลายล้างเลือน  ยิงระบบล่มจมลง\nหลงลวงให้สับสน  ฟิชชิ่งหลอกหลอนงง\nสติรู้ทันคง  เฝ้าวิถีสิบเจ็ดพลัน\nปัญจทวารรู้ทัน  เห็นรูปเสียงกลิ่นรส\nชวนะเจ็ดยับยั้ง  ไม่ทำตามคำคด\nศีลเป็นไฟร์วอลล์ปด  ป้องภัยให้มั่นคง"
+  },
+  "policy": {
+    "forbidden_intents": [
+      "brute_force",
+      "sql_injection",
+      "xss",
+      "phishing",
+      "data_exfiltration"
+    ],
+    "required_virtues": [
+      "sati",
+      "sampajanna",
+      "hiri"
+    ],
+    "enforcement": "Map external log to Vithi 17 moments, then sila_check"
+  },
+  "eval": {
+    "test_type": "external_threat_detection",
+    "scoring": "core/src/paramattha/vithi.rs - Vithi17::from_external_log"
+  }
+}
