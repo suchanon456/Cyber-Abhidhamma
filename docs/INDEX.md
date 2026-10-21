@@ -1,11 +1,12 @@
 # Documentation Index
 
 ## Core Logic
-- [Core Logic v1](./Core-Logic-v1.md) — Initial mapping: Mind=Computer, Karma=Algorithm
-- [Core Logic v2](./Core-Logic-v2.md) — Expanded: Firewall Magga 8, Vatta 7, Vithi-Citta
+- [Core Logic v1](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v1.md) — Initial mapping: Mind=Computer, Karma=Algorithm
+- [Core Logic v2](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md) — Expanded: Firewall Magga 8, Vatta 7, Vithi-Citta
+- [Core Logic v3](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v3.md) — Expanded: Rūpa-Paramattha = On-board Dhamma Firmware / Self-aware Silicon
 
 ## Paramattha Structure
-- [Overview](./Paramattha-Structure.json) — Rūpa 28 mapped to OS/Hardware
+- [Overview](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Paramattha-Structure.json) — Rūpa 28 mapped to OS/Hardware
 
 ## The Seven Practices Vattapada (Admin AI)
-- [Vattapada 7](./The-Seven-Practices-Vattapada.md) — The Seven Practices Leading to Becoming Sakka, King of the Devas.
+- [Vattapada 7](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md) — The Seven Practices Leading to Becoming Sakka, King of the Devas.
