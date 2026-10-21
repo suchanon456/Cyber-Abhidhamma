@@ -1,10 +1,15 @@
+// core/src/paramattha/mod.rs
 pub mod mahabhuta;
 pub mod vithi;
 
 pub use mahabhuta::{
     MahabhutaRupa,
-    CetasikaVector as MahabhutaCetasika,
     DhammaViolation,
-    Lakkhana
+    Lakkhana,
+    PathaviDriver,
+    ApoDriver,
+    TejoDriver,
+    VayoDriver,
+    paramattha_execute
 };
-pub use vithi::Vithi15;
+pub use vit
