@@ -19,7 +19,6 @@
 
 ## 📂 โครงสร้าง
 
-```
 poetic-dhamma-prompt/
 ├── prompts/                      # JSON สำหรับระบบ (เครื่องอ่าน) - มาตรฐานบริษัท AI
 │   ├── [klong4-sila.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klong4-sila.json)          # โคลงสี่ + policy + abhidhamma_mapping
@@ -32,7 +31,6 @@ poetic-dhamma-prompt/
 ├── eval/
 │   └── [test-cases.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/eval/test-cases.json)           # 20 test cases - Lobha/Dosa/Moha + Vatta 7 + Meter
 └── README.md
-```
 
 ### 🚀 วิธีลองเร็วๆ (ไม่ต้องเขียนโค้ด)
 
