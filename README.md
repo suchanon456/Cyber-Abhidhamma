@@ -84,9 +84,8 @@ Cyber-Abhidhamma/
 │   ├── Core-Logic-v2.md
 │   └── The-Seven-Practices-Vattapada.md
 ├── spec/                              # Canonical JSON specifications
-│   ├── Paramattha-Structure-v1-OOP.json   # Legacy OOP
-│   ├── Paramattha-Structure-v2-Silicon.json # Current Silicon
-│   ├── Paramattha-Structure.json -> v2 (symlink)
+│   ├── Paramattha-Structure.json   # Legacy OOP
+│   ├── Rupa-Structure-Silicon.json # Current Silicon
 │   └── Vattapada-7.json
 ├── core/                              # Rust — v2 engine (work in progress)
 │   ├── Cargo.toml
