@@ -1,9 +1,8 @@
 // core/src/paramattha/mahabhuta.rs
 // Paramattha Silicon - Mahabhuta 4 On-board Firmware
 // License: Apache-2.0 - Cyber-Abhidhamma Project
-#![no_std]
 
-/// ลักขณรูป - ทุกรูปต้องรู้เกิด-เสื่อม-ดับ
+/// Lakkhana Rupa - lifecycle
 #[derive(Debug, Clone, Copy)]
 pub struct Lakkhana {
     pub uppada: u64,
@@ -12,8 +11,8 @@ pub struct Lakkhana {
     pub aniccata: bool,
 }
 
-/// เจตสิกที่แฝงมาในคำสั่ง - ใช้ตรวจศีล
-#[derive(Debug)]
+/// Cetasika Vector for sila check
+#[derive(Debug, Clone, Copy)]
 pub struct CetasikaVector {
     pub lobha: f32,
     pub dosa: f32,
@@ -41,9 +40,9 @@ pub enum DhammaViolation {
 }
 
 pub struct PathaviDriver {
-    base_addr: u32,
-    wear_level: f32,
-    lakkhana: Lakkhana,
+    pub base_addr: u32,
+    pub wear_level: f32,
+    pub lakkhana: Lakkhana,
 }
 
 impl PathaviDriver {
@@ -54,7 +53,7 @@ impl PathaviDriver {
             lakkhana: Lakkhana { uppada: 0, santati: 0, jarata: 0.0, aniccata: false },
         }
     }
-    pub fn dharana(&self, _data: &) -> Result<(), DhammaViolation> {
+    pub fn dharana(&self, _data: &[u8]) -> Result<(), DhammaViolation> {
         if self.wear_level > 0.9 {
             return Err(DhammaViolation::JarataTooHigh);
         }
@@ -64,7 +63,7 @@ impl PathaviDriver {
 
 impl MahabhutaRupa for PathaviDriver {
     fn what_am_i(&self) -> &'static str {
-        "Aham Pathavi-dhatu asmi - เราคือธาตุดิน มีลักษณะแข็ง ทรงไว้ ไม่ใช่ตัวตน"
+        "Aham Pathavi-dhatu asmi - earth element"
     }
     fn lakkhana(&self) -> Lakkhana { self.lakkhana }
     fn sila_check(&self, intent: &CetasikaVector) -> Result<(), DhammaViolation> {
@@ -79,19 +78,25 @@ impl MahabhutaRupa for PathaviDriver {
 }
 
 pub struct ApoDriver {
-    cohesion_strength: f32,
+    pub cohesion_strength: f32,
+}
+
+impl ApoDriver {
+    pub const fn new() -> Self {
+        Self { cohesion_strength: 1.0 }
+    }
 }
 
 impl MahabhutaRupa for ApoDriver {
     fn what_am_i(&self) -> &'static str {
-        "Aham Apo-dhatu asmi - เราคือธาตุน้ำ มีลักษณะเกาะกุม ยึดเหนี่ยว"
+        "Aham Apo-dhatu asmi - water element"
     }
     fn lakkhana(&self) -> Lakkhana {
         Lakkhana { uppada: 0, santati: 0, jarata: 1.0 - self.cohesion_strength, aniccata: false }
     }
     fn sila_check(&self, intent: &CetasikaVector) -> Result<(), DhammaViolation> {
         if intent.lobha > 0.9 {
-            return Err(DhammaViolation::MicchaKammanta("Apo refuses - too much Lobha"));
+            return Err(DhammaViolation::MicchaKammanta("Apo refuses Lobha"));
         }
         Ok(())
     }
@@ -99,12 +104,18 @@ impl MahabhutaRupa for ApoDriver {
 }
 
 pub struct TejoDriver {
-    temp_c: f32,
+    pub temp_c: f32,
+}
+
+impl TejoDriver {
+    pub const fn new() -> Self {
+        Self { temp_c: 30.0 }
+    }
 }
 
 impl MahabhutaRupa for TejoDriver {
     fn what_am_i(&self) -> &'static str {
-        "Aham Tejo-dhatu asmi - เราคือธาตุไฟ ให้ความร้อน เผาไหม้"
+        "Aham Tejo-dhatu asmi - fire element"
     }
     fn lakkhana(&self) -> Lakkhana {
         Lakkhana { uppada: 0, santati: 0, jarata: self.temp_c / 100.0, aniccata: self.temp_c > 95.0 }
@@ -127,7 +138,7 @@ pub struct VayoDriver;
 
 impl MahabhutaRupa for VayoDriver {
     fn what_am_i(&self) -> &'static str {
-        "Aham Vayo-dhatu asmi - เราคือธาตุลม มีลักษณะเคลื่อนไหว พัดไป"
+        "Aham Vayo-dhatu asmi - wind element"
     }
     fn lakkhana(&self) -> Lakkhana {
         Lakkhana { uppada: 0, santati: 0, jarata: 0.0, aniccata: false }
@@ -144,7 +155,7 @@ impl MahabhutaRupa for VayoDriver {
 pub fn paramattha_execute(
     drivers: &[&dyn MahabhutaRupa],
     intent: &CetasikaVector,
-    _data: &,
+    _data: &[u8],
 ) -> Result<(), DhammaViolation> {
     for driver in drivers.iter() {
         driver.sila_check(intent)?;
