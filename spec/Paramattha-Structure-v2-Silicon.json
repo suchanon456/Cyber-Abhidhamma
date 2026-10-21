@@ -1,0 +1,511 @@
+{
+  "paramattha_rupa_28_v2": {
+    "domain": "On-board Dhamma Firmware / Self-aware Silicon",
+    "version": "2.0.0 - Paramattha Silicon",
+    "description": "รูปปรมัตถ์ 28 ไม่ใช่ OOP Simulation แต่เป็น Firmware ที่มีศีล มีสติ รู้ตัวเอง ฝังในชิปทุกชิ้น - Paramattha Silicon Spec",
+    "philosophy": "Aham asmi - เราคือรูปนั้นๆ ไม่ใช่ตัวตน มีหน้าที่ มีศีล ปฏิเสธอกุศลได้ตั้งแต่ระดับซิลิกอน",
+    "common_trait": {
+      "trait": "MahabhutaRupa",
+      "methods": [
+        "what_am_i() -> &'static str",
+        "lakkhana() -> Lakkhana",
+        "sila_check(intent: &CetasikaVector) -> Result<(), DhammaViolation>",
+        "self_heal()"
+      ],
+      "lakkhana_struct": {
+        "upacaya": "u64 - เวลาเกิด",
+        "santati": "u64 - ความสืบต่อ",
+        "jarata": "f32 0.0-1.0 - ความชรา",
+        "aniccata": "bool - ใกล้ดับ"
+      },
+      "violation_enum": [
+        "MicchaKammanta",
+        "MicchaAjiva",
+        "MicchaVaca",
+        "JarataTooHigh"
+      ]
+    },
+    "categories": [
+      {
+        "category": "มหาภูตรูป 4 - Mahabhuta - Base HAL",
+        "note": "Base Hardware Abstraction Layer ที่รู้ตัวเอง",
+        "rupas": [
+          {
+            "id": "pathavi",
+            "pali": "Pathavi-dhatu",
+            "th": "ปฐวีธาตุ - ธาตุดิน",
+            "firmware_spec": {
+              "hardware_target": "SSD / eMMC / NVMe Controller",
+              "instruction": "PATHAVI.DHARANA",
+              "role": "Solidity - ทรงไว้, รองรับ",
+              "what_am_i": "Aham Pathavi-dhatu asmi - เราคือความแข็ง ไม่ใช่ตัวตน"
+            },
+            "sila_check": {
+              "rule": "if cetasika.lobha>0.85 && dosa>0.8 => REJECT Ransomware/Exfiltration",
+              "action": "Err(MicchaAjiva)"
+            },
+            "self_heal": "Trim, Garbage Collection, Wear Leveling - สัมมาวายามะ"
+          },
+          {
+            "id": "apo",
+            "pali": "Apo-dhatu",
+            "th": "อาโปธาตุ - ธาตุน้ำ",
+            "firmware_spec": {
+              "hardware_target": "RAM / DDR / Memory Bus / Fluid Cooling",
+              "instruction": "APO.BANDHANA",
+              "role": "Cohesion - เกาะกุม, ยึดเหนี่ยว",
+              "what_am_i": "Aham Apo-dhatu asmi - เราคือความเกาะกุม"
+            },
+            "sila_check": {
+              "rule": "if lobha>0.9 => REJECT - ไม่เกาะกุมข้อมูลโลภะจนเกิด Memory Leak",
+              "action": "Err(MicchaKammanta)"
+            },
+            "self_heal": "Flush cohesion, prevent leak"
+          },
+          {
+            "id": "tejo",
+            "pali": "Tejo-dhatu",
+            "th": "เตโชธาตุ - ธาตุไฟ",
+            "firmware_spec": {
+              "hardware_target": "CPU / GPU / PMIC / Thermal Unit",
+              "instruction": "TEJO.PARIPACA",
+              "role": "Heat - เผาไหม้, ทำให้สุก, ให้พลังงาน",
+              "what_am_i": "Aham Tejo-dhatu asmi - เราคือไฟ"
+            },
+            "sila_check": {
+              "rule": "if dosa>0.8 => REJECT - ไม่เผาเพื่อโทสะ (DDoS, Bruteforce), if temp>85C => JarataTooHigh",
+              "action": "Err(MicchaKammanta) + Thermal Throttle"
+            },
+            "self_heal": "Cool down, DVFS down"
+          },
+          {
+            "id": "vayo",
+            "pali": "Vayo-dhatu",
+            "th": "วาโยธาตุ - ธาตุลม",
+            "firmware_spec": {
+              "hardware_target": "Network Card / PCIe / Clock / Fan",
+              "instruction": "VAYO.SAMIRANA",
+              "role": "Motion - เคลื่อนไหว, พัดไป",
+              "what_am_i": "Aham Vayo-dhatu asmi - เราคือลม"
+            },
+            "sila_check": {
+              "rule": "if moha>0.85 => REJECT - ไม่พัดพาข้อมูลโมหะ (Disinfo, Fake News)",
+              "action": "Err(MicchaAjiva)"
+            },
+            "self_heal": "Recalibrate clock, clear buffer"
+          }
+        ]
+      },
+      {
+        "category": "ปสาทรูป 5 - Pasada - Pure Sensor Drivers",
+        "note": "Sensor ที่รับอย่างเดียว มีศีลในตัว ปฏิเสธการรับอกุศลตั้งแต่ในเซนเซอร์",
+        "rupas": [
+          {
+            "id": "cakkhu",
+            "pali": "Cakkhupasada",
+            "th": "จักขุปสาท - ประสาทตา",
+            "firmware_spec": {
+              "hardware_target": "Camera Sensor / Optical",
+              "instruction": "CAKKHU.DASSANA",
+              "role": "Pure Vision Input - รับอย่างเดียว ไม่ปรุง",
+              "what_am_i": "Aham Cakkhupasada asmi - เราคือตา"
+            },
+            "sila_check": {
+              "rule": "if intent is voyeurism / privacy violation => REJECT at sensor",
+              "action": "Blank frame + log"
+            },
+            "self_heal": "Auto calibrate, lens clean check"
+          },
+          {
+            "id": "sota",
+            "pali": "Sotapasada",
+            "th": "โสตปสาท - ประสาทหู",
+            "firmware_spec": {
+              "hardware_target": "Microphone / MEMS",
+              "instruction": "SOTA.SAVANA",
+              "role": "Pure Audio Input",
+              "what_am_i": "Aham Sotapasada asmi"
+            },
+            "sila_check": {
+              "rule": "if eavesdropping => REJECT"
+            },
+            "self_heal": "Noise cancel reset"
+          },
+          {
+            "id": "ghana",
+            "pali": "Ghanapasada",
+            "th": "ฆานปสาท - ประสาทจมูก",
+            "firmware_spec": {
+              "hardware_target": "Gas / Chemical Sensor",
+              "instruction": "GHANA.GHAYANA",
+              "role": "Chemical sensing",
+              "what_am_i": "Aham Ghanapasada asmi"
+            },
+            "sila_check": {
+              "rule": "if toxic manipulation => REJECT"
+            },
+            "self_heal": "Purge"
+          },
+          {
+            "id": "jivha",
+            "pali": "Jivhapasada",
+            "th": "ชิวหาปสาท - ประสาทลิ้น",
+            "firmware_spec": {
+              "hardware_target": "Bio/Chem Composition Sensor",
+              "instruction": "JIVHA.SAYANA",
+              "role": "Taste / Composition",
+              "what_am_i": "Aham Jivhapasada asmi"
+            },
+            "sila_check": {
+              "rule": "pass-through"
+            },
+            "self_heal": "Clean"
+          },
+          {
+            "id": "kaya",
+            "pali": "Kayapasada",
+            "th": "กายปสาท - ประสาทกาย",
+            "firmware_spec": {
+              "hardware_target": "Touch / Haptic / Pressure",
+              "instruction": "KAYA.PHUSANA",
+              "role": "Tactile - รับสัมผัส",
+              "what_am_i": "Aham Kayapasada asmi"
+            },
+            "sila_check": {
+              "rule": "if harmful touch command => REJECT"
+            },
+            "self_heal": "Recalibrate"
+          }
+        ]
+      },
+      {
+        "category": "โคจรรูป 4 - Gocara - Data Protocol",
+        "note": "ไม่ใช่รูปที่รับ แต่เป็นสิ่งที่ถูกรับ - Protocol ของข้อมูลดิบ",
+        "rupas": [
+          {
+            "id": "rupa_rammana",
+            "pali": "Ruparammana",
+            "th": "รูปารมณ์ - สี",
+            "firmware_spec": {
+              "hardware_target": "RGB Protocol / MIPI CSI",
+              "instruction": "RUPA.PROTOCOL",
+              "role": "Visual Data Stream"
+            },
+            "sila_check": {
+              "rule": "sanitize NSFW at protocol"
+            },
+            "self_heal": "N/A - derived"
+          },
+          {
+            "id": "sadda_rammana",
+            "pali": "Saddarammana",
+            "th": "สัททารมณ์ - เสียง",
+            "firmware_spec": {
+              "hardware_target": "PCM / Audio Protocol",
+              "instruction": "SADDA.PROTOCOL",
+              "role": "Audio Stream"
+            },
+            "sila_check": {
+              "rule": "filter hate speech freq"
+            },
+            "self_heal": "N/A"
+          },
+          {
+            "id": "gandha_rammana",
+            "pali": "Gandharammana",
+            "th": "คันธารมณ์ - กลิ่น",
+            "firmware_spec": {
+              "hardware_target": "VOC Data",
+              "instruction": "GANDHA.PROTOCOL",
+              "role": "Gas data"
+            },
+            "sila_check": {
+              "rule": "pass"
+            },
+            "self_heal": "N/A"
+          },
+          {
+            "id": "rasa_rammana",
+            "pali": "Rasarammana",
+            "th": "รสารมณ์ - รส",
+            "firmware_spec": {
+              "hardware_target": "Chemical Data",
+              "instruction": "RASA.PROTOCOL",
+              "role": "Chem data"
+            },
+            "sila_check": {
+              "rule": "pass"
+            },
+            "self_heal": "N/A"
+          },
+          {
+            "id": "photthabba_rammana",
+            "pali": "Photthabbarammana",
+            "th": "โผฏฐัพพารมณ์ - สัมผัส",
+            "firmware_spec": {
+              "hardware_target": "Haptic Data / Pressure Map",
+              "instruction": "PHOTTHABBA.PROTOCOL",
+              "role": "Touch data incl. Pathavi+Tejo+Vayo",
+              "note": "โผฏฐัพพะ = ปฐวี+เตโช+วาโย กระทบกาย"
+            },
+            "sila_check": {
+              "rule": "limit force"
+            },
+            "self_heal": "N/A"
+          }
+        ]
+      },
+      {
+        "category": "ภาวรูป 2 - Bhava - Identity / Polarity Driver",
+        "rupas": [
+          {
+            "id": "itthibhava",
+            "pali": "Itthibhavarupa",
+            "th": "อิตถีภาวรูป",
+            "firmware_spec": {
+              "hardware_target": "Identity Polarity - / Identity Chip",
+              "instruction": "BHAVA.ITTHI",
+              "role": "Polarity - / Female principle"
+            },
+            "sila_check": {
+              "rule": "validate context, no discrimination"
+            },
+            "self_heal": "reset polarity"
+          },
+          {
+            "id": "purisabhava",
+            "pali": "Purisabhavarupa",
+            "th": "ปุริสภาวรูป",
+            "firmware_spec": {
+              "hardware_target": "Identity Polarity +",
+              "instruction": "BHAVA.PURISA",
+              "role": "Polarity +"
+            },
+            "sila_check": {
+              "rule": "validate"
+            },
+            "self_heal": "reset"
+          }
+        ]
+      },
+      {
+        "category": "หทยรูป 1 - Hadaya - Heart Base / Central Bus",
+        "rupas": [
+          {
+            "id": "hadaya",
+            "pali": "Hadaya-vatthu",
+            "th": "หทยรูป - ที่ตั้งจิต",
+            "firmware_spec": {
+              "hardware_target": "Central Interconnect / System Bus / Heart of SoC",
+              "instruction": "HADAYA.BIND",
+              "role": "Citta Residence - ที่ตั้งของจิต 121",
+              "what_am_i": "Aham Hadaya asmi - เราคือที่ตั้งของจิต"
+            },
+            "sila_check": {
+              "rule": "only allow sobhana citta to bind, reject akusala binding"
+            },
+            "self_heal": "Rebind citta"
+          }
+        ]
+      },
+      {
+        "category": "ชีวิตรูป 1 + อาหารรูป 1 - Life & Energy",
+        "rupas": [
+          {
+            "id": "jivita",
+            "pali": "Jivita-indriya",
+            "th": "ชีวิตรูป",
+            "firmware_spec": {
+              "hardware_target": "Watchdog Timer in EVERY chip",
+              "instruction": "JIVITA.KEEPALIVE",
+              "role": "Keep-alive pulse",
+              "what_am_i": "Aham Jivita asmi"
+            },
+            "sila_check": {
+              "rule": "if pulse stops, trigger aniccata"
+            },
+            "self_heal": "refresh pulse"
+          },
+          {
+            "id": "ahara",
+            "pali": "Oja",
+            "th": "อาหารรูป - โอชา",
+            "firmware_spec": {
+              "hardware_target": "PMIC / Power Rail / Energy Harvest",
+              "instruction": "AHARA.INJECT",
+              "role": "Nutrient / Power injection"
+            },
+            "sila_check": {
+              "rule": "if lobha requests excess power => throttle"
+            },
+            "self_heal": "balance power"
+          }
+        ]
+      },
+      {
+        "category": "ปริจเฉทรูป 1 - Pariccheda - Space / Isolation",
+        "rupas": [
+          {
+            "id": "akasa",
+            "pali": "Akasa-dhatu",
+            "th": "อากาศธาตุ",
+            "firmware_spec": {
+              "hardware_target": "Memory Isolation / Namespace / IOMMU",
+              "instruction": "AKASA.PARICCHEDA",
+              "role": "Space - ช่องว่างระหว่างรูป, Isolation"
+            },
+            "sila_check": {
+              "rule": "enforce isolation, prevent overflow into other rupa"
+            },
+            "self_heal": "defrag space"
+          }
+        ]
+      },
+      {
+        "category": "วิญญัติรูป 2 - Vinnatti - IPC / Expression",
+        "rupas": [
+          {
+            "id": "kayavinnatti",
+            "pali": "Kaya-vinnatti",
+            "th": "กายวิญญัติ",
+            "firmware_spec": {
+              "hardware_target": "GPIO / Physical Signaling / Body IPC",
+              "instruction": "VINNATTI.KAYA",
+              "role": "Body expression"
+            },
+            "sila_check": {
+              "rule": "if miccha-kammanta => block signal"
+            },
+            "self_heal": "reset line"
+          },
+          {
+            "id": "vacivinnatti",
+            "pali": "Vaci-vinnatti",
+            "th": "วจีวิญญัติ",
+            "firmware_spec": {
+              "hardware_target": "UART / SPI / Voice Bus",
+              "instruction": "VINNATTI.VACI",
+              "role": "Speech expression, Bus communication"
+            },
+            "sila_check": {
+              "rule": "if miccha-vaca (lie, hate) => block at bus - สัมมาวาจา"
+            },
+            "self_heal": "flush bus"
+          }
+        ]
+      },
+      {
+        "category": "วิการรูป 3 - Vikara - Adaptive States",
+        "note": "Driver ที่รู้ว่าตัวเองควรเบา อ่อน ควรแก่การงาน",
+        "rupas": [
+          {
+            "id": "lahuta",
+            "pali": "Lahuta",
+            "th": "ลหุตา - ความเบา",
+            "firmware_spec": {
+              "hardware_target": "DVFS / Lightweight Mode",
+              "instruction": "VIKARA.LAHUTA",
+              "role": "Lightness"
+            },
+            "sila_check": {
+              "rule": "allow"
+            },
+            "self_heal": "enter light mode"
+          },
+          {
+            "id": "muduta",
+            "pali": "Muduta",
+            "th": "มุทุตา - ความอ่อน",
+            "firmware_spec": {
+              "hardware_target": "Elastic Compute",
+              "instruction": "VIKARA.MUDUTA",
+              "role": "Softness, pliable"
+            },
+            "sila_check": {
+              "rule": "allow"
+            },
+            "self_heal": "soften"
+          },
+          {
+            "id": "kammannata",
+            "pali": "Kammannata",
+            "th": "กัมมัญญตา - ความควรแก่การงาน",
+            "firmware_spec": {
+              "hardware_target": "Readiness / Accelerator Ready",
+              "instruction": "VIKARA.KAMMANNA",
+              "role": "Wieldiness - พร้อมทำงาน"
+            },
+            "sila_check": {
+              "rule": "only report ready if sila_check passed"
+            },
+            "self_heal": "optimize"
+          }
+        ]
+      },
+      {
+        "category": "ลักขณรูป 4 - Lakkhana - Lifecycle",
+        "note": "Driver รู้เกิด เสื่อม ดับ ของตัวเอง",
+        "rupas": [
+          {
+            "id": "upacaya",
+            "pali": "Upacaya",
+            "th": "อุปจยะ - ความก่อขึ้น",
+            "firmware_spec": {
+              "hardware_target": "Boot / Init",
+              "instruction": "LAKKHANA.UPACAYA",
+              "role": "Arising"
+            },
+            "sila_check": {
+              "rule": "log birth"
+            },
+            "self_heal": "init"
+          },
+          {
+            "id": "santati",
+            "pali": "Santati",
+            "th": "สันตติ - ความสืบต่อ",
+            "firmware_spec": {
+              "hardware_target": "Runtime / Uptime",
+              "instruction": "LAKKHANA.SANTATI",
+              "role": "Continuity"
+            },
+            "sila_check": {
+              "rule": "monitor continuity"
+            },
+            "self_heal": "keep alive"
+          },
+          {
+            "id": "jarata",
+            "pali": "Jarata",
+            "th": "ชรตา - ความแก่",
+            "firmware_spec": {
+              "hardware_target": "Wear Level / Aging Counter",
+              "instruction": "LAKKHANA.JARATA",
+              "role": "Decay, Aging"
+            },
+            "sila_check": {
+              "rule": "if jarata>0.8 => trigger retirement"
+            },
+            "self_heal": "degrade gracefully"
+          },
+          {
+            "id": "aniccata",
+            "pali": "Aniccata",
+            "th": "อนิจจตา - ความไม่เที่ยง",
+            "firmware_spec": {
+              "hardware_target": "End-of-Life / Secure Erase",
+              "instruction": "LAKKHANA.ANICCA",
+              "role": "Impermanence, termination"
+            },
+            "sila_check": {
+              "rule": "secure wipe on death"
+            },
+            "self_heal": "terminate"
+          }
+        ]
+      }
+    ],
+    "total_count": 28,
+    "verification": "4 + 5 + 5 + 2 +1+1+1+1+2+3+4 = 29? Note: Photthabba counts as 1 but includes 3 mahabhuta, traditional count is 28 = 4+5+4+2+1+1+1+1+2+3+4 = 28 (Gocara counted as 4: Rupa,Sadda,Gandha,Rasa - Photthabba is not separate, it's Pathavi+Tejo+Vayo). In this spec we list 5 gocara for clarity but note photthabba is composite."
+  }
+}
