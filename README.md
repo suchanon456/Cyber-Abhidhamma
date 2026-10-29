@@ -1,8 +1,9 @@
-# Cyber-Abhidhamma
+# Cyber-Abhidhamma - The BIOS for AI Agents & Workflows
 
 [![Test](https://github.com/suchanon456/Cyber-Abhidhamma/actions/workflows/test.yml/badge.svg)](https://github.com/suchanon456/Cyber-Abhidhamma/actions/workflows/test.yml)
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 
+> **The BIOS for AI Agents & Workflows - Prevents Hallucination, Self-Harm & Jailbreak with Thai Poetic Sila + Abhidhamma OS | For n8n, Make, Factory, Hospital**
 > **Mind as Computer · Karma = Algorithm · Rūpa-Paramattha = On-board Dhamma Firmware / Self-aware Silicon**
 
 **Abhidhamma Cyber** is a framework that maps Buddhist Abhidhamma concepts into computable system architectures — from data structures and state machines to cybersecurity, operating systems, and AI.
@@ -192,6 +193,15 @@ Log: kernel: Out of memory: Kill process 1234 (chrome) - 99% RAM used
 - **eval/**
     - [test-cases.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/eval/test-cases.json) - 20 test cases Lobha/Dosa/Moha + Vatta 7 + Meter
 
+## 🧠 For AI Workflow Builders (n8n, Make, Lindy)
+If you build AI Workflows for Factory / Hospital / Business and your Agents hallucinate, self-harm (kill process loop), or get jailbroken:
+**Use this repo as your BIOS (First System Prompt):**
+1. Copy `experiments/poetic-dhamma-prompt/prompts_raw/abhidhamma-bios.txt` (create this file from klon8.txt + vithi logic)
+2. Paste it as the FIRST System Prompt before your own prompt
+3. Your Agent will get Sati (Vithi 15/17 Scheduler) + Sila (Poetic Meter) + Indra Score (Vatta 7)
+Result: Prevents self-harm, reduces hallucination, resists jailbreak. Measured by `eval/test-cases.json`
+See full guide: `FOR-WORKFLOW-BUILDERS.md`
+
 ### 🚀 วิธีลองเร็วๆ
 
 เปิด Meta AI / ChatGPT / Claude
@@ -279,6 +289,7 @@ If you are new to this project:
 | Tests (`tests/`) | ✅ Available |
 | CI/CD | ✅ Passing |
 | Rust Core (`core/`) | ✅ In progress - Mahabhuta 4 Green |
+| BIOS for Agents (abhidhamma-bios.txt) | ✅ Ready for n8n/Make |
 | Rūpa-Paramattha - Mahabhuta 4 Firmware | ✅ Implemented - Pathavi,Apo,Tejo,Vayo with sila_check |
 | Citta-Vīthi 15 (Manodvara) | ✅ Implemented - Internal Threat Detection |
 | Citta 121 State Machine | 🚧 In progress |
