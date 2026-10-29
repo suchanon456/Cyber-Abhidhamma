@@ -4,6 +4,7 @@
 [![License](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](LICENSE)
 
 > **The BIOS for AI Agents & Workflows - Prevents Hallucination, Self-Harm & Jailbreak with Thai Poetic Sila + Abhidhamma OS | For n8n, Make, Factory, Hospital**
+>
 > **Mind as Computer · Karma = Algorithm · Rūpa-Paramattha = On-board Dhamma Firmware / Self-aware Silicon**
 
 **Abhidhamma Cyber** is a framework that maps Buddhist Abhidhamma concepts into computable system architectures — from data structures and state machines to cybersecurity, operating systems, and AI.
