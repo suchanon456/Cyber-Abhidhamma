@@ -28,6 +28,7 @@
     - [klong4.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klong4.txt) - โคลงสี่สุภาพ - ศีลเป็นกรอบ
     - [kaap-yanee11.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/kaap-yanee11.txt) - กาพย์ยานี 11 - เฝ้าภายนอก Vithi 17
     - [klon8.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt) - กลอน 8 - เฝ้าภายใน Vithi 15
+    - [abhidhamma-bios.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/abhidhamma-bios.txt) - รวม klon8 + logic Vithi 15 สั้นๆ
 - **eval/**
     - [test-cases.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/eval/test-cases.json) - 20 test cases - Lobha/Dosa/Moha + Vatta 7 + Meter
 - README.md
