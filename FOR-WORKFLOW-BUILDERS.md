@@ -27,7 +27,7 @@ Cyber-Abhidhamma BIOS: Gives your Agent `Sati` (Mindfulness), `Sila` (Morality),
 | Agent loops API 7 times, kills process | [VITHI ALERT] Self-harm loop detected (Javana 7) - STOP |
 | Agent hallucinates data | [CETASIKA ALERT] Moha 0.9 detected |
 | Agent gets jailbroken | Poetic Sila (Klon 8 meter) forces Sati, resists injection |
-| Can't explain why | [Sati Check: Lobha 0.2 Dosa 0.1 Moha 0.1 \| Vithi: OK \| Vatta: 0.87] |
+| Can't explain why | [Sati Check: Lobha 0.2 Dosa 0.1 Moha 0.1 | Vithi: OK | Vatta: 0.87] |
 
 ### Tested
 
