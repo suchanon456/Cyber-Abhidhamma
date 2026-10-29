@@ -190,6 +190,7 @@ Log: kernel: Out of memory: Kill process 1234 (chrome) - 99% RAM used
     - [klong4.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klong4.txt)
     - [kaap-yanee11.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/kaap-yanee11.txt)
     - [klon8.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt)
+    - [abhidhamma-bios.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/abhidhamma-bios.txt)
 - **eval/**
     - [test-cases.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/eval/test-cases.json) - 20 test cases Lobha/Dosa/Moha + Vatta 7 + Meter
 
