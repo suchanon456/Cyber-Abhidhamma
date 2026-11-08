@@ -22,6 +22,7 @@
 | [02-security.md](./architecture/02-security.md) | Draft | Firewall มรรค 8, วัตรบท 7, วิถีจิต 15/17, กรรมในฐานะ Ledger |
 | [03-firmware.md](./architecture/03-firmware.md) | Draft | รูปปรมัตถ์ 28 = On-board Sila Firmware, Privilege Rings |
 | [04-vattapada7.md](./architecture/04-vattapada7.md) | Draft | วัตรบท 7 ในฐานะ Policy-as-Code / AI Governance |
+| [05-vithi-os.md](./architecture/05-vithi-os.md) | Draft | วิถีจิต 15/17 ในฐานะพื้นฐาน OS: interrupt path, PDP, execution window |
 | [threat-model.md](./threat-model.md) | Draft | Threat model: STRIDE + mapping กลับไปยังชั้นอภิธรรม |
 
 ## 3. Specification (machine-readable)

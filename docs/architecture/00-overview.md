@@ -21,10 +21,10 @@
 | 1 | **Hardware / Firmware** | รูปปรมัตถ์ 28 — มหาภูตรูป 4 | [`core/src/paramattha/mahabhuta.rs`](../../core/src/paramattha/mahabhuta.rs), [`spec/Rupa-Structure-Silicon.json`](../../spec/Rupa-Structure-Silicon.json) | มีโค้ด (`sila_check` ทำงาน) |
 | 2 | **Execution unit** | จิต 121 | [`core/src/citta.rs`](../../core/src/citta.rs) | มีโครง (`fn` = จิต) ยังไม่ครบ 121 |
 | 3 | **State / Feature vector** | เจตสิก 52 | [`core/src/paramattha/vithi.rs`](../../core/src/paramattha/vithi.rs) (`CetasikaVector` 6 มิติ), [`spec/Vattapada-7.json`](../../spec/Vattapada-7.json) (`cetasika_index` 52 มิติ) | 6/52 มิติใน Rust |
-| 4 | **Scheduler / Clock** | วิถีจิต 15 / 17 | [`core/src/paramattha/vithi.rs`](../../core/src/paramattha/vithi.rs) | วิถี 15 มีโค้ด, วิถี 17 ยังไม่มี |
+| 4 | **Scheduler / Clock** | วิถีจิต 15 / 17 | [`core/src/paramattha/vithi.rs`](../../core/src/paramattha/vithi.rs), [05-vithi-os.md](./05-vithi-os.md) | วิถี 15 มีโค้ด, วิถี 17 ยังไม่มี |
 | 5 | **Behavior monitor** | โลภเจตสิก | [`core/src/monitor/lobha.rs`](../../core/src/monitor/lobha.rs) | มีโค้ด |
-| 6 | **Policy / Governance** | วัตรบท 7 | [`spec/Vattapada-7.json`](../../spec/Vattapada-7.json), [04-vattapada7.md](./04-vattapada7.md) | Spec ครบ, ยังไม่มี engine ใน Rust |
-| 7 | **Security architecture** | มรรค 8 | [02-security.md](./02-security.md) | ยังไม่มีโค้ด |
+| 6 | **Policy / Governance** | วัตรบท 7 | [`core/src/vattapada.rs`](../../core/src/vattapada.rs), [`spec/Vattapada-7.json`](../../spec/Vattapada-7.json), [04-vattapada7.md](./04-vattapada7.md) | Engine ใน Rust มีแล้ว (generic ตาม spec); ยังไม่เชื่อมเข้า firewall |
+| 7 | **Security architecture** | มรรค 8 | [`core/src/firewall/`](../../core/src/firewall/), [`core/src/interceptor.rs`](../../core/src/interceptor.rs), [02-security.md](./02-security.md) | 4 ด่าน (payload/route/rate/normalize) + Ring gate มีโค้ด; ส่วนอื่นยังเป็นข้อกำหนด |
 | 8 | **Causal engine** | ปฏิจจสมุปบาท | — | ยังไม่มีโค้ด |
 
 ---
@@ -39,7 +39,8 @@ README.md  (ทำไมต้องมีโปรเจกต์นี้)
    ├── 01-mapping.md       จิต / เจตสิก / รูป / กรรม  ↔  Runtime / State / Hardware / Algorithm
    ├── 02-security.md      มรรค 8 ↔ Firewall, วัตรบท 7 ↔ Policy, วิถีจิต ↔ Scheduler
    ├── 03-firmware.md      รูป 28 ↔ On-board Firmware (ผูกกับ core/src/paramattha/mahabhuta.rs)
-   └── 04-vattapada7.md    วัตรบท 7 ↔ ABAC / Behavioral Scoring (ผูกกับ spec/Vattapada-7.json)
+   ├── 04-vattapada7.md    วัตรบท 7 ↔ ABAC / Behavioral Scoring (ผูกกับ spec/Vattapada-7.json)
+   ├── 05-vithi-os.md      วิถีจิต 15/17 ↔ OS fundamentals (interrupt path, PDP, quantum)
    │
    └── conversations/      ต้นฉบับดิบของทั้งหมดข้างบน (ห้ามอ้างเป็น spec)
 ```
@@ -61,8 +62,8 @@ README.md  (ทำไมต้องมีโปรเจกต์นี้)
 
 - **Citta 121** — `citta.rs` มีเพียง demonstrator (`fn` 4 ลักษณะ) ไม่ใช่ state machine 121 ดวง
 - **Cetasika 52 มิติ** — Rust มี 6 มิติ (`lobha`, `dosa`, `moha`, `mana`, `sati`, `metta`) ขณะที่ `spec/Vattapada-7.json` ใช้ดัชนี 52 มิติ
-- **วิถีจิต 17** (ปัญจทวาร) — ยังไม่มี
-- **Vattapada Engine ใน Rust** — มีแต่ PHP legacy ([`legacy-php/VattapadaEngine.php`](../../legacy-php/VattapadaEngine.php))
+- **วิถีจิต 17** (ปัญจทวาร) — ยังไม่มี (ดู [05-vithi-os.md](./05-vithi-os.md) § 2 สำหรับเส้นทางที่เสนอ)
+- **Vattapada Engine ใน Rust** — มีแล้วที่ [`core/src/vattapada.rs`](../../core/src/vattapada.rs) (อ่าน `spec/Vattapada-7.json` แบบ generic; PHP legacy ยังอยู่ที่ [`legacy-php/VattapadaEngine.php`](../../legacy-php/VattapadaEngine.php))
 - **ตัวรัน `eval/test-cases.json`** — ยังไม่มี harness ที่รันได้จริง
 
 ---

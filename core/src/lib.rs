@@ -23,3 +23,12 @@ pub use paramattha::mahabhuta::{
 
 // Vithi 15 - มโนทวารวิถี
 pub use paramattha::vithi::{CetasikaVector, CittaJati, InternalCause, Vithi15, JAVANA_COUNT};
+
+// Vithi 17 - ปัญจทวารวิถี (interrupt path)
+pub use paramattha::vithi17::{Dvara, GateContext, PdpOutcome, Vithi17};
+
+// VithiMapper — แมปขั้นวิถี → จิต 121 ดวง
+pub use paramattha::vithi_mapper::{
+    CittaEntry, CittaGroup, CittaStage, MappedMoment, MappedVithi, MapperError, Vipaka,
+    VithiMapper, CITTA_TOTAL,
+};

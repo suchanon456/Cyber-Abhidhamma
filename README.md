@@ -89,7 +89,8 @@ Cyber-Abhidhamma/
 │   │   ├── 01-mapping.md              # จิต=Runtime, เจตสิก=State, รูป=Hardware
 │   │   ├── 02-security.md             # มรรค 8, วัตรบท 7, วิถีจิต 15/17
 │   │   ├── 03-firmware.md             # รูป 28 = On-board Sila Firmware
-│   │   └── 04-vattapada7.md           # วัตรบท 7 = Policy-as-Code
+│   │   ├── 04-vattapada7.md           # วัตรบท 7 = Policy-as-Code
+│   │   └── 05-vithi-os.md             # วิถีจิต 15/17 = OS fundamentals
 │   └── conversations/                 # บันทึกการสนทนาต้นฉบับ (ไม่ใช่ spec)
 │       ├── README.md
 │       ├── Core-Logic-v1.md
@@ -253,6 +254,7 @@ See full guide: `FOR-WORKFLOW-BUILDERS.md`
 | [Security Architecture](docs/architecture/02-security.md) | Magga 8 Firewall, Vatta 7, Vīthi 15/17 |
 | [Rūpa Firmware](docs/architecture/03-firmware.md) | Rūpa 28 = On-board Dhamma Firmware |
 | [Vattapada 7](docs/architecture/04-vattapada7.md) | The Seven Practices as Policy-as-Code / AI Governance |
+| [Vīthi as OS](docs/architecture/05-vithi-os.md) | Vīthi 15/17 as OS fundamentals — interrupt path, PDP, execution window |
 | [Glossary](docs/GLOSSARY.md) | Abhidhamma ↔ Computer Science terms |
 | [Poetic Dhamma Prompt Lab](experiments/poetic-dhamma-prompt/README.md) | Poetic Dhamma Prompt Lab |
 | [Raw transcripts](docs/conversations/README.md) | Original conversations — **not** a specification |

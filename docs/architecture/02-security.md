@@ -116,6 +116,8 @@ Executed / Rejected (DhammaViolation)
 
 ## 6. ดูต่อ
 
+- [02-security.md](./02-security.md) — วิถีจิตในฐานะกลไกความปลอดภัย, มรรค 8
 - [03-firmware.md](./03-firmware.md) — รายละเอียด `sila_check` ของมหาภูตรูป 4
 - [04-vattapada7.md](./04-vattapada7.md) — สูตรและ policy ของวัตรบท 7
+- [05-vithi-os.md](./05-vithi-os.md) — วิถีจิต 15/17 ในฐานะพื้นฐาน OS (อ่านคู่กับ § 3 ของไฟล์นี้)
 - [../GLOSSARY.md](../GLOSSARY.md)

@@ -14,7 +14,7 @@
 | **เจตสิก** (52) | Mental Factor | Behavioral Data Structure / Feature Vector | [`core/src/monitor/lobha.rs`](../core/src/monitor/lobha.rs), `cetasika_index` |
 | **รูป** (Rūpa 28) | Matter | On-board Dhamma Firmware / Silicon | [`core/src/paramattha/mahabhuta.rs`](../core/src/paramattha/mahabhuta.rs) |
 | **กรรม** | Kamma / Action | Algorithm / Execution Logic | ยังไม่มีโค้ด |
-| **วิถีจิต** (17/15 ขณะ) | Cognitive Process | Clock Cycle / State Machine | [`core/src/paramattha/vithi.rs`](../core/src/paramattha/vithi.rs) |
+| **วิถีจิต** (17/15 ขณะ) | Cognitive Process | Interrupt Path / Execution Pipeline | [`core/src/paramattha/vithi.rs`](../core/src/paramattha/vithi.rs), [05-vithi-os.md](./architecture/05-vithi-os.md) |
 | **ปฏิจจสมุปบาท** | Dependent Origination | Causal Execution Graph | ยังไม่มีโค้ด |
 | **นิพพาน** | Nibbāna | Termination of the causal loop | ยังไม่มีโค้ด |
 | **มรรค 8** | Noble Eightfold Path | Security Architecture | ยังไม่มีโค้ด — [02-security.md](./architecture/02-security.md) |
@@ -88,6 +88,9 @@
 | **Ring 0–3** | ระดับสิทธิ์ของ agent: 0 = kernel (self-healing ได้), 3 = sandbox (แนะนำได้อย่างเดียว) |
 | **indra_score** | `weighted_harmonic_mean(vatta_1..7)` — คะแนนรวมที่กำหนด Ring |
 | **PDP** | Policy Decision Point — ในแบบจำลองนี้คือ `Votthapana` (โวฏฐัพพนะ) |
+| **quantum** | 1 ขณะจิต — หน่วยเวลาที่เกิด-ดับทันที ไม่มี state ค้าง |
+| **ISR** | Interrupt Service Routine — ในแบบจำลองนี้คือ `ปัญจวิญญาณ` ของวิถี 17 (วิถี 15 ไม่มี stage นี้) |
+| **execution window** | ชวนะ ×7 — ยืนยันผลการตัดสินใจเดิม 7 จังหวะ ไม่ใช่การโหวตซ้ำ |
 | **`sila_check`** | เมธอดของมหาภูตรูปที่ **ปฏิเสธคำสั่ง** ที่ไม่ตรงศีล |
 | **`DhammaViolation`** | error 3 แบบ: `MicchaKammanta`, `MicchaAjiva`, `JarataTooHigh` |
 | **short-circuit** | ปฏิเสธทั้งคำสั่งทันทีที่ driver ตัวแรกค้าน (ไม่โหวตเสียงข้างมาก) |
@@ -102,3 +105,4 @@
 2. ทุกครั้งที่ใช้ **"อนัตตา = statelessness"** ให้ระบุว่าเป็นการเทียบเคียงเชิงโครงสร้าง ไม่ใช่ความหมายเดียวกัน
 3. ห้ามอ้าง `indra_score` หรือ threshold ว่าเป็น **คำสอน** — เป็น heuristic ตาม `_meta._warning`
 4. คำบาลีให้ทับศัพท์ตามที่ `spec/Vattapada-7.json` เขียนไว้ เพื่อให้ค้นในโค้ดเจอ
+5. คำว่า **Scheduler**, **quantum**, **ISR** ใช้ในความหมาย *แบบจำลอง* เท่านั้น — ระบบไม่ได้จัดคิว thread จริงตามวิถีจิต (ดู [05-vithi-os.md](./architecture/05-vithi-os.md) § 7)

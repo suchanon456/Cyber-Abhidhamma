@@ -6,6 +6,7 @@
 // not claims that the Noble Eightfold Path is implemented in full.
 
 pub mod stages;
+pub mod vithi_gate;
 
 use std::collections::BTreeMap;
 
