@@ -32,7 +32,11 @@ jobs:
       - name: Validate JSON specs
         run: |
           php -r "json_decode(file_get_contents('spec/Vattapada-7.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Vattapada-7.json: valid' . PHP_EOL;"
-          php -r "json_decode(file_get_contents('spec/Paramattha-Structure.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Paramattha-Structure.json: valid' . PHP_EOL;"
+          php -r "json_decode(file_get_contents('spec/Paramattha-Rupa.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Paramattha-Rupa.json: valid' . PHP_EOL;"
+          php -r "json_decode(file_get_contents('spec/Paramattha-Cetasika.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Paramattha-Cetasika.json: valid' . PHP_EOL;"
+          php -r "json_decode(file_get_contents('spec/Paramattha-Citta.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Paramattha-Citta.json: valid' . PHP_EOL;"
+          php -r "json_decode(file_get_contents('spec/Paramattha-Nibbana.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Paramattha-Nibbana.json: valid' . PHP_EOL;"
+          php -r "json_decode(file_get_contents('spec/Paramattha-Index.json'), true, 512, JSON_THROW_ON_ERROR); echo 'Paramattha-Index.json: valid' . PHP_EOL;"
       
       - name: Check PHP syntax
         run: |
@@ -128,7 +132,11 @@ jobs:
           test -f README.md        && echo "✓ README.md"
           test -f LICENSE          && echo "✓ LICENSE"
           test -f spec/Vattapada-7.json          && echo "✓ spec/Vattapada-7.json"
-          test -f spec/Paramattha-Structure.json && echo "✓ spec/Paramattha-Structure.json"
+          test -f spec/Paramattha-Rupa.json      && echo "✓ spec/Paramattha-Rupa.json"
+          test -f spec/Paramattha-Cetasika.json  && echo "✓ spec/Paramattha-Cetasika.json"
+          test -f spec/Paramattha-Citta.json     && echo "✓ spec/Paramattha-Citta.json"
+          test -f spec/Paramattha-Nibbana.json   && echo "✓ spec/Paramattha-Nibbana.json"
+          test -f spec/Paramattha-Index.json     && echo "✓ spec/Paramattha-Index.json"
           test -f legacy-php/CetasikaVector.php  && echo "✓ legacy-php/CetasikaVector.php"
           test -f legacy-php/VattapadaEngine.php && echo "✓ legacy-php/VattapadaEngine.php"
           test -f examples/vattapada_demo.php    && echo "✓ examples/vattapada_demo.php"

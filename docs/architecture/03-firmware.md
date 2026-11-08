@@ -7,7 +7,7 @@
 
 ## 1. จาก "OOP Simulation" สู่ "On-board Firmware"
 
-[v1](../conversations/Core-Logic-v1.md) และ [`spec/Paramattha-Structure.json`](../../spec/Paramattha-Structure.json) มองรูปปรมัตถ์เป็น **object ใน OOP** — มีคลาส มี attribute มี method
+[v1](../conversations/Core-Logic-v1.md) และ [`spec/Paramattha-Rupa.json`](../../spec/Paramattha-Rupa.json) มองรูปปรมัตถ์เป็น **object ใน OOP** — มีคลาส มี attribute มี method
 
 [v3](../conversations/Core-Logic-v3.md) เปลี่ยนมุมเป็น **firmware ที่มีศีลในตัวเอง**:
 

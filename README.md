@@ -83,6 +83,7 @@ Cyber-Abhidhamma/
 ├── docs/                              # Human-readable documentation
 │   ├── INDEX.md                       # ดัชนีเอกสารทั้งหมด
 │   ├── GLOSSARY.md                    # อภิธานศัพท์ อภิธรรม ↔ CS
+│   ├── threat-model.md                # Threat model (STRIDE + mapping)
 │   ├── architecture/                  # ฉบับเรียบเรียง (specification)
 │   │   ├── 00-overview.md             # แผนที่สถาปัตยกรรม
 │   │   ├── 01-mapping.md              # จิต=Runtime, เจตสิก=State, รูป=Hardware
@@ -96,7 +97,11 @@ Cyber-Abhidhamma/
 │       ├── Core-Logic-v3.md
 │       └── The-Seven-Practices-Vattapada.md
 ├── spec/                              # Canonical JSON specifications
-│   ├── Paramattha-Structure.json   # Legacy OOP
+│   ├── Paramattha-Index.json       # ดัชนีไฟล์ Paramattha
+│   ├── Paramattha-Rupa.json        # รูป 28
+│   ├── Paramattha-Cetasika.json    # เจตสิก 52
+│   ├── Paramattha-Citta.json       # จิต 121
+│   ├── Paramattha-Nibbana.json     # นิพพาน (ส่วนขยายใหม่)
 │   ├── Rupa-Structure-Silicon.json # Current Silicon
 │   └── Vattapada-7.json
 ├── core/                              # Rust — v2 engine (work in progress)
@@ -104,16 +109,25 @@ Cyber-Abhidhamma/
 │   ├── Cargo.lock
 │   ├── examples/
 │   │   └── lab7_vithi15.rs            # Lab 7 — Vithi 15 internal threat detection
+│   ├── tests/
+│   │   └── spec_integrity.rs          # Spec cross-file integrity tests
 │   └── src/
 │       ├── lib.rs                     # Crate root — exports modules
 │       ├── citta.rs                   # Citta 121 state machine
+│       ├── vattapada.rs               # Vattapada-7 scoring engine (reads spec/)
+│       ├── attention.rs               # Attention score loop (vatta_3 / vatta_5)
+│       ├── authority.rs               # Report -> Ring + capabilities
+│       ├── interceptor.rs             # Network gate: Authority -> Decision
 │       ├── paramattha/
 │       │   ├── mod.rs                 # Paramattha module root
 │       │   ├── mahabhuta.rs           # Rūpa 28 - Mahabhuta 4 Firmware (Pathavi,Apo,Tejo,Vayo)
 │       │   └── vithi.rs               # Vīthi 15/17 - Clock Cycle Scheduler
-│       └── monitor/                   # Runtime monitors
-│           ├── mod.rs                 # Monitor module root
-│           └── lobha.rs               # Lobha monitor
+│       ├── monitor/                   # Runtime monitors
+│       │   ├── mod.rs                 # Monitor module root
+│       │   └── lobha.rs               # Lobha monitor
+│       └── firewall/                  # Request gateway (Magga 8 stages)
+│           ├── mod.rs                 # Pipeline + audit log
+│           └── stages.rs              # normalize, payload, route, rate limit
 ├── legacy-php/                        # PHP — v1 reference implementation
 │   ├── CetasikaVector.php
 │   └── VattapadaEngine.php
@@ -252,7 +266,11 @@ See full guide: `FOR-WORKFLOW-BUILDERS.md`
 | File | Description |
 |---|---|
 | [Vattapada-7.json](spec/Vattapada-7.json) | 7-practice scoring spec (Policy-as-Code) |
-| [Paramattha-Structure.json](spec/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
+| [Paramattha-Index.json](spec/Paramattha-Index.json) | Index of the Paramattha split files |
+| [Paramattha-Rupa.json](spec/Paramattha-Rupa.json) | Rūpa 28 mapping — hardware layer |
+| [Paramattha-Cetasika.json](spec/Paramattha-Cetasika.json) | Cetasika 52 |
+| [Paramattha-Citta.json](spec/Paramattha-Citta.json) | Citta 121 |
+| [Paramattha-Nibbana.json](spec/Paramattha-Nibbana.json) | Nibbana (new extension, not in Paramattha-Structure v3.0.1) |
 | [Rupa-Structure-Silicon.json](spec/Rupa-Structure-Silicon.json) | Rūpa 28 Hardware Silicon |
 
 ### Rust (`core/`)
@@ -262,10 +280,17 @@ See full guide: `FOR-WORKFLOW-BUILDERS.md`
 | [Cargo.toml](core/Cargo.toml) | Rust crate manifest |
 | [lib.rs](core/src/lib.rs) | Crate root — exports modules |
 | [citta.rs](core/src/citta.rs) | Citta 121 state machine |
+| [vattapada.rs](core/src/vattapada.rs) | Vattapada-7 scoring engine (reads `spec/Vattapada-7.json`) |
+| [attention.rs](core/src/attention.rs) | Attention score loop (dosa decay / generosity boost) |
+| [authority.rs](core/src/authority.rs) | Vattapada report → Ring + capabilities |
+| [interceptor.rs](core/src/interceptor.rs) | Network gate: Authority → Decision |
 | [mod.rs](core/src/monitor/mod.rs) | Monitor module root |
 | [lobha.rs](core/src/monitor/lobha.rs) | Lobha monitor |
 | [mahabhuta.rs](core/src/paramattha/mahabhuta.rs) | mahabhuta rupa |
 | [vithi.rs](core/src/paramattha/vithi.rs) | Vīthi 15/17 Scheduler - Security 360° (External + Internal) |
+| [firewall/mod.rs](core/src/firewall/mod.rs) | Request gateway pipeline + audit log |
+| [firewall/stages.rs](core/src/firewall/stages.rs) | Stages: normalize, payload, route, rate limit |
+| [spec_integrity.rs](core/tests/spec_integrity.rs) | Cross-file spec integrity tests |
 
 ### Legacy PHP (`legacy-php/`)
 

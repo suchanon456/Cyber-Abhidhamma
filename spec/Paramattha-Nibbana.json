@@ -1,0 +1,81 @@
+{
+    "_meta": {
+        "model_name": "Paramattha-Structure",
+        "schema_version": "3.0.0",
+        "version": "3.0.1",
+        "revised": "2026-01-02",
+        "author": "suchanon456 / Cyber-Abhidhamma",
+        "license": "Apache-2.0",
+        "status": "draft",
+        "role": "คำอธิบายและการแมป (descriptive mapping) — ไม่ใช่ไฟล์ที่ใช้คำนวณ",
+        "related_specs": {
+            "spec/Vattapada-7.json": "สูตรคะแนนและทะเบียนเจตสิก 52 ที่ engine ใช้คำนวณจริง",
+            "spec/Rupa-Structure-Silicon.json": "รูป 28 ในฐานะ firmware พร้อม threshold_registry"
+        },
+        "validation_state": {
+            "validated_against_canonical_texts": false,
+            "mapping_is_analogy": true,
+            "usable_for_enforcement": false
+        },
+        "_warning": "การแมปนามธรรม -> คอมพิวเตอร์ในไฟล์นี้เป็นอุปมาเพื่อการเรียนรู้ ไม่ใช่คำอธิบายทางวิศวกรรมที่พิสูจน์แล้ว และยังไม่ได้ตรวจกับคัมภีร์",
+        "description": "โครงสร้างปรมัตถ์ (รูป 28, เจตสิก 52, จิต 121) พร้อมการแมปไปยังสถาปัตยกรรมคอมพิวเตอร์",
+        "part": "nibbana",
+        "split_from": "Paramattha-Structure.json v3.0.1",
+        "note": "ส่วนขยายใหม่ ไม่มีใน Paramattha-Structure v3.0.1"
+    },
+    "nibbana_paramattha": {
+        "name": "นิพพานปรมัตถ์",
+        "description": "สภาพธรรมที่เป็นเครื่องพ้นไปจากวัฏสงสาร เป็นสภาวะที่สงบจากกิเลสและขันธ์ 5",
+        "classifications": [
+            {
+                "category": "นิพพาน 1 (จำแนกตามลักษณะ)",
+                "items": [
+                    {
+                        "id": "santi_lakkhana",
+                        "name": "สันติลักขณะ",
+                        "characteristic": "มีลักษณะความสงบจากกิเลสและกองทุกข์"
+                    }
+                ]
+            },
+            {
+                "category": "นิพพาน 2 (เมื่อว่าโดยปริยายแห่งเหตุ)",
+                "items": [
+                    {
+                        "id": "sa_upadisesa_nibbana",
+                        "name": "สอุปาทิเสสนิพพาน",
+                        "characteristic": "นิพพานที่ยังมีเบญจขันธ์ (ขันธ์ 5) เหลืออยู่ (กิเลสดับแต่ขันธ์ยังทรงอยู่)"
+                    },
+                    {
+                        "id": "anupadisesa_nibbana",
+                        "name": "อนุปาทิเสสนิพพาน",
+                        "characteristic": "นิพพานที่ไม่มีเบญจขันธ์เหลืออยู่แล้ว (ดับสนิททั้งกิเลสและขันธ์)"
+                    }
+                ]
+            },
+            {
+                "category": "นิพพาน 3 (เมื่อว่าโดยความเป็นอยู่)",
+                "items": [
+                    {
+                        "id": "sunyata_nibbana",
+                        "name": "สุญญตนิพพาน",
+                        "characteristic": "ความเป็นนิพพานที่ว่างเปล่าจากกิเลสและความยึดมั่นถือมั่น"
+                    },
+                    {
+                        "id": "animitta_nibbana",
+                        "name": "อนิมิตตนิพพาน",
+                        "characteristic": "ความเป็นนิพพานที่ไม่มีนิมิตเครื่องหมาย รูป ร่าง สัณฐาน สีสัน หรือวรรณะใดๆ"
+                    },
+                    {
+                        "id": "appanihita_nibbana",
+                        "name": "อัปปณิหิตนิพพาน",
+                        "characteristic": "ความเป็นนิพพานที่ไม่มีความตั้งปรารถนาหรือความอยากด้วยตัณหา"
+                    }
+                ]
+            }
+        ],
+        "properties": {
+            "has_form_or_color": false,
+            "description_detail": "ไม่มีนิมิตเครื่องหมาย รูปร่าง สัณฐาน สัณฐาน สีสัน วรรณะ ใดๆ เลย หลุดพ้นจากสิ้นเชิงแห่งวัฏสงสาร"
+        }
+    }
+}

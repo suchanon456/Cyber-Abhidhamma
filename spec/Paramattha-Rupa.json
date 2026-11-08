@@ -1,0 +1,314 @@
+{
+    "_meta": {
+        "model_name": "Paramattha-Structure",
+        "schema_version": "3.0.0",
+        "version": "3.0.1",
+        "revised": "2026-01-02",
+        "author": "suchanon456 / Cyber-Abhidhamma",
+        "license": "Apache-2.0",
+        "status": "draft",
+        "role": "คำอธิบายและการแมป (descriptive mapping) — ไม่ใช่ไฟล์ที่ใช้คำนวณ",
+        "related_specs": {
+            "spec/Vattapada-7.json": "สูตรคะแนนและทะเบียนเจตสิก 52 ที่ engine ใช้คำนวณจริง",
+            "spec/Rupa-Structure-Silicon.json": "รูป 28 ในฐานะ firmware พร้อม threshold_registry"
+        },
+        "validation_state": {
+            "validated_against_canonical_texts": false,
+            "mapping_is_analogy": true,
+            "usable_for_enforcement": false
+        },
+        "_warning": "การแมปนามธรรม -> คอมพิวเตอร์ในไฟล์นี้เป็นอุปมาเพื่อการเรียนรู้ ไม่ใช่คำอธิบายทางวิศวกรรมที่พิสูจน์แล้ว และยังไม่ได้ตรวจกับคัมภีร์",
+        "description": "โครงสร้างปรมัตถ์ (รูป 28, เจตสิก 52, จิต 121) พร้อมการแมปไปยังสถาปัตยกรรมคอมพิวเตอร์",
+        "part": "rupa",
+        "split_from": "Paramattha-Structure.json v3.0.1"
+    },
+    "_schema": {
+        "purpose": "กำหนดกติกาของไฟล์นี้เอง",
+        "conventions": {
+            "id_pattern": "^[a-z][a-z0-9_]*$",
+            "id_charset": "ascii เท่านั้น (ห้ามใช้ ñ, ตัวอักษรเทวะนาครี หรืออักขระนอก ascii ใน id)",
+            "id_must_match": "id ของเจตสิกต้องตรงกับ spec/Vattapada-7.json#cetasika_registry",
+            "name_fields": "name / characteristic / hardware_impact เป็นข้อความไทย-อังกฤษได้ตามต้องการ"
+        },
+        "integrity_checks": [
+            "รูป: 4+5+4+2+1+1+1+1+2+3+4 = 28",
+            "เจตสิก: 7+6+14+25 = 52",
+            "id ทุกตัวไม่ซ้ำและเป็น ascii",
+            "key_triggers ทุกตัวของจิต 121 ต้องอ้างเจตสิกที่มีใน cetasika_registry หรือ extended_factors",
+            "จิต: 121 (ยังไม่ตรวจในรอบนี้)"
+        ]
+    },
+    "counts": {
+        "rupa_28": {
+            "claimed": 28,
+            "counted": 28,
+            "breakdown": {
+                "mahabhuta": 4,
+                "pasada": 5,
+                "gocara_counted": 4,
+                "bhava": 2,
+                "hadaya": 1,
+                "jivita": 1,
+                "ahara": 1,
+                "pariccheda": 1,
+                "vinnatti": 2,
+                "vikara": 3,
+                "lakkhana": 4
+            },
+            "verified": true,
+            "note": "แสดงโคจร 5 รายการ แต่โผฏฐัพพะเป็นปฐวี+เตโช+วาโย จึงนับเป็น 4"
+        }
+    },
+    "paramattha_rupa_28": {
+        "domain": "Hardware Virtualization & Physics Engine Simulation",
+        "description": "โครงสร้างรูปปรมัตถ์ 28 ที่ถูก Compact Logic แปลงเป็นสถาปัตยกรรมคอมพิวเตอร์ในระดับฮาร์ดแวร์เสมือน (Hardware Virtualization) และวัตถุเชิงวัตถุ (OOP)",
+        "categories": [
+            {
+                "category_id": 1,
+                "name_th": "นิพปผันนรูป 18",
+                "name_en": "Concrete Rupa (Actual Form)",
+                "computer_science_mapping": {
+                    "simulation_role": "Hardware Components & Physical State Registry",
+                    "oop_role": "Base Classes / Concrete Objects",
+                    "description": "รูปที่เป็นจริง มีสภาวะเกิดดับ เป็นหน่วยความจำกายภาพและฮาร์ดแวร์เบื้องต้นที่ระบบจำลองขึ้น"
+                },
+                "elements": [
+                    {
+                        "group": "มหาภูตรูป 4",
+                        "silicon_ref": ["pathavi", "apo", "tejo", "vayo"],
+                        "name_en": "Mahabhuta Rupa (Primary Elements)",
+                        "simulation_mapping": {
+                            "Pathawi (ธาตุดิน)": "Solid State Storage / Rigid Body Matrix / Mass Allocation",
+                            "Apo (ธาตุน้ำ)": "Buffer Memory / Fluid Dynamics Simulation / Cohesion State",
+                            "Tejo (ธาตุไฟ)": "Thermal Management / CPU Clock Speed / Energy State",
+                            "Vayo (ธาตุลม)": "Network Bandwidth / Dynamic Vector / Airflow & Motion Engine"
+                        },
+                        "oop_implementation": {
+                            "class_name": "AbstractPrimaryElement",
+                            "properties": [
+                                "density",
+                                "temperature",
+                                "flow_rate",
+                                "state_vector"
+                            ],
+                            "methods": [
+                                "allocate_resource()",
+                                "dissipate_heat()",
+                                "transfer_state()"
+                            ]
+                        }
+                    },
+                    {
+                        "group": "ปสาทรูป 5",
+                        "silicon_ref": ["cakkhu", "sota", "ghana", "jivha", "kaya"],
+                        "name_en": "Pasada Rupa (Sensory Organs)",
+                        "simulation_mapping": {
+                            "Cakkhu (จักขุปสาท)": "Optical Sensors / Vision Input Interface",
+                            "Sota (โสตปสาท)": "Audio Input Stream / Acoustic Sensor API",
+                            "Ghāna (ฆานปสาท)": "Chemical / Gas Sensor API",
+                            "Jivhā (ชิวหาปสาท)": "Taste / Chemical Composition Matrix",
+                            "Kāya (กายปสาท)": "Tactile Feedback Array / Haptic Sensors"
+                        },
+                        "oop_implementation": {
+                            "class_name": "SensorInterface extends HardwareComponent",
+                            "properties": [
+                                "sensor_id",
+                                "sensitivity_threshold",
+                                "signal_buffer"
+                            ],
+                            "methods": [
+                                "read_input()",
+                                "calibrate_signal()"
+                            ]
+                        }
+                    },
+                    {
+                        "group": "โคจรรูป 5 (นับเป็น 4 ใน 28 เพราะโผฏฐัพพะ = ปฐวี+เตโช+วาโย)",
+                        "silicon_ref": ["rupa_rammana", "sadda_rammana", "gandha_rammana", "rasa_rammana", "photthabba_rammana"],
+                        "name_en": "Gocara Rupa (Object Domains)",
+                        "simulation_mapping": {
+                            "Rupa-Sadda-Gandha-Rasa-Photthabba": "Raw Data Streams (Visual, Audio, Chemical, Tactile Signals)"
+                        },
+                        "oop_implementation": {
+                            "class_name": "EnvironmentalStimulus",
+                            "properties": [
+                                "payload_type",
+                                "raw_bytes",
+                                "timestamp"
+                            ],
+                            "methods": [
+                                "inject_to_runtime()"
+                            ]
+                        }
+                    },
+                    {
+                        "group": "ภาวรูป 2",
+                        "silicon_ref": ["itthibhava", "purisabhava"],
+                        "name_en": "Bhava Rupa (Gender / Polarity)",
+                        "simulation_mapping": {
+                            "Itthindriya / Purisindriya": "System Role / Authorization Polarity Matrix (+/- Signifiers)"
+                        },
+                        "oop_implementation": {
+                            "class_name": "PolarityConfig",
+                            "properties": [
+                                "polarity_type",
+                                "access_privilege_vector"
+                            ],
+                            "methods": [
+                                "validate_context()"
+                            ]
+                        }
+                    },
+                    {
+                        "group": "หทยรูป 1",
+                        "silicon_ref": ["hadaya"],
+                        "name_en": "Hadaya Rupa (Heart Base / CPU Core)",
+                        "simulation_mapping": {
+                            "Hadaya-vatthu": "Central Processing Unit (CPU) Core / Core Runtime Registry for Citta (จิต)"
+                        },
+                        "oop_implementation": {
+                            "class_name": "KernelCoreRegistry",
+                            "properties": [
+                                "active_citta_pointer",
+                                "thread_id",
+                                "execution_lock"
+                            ],
+                            "methods": [
+                                "bind_runtime_engine()",
+                                "switch_context()"
+                            ]
+                        }
+                    },
+                    {
+                        "group": "ชีวิตรูป 1",
+                        "silicon_ref": ["jivita"],
+                        "name_en": "Jivita Rupa (Life Faculty / Watchdog Timer)",
+                        "simulation_mapping": {
+                            "Jivita-indriya": "Watchdog Timer / System Alive Pulse / Keep-Alive Daemon"
+                        },
+                        "oop_implementation": {
+                            "class_name": "SystemWatchdog",
+                            "properties": [
+                                "ttl_counter",
+                                "heartbeat_interval"
+                            ],
+                            "methods": [
+                                "trigger_system_panic()",
+                                "refresh_pulse()"
+                            ]
+                        }
+                    },
+                    {
+                        "group": "อาหารรูป 1",
+                        "silicon_ref": ["ahara"],
+                        "name_en": "Ahara Rupa (Nutrient / Energy Injection)",
+                        "simulation_mapping": {
+                            "Oja": "Power Supply Unit (PSU) / Energy Allocation & Fuel Injection API"
+                        },
+                        "oop_implementation": {
+                            "class_name": "EnergyProvider",
+                            "properties": [
+                                "wattage_pool",
+                                "consumption_rate"
+                            ],
+                            "methods": [
+                                "inject_energy()",
+                                "throttle_power()"
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "category_id": 2,
+                "name_th": "อนิพพัณณรูป 10",
+                "name_en": "Non-Concrete Rupa (Derived / Abstract Forms)",
+                "computer_science_mapping": {
+                    "simulation_role": "Virtualization Metadata / Spatial Boundaries / Derived UI States",
+                    "oop_role": "Interfaces / Abstract Classes / Wrapper Classes",
+                    "description": "รูปที่ไม่ใช่ปรมัตถ์โดยตรง แต่เป็นสภาวะแวดล้อม ขอบเขต หรือคุณสมบัติเชิงนามธรรมที่เกิดขึ้นจากปัจจัยปรุงแต่ง"
+                },
+                "elements": [
+                    {
+                        "group": "ปริจเฉทรูป 1",
+                        "silicon_ref": ["akasa"],
+                        "name_en": "Pariccheda Rupa (Space / Boundary)",
+                        "simulation_mapping": {
+                            "Akasatanana": "Virtualization Boundary / Network Segmentation / Memory Boundary Marker"
+                        },
+                        "oop_implementation": {
+                            "class_name": "SpatialBoundary",
+                            "properties": [
+                                "boundary_offset",
+                                "memory_address_range"
+                            ],
+                            "methods": [
+                                "check_collision()",
+                                "restrict_access()"
+                            ]
+                        }
+                    },
+                    {
+                        "group": "วิญญัตติรูป 2",
+                        "silicon_ref": ["kayavinnatti", "vacivinnatti"],
+                        "name_en": "Vinnatti Rupa (Expression / Output Signaling)",
+                        "simulation_mapping": {
+                            "Kaya-vinnatti & Vaci-vinnatti": "API Output / System Logging / Telemetry Signal / UI Rendering Stream"
+                        },
+                        "oop_implementation": {
+                            "class_name": "TelemetryEmitter",
+                            "properties": [
+                                "log_level",
+                                "stream_channel"
+                            ],
+                            "methods": [
+                                "emit_signal()",
+                                "broadcast_intent()"
+                            ]
+                        }
+                    },
+                    {
+                        "group": "วิการรูป 3",
+                        "silicon_ref": ["lahuta", "muduta", "kammannata"],
+                        "name_en": "Vikara Rupa (Modifications / Dynamic States)",
+                        "simulation_mapping": {
+                            "Lahuta, Muduta, Kammaññata": "Performance Scaling / Dynamic Load Balancing / Thread Responsiveness"
+                        },
+                        "oop_implementation": {
+                            "class_name": "DynamicElasticity",
+                            "properties": [
+                                "elasticity_index",
+                                "latency_modifier"
+                            ],
+                            "methods": [
+                                "optimize_performance()",
+                                "scale_resources()"
+                            ]
+                        }
+                    },
+                    {
+                        "group": "ลักขณรูป 4",
+                        "silicon_ref": ["upacaya", "santati", "jarata", "aniccata"],
+                        "name_en": "Lakkhana Rupa (Characteristics / Lifecycle States)",
+                        "simulation_mapping": {
+                            "Upacaya, Santati, Jarata, Aniccatata": "Object Lifecycle Management / Garbage Collection / Garbage State Tracking"
+                        },
+                        "oop_implementation": {
+                            "class_name": "LifecycleManager",
+                            "properties": [
+                                "creation_timestamp",
+                                "entropy_level",
+                                "decay_rate"
+                            ],
+                            "methods": [
+                                "initialize_state()",
+                                "garbage_collect()",
+                                "terminate_instance()"
+                            ]
+                        }
+                    }
+                ]
+            }
+        ]
+    }
+}

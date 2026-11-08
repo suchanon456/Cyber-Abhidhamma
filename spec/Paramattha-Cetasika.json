@@ -1,0 +1,460 @@
+{
+    "_meta": {
+        "model_name": "Paramattha-Structure",
+        "schema_version": "3.0.0",
+        "version": "3.0.1",
+        "revised": "2026-01-02",
+        "author": "suchanon456 / Cyber-Abhidhamma",
+        "license": "Apache-2.0",
+        "status": "draft",
+        "role": "คำอธิบายและการแมป (descriptive mapping) — ไม่ใช่ไฟล์ที่ใช้คำนวณ",
+        "related_specs": {
+            "spec/Vattapada-7.json": "สูตรคะแนนและทะเบียนเจตสิก 52 ที่ engine ใช้คำนวณจริง",
+            "spec/Rupa-Structure-Silicon.json": "รูป 28 ในฐานะ firmware พร้อม threshold_registry"
+        },
+        "validation_state": {
+            "validated_against_canonical_texts": false,
+            "mapping_is_analogy": true,
+            "usable_for_enforcement": false
+        },
+        "_warning": "การแมปนามธรรม -> คอมพิวเตอร์ในไฟล์นี้เป็นอุปมาเพื่อการเรียนรู้ ไม่ใช่คำอธิบายทางวิศวกรรมที่พิสูจน์แล้ว และยังไม่ได้ตรวจกับคัมภีร์",
+        "description": "โครงสร้างปรมัตถ์ (รูป 28, เจตสิก 52, จิต 121) พร้อมการแมปไปยังสถาปัตยกรรมคอมพิวเตอร์",
+        "part": "cetasika",
+        "split_from": "Paramattha-Structure.json v3.0.1"
+    },
+    "_schema": {
+        "purpose": "กำหนดกติกาของไฟล์นี้เอง",
+        "conventions": {
+            "id_pattern": "^[a-z][a-z0-9_]*$",
+            "id_charset": "ascii เท่านั้น (ห้ามใช้ ñ, ตัวอักษรเทวะนาครี หรืออักขระนอก ascii ใน id)",
+            "id_must_match": "id ของเจตสิกต้องตรงกับ spec/Vattapada-7.json#cetasika_registry",
+            "name_fields": "name / characteristic / hardware_impact เป็นข้อความไทย-อังกฤษได้ตามต้องการ"
+        },
+        "integrity_checks": [
+            "รูป: 4+5+4+2+1+1+1+1+2+3+4 = 28",
+            "เจตสิก: 7+6+14+25 = 52",
+            "id ทุกตัวไม่ซ้ำและเป็น ascii",
+            "key_triggers ทุกตัวของจิต 121 ต้องอ้างเจตสิกที่มีใน cetasika_registry หรือ extended_factors",
+            "จิต: 121 (ยังไม่ตรวจในรอบนี้)"
+        ]
+    },
+    "counts": {
+        "cetasika_52": {
+            "claimed": 52,
+            "counted": 52,
+            "breakdown": {
+                "sabbacittasadharana": 7,
+                "pakinnaka": 6,
+                "akusala": 14,
+                "sobhana": 25
+            },
+            "verified": true,
+            "corrected_in": "3.0.0",
+            "corrections": [
+                "เพิ่มถีนะและมิทธะ (อกุศลเดิมนับได้ 12 จาก 14)",
+                "เพิ่มกายลหุตา/จิตตลหุตา/กายมุทุตา/จิตตมุทุตา (โสภณสาธารณเดิมนับได้ 15 จาก 19)",
+                "แปลง id เป็น ascii และให้ตรงกับ cetasika_registry: kayujjukata->kayujukata, cittajukatata->cittujukata, kayapaguññata->kayapagunnata, cittapaguññata->cittapagunnata, amoha_panna->panna",
+                "แก้ป้ายชื่อ 'โกจรัตรูป 7 (โคจรัรูป 2)' เป็น 'โคจรรูป 5 (นับเป็น 4)'",
+                "ลบอักษรเทวะนาครีที่หลุดอยู่ในชื่อ 'วิการรูป 3'"
+            ]
+        }
+    },
+    "cetasika_52": {
+        "annasamana_cetasika_13": {
+            "name": "อัญญสมานเจตสิก 13",
+            "description": "เจตสิกที่เสมอกันทั้งฝ่ายดีและฝ่ายชั่ว (ดึงไปร่วมกับจิตได้ทั้งอกุศลและกุศล)",
+            "subgroups": {
+                "sabbacittasadhana_cetasika_7": {
+                    "name": "สัพพจิตตสาธารณเจตสิก 7",
+                    "description": "เจตสิกที่เกิดร่วมกับจิตทุกดวง (89 หรือ 121 ดวง)",
+                    "items": [
+                        {
+                            "id": "phassa",
+                            "name": "ผัสสะ",
+                            "characteristic": "ความกระทบอารมณ์",
+                            "hardware_impact": "Hardware Input Event Trigger / Interrupt Request (IRQ) / Signal Reception"
+                        },
+                        {
+                            "id": "vedana",
+                            "name": "เวทนา",
+                            "characteristic": "ความเสวยอารมณ์",
+                            "hardware_impact": "Signal Valence Classification / Voltage Threshold Measurement / Status Metric Flag"
+                        },
+                        {
+                            "id": "sanna",
+                            "name": "สัญญา",
+                            "characteristic": "ความจำหมายอารมณ์",
+                            "hardware_impact": "Cache Lookup / Pattern Matching / Data Tagging & Indexing in Memory"
+                        },
+                        {
+                            "id": "cetana",
+                            "name": "เจตนา",
+                            "characteristic": "ความจงใจ/ตัวกระทำกิจ",
+                            "hardware_impact": "Task Dispatcher / CPU Scheduler / Thread Execution Command"
+                        },
+                        {
+                            "id": "ekaggata",
+                            "name": "เอกัคคตา",
+                            "characteristic": "ความตั้งมั่นในอารมณ์",
+                            "hardware_impact": "Clock Synchronization / Frequency Stabilization / Thread Pinning to Core"
+                        },
+                        {
+                            "id": "jivitindriya",
+                            "name": "ชีวิตินทรีย์",
+                            "characteristic": "สภาพธรรมที่รักษานามธรรม",
+                            "hardware_impact": "System Clock / Watchdog Timer / Heartbeat Signal for Process Liveness"
+                        },
+                        {
+                            "id": "manasikara",
+                            "name": "มนสิการ",
+                            "characteristic": "ความใส่ใจอารมณ์",
+                            "hardware_impact": "Interrupt Handling / Attention Masking / Focus Register Allocation"
+                        }
+                    ]
+                },
+                "pakinnaka_cetasika_6": {
+                    "name": "ปกิณณกเจตสิก 6",
+                    "description": "เจตสิกที่เรี่ยราย เกิดร่วมได้ทั้งจิตฝ่ายดีและชั่ว แต่ไม่ทุกดวง",
+                    "items": [
+                        {
+                            "id": "vitakka",
+                            "name": "วิตก",
+                            "characteristic": "ความตรึกอารมณ์",
+                            "hardware_impact": "Initial Vector Loading / Pipeline Fetch Phase / Memory Address Targeting"
+                        },
+                        {
+                            "id": "vicara",
+                            "name": "วิจาร",
+                            "characteristic": "ความตรองอารมณ์",
+                            "hardware_impact": "Continuous Data Processing / Pipeline Execution / Background Polling Loop"
+                        },
+                        {
+                            "id": "adhimokkha",
+                            "name": "อธิโมกข์",
+                            "characteristic": "ความปักใจเชื่อ/ตัดสินใจ",
+                            "hardware_impact": "Branch Resolution / Hard Decision Gate / Lock-in Register State"
+                        },
+                        {
+                            "id": "viriya",
+                            "name": "วิริยะ",
+                            "characteristic": "ความเพียรพยายาม",
+                            "hardware_impact": "Dynamic Voltage and Frequency Scaling (DVFS) Boost / High-Performance State Execution"
+                        },
+                        {
+                            "id": "piti",
+                            "name": "ปีติ",
+                            "characteristic": "ความอิ่มใจ/ความยินดี",
+                            "hardware_impact": "Positive Feedback Loop / Energy Surge / Efficient Power State Transition"
+                        },
+                        {
+                            "id": "chanda",
+                            "name": "ฉันทะ",
+                            "characteristic": "ความใคร่จะได้/ความพอใจในกิจ",
+                            "hardware_impact": "Task Queue Priority Boost / Resource Request Vector / Intent-driven Allocation"
+                        }
+                    ]
+                }
+            }
+        },
+        "akusala_cetasika_14": {
+            "name": "อกุศลเจตสิก 14",
+            "description": "เจตสิกที่เป็นบาปอกุศล เกิดร่วมกับอกุศลจิตเท่านั้น",
+            "subgroups": {
+                "moha_catukka_4": {
+                    "name": "โมจตุกเจตสิก 4",
+                    "description": "เจตสิกกลุ่มโมหะ เกิดร่วมกับอกุศลจิตทุกดวง",
+                    "items": [
+                        {
+                            "id": "moha",
+                            "name": "โมหะ",
+                            "characteristic": "ความหลง/ความไม่รู้จริง",
+                            "hardware_impact": "Corrupted Firmware Configuration / EEPROM/BIOS Misconfiguration"
+                        },
+                        {
+                            "id": "ahirika",
+                            "name": "อหิริกะ",
+                            "characteristic": "ความไม่ละอายต่อบาป",
+                            "hardware_impact": "Disabled Security Interlocks / Bypass Access Control"
+                        },
+                        {
+                            "id": "anottappa",
+                            "name": "อโนตตัปปะ",
+                            "characteristic": "ความไม่เกรงกลัวต่อบาป",
+                            "hardware_impact": "Ignored Warning Flags / Overridden Safety Limits"
+                        },
+                        {
+                            "id": "uddhacca",
+                            "name": "อุทธัจจะ",
+                            "characteristic": "ความฟุ้งซ่าน",
+                            "hardware_impact": "CPU Interrupt Storm / Context Switching Thrashing / Register Corruption"
+                        }
+                    ]
+                },
+                "thina_middha_2": {
+                    "name": "ถีนมิทธเจตสิก 2",
+                    "description": "ความหดหู่ท้อถอยและความง่วงเหงา เกิดร่วมกับอกุศลจิตบางดวง (เพิ่มใน schema 3.0.0 ของเดิมนับอกุศลได้ 12 จาก 14)",
+                    "items": [
+                        {
+                            "id": "thina",
+                            "name": "ถีนะ",
+                            "characteristic": "ความหดหู่ท้อถอยแห่งจิต",
+                            "hardware_impact": "Thread Starvation / Stalled Pipeline / Idle Core Spin"
+                        },
+                        {
+                            "id": "middha",
+                            "name": "มิทธะ",
+                            "characteristic": "ความง่วงเหงาเซื่องซึม",
+                            "hardware_impact": "Low-Power Sleep Drift / Missed Watchdog Refresh / Degraded Throughput"
+                        }
+                    ]
+                },
+                "lobha_tika_3": {
+                    "name": "โลภตุกเจตสิก 3",
+                    "description": "เจตสิกกลุ่มโลภะ เกิดร่วมกับโลภมูลจิต",
+                    "items": [
+                        {
+                            "id": "lobha",
+                            "name": "โลภะ",
+                            "characteristic": "ความอยากได้/ความติดใจ",
+                            "hardware_impact": "Unauthorized Cache Allocation / Resource Hoarding / Infinite Request Loop"
+                        },
+                        {
+                            "id": "ditthi",
+                            "name": "ทิฏฐิ",
+                            "characteristic": "ความเห็นผิด",
+                            "hardware_impact": "Corrupted System Rules / Hardcoded Faulty Logic Mask"
+                        },
+                        {
+                            "id": "mana",
+                            "name": "มานะ",
+                            "characteristic": "ความถือตัว/ความสำคัญตน",
+                            "hardware_impact": "Hardware Resource Monopoly / Exclusive Lock on Primary Controller"
+                        }
+                    ]
+                },
+                "dosa_catukka_4": {
+                    "name": "โทสจตุกเจตสิก 4",
+                    "description": "เจตสิกกลุ่มโทสะ เกิดร่วมกับโทสมูลจิต",
+                    "items": [
+                        {
+                            "id": "dosa",
+                            "name": "โทสะ",
+                            "characteristic": "ความประทุษร้ายจิตใจ/ความโกรธ",
+                            "hardware_impact": "Hardware Short Circuit / Overvoltage Spike / Sudden Hard Reset (Kernel Panic)"
+                        },
+                        {
+                            "id": "issa",
+                            "name": "อิสสา",
+                            "characteristic": "ความริษยา",
+                            "hardware_impact": "Inter-Process Interference / Resource Sabotage"
+                        },
+                        {
+                            "id": "macchariya",
+                            "name": "มัจฉริยะ",
+                            "characteristic": "ความตระหนี่",
+                            "hardware_impact": "Shared Memory Lockout / Starvation of Peer Processes"
+                        },
+                        {
+                            "id": "kukkucca",
+                            "name": "กุกกุจจะ",
+                            "characteristic": "ความรำคาญใจในสิ่งที่ทำผิดหรือไม่ได้ทำ",
+                            "hardware_impact": "Error Log Flooding / Redundant State Re-evaluation"
+                        }
+                    ]
+                },
+                "vicikiccha_cetasika_1": {
+                    "name": "วิจิกิจฉาเจตสิก 1",
+                    "description": "ความลังเลสงสัย เกิดร่วมกับวิจิกิจฉาสัมปยุตตจิตเท่านั้น",
+                    "items": [
+                        {
+                            "id": "vicikiccha",
+                            "name": "วิจิกิจฉา",
+                            "characteristic": "ความเคลือบแคสงสัย",
+                            "hardware_impact": "Processor Stall / Pipeline Flushing / Clock Cycle Deadlock (ระบบรอคำสั่งจนฮาร์ดแวร์นิ่งค้าง)"
+                        }
+                    ]
+                }
+            }
+        },
+        "sobhana_cetasika_25": {
+            "name": "โสภณเจตสิก 25",
+            "description": "เจตสิกฝ่ายดีงาม เกิดร่วมกับโสภณจิต",
+            "subgroups": {
+                "sobhana_sadhana_19": {
+                    "name": "โสภณสาธารณเจตสิก 19",
+                    "description": "เจตสิกที่เกิดร่วมกับโสภณจิตทุกดวง",
+                    "items": [
+                        {
+                            "id": "saddha",
+                            "name": "ศรัทธา",
+                            "characteristic": "ความเชื่อมั่นในสิ่งที่ควรเชื่อ",
+                            "hardware_impact": "Trusted Platform Module (TPM) Initialization / Root Certificate Validation / Secure Boot Verification"
+                        },
+                        {
+                            "id": "sati",
+                            "name": "สติ",
+                            "characteristic": "ความระลึกได้/ไม่เผลอตัว",
+                            "hardware_impact": "Hardware Firewall Monitoring / Real-time Intrusion Detection System (IDS) / Memory Watchdog Protection"
+                        },
+                        {
+                            "id": "hiri",
+                            "name": "หิริ",
+                            "characteristic": "ความละอายต่อบาป",
+                            "hardware_impact": "Access Control List (ACL) Enforcement / Privilege Boundary Protection / Unauthorized Write Prevention"
+                        },
+                        {
+                            "id": "ottappa",
+                            "name": "โอตตัปปะ",
+                            "characteristic": "ความเกรงกลัวต่อบาป",
+                            "hardware_impact": "Error Correction Code (ECC) Memory Validation / System Threshold Limit Check / Fail-safe Trigger"
+                        },
+                        {
+                            "id": "alobha",
+                            "name": "อโลภะ",
+                            "characteristic": "ความไม่โลภ/ความเสียสละ",
+                            "hardware_impact": "Fair Queueing Resource Management / Buffer Deallocation / Load Balancing / Prevent Memory Leak"
+                        },
+                        {
+                            "id": "adosa",
+                            "name": "อโทสะ",
+                            "characteristic": "ความไม่โกรธ/เมตตา",
+                            "hardware_impact": "Thermal Equilibrium / Overheat Prevention / Cool-down State / Stable Voltage Regulation"
+                        },
+                        {
+                            "id": "tatramajjhattata",
+                            "name": "ตัตตรมัชฌัตตตา",
+                            "characteristic": "ความวางใจเป็นกลางอย่างสมดุล",
+                            "hardware_impact": "Hardware Load Balancer / Symmetric Multiprocessing (SMP) Load Distribution / Neutral State Regulator"
+                        },
+                        {
+                            "id": "kayapassaddhi",
+                            "name": "กายปัสสัทธิ",
+                            "characteristic": "ความสงบแห่งเจตสิก",
+                            "hardware_impact": "Subsystem Quieting / Low-Power Sleep State for Idle Modules"
+                        },
+                        {
+                            "id": "cittapassaddhi",
+                            "name": "จิตตปัสสัทธิ",
+                            "characteristic": "ความสงบแห่งจิต",
+                            "hardware_impact": "Core Stabilization / Reduced System Jitter"
+                        },
+                        {
+                            "id": "kayakammannata",
+                            "name": "กายกัมมัญญตา",
+                            "characteristic": "ความควรแก่การงานแห่งเจตสิก",
+                            "hardware_impact": "Hardware Accelerator Readiness / Coprocessor Optimization / Operational Efficiency State"
+                        },
+                        {
+                            "id": "cittakammannata",
+                            "name": "จิตตกัมมัญญตา",
+                            "characteristic": "ความควรแก่การงานแห่งจิต",
+                            "hardware_impact": "Optimized CPU Pipeline / Ready-to-Execute Thread Queue / High Computational Throughput"
+                        },
+                        {
+                            "id": "kayapagunnata",
+                            "name": "กายปาคุญญตา",
+                            "characteristic": "ความคล่องแคล่วแห่งเจตสิก",
+                            "hardware_impact": "Fast-Path Routing / Reduced Latency in Subsystem Execution"
+                        },
+                        {
+                            "id": "cittapagunnata",
+                            "name": "จิตตปาคุญญตา",
+                            "characteristic": "ความคล่องแคล่วแห่งจิต",
+                            "hardware_impact": "Agile Context Switching / Optimized Branch Prediction"
+                        },
+                        {
+                            "id": "kayujukata",
+                            "name": "กายยุกุตา (กายชุกตา)",
+                            "characteristic": "ความซื่อตรงแห่งเจตสิก",
+                            "hardware_impact": "Linear Data Path Verification / Stream Integrity Check"
+                        },
+                        {
+                            "id": "cittujukata",
+                            "name": "จิตตชุกตา",
+                            "characteristic": "ความซื่อตรงแห่งจิต",
+                            "hardware_impact": "Deterministic Execution Path / Zero-tolerance Logic Gate / Linear Program Flow Verification"
+                        },
+                        {
+                            "id": "kayalahuta",
+                            "name": "กายลหุตา",
+                            "characteristic": "ความเบาแห่งเจตสิก",
+                            "hardware_impact": "Fast-Path Instruction Dispatch / Reduced Register Pressure"
+                        },
+                        {
+                            "id": "cittalahuta",
+                            "name": "จิตตลหุตา",
+                            "characteristic": "ความเบาแห่งจิต",
+                            "hardware_impact": "Lightweight Thread Scheduling / Reduced Context Size"
+                        },
+                        {
+                            "id": "kayamuduta",
+                            "name": "กายมุทุตา",
+                            "characteristic": "ความอ่อนแห่งเจตสิก",
+                            "hardware_impact": "Elastic Resource Allocation / Adaptive Throttling"
+                        },
+                        {
+                            "id": "cittamuduta",
+                            "name": "จิตตมุทุตา",
+                            "characteristic": "ความอ่อนแห่งจิต",
+                            "hardware_impact": "Graceful Degradation / Flexible Policy Rebind"
+                        }
+                    ]
+                },
+                "virati_cetasika_3": {
+                    "name": "วิรตีเจตสิก 3",
+                    "description": "เจตสิกงดเว้นจากบาป",
+                    "items": [
+                        {
+                            "id": "sammavaca",
+                            "name": "สัมมาวาจา",
+                            "characteristic": "เว้นจากวจีทุจริต 4",
+                            "hardware_impact": "Output Stream Sanitization / Malicious Payload Filtering / API Request Validation"
+                        },
+                        {
+                            "id": "sammakammanta",
+                            "name": "สัมมากัมมันตะ",
+                            "characteristic": "เว้นจากกายทุจริต 3",
+                            "hardware_impact": "Hardware Action Interception / Unauthorized Write Block / Safe Execution Sandbox"
+                        },
+                        {
+                            "id": "samma_ajiva",
+                            "name": "สัมมาอาชีวะ",
+                            "characteristic": "เว้นจากมิจฉาชีพ",
+                            "hardware_impact": "Secure Protocol Enforcement / Compliant Data Channel Routing / Trustworthy Transaction Gate"
+                        }
+                    ]
+                },
+                "appamanna_cetasika_2": {
+                    "name": "อัปปมัญญาเจตสิก 2",
+                    "description": "เจตสิกแผ่เมตตา กรุณา ต่อสัตว์ทั้งปวง (พรหมวิหาร 4 บางส่วน)",
+                    "items": [
+                        {
+                            "id": "karuna",
+                            "name": "กรุณา",
+                            "characteristic": "ความสงสารสัตว์ผู้ได้รับความทุกข์",
+                            "hardware_impact": "Error Recovery Protocol / System Auto-healing Routine / Failover Redundancy Trigger"
+                        },
+                        {
+                            "id": "mudita",
+                            "name": "มุทิตา",
+                            "characteristic": "ความยินดีเมื่อผู้อื่นได้ดี",
+                            "hardware_impact": "Collaborative Processing / Shared Cache Synchronization / Multi-core Resource Synergy"
+                        }
+                    ]
+                },
+                "panna_cetasika_1": {
+                    "name": "ปัญญินทรียเจตสิก 1 (ปัญญาเจตสิก)",
+                    "description": "เจตสิกความรู้แจ้ง / ปัญญา",
+                    "items": [
+                        {
+                            "id": "panna",
+                            "name": "ปัญญา (อโมหะ)",
+                            "characteristic": "ความรู้ความเข้าใจสภาวะธรรมตามความเป็นจริง",
+                            "hardware_impact": "Deterministic Logic Processing / Optimized Core Architecture / Core Validation Engine / Low-level Root Truth Verification"
+                        }
+                    ]
+                }
+            }
+        }
+    }
+}

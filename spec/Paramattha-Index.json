@@ -1,0 +1,32 @@
+{
+  "_meta": {
+    "model_name": "Paramattha-Index",
+    "version": "3.0.1",
+    "revised": "2026-01-02",
+    "description": "ดัชนีของชุดไฟล์ปรมัตถ์ที่แยกจาก Paramattha-Structure.json v3.0.1 (ดู split_from ในแต่ละไฟล์)"
+  },
+  "files": {
+    "rupa": {
+      "path": "spec/Paramattha-Rupa.json",
+      "root_key": "paramattha_rupa_28",
+      "expected_count": 28
+    },
+    "cetasika": {
+      "path": "spec/Paramattha-Cetasika.json",
+      "root_key": "cetasika_52",
+      "expected_count": 52
+    },
+    "citta": {
+      "path": "spec/Paramattha-Citta.json",
+      "root_key": "citta_121",
+      "expected_count": 121
+    },
+    "nibbana": {
+      "path": "spec/Paramattha-Nibbana.json",
+      "root_key": "nibbana_paramattha",
+      "expected_count": null,
+      "note": "ส่วนขยายใหม่ ไม่มีใน Paramattha-Structure v3.0.1"
+    }
+  },
+  "total_paramattha_groups": 4
+}

@@ -1,7 +1,8 @@
 # 02 — Security Architecture: มรรค 8 ↔ Firewall, วัตรบท 7 ↔ Policy, วิถีจิต ↔ Scheduler
 
 > **สถานะ: Draft** — เรียบเรียงจาก [Core-Logic-v2 (raw)](../conversations/Core-Logic-v2.md)
-> ยังไม่มีโค้ดรองรับใน `core/` — เนื้อหาในไฟล์นี้เป็น *ข้อกำหนด* (specification) ไม่ใช่ *คำอธิบายของสิ่งที่รันอยู่*
+> มีโค้ดบางส่วนใน `core/src/firewall/` (4 ด่าน: payload, route, rate, normalize) และ `docs/threat-model.md` — ส่วนที่เหลือของไฟล์นี้ยังเป็น *ข้อกำหนด* ไม่ใช่ *คำอธิบายของสิ่งที่รันอยู่*
+> ยังไม่มีการวัดผลเทียบ baseline และยังไม่ได้เชื่อม Vattapada เข้า firewall
 
 ---
 

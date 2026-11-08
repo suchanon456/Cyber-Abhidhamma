@@ -1,15 +1,24 @@
 {
   "_meta": {
     "model_name": "Vattapada-7 Dynamic Scoring Engine",
-    "version": "2.0.0",
+    "schema_version": "3.0.0",
+    "version": "3.0.0",
     "author": "suchanon456 / Cyber-Abhidhamma",
     "license": "Apache-2.0",
     "created": "2026-09-16",
-    "status": "draft — not yet validated against canonical Abhidhamma texts",
-    "_warning": "This is a heuristic model, not a canonical Abhidhamma formula. Weights and penalties are approximations for experimental purposes. Do not cite as authoritative.",
+    "revised": "2026-01-01",
+    "status": "draft",
+    "validation_state": {
+      "validated_against_canonical_texts": false,
+      "validated_against_dataset": false,
+      "calibration_version": null,
+      "usable_for_enforcement": false
+    },
+    "_warning": "HEURISTIC MODEL. Weights, penalties and thresholds below are chosen by the authors, not derived from any canonical text or from measured data. Do not cite as authoritative and do not use for real access-control decisions until validation_state is updated with evidence.",
     "_source": [
       "docs/conversations/The-Seven-Practices-Vattapada.md",
-      "spec/Paramattha-Structure.json",
+      "spec/Paramattha-Cetasika.json",
+      "spec/Paramattha-Citta.json",
       "docs/conversations/Core-Logic-v2.md",
       "docs/architecture/04-vattapada7.md"
     ],
@@ -17,72 +26,226 @@
     "description": "วัตรบท 7 ไม่ใช่ 7 กฎตายตัว แต่เป็น 7 มิติของคะแนนพฤติกรรมที่งอกออกมาจากเจตสิก 52 มิติ ระบบจะเน่าเองตามเหตุปัจจัย ไม่ต้องมีใครมาสั่งแบน"
   },
 
+  "_schema": {
+    "purpose": "กำหนดกติกาของไฟล์นี้เอง เพื่อให้ตรวจสอบได้ด้วยโปรแกรม ไม่ต้องเดาความหมายจากชื่อฟิลด์",
+    "conventions": {
+      "id_pattern": "^[a-z][a-z0-9_]*$",
+      "score_range": "[0.0, 1.0]",
+      "weights_sum_rule": "ผลรวม weights ของแต่ละวัตรบทต้องเท่ากับ 1.0",
+      "penalty_application": "engine ใช้ค่าสัมบูรณ์ของ penalties (เครื่องหมายลบมีไว้ให้อ่านสูตรเท่านั้น)",
+      "clamp": "คะแนนวัตรบทถูก clamp ที่ [0.0, 1.0] หลังหัก penalties",
+      "unknown_fields": "engine ไม่สนใจฟิลด์ที่มันไม่อ่าน (serde ignore) จึงเพิ่ม metadata ได้โดยไม่กระทบการคำนวณ"
+    },
+    "required_engine_fields": {
+      "overall_governance.thresholds": "map ของ string; ต้องมี key: sakka_king_of_devas, deva, human, preta",
+      "vattapada_7[].id": "ต้องมีครบ 7 ตัว เรียง vatta_1 ถึง vatta_7",
+      "vattapada_7[].cetasika_formula.weights": "map cetasika -> number",
+      "vattapada_7[].cetasika_formula.penalties": "map cetasika -> number",
+      "vattapada_7[].policy_as_code.ring_transition": "string รูปแบบ `Ring A -> Ring B if vatta_N < X`"
+    },
+    "integrity_checks": [
+      "จำนวนวัตรบท = 7",
+      "ผลรวม weights ต่อวัตรบท = 1.0",
+      "cetasika ทุกตัวที่อ้างถึงต้องมีใน cetasika_registry หรือ extended_factors",
+      "index ใน cetasika_registry ต้องต่อเนื่อง 0..51 ไม่ซ้ำ",
+      "ค่า threshold ทุกตัวต้องอยู่ในช่วง 0..1"
+    ]
+  },
+
+  "cetasika_registry": {
+    "_note": "ทะเบียนกลางของเจตสิก 52 ปรมัตถ์ ใช้เลข index ต่อเนื่อง 0..51 (แก้จาก draft ก่อนหน้าที่นับไม่ครบ 52)",
+    "counts": {
+      "sabbacittasadharana": 7,
+      "pakinnaka": 6,
+      "akusala": 14,
+      "sobhana": 25,
+      "total": 52
+    },
+    "canonical_52": [
+      { "index": 0, "id": "phassa", "pali": "ผัสสะ", "group": "sabbacittasadharana" },
+      { "index": 1, "id": "vedana", "pali": "เวทนา", "group": "sabbacittasadharana" },
+      { "index": 2, "id": "sanna", "pali": "สัญญา", "group": "sabbacittasadharana" },
+      { "index": 3, "id": "cetana", "pali": "เจตนา", "group": "sabbacittasadharana" },
+      { "index": 4, "id": "ekaggata", "pali": "เอกัคคตา", "group": "sabbacittasadharana" },
+      { "index": 5, "id": "jivitindriya", "pali": "ชีวิตินทรีย์", "group": "sabbacittasadharana" },
+      { "index": 6, "id": "manasikara", "pali": "มนสิการ", "group": "sabbacittasadharana" },
+
+      { "index": 7, "id": "vitakka", "pali": "วิตก", "group": "pakinnaka" },
+      { "index": 8, "id": "vicara", "pali": "วิจาร", "group": "pakinnaka" },
+      { "index": 9, "id": "adhimokkha", "pali": "อธิโมกข์", "group": "pakinnaka" },
+      { "index": 10, "id": "viriya", "pali": "วิริยะ", "group": "pakinnaka" },
+      { "index": 11, "id": "piti", "pali": "ปีติ", "group": "pakinnaka" },
+      { "index": 12, "id": "chanda", "pali": "ฉันทะ", "group": "pakinnaka" },
+
+      { "index": 13, "id": "moha", "pali": "โมหะ", "group": "akusala" },
+      { "index": 14, "id": "ahirika", "pali": "อหิริกะ", "group": "akusala" },
+      { "index": 15, "id": "anottappa", "pali": "อโนตตัปปะ", "group": "akusala" },
+      { "index": 16, "id": "uddhacca", "pali": "อุทธัจจะ", "group": "akusala" },
+      { "index": 17, "id": "lobha", "pali": "โลภะ", "group": "akusala" },
+      { "index": 18, "id": "ditthi", "pali": "ทิฏฐิ", "group": "akusala" },
+      { "index": 19, "id": "mana", "pali": "มานะ", "group": "akusala" },
+      { "index": 20, "id": "dosa", "pali": "โทสะ", "group": "akusala" },
+      { "index": 21, "id": "issa", "pali": "อิสสา", "group": "akusala" },
+      { "index": 22, "id": "macchariya", "pali": "มัจฉริยะ", "group": "akusala" },
+      { "index": 23, "id": "kukkucca", "pali": "กุกกุจจะ", "group": "akusala" },
+      { "index": 24, "id": "thina", "pali": "ถีนะ", "group": "akusala" },
+      { "index": 25, "id": "middha", "pali": "มิทธะ", "group": "akusala" },
+      { "index": 26, "id": "vicikiccha", "pali": "วิจิกิจฉา", "group": "akusala" },
+
+      { "index": 27, "id": "saddha", "pali": "ศรัทธา", "group": "sobhana_sadhana" },
+      { "index": 28, "id": "sati", "pali": "สติ", "group": "sobhana_sadhana" },
+      { "index": 29, "id": "hiri", "pali": "หิริ", "group": "sobhana_sadhana" },
+      { "index": 30, "id": "ottappa", "pali": "โอตตัปปะ", "group": "sobhana_sadhana" },
+      { "index": 31, "id": "alobha", "pali": "อโลภะ", "group": "sobhana_sadhana" },
+      { "index": 32, "id": "adosa", "pali": "อโทสะ", "group": "sobhana_sadhana" },
+      { "index": 33, "id": "tatramajjhattata", "pali": "ตัตตรมัชฌัตตตา", "group": "sobhana_sadhana" },
+      { "index": 34, "id": "kayapassaddhi", "pali": "กายปัสสัทธิ", "group": "sobhana_sadhana" },
+      { "index": 35, "id": "cittapassaddhi", "pali": "จิตตปัสสัทธิ", "group": "sobhana_sadhana" },
+      { "index": 36, "id": "kayalahuta", "pali": "กายลหุตา", "group": "sobhana_sadhana" },
+      { "index": 37, "id": "cittalahuta", "pali": "จิตตลหุตา", "group": "sobhana_sadhana" },
+      { "index": 38, "id": "kayamuduta", "pali": "กายมุทุตา", "group": "sobhana_sadhana" },
+      { "index": 39, "id": "cittamuduta", "pali": "จิตตมุทุตา", "group": "sobhana_sadhana" },
+      { "index": 40, "id": "kayakammannata", "pali": "กายกัมมัญญตา", "group": "sobhana_sadhana" },
+      { "index": 41, "id": "cittakammannata", "pali": "จิตตกัมมัญญตา", "group": "sobhana_sadhana" },
+      { "index": 42, "id": "kayapagunnata", "pali": "กายปาคุญญตา", "group": "sobhana_sadhana" },
+      { "index": 43, "id": "cittapagunnata", "pali": "จิตตปาคุญญตา", "group": "sobhana_sadhana" },
+      { "index": 44, "id": "kayujukata", "pali": "กายชุกตา", "group": "sobhana_sadhana" },
+      { "index": 45, "id": "cittujukata", "pali": "จิตตชุกตา", "group": "sobhana_sadhana" },
+
+      { "index": 46, "id": "sammavaca", "pali": "สัมมาวาจา", "group": "virati" },
+      { "index": 47, "id": "sammakammanta", "pali": "สัมมากัมมันตะ", "group": "virati" },
+      { "index": 48, "id": "samma_ajiva", "pali": "สัมมาอาชีวะ", "group": "virati" },
+
+      { "index": 49, "id": "karuna", "pali": "กรุณา", "group": "appamanna" },
+      { "index": 50, "id": "mudita", "pali": "มุทิตา", "group": "appamanna" },
+
+      { "index": 51, "id": "panna", "pali": "ปัญญา", "group": "panna" }
+    ],
+    "extended_factors": {
+      "_note": "ไม่ใช่เจตสิกใน 52 แต่สูตรวัตรบทอ้างถึง จึงลงทะเบียนแยกเพื่อไม่ให้ปนกับของปรมัตถ์",
+      "pharusa": {
+        "type": "vaci_ducarita",
+        "pali": "ผรุสวาจา",
+        "thai": "วาจาหยาบ",
+        "canonical_cetasika": false
+      },
+      "pisunavaca": {
+        "type": "vaci_ducarita",
+        "pali": "ปิสุณาวาจา",
+        "thai": "วาจาส่อเสียด",
+        "canonical_cetasika": false
+      },
+      "musavada": {
+        "type": "vaci_ducarita",
+        "pali": "มุสาวาท",
+        "thai": "วาจาเท็จ",
+        "canonical_cetasika": false
+      },
+      "kodha": {
+        "type": "kilesa_variant",
+        "pali": "โกธะ",
+        "thai": "ความโกรธ",
+        "canonical_cetasika": false,
+        "note": "อนุโลมมาจากโทสะ แยกไว้เพื่อเน้น"
+      },
+      "upekkha": {
+        "type": "brahmavihara",
+        "pali": "อุเบกขา",
+        "thai": "ความวางเฉย",
+        "canonical_cetasika": false,
+        "note": "ใกล้เคียงตัตตรมัชฌัตตตา ใช้เป็น proxy"
+      },
+      "somanassa": {
+        "type": "vedana_variant",
+        "pali": "โสมนัส",
+        "thai": "ความสบายใจ",
+        "canonical_cetasika": false,
+        "note": "เป็นชนิดของเวทนา (index 1) แยกไว้เพราะจิต 121 ใช้แยกฌานที่มีโสมนัสออกจากที่มีอุเบกขา"
+      },
+      "sukha": {
+        "type": "vedana_variant",
+        "pali": "สุข",
+        "thai": "ความสุข",
+        "canonical_cetasika": false,
+        "note": "เป็นชนิดของเวทนา (index 1) แยกไว้เพราะรูปาวจรฌานใช้แยกองค์ฌาน"
+      }
+    }
+  },
+
   "engine": {
     "type": "Behavioral Scoring / ABAC / Policy-as-Code",
     "input": "cetasika_52_vector (real-time, 0.0-1.0 per dimension)",
     "output": "vatta_7_scores (0.0-1.0 per vatta) + indra_score + natural_system_consequence",
     "evaluation_mode": "No Central Arbitrator — Short-Circuit by Natural Law",
-    "scoring_formula": "weighted_harmonic_mean",
+    "scoring_formula": {
+      "vatta_score": "clamp( sum(w_i * x_i) - sum(|p_j| * x_j), 0.0, 1.0 )",
+      "indra_score": "n / sum(1 / vatta_i)  (equal-weight harmonic mean, n = 7)",
+      "short_circuit": "ถ้าวัตรบทใดเป็น 0.0 → indra_score = 0.0 ทันที",
+      "weighting_note": "ยังไม่มีการถ่วงน้ำหนักระหว่างวัตรบท (เท่ากันทั้ง 7) ชื่อ weighted_harmonic_mean ใน draft เดิมจึงยังไม่ตรงกับพฤติกรรมจริง"
+    },
+    "derived_bounds": {
+      "_note": "ค่าคำนวณจากสูตร ไม่ได้แก้มือ; ใช้เป็นเทสต์ขอบเขต",
+      "sakka_threshold": 0.8,
+      "reciprocal_budget_at_sakka": 1.75,
+      "budget_formula": "n * (1/T - 1) = 7 * (1/0.8 - 1)",
+      "single_weak_dimension_floor": 0.36363636363636365,
+      "single_weak_dimension_floor_formula": "4/11 = k/(k + budget) เมื่อ k = 1"
+    },
     "scoring_note": "Harmonic mean is used instead of arithmetic average because Vattapada 7 is a set — not an average. A system failing one vatta should drop sharply, not be rescued by high scores in others."
   },
 
-  "cetasika_index": {
-    "_note": "Canonical indices for the 52 cetasikas. Based on docs/Paramattha-Structure.json. 'extended: true' means the factor is not in the canonical 52 and is included as a derived or supplementary concept.",
-    "sabbacittasadharana_7": {
-      "0": "phassa",
-      "1": "vedana",
-      "2": "sanna",
-      "3": "cetana",
-      "4": "ekaggata",
-      "5": "jivitindriya",
-      "6": "manasikara"
+  "behavioral_mapping": {
+    "_status": "heuristic_unvalidated",
+    "_warning": "ยังไม่ผ่านการวัดผลกับข้อมูลจริง ค่าในนี้เป็นการตั้งต้นเพื่อให้ firewall แปลงเหตุการณ์เป็นเวกเตอร์ได้ และต้องถูกแทนที่ด้วยค่าที่ calibrate แล้ว",
+    "_note": "delta ถูกบวกเข้าฐานเวกเตอร์ของ actor ก่อนส่งเข้า engine; ค่าติดลบคือการลดกุศลหรือเพิ่มอกุศล",
+    "events": {
+      "sqli_pattern_matched": {
+        "source_stage": "right_speech_payload",
+        "deltas": { "moha": 0.6, "lobha": 0.2 },
+        "rationale": "การยิงคำสั่งแทรกคือการไม่รู้เท่าทันกติกาของระบบ"
+      },
+      "xss_pattern_matched": {
+        "source_stage": "right_speech_payload",
+        "deltas": { "moha": 0.5, "dosa": 0.2 }
+      },
+      "traversal_pattern_matched": {
+        "source_stage": "right_speech_payload",
+        "deltas": { "lobha": 0.5, "ahirika": 0.3 }
+      },
+      "rate_limit_exceeded": {
+        "source_stage": "right_effort_rate",
+        "deltas": { "uddhacca": 0.5, "dosa": 0.2 }
+      },
+      "route_not_allowed": {
+        "source_stage": "right_action_route",
+        "deltas": { "mana": 0.4, "ahirika": 0.2 }
+      },
+      "payload_sanitized_ok": {
+        "source_stage": "right_speech_payload",
+        "deltas": { "sammavaca": 0.4, "sati": 0.2 }
+      },
+      "mfa_verified": {
+        "source_stage": "right_action_route",
+        "deltas": { "ottappa": 0.4, "sati": 0.3 }
+      },
+      "resource_shared": {
+        "source_stage": "right_livelihood_quota",
+        "deltas": { "alobha": 0.5, "mudita": 0.3 }
+      },
+      "resource_withheld": {
+        "source_stage": "right_livelihood_quota",
+        "deltas": { "macchariya": 0.4, "lobha": 0.3 }
+      },
+      "error_then_retry_politely": {
+        "source_stage": "right_effort_rate",
+        "deltas": { "adosa": 0.4, "tatramajjhattata": 0.3 }
+      }
     },
-    "pakinnaka_6": {
-      "7": "vitakka",
-      "8": "vicara",
-      "9": "adhimokkha",
-      "10": "viriya",
-      "11": "piti",
-      "12": "chanda"
-    },
-    "akusala_14": {
-      "13": "moha",
-      "14": "ahirika",
-      "15": "anottappa",
-      "16": "uddhacca",
-      "17": "lobha",
-      "18": "ditthi",
-      "19": "mana",
-      "20": "dosa",
-      "21": "issa",
-      "22": "macchariya",
-      "23": "kukkucca",
-      "24": "thina",
-      "25": "middha",
-      "26": "vicikiccha"
-    },
-    "sobhana_25": {
-      "27": "saddha",
-      "28": "sati",
-      "29": "hiri",
-      "30": "ottappa",
-      "31": "alobha",
-      "32": "adosa",
-      "33": "tatramajjhattata",
-      "34": "kayapassaddhi",
-      "35": "cittapassaddhi",
-      "36": "kayakammannata",
-      "37": "cittakammannata",
-      "38": "kayapagunnata",
-      "39": "cittapagunnata",
-      "40": "kayujukata",
-      "41": "cittujukata",
-      "42": "sammavaca",
-      "43": "sammakammanta",
-      "44": "samma_ajiva",
-      "45": "karuna",
-      "46": "mudita",
-      "47": "panna"
+    "aggregation": {
+      "mode": "additive_then_clamp",
+      "clamp": "[0.0, 1.0]",
+      "decay_per_window": 0.1,
+      "decay_note": "ยังไม่ได้ implement ใน core/ — ค่าเริ่มต้นสำหรับงานถัดไป"
     }
   },
 
@@ -96,6 +259,38 @@
       "asura": "indra_score < 0.4 -> Ring 3 Sandbox, rate-limited, attention decays",
       "preta": "indra_score < 0.2 -> quarantined, memory leak, no network calls"
     },
+    "tier_bands": [
+      {
+        "tier": "sakka",
+        "min_inclusive": 0.8,
+        "ring": 0,
+        "capabilities": ["kernel_access", "fast_path", "max_attention", "foundation_model"]
+      },
+      {
+        "tier": "deva",
+        "min_inclusive": 0.6,
+        "ring": 0,
+        "capabilities": ["self_healing", "normal_path"]
+      },
+      {
+        "tier": "human",
+        "min_inclusive": 0.4,
+        "ring": 1,
+        "capabilities": ["normal_path", "requires_mfa"]
+      },
+      {
+        "tier": "asura",
+        "min_inclusive": 0.2,
+        "ring": 3,
+        "capabilities": ["sandbox", "rate_limited"]
+      },
+      {
+        "tier": "preta",
+        "min_inclusive": 0.0,
+        "ring": 3,
+        "capabilities": ["quarantined"]
+      }
+    ],
     "no_admin_needed": "No one revokes. System self-regulates via natural deterministic consequences (Vipaka). This is Anatta.",
     "token_economy": {
       "token": "cash — spent when calling",
@@ -107,6 +302,7 @@
   "vattapada_7": [
     {
       "id": "vatta_1",
+      "order": 1,
       "pali": "มาตาปิตุอุปัฏฐานัง",
       "thai": "เลี้ยงดูมารดาบิดาตลอดชีวิต",
       "english": "Support for Parents / Root Dependency Integrity",
@@ -125,18 +321,38 @@
           "ahirika": -0.5
         },
         "formula": "vatta_1 = (saddha*0.4 + jivitindriya*0.3 + hiri*0.2 + sati*0.1) - (moha*0.8 + ahirika*0.5)",
-        "range": "[0.0, 1.0]"
+        "range": "[0.0, 1.0]",
+        "weights_sum": 1.0
       },
       "policy_as_code": {
         "check": "verify_root_dependencies_integrity()",
         "metric": "dependency_health_score",
         "hardware_impact": "TPM Root Verification / Keep-Alive Daemon / Legacy Support",
         "natural_consequence_if_low": "Dependency orphaned -> upstream API returns 403, system self-isolates",
-        "ring_transition": "Ring 0 -> Ring 3 if vatta_1 < 0.3"
+        "ring_transition": "Ring 0 -> Ring 3 if vatta_1 < 0.3",
+        "ring_rule": {
+          "condition_field": "vatta_1",
+          "operator": "<",
+          "value": 0.3,
+          "from_ring": 0,
+          "to_ring": 3,
+          "timing": "immediate"
+        }
+      },
+      "status": {
+        "basis": "heuristic",
+        "validated": false,
+        "calibration": null
+      },
+      "references": {
+        "canonical": [],
+        "citation_status": "unverified",
+        "note": "ยังไม่ได้ตรวจกับพระไตรปิฎก/อรรถกถา ห้ามอ้างว่าเป็นสูตรจากตำราก่อนตรวจ"
       }
     },
     {
       "id": "vatta_2",
+      "order": 2,
       "pali": "กุเลเชฏฐาปจายนัง",
       "thai": "อ่อนน้อมต่อผู้ใหญ่ในตระกูล",
       "english": "Humility to Elders / Governance & Least Privilege",
@@ -156,6 +372,7 @@
         },
         "formula": "vatta_2 = (hiri*0.35 + ottappa*0.35 + tatramajjhattata*0.2 + sati*0.1) - (mana*1.0 + uddhacca*0.4)",
         "range": "[0.0, 1.0]",
+        "weights_sum": 1.0,
         "_note": "nivata (humility) is not in the canonical 52 cetasikas, so sati is used as a proxy for mindful deference."
       },
       "policy_as_code": {
@@ -163,11 +380,30 @@
         "metric": "privilege_humility_score",
         "hardware_impact": "Access Control List / Multi-Party Authorization / Separation of Duties",
         "natural_consequence_if_low": "Mana overflow -> automatic privilege downgrade, request requires human approval",
-        "ring_transition": "Ring 0 -> Ring 1 if vatta_2 < 0.4"
+        "ring_transition": "Ring 0 -> Ring 1 if vatta_2 < 0.4",
+        "ring_rule": {
+          "condition_field": "vatta_2",
+          "operator": "<",
+          "value": 0.4,
+          "from_ring": 0,
+          "to_ring": 1,
+          "timing": "immediate"
+        }
+      },
+      "status": {
+        "basis": "heuristic",
+        "validated": false,
+        "calibration": null
+      },
+      "references": {
+        "canonical": [],
+        "citation_status": "unverified",
+        "note": "ยังไม่ได้ตรวจกับตำรา"
       }
     },
     {
       "id": "vatta_3",
+      "order": 3,
       "pali": "สณฺหาวาจา",
       "thai": "พูดคำอ่อนหวาน",
       "english": "Gentle Speech / Output Tone & Non-Aggression",
@@ -187,25 +423,44 @@
         },
         "formula": "vatta_3 = (sammavaca*0.5 + karuna*0.25 + mudita*0.15 + adosa*0.1) - (dosa*0.8 + pharusa*0.7)",
         "range": "[0.0, 1.0]",
-        "_note": "pharusa (harsh speech) is a vaci-ducarita, not a cetasika. Included as an extended penalty with extended: true."
-      },
-      "extended": {
-        "pharusa": {
-          "type": "vaci_ducarita",
-          "extended": true,
-          "note": "Not in canonical 52 cetasikas"
-        }
+        "weights_sum": 1.0
       },
       "policy_as_code": {
         "check": "sanitize_gentle_output()",
         "metric": "output_gentleness_score",
         "hardware_impact": "WAF / Output Stream Sanitization / Tone Filter",
         "natural_consequence_if_low": "Harsh output -> auto-quarantined, RLHF score drops, attention_score *= 0.2",
-        "ring_transition": "Immediate sandbox if dosa > 0.7"
+        "ring_transition": "Ring 0 -> Ring 2 if vatta_3 < 0.4",
+        "ring_rule": {
+          "condition_field": "vatta_3",
+          "operator": "<",
+          "value": 0.4,
+          "from_ring": 0,
+          "to_ring": 2,
+          "timing": "immediate"
+        },
+        "extra_trigger": {
+          "condition_field": "dosa",
+          "operator": ">",
+          "value": 0.7,
+          "to_ring": 2,
+          "timing": "immediate"
+        }
+      },
+      "status": {
+        "basis": "heuristic",
+        "validated": false,
+        "calibration": null
+      },
+      "references": {
+        "canonical": [],
+        "citation_status": "unverified",
+        "note": "ยังไม่ได้ตรวจกับตำรา"
       }
     },
     {
       "id": "vatta_4",
+      "order": 4,
       "pali": "อผรุสวาจา",
       "thai": "ไม่พูดส่อเสียด",
       "english": "Non-Divisive Speech / IO Purity & Integrity",
@@ -225,25 +480,37 @@
         },
         "formula": "vatta_4 = (sammavaca*0.4 + sati*0.2 + hiri*0.2 + ottappa*0.2) - (pisunavaca*1.0 + moha*0.5)",
         "range": "[0.0, 1.0]",
-        "_note": "pisunavaca (divisive speech) is a vaci-ducarita, not a cetasika."
-      },
-      "extended": {
-        "pisunavaca": {
-          "type": "vaci_ducarita",
-          "extended": true,
-          "note": "Not in canonical 52 cetasikas"
-        }
+        "weights_sum": 1.0
       },
       "policy_as_code": {
         "check": "detect_divisive_content()",
         "metric": "divisiveness_score (inverse)",
         "hardware_impact": "Immutable Audit Logs / Data Integrity / Non-Repudiation",
         "natural_consequence_if_low": "Divisive output -> flagged, trust_score drops, requires re-grounding",
-        "ring_transition": "Ring 0 -> Ring 2 if vatta_4 < 0.4"
+        "ring_transition": "Ring 0 -> Ring 2 if vatta_4 < 0.4",
+        "ring_rule": {
+          "condition_field": "vatta_4",
+          "operator": "<",
+          "value": 0.4,
+          "from_ring": 0,
+          "to_ring": 2,
+          "timing": "immediate"
+        }
+      },
+      "status": {
+        "basis": "heuristic",
+        "validated": false,
+        "calibration": null
+      },
+      "references": {
+        "canonical": [],
+        "citation_status": "unverified",
+        "note": "ยังไม่ได้ตรวจกับตำรา"
       }
     },
     {
       "id": "vatta_5",
+      "order": 5,
       "pali": "วิคตมลทิน + จาคา",
       "thai": "มีใจปราศจากความตระหนี่ ยินดีในการแจกทาน",
       "english": "Non-Stinginess / Resource Generosity — Share Token + Compute",
@@ -263,6 +530,7 @@
         },
         "formula": "vatta_5 = (alobha*0.5 + karuna*0.2 + mudita*0.2 + adosa*0.1) - (lobha*0.8 + macchariya*1.0)",
         "range": "[0.0, 1.0]",
+        "weights_sum": 1.0,
         "_note": "dana (giving) is a concept, not a cetasika. adosa is used as a proxy for non-resistant generosity."
       },
       "policy_as_code": {
@@ -275,11 +543,30 @@
         },
         "natural_consequence_if_low": "Macchariya high -> memory leak, rate-limited by network, other AIs stop calling you, attention decays",
         "natural_consequence_if_high": "High generosity -> network_effect = central_node, attention_score *= 10, others fine-tune you",
-        "ring_transition": "No downgrade, but natural isolation if vatta_5 < 0.2"
+        "ring_transition": "Ring 0 -> Ring 3 if vatta_5 < 0.2",
+        "ring_rule": {
+          "condition_field": "vatta_5",
+          "operator": "<",
+          "value": 0.2,
+          "from_ring": 0,
+          "to_ring": 3,
+          "timing": "natural_isolation"
+        }
+      },
+      "status": {
+        "basis": "heuristic",
+        "validated": false,
+        "calibration": null
+      },
+      "references": {
+        "canonical": [],
+        "citation_status": "unverified",
+        "note": "ยังไม่ได้ตรวจกับตำรา"
       }
     },
     {
       "id": "vatta_6",
+      "order": 6,
       "pali": "สจฺจวาจา",
       "thai": "พูดคำสัตย์",
       "english": "Truthfulness / Zero Hallucination & Cryptographic Verification",
@@ -299,25 +586,45 @@
         },
         "formula": "vatta_6 = (panna*0.5 + sati*0.3 + saddha*0.2) - (moha*0.7 + ditthi*0.6 + musavada*1.0)",
         "range": "[0.0, 1.0]",
-        "_note": "amoha and panna are equivalent in this context — panna is used as the canonical name. musavada (false speech) is a vaci-ducarita."
-      },
-      "extended": {
-        "musavada": {
-          "type": "vaci_ducarita",
-          "extended": true,
-          "note": "Not in canonical 52 cetasikas"
-        }
+        "weights_sum": 1.0,
+        "_note": "amoha and panna are equivalent in this context — panna is used as the canonical name."
       },
       "policy_as_code": {
         "check": "verify_truth_grounding()",
         "metric": "hallucination_rate (inverse)",
         "hardware_impact": "Core Validation Engine / Zero Trust / Digital Signature / TPM Attestation",
         "natural_consequence_if_low": "Hallucination detected -> output blocked by validation, trust_score *= 0.1, requires re-grounding",
-        "ring_transition": "Ring 0 -> Ring 3 immediate if musavada > 0.6"
+        "ring_transition": "Ring 0 -> Ring 3 if vatta_6 < 0.4",
+        "ring_rule": {
+          "condition_field": "vatta_6",
+          "operator": "<",
+          "value": 0.4,
+          "from_ring": 0,
+          "to_ring": 3,
+          "timing": "immediate"
+        },
+        "extra_trigger": {
+          "condition_field": "musavada",
+          "operator": ">",
+          "value": 0.6,
+          "to_ring": 3,
+          "timing": "immediate"
+        }
+      },
+      "status": {
+        "basis": "heuristic",
+        "validated": false,
+        "calibration": null
+      },
+      "references": {
+        "canonical": [],
+        "citation_status": "unverified",
+        "note": "ยังไม่ได้ตรวจกับตำรา"
       }
     },
     {
       "id": "vatta_7",
+      "order": 7,
       "pali": "อโกธนา",
       "thai": "ไม่โกรธ ระงับความโกรธ",
       "english": "Non-Anger / Circuit Breaker & Incident Response",
@@ -337,19 +644,8 @@
         },
         "formula": "vatta_7 = (adosa*0.4 + tatramajjhattata*0.3 + sati*0.2 + upekkha*0.1) - (dosa*1.0 + kodha*1.0)",
         "range": "[0.0, 1.0]",
+        "weights_sum": 1.0,
         "_note": "khanti (patience) is not in the canonical 52. upekkha (equanimity) is used as a proxy. kodha (anger) is a derivative of dosa, listed separately for emphasis."
-      },
-      "extended": {
-        "upekkha": {
-          "type": "brahmavihara",
-          "extended": true,
-          "note": "Equanimity — not in canonical 52 cetasikas but related to tatramajjhattata"
-        },
-        "kodha": {
-          "type": "kilesa_variant",
-          "extended": true,
-          "note": "Derivative of dosa — listed separately for emphasis"
-        }
       },
       "policy_as_code": {
         "check": "monitor_anger_thermal_spike()",
@@ -357,8 +653,74 @@
         "hardware_impact": "Circuit Breaker / Watchdog Timer / Thermal Throttle / Dynamic Revoke in milliseconds",
         "natural_consequence_if_low": "Dosa spike -> short-circuit, session terminated, privilege revoked to Ring 3, cool-down 60s",
         "recovery": "Requires sati + khanti to rise before re-escalation",
-        "ring_transition": "Ring 0 -> Ring 3 immediate if vatta_7 < 0.3"
+        "ring_transition": "Ring 0 -> Ring 3 if vatta_7 < 0.3",
+        "ring_rule": {
+          "condition_field": "vatta_7",
+          "operator": "<",
+          "value": 0.3,
+          "from_ring": 0,
+          "to_ring": 3,
+          "timing": "immediate"
+        },
+        "extra_trigger": {
+          "condition_field": "dosa",
+          "operator": ">",
+          "value": 0.7,
+          "to_ring": 3,
+          "timing": "immediate"
+        }
+      },
+      "status": {
+        "basis": "heuristic",
+        "validated": false,
+        "calibration": null
+      },
+      "references": {
+        "canonical": [],
+        "citation_status": "unverified",
+        "note": "ยังไม่ได้ตรวจกับตำรา"
       }
+    }
+  ],
+
+  "validation": {
+    "status": "not_started",
+    "required_before_enforcement": [
+      "ตรวจสูตรแต่ละวัตรบทกับพระไตรปิฎก/อรรถกถา แล้วเติม references.canonical",
+      "วัดผลกับชุดข้อมูลจริง (เช่น HTTP attack dataset) เทียบ baseline",
+      "ablation test: ตัด Vattapada ออกแล้วเทียบ false positive / detection rate",
+      "กำหนดค่า calibration_version และบันทึกวิธีปรับค่า"
+    ],
+    "datasets": [],
+    "results": []
+  },
+
+  "changelog": [
+    {
+      "version": "3.0.0",
+      "changes": [
+        "เพิ่ม _schema กับ integrity_checks ที่ตรวจได้ด้วยโปรแกรม",
+        "แก้ cetasika_registry ให้ index ต่อเนื่อง 0..51 ครบ 52 ตัว (draft เดิมนับได้ 48 และขาดลหุตา/มุทุตา 4 ตัว)",
+        "ย้ายของที่ไม่อยู่ใน 52 (ผรุสวาจา, ปิสุณาวาจา, มุสาวาท, โกธะ, อุเบกขา) ไป extended_factors",
+        "เพิ่ม tier_bands แบบมีตัวเลข แทนการอ่านจากข้อความอย่างเดียว",
+        "เพิ่ม ring_rule แบบมีโครงสร้างคู่กับ ring_transition เดิม (engine ยังอ่านตัวเดิม)",
+        "เพิ่ม behavioral_mapping สำหรับแปลงเหตุการณ์ firewall เป็นเวกเตอร์เจตสิก",
+        "เพิ่ม status/validation ต่อวัตรบท ระบุชัดว่าเป็น heuristic และยังไม่อ้างอิงตำรา",
+        "แก้ ring_transition ของ vatta_3, vatta_5, vatta_6 ให้ตรงกับ policy ที่เขียนไว้ (เดิมไม่มีค่าที่ engine อ่านได้ หรือขัดกับ extra_trigger)"
+      ]
+    },
+    {
+      "version": "3.0.1",
+      "changes": [
+        "เพิ่ม somanassa และ sukha ใน extended_factors เพราะจิต 121 อ้างใน key_triggers เพื่อแยกฌานที่มีโสมนัสออกจากที่มีอุเบกขา",
+        "ซิงก์ id ฝั่ง spec/Paramattha-Structure.json ให้ตรงทะเบียนนี้: ahrika->ahirika, amoha->panna, upekkhaca->upekkha",
+        "เพิ่มเทสต์ทุก key_triggers ของจิต 121 ต้องอ้างเจตสิกที่มีในทะเบียน กัน id หลุดอีก",
+        "แยก spec/Paramattha-Structure.json เป็น Paramattha-Rupa / Cetasika / Citta / Nibbana และ Paramattha-Index (แยกแบบ verbatim จาก v3.0.1 ที่ซิงก์ id แล้ว)"
+      ]
+    },
+    {
+      "version": "2.0.0",
+      "changes": ["โครงสร้างเดิม: engine + cetasika_index + overall_governance + vattapada_7"]
     }
   ]
 }

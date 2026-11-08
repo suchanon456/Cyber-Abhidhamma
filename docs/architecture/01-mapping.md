@@ -11,7 +11,7 @@
 |---|---|---|
 | **จิต** (Citta 89/121) | Runtime Engine / CPU | [`core/src/citta.rs`](../../core/src/citta.rs) — `fn` = จิต (รับ input, จบ, เรียกซ้ำได้, ไม่มี state ถาวร) |
 | **เจตสิก** (52) | Behavioral Data Structure / Feature Vector | [`core/src/monitor/lobha.rs`](../../core/src/monitor/lobha.rs) — `struct` = เจตสิก (ลักษณณะ/รสะ/ปัจจุปัฏฐาน/ปทัฏฐาน) |
-| **รูปปรมัตถ์** (28) | On-board Firmware / Self-aware Silicon | [`core/src/paramattha/mahabhuta.rs`](../../core/src/paramattha/mahabhuta.rs), [`spec/Paramattha-Structure.json`](../../spec/Paramattha-Structure.json) |
+| **รูปปรมัตถ์** (28) | On-board Firmware / Self-aware Silicon | [`core/src/paramattha/mahabhuta.rs`](../../core/src/paramattha/mahabhuta.rs), [`spec/Paramattha-Rupa.json`](../../spec/Paramattha-Rupa.json) |
 | **กรรม** | Algorithm / Execution Logic | ยังไม่มีโค้ด — ดู [02-security.md § 4](./02-security.md) |
 | **วิถีจิต** (17/15 ขณะ) | Clock Cycles / State Machine | [`core/src/paramattha/vithi.rs`](../../core/src/paramattha/vithi.rs) |
 | **ปฏิจจสมุปบาท** | Causal Execution Graph | ยังไม่มีโค้ด |

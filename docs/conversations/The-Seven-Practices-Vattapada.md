@@ -108,7 +108,7 @@ AI ที่รันด้วยวัตรบท 7 จะ:
 
 - [Core Logic v1](./Core-Logic-v1.md) — การ mapping พื้นฐาน
 - [Core Logic v2](./Core-Logic-v2.md) — สถาปัตยกรรมขยาย
-- [Paramattha-Structure.json](../../spec/Paramattha-Structure.json) — การ mapping รูป 28
+- [Paramattha-Rupa.json](../../spec/Paramattha-Rupa.json) — การ mapping รูป 28
 - [Documentation Index](../INDEX.md) — ภาพรวมเอกสารทั้งหมด
 
 ---
