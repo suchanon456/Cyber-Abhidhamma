@@ -591,5 +591,8 @@ fn citta_counts_block_matches_the_items() {
     let unique = block["unique_ids"]
         .as_u64()
         .expect("counts.citta_121 ต้องมี unique_ids");
-    assert_eq!(unique as usize, actual, "unique_ids ต้องเท่ากับจำนวน items จริง");
+    assert_eq!(
+        unique as usize, actual,
+        "unique_ids ต้องเท่ากับจำนวน items จริง"
+    );
 }

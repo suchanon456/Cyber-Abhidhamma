@@ -4,9 +4,7 @@
 
 use std::fmt;
 
-use super::cetasika::{
-    id_of, index_of, ADOSA, CETASIKA_COUNT, DOSA, LOBHA, MANA, MOHA, SATI,
-};
+use super::cetasika::{id_of, index_of, ADOSA, CETASIKA_COUNT, DOSA, LOBHA, MANA, MOHA, SATI};
 
 /// จำนวนชวนะในวิถีนี้ — ขณะที่ "สั่งสมกรรม"
 pub const JAVANA_COUNT: usize = 7;

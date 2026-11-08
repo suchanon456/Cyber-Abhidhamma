@@ -155,11 +155,10 @@ impl RupaImpact {
 
         cluster.pathavi.wear_level =
             clamp01(cluster.pathavi.wear_level + self.pathavi_wear - self.pathavi_relief);
-        cluster.apo.cohesion_strength = clamp01(
-            cluster.apo.cohesion_strength - self.apo_cohesion_loss + self.apo_recovery,
-        );
-        cluster.tejo.temp_c = (cluster.tejo.temp_c + self.tejo_heat - self.tejo_cooling)
-            .max(AMBIENT_C);
+        cluster.apo.cohesion_strength =
+            clamp01(cluster.apo.cohesion_strength - self.apo_cohesion_loss + self.apo_recovery);
+        cluster.tejo.temp_c =
+            (cluster.tejo.temp_c + self.tejo_heat - self.tejo_cooling).max(AMBIENT_C);
         cluster.vayo_turbulence =
             (cluster.vayo_turbulence + self.vayo_turbulence - self.vayo_calm).max(0.0);
     }
@@ -355,11 +354,8 @@ mod tests {
     fn one_vithi_does_not_multiply_harm_by_seven() {
         // ผลของวิถีเดียวต้องเท่ากับผลของชวนะหนึ่งขณะ (เพราะเฉลี่ยด้วย JAVANA_COUNT)
         let one = RupaImpact::from_cetasika(&dosa());
-        let vithi_impact = RupaImpact::from_vithi17(&Vithi17::from_external_event(
-            Dvara::Kaya,
-            "hit",
-            dosa(),
-        ));
+        let vithi_impact =
+            RupaImpact::from_vithi17(&Vithi17::from_external_event(Dvara::Kaya, "hit", dosa()));
         assert!((vithi_impact.tejo_heat - one.tejo_heat).abs() < 1e-4);
         assert_eq!(vithi_impact.javana_moments, JAVANA_COUNT);
     }
@@ -369,11 +365,8 @@ mod tests {
         let mut cluster = RupaCluster::new();
         assert_eq!(cluster.tejo.temp_c, AMBIENT_C);
 
-        let impact = cluster.absorb_vithi17(&Vithi17::from_external_event(
-            Dvara::Kaya,
-            "hit",
-            dosa(),
-        ));
+        let impact =
+            cluster.absorb_vithi17(&Vithi17::from_external_event(Dvara::Kaya, "hit", dosa()));
 
         assert!(cluster.tejo.temp_c > AMBIENT_C);
         assert!(cluster.pathavi.wear_level > 0.0);
@@ -388,11 +381,7 @@ mod tests {
         let before = cluster.degradation();
 
         for _ in 0..10 {
-            cluster.absorb_vithi17(&Vithi17::from_external_event(
-                Dvara::Kaya,
-                "hit",
-                dosa(),
-            ));
+            cluster.absorb_vithi17(&Vithi17::from_external_event(Dvara::Kaya, "hit", dosa()));
         }
 
         assert!(cluster.degradation() > before);
@@ -414,7 +403,10 @@ mod tests {
 
         assert!(cluster.tejo.temp_c < hot, "กุศลต้องทำให้เย็นลง");
         assert!(cluster.pathavi.wear_level < worn, "กุศลต้องบรรเทาความสึก");
-        assert!(cluster.apo.cohesion_strength > 1.0 - f32::EPSILON || cluster.apo.cohesion_strength == 1.0);
+        assert!(
+            cluster.apo.cohesion_strength > 1.0 - f32::EPSILON
+                || cluster.apo.cohesion_strength == 1.0
+        );
     }
 
     #[test]
@@ -434,11 +426,7 @@ mod tests {
     fn wear_and_cohesion_stay_in_range() {
         let mut cluster = RupaCluster::new();
         for _ in 0..500 {
-            cluster.absorb_vithi17(&Vithi17::from_external_event(
-                Dvara::Kaya,
-                "hit",
-                lobha(),
-            ));
+            cluster.absorb_vithi17(&Vithi17::from_external_event(Dvara::Kaya, "hit", lobha()));
         }
         assert!((0.0..=1.0).contains(&cluster.pathavi.wear_level));
         assert!((0.0..=1.0).contains(&cluster.apo.cohesion_strength));
