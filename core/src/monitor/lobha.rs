@@ -68,7 +68,7 @@ pub struct Lobha;
 ///
 /// ## ตัวอย่าง
 ///
-/// ```ignore
+/// ```text
 /// pub struct Lobha {
 ///     object: String,     // ยึดอะไร
 ///     grasped: bool,      // ยึดหรือยัง

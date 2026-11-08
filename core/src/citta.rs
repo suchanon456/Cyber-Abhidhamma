@@ -51,8 +51,9 @@ use crate::monitor::lobha::LobhaWithFields;
 ///
 /// ## ตัวอย่าง
 ///
-/// ```ignore
-/// use crate::citta::citta_knows;
+/// ```
+/// use cyber_abhidhamma::citta::citta_knows;
+///
 /// let cognition = citta_knows("gold");
 /// assert_eq!(cognition, "gold is known");
 /// ```
@@ -75,11 +76,13 @@ pub fn citta_knows(object: &str) -> String {
 ///
 /// ## ตัวอย่าง
 ///
-/// ```ignore
-/// use crate::citta::citta_moment;
+/// ```
+/// use cyber_abhidhamma::citta::citta_moment;
+///
 /// let moment1 = citta_moment(1);
 /// let moment2 = citta_moment(2);
 /// // moment1 และ moment2 ไม่มี "ความจำ" ร่วมกัน
+/// assert_ne!(moment1, moment2);
 /// ```
 pub fn citta_moment(id: u32) -> String {
     format!("citta moment #{}", id)
@@ -100,8 +103,9 @@ pub fn citta_moment(id: u32) -> String {
 ///
 /// ## ตัวอย่าง
 ///
-/// ```ignore
-/// use crate::citta::citta_stream;
+/// ```
+/// use cyber_abhidhamma::citta::citta_stream;
+///
 /// let stream: Vec<String> = citta_stream(5);
 /// assert_eq!(stream.len(), 5);
 /// ```
@@ -124,10 +128,12 @@ pub fn citta_stream(count: u32) -> Vec<String> {
 ///
 /// ## ตัวอย่าง
 ///
-/// ```ignore
-/// use crate::citta::citta_knows;
-/// let a = citta_knows("red");
-/// let b = citta_knows("blue");
+/// ```
+/// use cyber_abhidhamma::citta::citta_anatta;
+///
+/// let a = citta_anatta("red");
+/// let b = citta_anatta("blue");
+/// assert_ne!(a, b);
 /// ```
 pub fn citta_anatta(object: &str) -> String {
     citta_knows(object)
@@ -147,10 +153,15 @@ pub fn citta_anatta(object: &str) -> String {
 ///
 /// ## ตัวอย่าง
 ///
-/// ```ignore
-/// use crate::citta::{citta_with_cetasika, LobhaWithFields};
-/// let lobha = LobhaWithFields::new("gold");
+/// ```
+/// use cyber_abhidhamma::citta::citta_with_cetasika;
+/// use cyber_abhidhamma::monitor::LobhaWithFields;
+///
+/// let mut lobha = LobhaWithFields::new("gold");
+/// lobha.grasp();
+///
 /// let cognition = citta_with_cetasika("gold", lobha);
+/// assert!(cognition.lobha_active);
 /// ```
 pub fn citta_with_cetasika(object: &str, lobha: LobhaWithFields) -> Cognition {
     Cognition {
@@ -227,17 +238,17 @@ mod tests {
     fn fn_with_cetasika_like_citta() {
         let mut lobha = LobhaWithFields::new("gold");
         lobha.grasp();
-    
+
         let cog = citta_with_cetasika("gold", lobha);
         assert_eq!(cog.object, "gold");
         assert!(cog.lobha_active);
         assert_eq!(cog.lobha_intensity, 1.0);
     }
-    
+
     #[test]
     fn fn_without_cetasika_like_citta() {
         let lobha = LobhaWithFields::new("water");
-    
+
         let cog = citta_with_cetasika("water", lobha);
         assert_eq!(cog.object, "water");
         assert!(!cog.lobha_active);
