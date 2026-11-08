@@ -1,8 +1,9 @@
 # 05 — วิถีจิต 15 / 17 ขณะ ในฐานะพื้นฐานของ OS (Vīthi as OS Fundamentals)
 
 > **สถานะ: Draft** — เอกสารนี้เสนอ "เลนส์ OS" สำหรับอ่านวิถีจิต ไม่ได้อ้างว่าเป็นคำอธิบายตามพระไตรปิฎก
-> โค้ดที่มีจริงตอนนี้คือ [`Vithi15`](../../core/src/paramattha/vithi.rs) และ [`Vithi17`](../../core/src/paramattha/vithi17.rs)
-> **ทั้งสองตัวจำลองลำดับขณะเท่านั้น ยังไม่ได้ต่อเข้ากับ firewall จริง**
+> โค้ดที่มีจริงตอนนี้คือ [`Vithi15`](../../core/src/paramattha/vithi.rs), [`Vithi17`](../../core/src/paramattha/vithi17.rs)
+> และตัวต่อผลของชวนะไปสู่รูป [`KammaImpact`](../../core/src/paramattha/kamma_impact.rs)
+> `Vithi17` ต่อกับ firewall แล้วผ่าน [`firewall/vithi_gate.rs`](../../core/src/firewall/vithi_gate.rs) (§ 7)
 > เอกสารนี้ต่อจาก [02-security.md § 3](./02-security.md) ซึ่งพูดถึงวิถีจิตในฐานะ Scheduler
 
 ---
@@ -117,7 +118,51 @@ moments.extend((0..JAVANA_COUNT).map(|_| CittaJati::Javana(c)));
 
 ---
 
-## 7. สถานะการ implement จริง (ตรวจจากโค้ด)
+## 7. ชวนะ 7 → รูป 4 ธาตุ (Kamma Impact)
+
+ขั้นนี้ตอบคำถามว่า **"ชวนะอกุศลไปทำอะไรต่อ"** ในโค้ด [`kamma_impact.rs`](../../core/src/paramattha/kamma_impact.rs)
+
+หลักการเดียวกับ § 5: มีเพียง **ชวนะ** ที่สั่งสมกรรม ขั้นอื่นเป็นวิบาก/กิริยา ไฟล์นี้จึงอ่าน
+`CetasikaVector` **เฉพาะชวนะ** แล้วแปลงเป็นผลต่อธาตุทั้ง 4 ที่จำลองไว้ใน [`mahabhuta.rs`](../../core/src/paramattha/mahabhuta.rs)
+
+`CetasikaVector` เก็บเจตสิกครบ **52 มิติ** เป็น `[f32; 52]` เรียงตาม index ใน [`cetasika.rs`](../../core/src/paramattha/cetasika.rs)
+ซึ่งตรงกับ `spec/Vattapada-7.json` → `cetasika_registry.canonical_52` (เทสต์บังคับไว้)
+เข้าถึงด้วยค่าคงที่ index เช่น `cetasika.get(MOHA)` หรือ `cetasika.get(ADOSA)`
+
+| ธาตุ (รูป) | ตัวแปรที่เปลี่ยน | เจตสิกที่ทำให้เสื่อม | เหตุผลเชิงอุปมา |
+|---|---|---|---|
+| ปฐวี (ความคงรูป) | `pathavi.wear_level` ↑ | โลภะ + โทสะ + โมหะ | อกุศลทุกชนิดสึกกร่อนความคงรูป |
+| อาโป (ความเกาะกุม) | `apo.cohesion_strength` ↓ | โลภะ | ยึดติดเกินเหตุจนโครงสร้างไม่เกาะกุม |
+| เตโช (ความร้อน) | `tejo.temp_c` ↑ | โทสะ | โทสะคือความร้อน เผาตัวเอง |
+| วาโย (การเคลื่อน) | `cluster.vayo_turbulence` ↑ | โมหะ | โมหะคือความฟุ้ง/สับสนของสัญญาณ |
+
+**หมายเหตุเรื่องชื่อเจตสิก:** ทะเบียน 52 ไม่มี id `metta` — เมตตาในที่นี้คือ `adosa` (อโทสะ)
+ซึ่งเป็นเจตสิกที่ตรงข้ามกับโทสะจริง ส่วน "เมตตา" ในความหมายอัปปมัญญาเป็นอีกกลุ่มหนึ่ง
+
+กุศลชวนะ (สติ/เมตตา) ให้ผลตรงข้าม: ทำให้เย็นลง (`tejo_cooling`), คืนความเกาะกุม (`apo_recovery`),
+บรรเทาความสึกกร่อน (`pathavi_relief`) และคลายความฟุ้ง (`vayo_calm`)
+
+```rust
+let mut cluster = RupaCluster::new();
+cluster.absorb_vithi17(&vithi);          // รับผลของหนึ่งวิถี
+cluster.degradation();                    // 0.0 = สมบูรณ์, 1.0 = เสื่อมสุด
+```
+
+**จุดที่ต้องจำ 3 ข้อ:**
+
+1. **วิถีที่ถูกบล็อกไม่มีผลเลย** — ถ้า `Vithi17` หยุดที่โวฏฐัพพนะ จะไม่มีชวนะ → `RupaImpact::none()`
+   (มีเทสต์ `blocked_vithi_has_no_impact`)
+2. **หนึ่งวิถี = หนึ่งเหตุการณ์** — ผลรวมของชวนะ 7 ขณะถูกหารด้วย `JAVANA_COUNT`
+   เพื่อไม่ให้ความรุนแรงคูณเจ็ด (มีเทสต์ `one_vithi_does_not_multiply_harm_by_seven`)
+3. **`VayoDriver` เป็น unit struct** — ไม่มีสถานะ จึงเก็บความฟุ้งไว้ที่ `RupaCluster.vayo_turbulence`
+   แทนการแก้ struct เดิม
+
+> ⚠️ **ข้อจำกัด:** ตารางนี้เป็น **อุปมา (analogy)** ตามกติกา [`docs/GLOSSARY.md`](../GLOSSARY.md) ข้อ 5
+> ไม่ใช่หลักในตำรา และน้ำหนักตัวเลข (`HEAT_PER_DOSA = 40.0` ฯลฯ) ตั้งขึ้นเพื่อให้ทดสอบได้ ไม่ได้มาจากคัมภีร์
+
+---
+
+## 8. สถานะการ implement จริง (ตรวจจากโค้ด)
 
 | องค์ประกอบ | สถานะ | หลักฐาน |
 |---|---|---|
@@ -128,6 +173,8 @@ moments.extend((0..JAVANA_COUNT).map(|_| CittaJati::Javana(c)));
 | วิถี 17 (ปัญจทวาร) | ✅ **มีแล้ว** | [`vithi17.rs`](../../core/src/paramattha/vithi17.rs) |
 | `Vithi17` ต่อกับ firewall | ✅ **มีแล้ว** (analogy) | [`firewall/vithi_gate.rs`](../../core/src/firewall/vithi_gate.rs) — `inspect_through_vithi` ให้ firewall ทำหน้าที่โวฏฐัพพนะ: Allow→Allowed, Throttle→Throttled, Block→Blocked (หยุดที่ 8 ขณะ) |
 | `VithiMapper` (ขั้น → จิต 121) | ✅ **มีแล้ว** | [`vithi_mapper.rs`](../../core/src/paramattha/vithi_mapper.rs) |
+| ชวนะ → ผลต่อรูป 4 ธาตุ | ✅ **มีแล้ว** (analogy) | [`kamma_impact.rs`](../../core/src/paramattha/kamma_impact.rs) — `RupaImpact`, `RupaCluster` |
+| เจตสิก 52 มิติ | ✅ **มีแล้ว** | [`vithi.rs`](../../core/src/paramattha/vithi.rs) — `CetasikaVector` เป็น `[f32; 52]` เรียงตาม index ของ [`cetasika.rs`](../../core/src/paramattha/cetasika.rs) |
 | `CetasikaVector` 52 มิติ | ❌ มีแค่ 6 มิติ | `lobha/dosa/moha/mana/sati/metta` |
 | append `Bhavanga` ปิดท้ายวิถี | ❌ ยังไม่ทำ | `from_internal_log` จบที่ตทาลัมพนะ 2 |
 | จัดคิว thread จริงตามวิถีจิต | ❌ **ไม่มี และไม่มีแผนในเฟสนี้** | เป็นแบบจำลองตีความ log |
@@ -136,10 +183,13 @@ moments.extend((0..JAVANA_COUNT).map(|_| CittaJati::Javana(c)));
 
 ---
 
-## 8. ดูต่อ
+## 9. ดูต่อ
 
 - [02-security.md](./02-security.md) — วิถีจิตในฐานะกลไกความปลอดภัย, มรรค 8
 - [01-mapping.md](./01-mapping.md) — ตารางแมปหลัก จิต/เจตสิก/รูป/กรรม
 - [00-overview.md](./00-overview.md) — แผนที่ชั้นของระบบ
 - [../GLOSSARY.md](../GLOSSARY.md) — คำในเลนส์ OS
-- [`core/src/paramattha/vithi.rs`](../../core/src/paramattha/vithi.rs) — โค้ดจริง
+- [`core/src/paramattha/vithi.rs`](../../core/src/paramattha/vithi.rs) — วิถี 15 ขณะ
+- [`core/src/paramattha/vithi17.rs`](../../core/src/paramattha/vithi17.rs) — วิถี 17 ขณะ
+- [`core/src/paramattha/kamma_impact.rs`](../../core/src/paramattha/kamma_impact.rs) — ชวนะ → รูป 4 ธาตุ
+- [`core/src/firewall/vithi_gate.rs`](../../core/src/firewall/vithi_gate.rs) — firewall ↔ วิถี 17

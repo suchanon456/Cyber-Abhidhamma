@@ -16,6 +16,8 @@ pub use authority::{Authority, Capability, Ring};
 pub use interceptor::{Action, Decision};
 pub use vattapada::{Report, Tier, VattaScore, VattapadaEngine, VattapadaError};
 
+// Kamma Impact — ชวนะอกุศลส่งผลต่อ Rupa 4 ธาตุ
+pub use paramattha::kamma_impact::{RupaCluster, RupaImpact};
 pub use paramattha::mahabhuta::{
     paramattha_execute, ApoDriver, DhammaViolation, Lakkhana, MahabhutaRupa, PathaviDriver,
     TejoDriver, VayoDriver,

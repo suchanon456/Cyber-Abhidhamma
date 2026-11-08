@@ -35,20 +35,30 @@
             "เจตสิก: 7+6+14+25 = 52",
             "id ทุกตัวไม่ซ้ำและเป็น ascii",
             "key_triggers ทุกตัวของจิต 121 ต้องอ้างเจตสิกที่มีใน cetasika_registry หรือ extended_factors",
-            "จิต: 121 (ยังไม่ตรวจในรอบนี้)"
+            "จิต: 121 = 12+18+24+15+12+40 และ id ไม่ซ้ำ (ตรวจใน core/tests/spec_integrity.rs)"
         ]
     },
     "counts": {
         "citta_121": {
             "claimed": 121,
-            "counted": null,
-            "verified": false,
-            "note": "ยังไม่ได้นับรายการในรอบนี้ จึงไม่ยืนยันว่าครบ 121"
+            "counted": 121,
+            "breakdown": {
+                "kamavacara_akusala": 12,
+                "kamavacara_ahetuka": 18,
+                "kamavacara_sobhana": 24,
+                "rupavacara": 15,
+                "arupavacara": 12,
+                "lokuttara": 40
+            },
+            "unique_ids": 121,
+            "verified": true,
+            "note": "นับจาก items จริงในไฟล์นี้: 12+18+24+15+12+40 = 121 และ id ทั้ง 121 ตัวไม่ซ้ำ ตรงกับ total_variants ของทุกกลุ่ม (ตรวจโดย core/tests/spec_integrity.rs)"
         }
     },
     "citta_121": {
         "kamavacara_citta_54": {
             "citta_category": "กามวจรจิต 54",
+            "total_variants": 54,
             "description": "จิตที่ท่องเที่ยวอยู่ในกามภูมิ",
             "subgroups": {
                 "akusala_citta_12": {

@@ -120,12 +120,13 @@ pub struct GateContext<'a> {
 ///
 /// closure ทั่วไปใช้เป็น gate ได้ทันทีเพราะมี blanket impl ข้างล่าง:
 /// ```
+/// use cyber_abhidhamma::paramattha::cetasika::MOHA;
 /// use cyber_abhidhamma::paramattha::vithi::{CetasikaVector, JAVANA_COUNT};
 /// use cyber_abhidhamma::paramattha::vithi17::{Dvara, GateContext, PdpOutcome, Vithi17};
 ///
-/// let cetasika = CetasikaVector { moha: 0.9, ..Default::default() };
+/// let cetasika = CetasikaVector::new().with(MOHA, 0.9);
 /// let mut gate = |ctx: &GateContext<'_>| {
-///     if ctx.cetasika.moha > 0.7 {
+///     if ctx.cetasika.get(MOHA) > 0.7 {
 ///         PdpOutcome::Blocked { reason: "moha".into() }
 ///     } else {
 ///         PdpOutcome::Allowed
@@ -357,12 +358,10 @@ impl Vithi17 {
 #[cfg(test)]
 mod tests {
     use super::*;
+    use crate::paramattha::cetasika::DOSA;
 
     fn akusala() -> CetasikaVector {
-        CetasikaVector {
-            dosa: 0.9,
-            ..Default::default()
-        }
+        CetasikaVector::new().with(DOSA, 0.9)
     }
 
     #[test]
@@ -430,7 +429,7 @@ mod tests {
     #[test]
     fn blocked_request_never_reaches_the_execution_window() {
         let mut gate = |ctx: &GateContext<'_>| {
-            if ctx.cetasika.dosa > 0.7 {
+            if ctx.cetasika.get(DOSA) > 0.7 {
                 PdpOutcome::Blocked {
                     reason: "dosa too high".into(),
                 }

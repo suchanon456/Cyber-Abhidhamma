@@ -45,6 +45,7 @@ pub enum DhammaViolation {
     JarataTooHigh,
 }
 
+#[derive(Debug, Clone)]
 pub struct PathaviDriver {
     pub base_addr: u32,
     pub wear_level: f32,
@@ -90,6 +91,7 @@ impl MahabhutaRupa for PathaviDriver {
     }
 }
 
+#[derive(Debug, Clone)]
 pub struct ApoDriver {
     pub cohesion_strength: f32,
 }
@@ -131,6 +133,7 @@ impl MahabhutaRupa for ApoDriver {
     }
 }
 
+#[derive(Debug, Clone)]
 pub struct TejoDriver {
     pub temp_c: f32,
 }

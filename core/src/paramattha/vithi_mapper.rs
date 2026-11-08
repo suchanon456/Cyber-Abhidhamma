@@ -40,6 +40,7 @@ use std::collections::BTreeMap;
 use serde::Deserialize;
 use thiserror::Error;
 
+use super::cetasika::{ADOSA, DOSA, LOBHA, MOHA, SATI};
 use super::vithi::{CetasikaVector, CittaJati, Vithi15};
 use super::vithi17::{CittaJati17, Dvara, Vithi17};
 
@@ -426,13 +427,13 @@ impl VithiMapper {
 
     /// เลือกชวนะตามกฎ 5 ข้อในหัวข้อ "หลักการ" ของไฟล์นี้
     pub fn javana_id(cetasika: &CetasikaVector) -> &'static str {
-        if cetasika.lobha > 0.7 {
+        if cetasika.get(LOBHA) > 0.7 {
             Self::JAVANA_LOBHA_ID
-        } else if cetasika.dosa > 0.7 {
+        } else if cetasika.get(DOSA) > 0.7 {
             Self::JAVANA_DOSA_ID
-        } else if cetasika.moha > 0.7 {
+        } else if cetasika.get(MOHA) > 0.7 {
             Self::JAVANA_MOHA_ID
-        } else if cetasika.sati > 0.5 || cetasika.metta > 0.5 {
+        } else if cetasika.get(SATI) > 0.5 || cetasika.get(ADOSA) > 0.5 {
             Self::JAVANA_KUSALA_ID
         } else {
             Self::JAVANA_KIRIYA_ID
@@ -572,11 +573,7 @@ mod tests {
     }
 
     fn akusala_lobha() -> CetasikaVector {
-        CetasikaVector {
-            lobha: 0.9,
-            moha: 0.8,
-            ..Default::default()
-        }
+        CetasikaVector::new().with(LOBHA, 0.9).with(MOHA, 0.8)
     }
 
     #[test]
@@ -637,22 +634,13 @@ mod tests {
         let akusala = VithiMapper::javana_id(&akusala_lobha());
         assert_eq!(akusala, VithiMapper::JAVANA_LOBHA_ID);
 
-        let dosa = CetasikaVector {
-            dosa: 0.9,
-            ..Default::default()
-        };
+        let dosa = CetasikaVector::new().with(DOSA, 0.9);
         assert_eq!(VithiMapper::javana_id(&dosa), VithiMapper::JAVANA_DOSA_ID);
 
-        let moha = CetasikaVector {
-            moha: 0.9,
-            ..Default::default()
-        };
+        let moha = CetasikaVector::new().with(MOHA, 0.9);
         assert_eq!(VithiMapper::javana_id(&moha), VithiMapper::JAVANA_MOHA_ID);
 
-        let kusala = CetasikaVector {
-            sati: 0.8,
-            ..Default::default()
-        };
+        let kusala = CetasikaVector::new().with(SATI, 0.8);
         assert_eq!(
             VithiMapper::javana_id(&kusala),
             VithiMapper::JAVANA_KUSALA_ID

@@ -500,3 +500,96 @@ fn every_key_trigger_resolves_to_a_registered_cetasika() {
     assert!(refs > 0, "ต้องมีการอ้างเจตสิกอย่างน้อยหนึ่งครั้ง");
     assert!(problems.is_empty(), "{}", problems.join("\n"));
 }
+
+/// เก็บทุก node ที่มี `items` หรือ `subgroups` พร้อมจำนวน id ข้างในและ `total_variants` ที่ประกาศ
+fn collect_groups(value: &Value, key: &str, out: &mut Vec<(String, usize, Option<u64>)>) {
+    let Some(map) = value.as_object() else { return };
+    if map.contains_key("items") || map.contains_key("subgroups") {
+        out.push((
+            key.to_string(),
+            count_ids(value),
+            map.get("total_variants").and_then(|v| v.as_u64()),
+        ));
+    }
+    for (child_key, child) in map {
+        collect_groups(child, child_key, out);
+    }
+}
+
+/// ตัวเลขท้ายชื่อกลุ่ม เช่น `akusala_citta_12` -> 12
+fn name_suffix(key: &str) -> Option<u64> {
+    key.rsplit('_').next()?.parse::<u64>().ok()
+}
+
+#[test]
+fn declared_variant_counts_match_the_items() {
+    let citta = load("../spec/Paramattha-Citta.json");
+    let cetasika = load("../spec/Paramattha-Cetasika.json");
+
+    let mut problems: Vec<String> = Vec::new();
+    let mut checked = 0;
+    for (file, spec, root_key) in [
+        ("Paramattha-Citta.json", &citta, "citta_121"),
+        ("Paramattha-Cetasika.json", &cetasika, "cetasika_52"),
+    ] {
+        let mut groups: Vec<(String, usize, Option<u64>)> = Vec::new();
+        collect_groups(&spec[root_key], root_key, &mut groups);
+        for (key, counted, claimed) in groups {
+            if let Some(claimed) = claimed {
+                checked += 1;
+                if counted != claimed as usize {
+                    problems.push(format!(
+                        "{file} `{key}`: total_variants={claimed} แต่มี {counted} รายการ"
+                    ));
+                }
+            }
+            if let Some(suffix) = name_suffix(&key) {
+                checked += 1;
+                if counted != suffix as usize {
+                    problems.push(format!(
+                        "{file} `{key}`: ชื่อกลุ่มบอก {suffix} แต่มี {counted} รายการ"
+                    ));
+                }
+            }
+        }
+    }
+
+    assert!(checked > 0, "ต้องตรวจอย่างน้อยหนึ่งกลุ่ม");
+    assert!(problems.is_empty(), "{}", problems.join("\n"));
+}
+
+#[test]
+fn citta_counts_block_matches_the_items() {
+    let spec = load("../spec/Paramattha-Citta.json");
+    let block = &spec["counts"]["citta_121"];
+    let actual = count_ids(&spec["citta_121"]);
+
+    assert_eq!(block["claimed"].as_u64(), Some(121), "claimed ต้องเป็น 121");
+    assert_eq!(
+        block["counted"].as_u64(),
+        Some(actual as u64),
+        "counted ต้องเป็น null ไม่ได้ และต้องเท่ากับจำนวน items จริง"
+    );
+    assert_eq!(
+        block["verified"].as_bool(),
+        Some(true),
+        "verified ต้องเป็น true เมื่อนับตรงกับ items จริงแล้ว"
+    );
+
+    let breakdown = block["breakdown"]
+        .as_object()
+        .expect("counts.citta_121 ต้องมี breakdown");
+    let total: u64 = breakdown
+        .values()
+        .map(|v| v.as_u64().expect("breakdown ต้องเป็น integer"))
+        .sum();
+    assert_eq!(
+        total as usize, actual,
+        "ผลรวม breakdown ของจิตต้องเท่ากับจำนวน items จริง"
+    );
+
+    let unique = block["unique_ids"]
+        .as_u64()
+        .expect("counts.citta_121 ต้องมี unique_ids");
+    assert_eq!(unique as usize, actual, "unique_ids ต้องเท่ากับจำนวน items จริง");
+}

@@ -4,41 +4,164 @@
 
 use std::fmt;
 
+use super::cetasika::{
+    id_of, index_of, ADOSA, CETASIKA_COUNT, DOSA, LOBHA, MANA, MOHA, SATI,
+};
+
 /// จำนวนชวนะในวิถีนี้ — ขณะที่ "สั่งสมกรรม"
 pub const JAVANA_COUNT: usize = 7;
 
-/// เจตสิกที่ประกอบขณะจิต — ใช้ตัดสินว่าเจตนาเป็นกุศลหรืออกุศล
-#[derive(Debug, Clone, Copy, PartialEq)]
+/// เจตสิกที่ประกอบขณะจิต 52 มิติ — index ตรงกับ `cetasika::CETASIKA_IDS`
+///
+/// โครงสร้างภายในเป็น array 52 ช่อง แต่เรียกใช้ด้วยชื่อผ่าน accessor
+/// (`lobha()`, `dosa()`, ...) เพื่อไม่ให้เรียก index ผิด
+///
+/// **metta:** ทะเบียน 52 ไม่มี id `metta` (เมตตาเป็นอัปปมัญญา ซึ่งในทะเบียนนี้
+/// มีเฉพาะ `karuna` = 49 และ `mudita` = 50) โปรเจกต์จึงให้ `metta()` อ่าน/เขียน
+/// `adosa` (32) ซึ่งเป็นเจตสิกฝ่ายดีที่เมตตาอาศัยอยู่ — เป็นการทำให้ง่าย
+#[derive(Debug, Clone, Copy)]
 pub struct CetasikaVector {
-    pub lobha: f32,
-    pub dosa: f32,
-    pub moha: f32,
-    pub mana: f32,
-    pub sati: f32,
-    pub metta: f32,
+    values: [f32; CETASIKA_COUNT],
 }
 
 impl CetasikaVector {
-    pub fn new() -> Self {
+    pub const fn new() -> Self {
         Self {
-            lobha: 0.0,
-            dosa: 0.0,
-            moha: 0.0,
-            mana: 0.0,
-            sati: 0.0,
-            metta: 0.0,
+            values: [0.0; CETASIKA_COUNT],
         }
     }
 
-    /// อกุศลเมื่อกิเลสตัวใดตัวหนึ่งมีกำลังเกิน 0.7
+    /// ค่าที่ index (เกินขอบเขตคืน 0.0 — ไม่ panic)
+    pub fn get(&self, index: usize) -> f32 {
+        self.values.get(index).copied().unwrap_or(0.0)
+    }
+
+    /// ตั้งค่าที่ index (เกินขอบเขตไม่ทำอะไร)
+    pub fn set(&mut self, index: usize, value: f32) {
+        if let Some(slot) = self.values.get_mut(index) {
+            *slot = value;
+        }
+    }
+
+    /// ค่าของเจตสิกจาก id (`None` ถ้า id ไม่อยู่ในทะเบียน)
+    pub fn get_by_id(&self, id: &str) -> Option<f32> {
+        index_of(id).map(|i| self.values[i])
+    }
+
+    /// ตั้งค่าจาก id — คืน `false` ถ้า id ไม่อยู่ในทะเบียน
+    pub fn set_by_id(&mut self, id: &str, value: f32) -> bool {
+        match index_of(id) {
+            Some(i) => {
+                self.values[i] = value;
+                true
+            }
+            None => false,
+        }
+    }
+
+    /// ตั้งค่าแบบต่อเนื่อง (builder)
+    pub fn with(mut self, index: usize, value: f32) -> Self {
+        self.set(index, value);
+        self
+    }
+
+    /// ตั้งค่าจาก id แบบต่อเนื่อง (builder) — id ที่ไม่รู้จักถูกข้าม
+    pub fn with_id(mut self, id: &str, value: f32) -> Self {
+        self.set_by_id(id, value);
+        self
+    }
+
+    /// ทั้ง 52 มิติ
+    pub fn values(&self) -> &[f32; CETASIKA_COUNT] {
+        &self.values
+    }
+
+    /// ทั้ง 52 มิติในรูป slice
+    pub fn as_slice(&self) -> &[f32] {
+        &self.values
+    }
+
+    /// ผลรวมค่าทั้ง 52 มิติ (ใช้ตรวจว่าว่างจริง)
+    pub fn total(&self) -> f32 {
+        self.values.iter().sum()
+    }
+
+    /// index ที่มีค่าเกิน 0 พร้อม id — ใช้แสดงผล/ตรวจสอบ
+    pub fn present(&self) -> Vec<(&'static str, f32)> {
+        self.values
+            .iter()
+            .enumerate()
+            .filter(|(_, v)| **v != 0.0)
+            .filter_map(|(i, v)| id_of(i).map(|id| (id, *v)))
+            .collect()
+    }
+
+    // ---- accessor ของเจตสิกที่โค้ดส่วนอื่นใช้บ่อย ----
+
+    pub fn lobha(&self) -> f32 {
+        self.values[LOBHA]
+    }
+
+    pub fn set_lobha(&mut self, value: f32) {
+        self.values[LOBHA] = value;
+    }
+
+    pub fn dosa(&self) -> f32 {
+        self.values[DOSA]
+    }
+
+    pub fn set_dosa(&mut self, value: f32) {
+        self.values[DOSA] = value;
+    }
+
+    pub fn moha(&self) -> f32 {
+        self.values[MOHA]
+    }
+
+    pub fn set_moha(&mut self, value: f32) {
+        self.values[MOHA] = value;
+    }
+
+    pub fn mana(&self) -> f32 {
+        self.values[MANA]
+    }
+
+    pub fn set_mana(&mut self, value: f32) {
+        self.values[MANA] = value;
+    }
+
+    pub fn sati(&self) -> f32 {
+        self.values[SATI]
+    }
+
+    pub fn set_sati(&mut self, value: f32) {
+        self.values[SATI] = value;
+    }
+
+    /// เมตตา — อ่านจาก `adosa` (ดูหมายเหตุที่หัว struct)
+    pub fn metta(&self) -> f32 {
+        self.values[ADOSA]
+    }
+
+    pub fn set_metta(&mut self, value: f32) {
+        self.values[ADOSA] = value;
+    }
+
+    /// อกุศลเมื่อกิเลสหลักตัวใดตัวหนึ่งมีกำลังเกิน 0.7
     pub fn is_akusala(&self) -> bool {
-        self.lobha > 0.7 || self.dosa > 0.7 || self.moha > 0.7
+        self.lobha() > 0.7 || self.dosa() > 0.7 || self.moha() > 0.7
     }
 }
 
 impl Default for CetasikaVector {
     fn default() -> Self {
         Self::new()
+    }
+}
+
+impl PartialEq for CetasikaVector {
+    fn eq(&self, other: &Self) -> bool {
+        self.values == other.values
     }
 }
 
@@ -149,16 +272,16 @@ impl Vithi15 {
         let lowered = log.to_lowercase();
         let mut c = CetasikaVector::new();
         let internal_cause = if lowered.contains("out of memory") {
-            c.dosa = 0.9;
+            c.set_dosa(0.9);
             InternalCause::Dosa
         } else if lowered.contains("100% full") {
-            c.lobha = 0.9;
+            c.set_lobha(0.9);
             InternalCause::Lobha
         } else if lowered.contains("deadlock") {
-            c.moha = 0.85;
+            c.set_moha(0.85);
             InternalCause::Moha
         } else if lowered.contains("gc:") || lowered.contains("cleanup") {
-            c.sati = 0.8;
+            c.set_sati(0.8);
             InternalCause::Kusala
         } else {
             InternalCause::Neutral
@@ -302,29 +425,65 @@ mod tests {
 
     #[test]
     fn cetasika_is_akusala_above_threshold() {
-        let c = CetasikaVector {
-            lobha: 0.7,
-            ..Default::default()
-        };
+        let c = CetasikaVector::new().with_id("lobha", 0.7);
         assert!(!c.is_akusala(), "0.7 ไม่เกิน threshold");
 
-        let c = CetasikaVector {
-            lobha: 0.71,
-            ..Default::default()
-        };
+        let c = CetasikaVector::new().with_id("lobha", 0.71);
         assert!(c.is_akusala());
 
-        let d = CetasikaVector {
-            dosa: 0.95,
-            ..Default::default()
-        };
+        let d = CetasikaVector::new().with_id("dosa", 0.95);
         assert!(d.is_akusala());
 
-        let m = CetasikaVector {
-            moha: 0.86,
-            ..Default::default()
-        };
+        let m = CetasikaVector::new().with_id("moha", 0.86);
         assert!(m.is_akusala());
+    }
+
+    #[test]
+    fn cetasika_vector_has_52_dimensions() {
+        let c = CetasikaVector::new();
+        assert_eq!(c.values().len(), CETASIKA_COUNT);
+        assert_eq!(c.as_slice().len(), 52);
+        assert_eq!(c.total(), 0.0);
+        assert!(c.present().is_empty());
+    }
+
+    #[test]
+    fn named_accessors_point_to_the_right_dimension() {
+        let mut c = CetasikaVector::new();
+        c.set_lobha(0.1);
+        c.set_dosa(0.2);
+        c.set_moha(0.3);
+        c.set_mana(0.4);
+        c.set_sati(0.5);
+        c.set_metta(0.6);
+
+        assert_eq!(c.get(LOBHA), 0.1);
+        assert_eq!(c.get(DOSA), 0.2);
+        assert_eq!(c.get(MOHA), 0.3);
+        assert_eq!(c.get(MANA), 0.4);
+        assert_eq!(c.get(SATI), 0.5);
+        assert_eq!(c.get(ADOSA), 0.6, "metta เก็บที่ adosa");
+        assert_eq!(c.metta(), c.get_by_id("adosa").unwrap());
+    }
+
+    #[test]
+    fn unknown_id_is_rejected_without_panic() {
+        let mut c = CetasikaVector::new();
+        assert_eq!(c.get_by_id("metta"), None);
+        assert!(!c.set_by_id("metta", 1.0));
+        assert_eq!(c.total(), 0.0);
+
+        // index เกินขอบเขตต้องไม่ panic
+        c.set(CETASIKA_COUNT + 10, 1.0);
+        assert_eq!(c.get(CETASIKA_COUNT + 10), 0.0);
+    }
+
+    #[test]
+    fn present_lists_only_non_zero_dimensions() {
+        let c = CetasikaVector::new().with(LOBHA, 0.9).with(SATI, 0.4);
+        let mut present = c.present();
+        present.sort_by(|a, b| a.0.cmp(b.0));
+        assert_eq!(present, vec![("lobha", 0.9), ("sati", 0.4)]);
     }
 
     #[test]

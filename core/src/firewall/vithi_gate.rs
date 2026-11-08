@@ -76,6 +76,7 @@ pub fn inspect_through_vithi(
 mod tests {
     use super::super::stages::{AllowedRoutes, PayloadPatterns, RateLimit};
     use super::*;
+    use crate::paramattha::cetasika::DOSA;
     use crate::paramattha::vithi17::CittaJati17;
 
     fn pipeline() -> Firewall {
@@ -180,10 +181,7 @@ mod tests {
     #[test]
     fn blocked_vithi_has_no_akusala_javana() {
         let mut fw = pipeline();
-        let cetasika = CetasikaVector {
-            dosa: 0.9,
-            ..Default::default()
-        };
+        let cetasika = CetasikaVector::new().with(DOSA, 0.9);
         let v = inspect_through_vithi(&mut fw, Dvara::Cakkhu, &req("/admin", "", 0), cetasika);
         assert!(!v.vithi.is_akusala());
         assert!(!v
