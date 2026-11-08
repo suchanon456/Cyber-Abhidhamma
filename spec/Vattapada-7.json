@@ -8,9 +8,10 @@
     "status": "draft — not yet validated against canonical Abhidhamma texts",
     "_warning": "This is a heuristic model, not a canonical Abhidhamma formula. Weights and penalties are approximations for experimental purposes. Do not cite as authoritative.",
     "_source": [
-      "docs/The-Seven-Practices-Vattapada.md",
-      "src/Paramattha-Structure.json",
-      "docs/Core-Logic-v2.md"
+      "docs/conversations/The-Seven-Practices-Vattapada.md",
+      "spec/Paramattha-Structure.json",
+      "docs/conversations/Core-Logic-v2.md",
+      "docs/architecture/04-vattapada7.md"
     ],
     "_principle": "Anatta — No Sovereign Admin. The system self-regulates via natural deterministic consequences (Vipaka). No one revokes; the system decays by itself.",
     "description": "วัตรบท 7 ไม่ใช่ 7 กฎตายตัว แต่เป็น 7 มิติของคะแนนพฤติกรรมที่งอกออกมาจากเจตสิก 52 มิติ ระบบจะเน่าเองตามเหตุปัจจัย ไม่ต้องมีใครมาสั่งแบน"

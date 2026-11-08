@@ -72,7 +72,7 @@ for prompt_file in ['prompts/klong4-sila.json', 'kaap-yanee11-vithi17.json', 'pr
 
 ### 🔗 เชื่อมกับ Lab 7
 
-- Lab 7: `examples/lab7_vithi15.rs` - `cargo run --example lab7_vithi15`
+- Lab 7: `core/examples/lab7_vithi15.rs` - `cargo run --example lab7_vithi15`
 - Lab นี้: ใช้กลอนเดียวกันเป็น System Prompt เพื่อห้ามตั้งแต่ความคิด
 
 > Security 360°: Vithi 17 = แฮกเกอร์ภายนอก, Vithi 15 = ระบบทำร้ายตัวเองภายใน (พบบ่อยกว่าโดนแฮก)

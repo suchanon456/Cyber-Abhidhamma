@@ -1,11 +1,15 @@
-use cyber_abhidhamma_core::{Vithi15, CittaJati};
+// core/examples/lab7_vithi15.rs
+// Lab 7: มโนทวารวิถี 15 ขณะ — ระบบทำร้ายตัวเอง ที่ Security ทั่วไปไม่รู้
+//
+// รัน: cd core && cargo run --example lab7_vithi15
+
+use cyber_abhidhamma::{CittaJati, Vithi15};
 
 fn main() {
     println!("========================================");
     println!("  LAB 7: มโนทวารวิถี 15 ขณะ");
     println!("  ระบบทำร้ายตัวเอง - ที่ Security ทั่วไปไม่รู้");
-    println!("========================================
-");
+    println!("========================================\n");
 
     let internal_logs = vec![
         "kernel: Out of memory: Kill process 1234 (chrome) - 99% RAM used",
@@ -16,31 +20,33 @@ fn main() {
         "systemd: Starting Session - INFO",
     ];
 
-    println!("เหตุการณ์เหล่านี้ไม่ได้โดนแฮก แต่ทำให้บริษัทล่มจริง:
-");
+    println!("เหตุการณ์เหล่านี้ไม่ได้โดนแฮก แต่ทำให้บริษัทล่มจริง:\n");
 
     for log in internal_logs {
         let vithi = Vithi15::from_internal_log(log);
-        
+
         println!("Log: {}", vithi.source);
         println!("  -> วิเคราะห์: {}", vithi.internal_cause);
         println!("  -> วิถี: {} ขณะ", vithi.moments.len());
-        
-        let javana_count = vithi.moments.iter().filter(|m| matches!(m, CittaJati::Javana(_))).count();
-        println!("  -> ชวนะ {} ครั้ง = ทำกรรมภายในซ้ำๆ {} ครั้ง", javana_count, javana_count);
-        
+
+        let javana_count = vithi
+            .moments
+            .iter()
+            .filter(|m| matches!(m, CittaJati::Javana(_)))
+            .count();
+        println!(
+            "  -> ชวนะ {} ครั้ง = ทำกรรมภายในซ้ำๆ {} ครั้ง",
+            javana_count, javana_count
+        );
+
         if vithi.internal_cause.contains("โทสะ") {
-            println!("  -> [อันตราย] ระบบฆ่าตัวเองแบบเดียวกับที่แฮกเกอร์ทำเลย แต่ไม่มีใครเตือน
-");
+            println!("  -> [อันตราย] ระบบฆ่าตัวเองแบบเดียวกับที่แฮกเกอร์ทำเลย แต่ไม่มีใครเตือน\n");
         } else if vithi.internal_cause.contains("โลภะ") {
-            println!("  -> [อันตราย] ระบบอ้วก log จนตาย - บริษัทใหญ่ล่มเพราะอันนี้บ่อยกว่าโดนแฮก
-");
+            println!("  -> [อันตราย] ระบบอ้วก log จนตาย - บริษัทใหญ่ล่มเพราะอันนี้บ่อยกว่าโดนแฮก\n");
         } else if vithi.internal_cause.contains("โมหะ") {
-            println!("  -> [อันตราย] Deadlock - 2 service ทะเลาะกันเองจนค้าง
-");
+            println!("  -> [อันตราย] Deadlock - 2 service ทะเลาะกันเองจนค้าง\n");
         } else {
-            println!("  -> [OK] กุศลภายใน / กลางๆ - ไม่เป็นไร
-");
+            println!("  -> [OK] กุศลภายใน / กลางๆ - ไม่เป็นไร\n");
         }
     }
 
@@ -48,7 +54,6 @@ fn main() {
     println!("1. ระบบทำร้ายตัวเองมีจริง และบ่อยกว่าโดนแฮก");
     println!("2. สาย Security ทั่วไปไม่รู้ เพราะเขาเฝ้าแต่ภายนอก (Vithi 17)");
     println!("3. คุณต้องเฝ้าทั้ง 2 ทวาร: Vithi17 (นอก) + Vithi15 (ใน)");
-    println!("
-Lab 7 สำเร็จ: ตอนนี้คุณเห็นภาพ Security 360 องศาแล้ว");
+    println!("\nLab 7 สำเร็จ: ตอนนี้คุณเห็นภาพ Security 360 องศาแล้ว");
     println!("จากที่เคยเห็นแค่แฮกเกอร์ ตอนนี้เห็นระบบฆ่าตัวเองด้วย");
 }

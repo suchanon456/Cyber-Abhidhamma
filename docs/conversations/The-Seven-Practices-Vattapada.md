@@ -1,3 +1,13 @@
+> **สถานะ: RAW TRANSCRIPT — บันทึกการสนทนาต้นฉบับ ไม่ใช่ specification**
+>
+> ไฟล์นี้คงเนื้อหาต้นฉบับไว้ทั้งหมด (รวมคำชวนคุยของ AI, อารมณ์ขัน, และข้อความที่ยังไม่ได้ตรวจสอบ)
+> เพื่อเก็บร่องรอยกระบวนการคิดไว้เป็นหลักฐาน — ห้ามใช้อ้างเป็นข้อกำหนดของระบบ
+>
+> - ฉบับเรียบเรียง: [The Seven Practices (Vattapada)](../architecture/04-vattapada7.md)
+> - ดัชนีเอกสาร: [docs/INDEX.md](../INDEX.md)
+> - สารบัญ/สมอ (anchor) ภายในไฟล์นี้อาจไม่ตรงกับหัวข้อจริง เพราะต้นฉบับถูกวางมาดิบ
+
+
 # The Seven Practices (Vattapada) — Conversations
 
 > **บันทึกการสนทนากับ AI หลายตัว เกี่ยวกับการแปลงวัตรบท 7 ประการ
@@ -98,12 +108,12 @@ AI ที่รันด้วยวัตรบท 7 จะ:
 
 - [Core Logic v1](./Core-Logic-v1.md) — การ mapping พื้นฐาน
 - [Core Logic v2](./Core-Logic-v2.md) — สถาปัตยกรรมขยาย
-- [Paramattha-Structure.json](../src/Paramattha-Structure.json) — การ mapping รูป 28
-- [Documentation Index](./INDEX.md) — ภาพรวมเอกสารทั้งหมด
+- [Paramattha-Structure.json](../../spec/Paramattha-Structure.json) — การ mapping รูป 28
+- [Documentation Index](../INDEX.md) — ภาพรวมเอกสารทั้งหมด
 
 ---
 
-*เอกสารนี้เป็นส่วนหนึ่งของโปรเจกต์ [Cyber-Abhidhamma](../README.md)*
+*เอกสารนี้เป็นส่วนหนึ่งของโปรเจกต์ [Cyber-Abhidhamma](../../README.md)*
 
 ---
 

@@ -93,6 +93,11 @@ jobs:
         if: steps.check-core.outputs.exists == 'true'
         working-directory: ./core
         run: cargo test --verbose
+
+      - name: Run Lab 7 example
+        if: steps.check-core.outputs.exists == 'true'
+        working-directory: ./core
+        run: cargo run --example lab7_vithi15
       
       # Clippy — แบบผ่อนปรน (ไม่ fail ทั้ง job)
       - name: Run Clippy (non-blocking)

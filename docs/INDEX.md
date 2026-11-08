@@ -1,13 +1,60 @@
-# Documentation Index
+# Documentation Index / สารบัญเอกสาร
 
-## Core Logic
-- [Core Logic v1](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v1.md) — Initial mapping: Mind=Computer, Karma=Algorithm
-- [Core Logic v2](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md) — Expanded: Firewall Magga 8, Vatta 7, Vithi-Citta
-- [Core Logic v3](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v3.md) — Expanded: Rūpa-Paramattha = On-board Dhamma Firmware / Self-aware Silicon
+> ทุกไฟล์ใน `docs/` ใช้ **relative link** — เปิดได้ทั้งบน GitHub, local preview และ editor
 
-## Paramattha Structure
-- [V1-OOP](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Paramattha-Structure.json) — Rūpa 28 mapped to OS/Hardware
-- [V2-Silicon](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Rupa-Structure-Silicon.json) — Rūpa 28 Hardware Silicon
+**สถานะเอกสาร:** `Stable` = ใช้ได้, `Draft` = กำลังเรียบเรียง, `Transcript` = บทสนทนาต้นฉบับ (ห้ามอ้างเป็น spec), `Machine` = ไฟล์ข้อมูลที่เครื่องอ่าน
 
-## The Seven Practices Vattapada (Admin AI)
-- [Vattapada 7](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md) — The Seven Practices Leading to Becoming Sakka, King of the Devas.
+---
+
+## 1. เริ่มต้นที่นี่
+
+| เอกสาร | สถานะ | เนื้อหา |
+|---|---|---|
+| [README.md](../README.md) | Stable | ภาพรวมโปรเจกต์, วิธีรัน, โครงสร้างรีโป |
+| [architecture/00-overview.md](./architecture/00-overview.md) | Stable | แผนที่สถาปัตยกรรม: ชั้นใดของระบบแทนอะไร และอยู่ไฟล์ไหน |
+| [GLOSSARY.md](./GLOSSARY.md) | Draft | อภิธานศัพท์ อภิธรรม ↔ วิทยาการคอมพิวเตอร์ |
+
+## 2. Architecture (ฉบับเรียบเรียง)
+
+| เอกสาร | สถานะ | เนื้อหา |
+|---|---|---|
+| [01-mapping.md](./architecture/01-mapping.md) | Draft | จิต=Runtime, เจตสิก=State, รูป=Hardware, กรรม=Algorithm |
+| [02-security.md](./architecture/02-security.md) | Draft | Firewall มรรค 8, วัตรบท 7, วิถีจิต 15/17, กรรมในฐานะ Ledger |
+| [03-firmware.md](./architecture/03-firmware.md) | Draft | รูปปรมัตถ์ 28 = On-board Sila Firmware, Privilege Rings |
+| [04-vattapada7.md](./architecture/04-vattapada7.md) | Draft | วัตรบท 7 ในฐานะ Policy-as-Code / AI Governance |
+
+## 3. Specification (machine-readable)
+
+| ไฟล์ | สถานะ | เนื้อหา |
+|---|---|---|
+| [spec/Paramattha-Structure.json](../spec/Paramattha-Structure.json) | Machine | รูป 28 mapped กับ OS/Hardware (V1-OOP) |
+| [spec/Rupa-Structure-Silicon.json](../spec/Rupa-Structure-Silicon.json) | Machine | รูป 28 ในระดับ Silicon (V2) |
+| [spec/Vattapada-7.json](../spec/Vattapada-7.json) | Machine | วัตรบท 7 + policy hooks |
+
+## 4. Code
+
+| ไฟล์ | เนื้อหา |
+|---|---|
+| [core/src/lib.rs](../core/src/lib.rs) | entry point ของ crate `cyber_abhidhamma` |
+| [core/src/citta.rs](../core/src/citta.rs) | Citta 121 |
+| [core/src/paramattha/vithi.rs](../core/src/paramattha/vithi.rs) | วิถีจิต 15 (ภายใน) |
+| [core/src/paramattha/mahabhuta.rs](../core/src/paramattha/mahabhuta.rs) | มหาภูตรูป 4 + `sila_check` |
+| [core/src/monitor/lobha.rs](../core/src/monitor/lobha.rs) | Runtime monitor: โลภะ |
+| [core/examples/lab7_vithi15.rs](../core/examples/lab7_vithi15.rs) | Lab 7 — วิถีจิต 15 (example ของ crate) |
+| [tests/VattapadaEngineTest.php](../tests/VattapadaEngineTest.php) | legacy PHP test |
+
+## 5. Experiments
+
+| เอกสาร | สถานะ | เนื้อหา |
+|---|---|---|
+| [experiments/poetic-dhamma-prompt/README.md](../experiments/poetic-dhamma-prompt/README.md) | Draft | ใช้ฉันทลักษณ์ไทยเป็น System Prompt |
+| [FOR-WORKFLOW-BUILDERS.md](../FOR-WORKFLOW-BUILDERS.md) | Draft | คู่มือสำหรับผู้สร้าง workflow |
+
+## 6. Raw Transcripts (ห้ามอ้างเป็น spec)
+
+ย้ายมาจาก `docs/` เดิมทั้ง 4 ไฟล์ — ดูรายละเอียดและกติกาที่ [conversations/README.md](./conversations/README.md)
+
+- [conversations/Core-Logic-v1.md](./conversations/Core-Logic-v1.md) — `Transcript`
+- [conversations/Core-Logic-v2.md](./conversations/Core-Logic-v2.md) — `Transcript`
+- [conversations/Core-Logic-v3.md](./conversations/Core-Logic-v3.md) — `Transcript`
+- [conversations/The-Seven-Practices-Vattapada.md](./conversations/The-Seven-Practices-Vattapada.md) — `Transcript`

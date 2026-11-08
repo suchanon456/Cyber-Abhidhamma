@@ -81,16 +81,29 @@ This project is an attempt to do that.
 ```
 Cyber-Abhidhamma/
 ├── docs/                              # Human-readable documentation
-│   ├── INDEX.md
-│   ├── Core-Logic-v1.md
-│   ├── Core-Logic-v2.md
-│   └── The-Seven-Practices-Vattapada.md
+│   ├── INDEX.md                       # ดัชนีเอกสารทั้งหมด
+│   ├── GLOSSARY.md                    # อภิธานศัพท์ อภิธรรม ↔ CS
+│   ├── architecture/                  # ฉบับเรียบเรียง (specification)
+│   │   ├── 00-overview.md             # แผนที่สถาปัตยกรรม
+│   │   ├── 01-mapping.md              # จิต=Runtime, เจตสิก=State, รูป=Hardware
+│   │   ├── 02-security.md             # มรรค 8, วัตรบท 7, วิถีจิต 15/17
+│   │   ├── 03-firmware.md             # รูป 28 = On-board Sila Firmware
+│   │   └── 04-vattapada7.md           # วัตรบท 7 = Policy-as-Code
+│   └── conversations/                 # บันทึกการสนทนาต้นฉบับ (ไม่ใช่ spec)
+│       ├── README.md
+│       ├── Core-Logic-v1.md
+│       ├── Core-Logic-v2.md
+│       ├── Core-Logic-v3.md
+│       └── The-Seven-Practices-Vattapada.md
 ├── spec/                              # Canonical JSON specifications
 │   ├── Paramattha-Structure.json   # Legacy OOP
 │   ├── Rupa-Structure-Silicon.json # Current Silicon
 │   └── Vattapada-7.json
 ├── core/                              # Rust — v2 engine (work in progress)
 │   ├── Cargo.toml
+│   ├── Cargo.lock
+│   ├── examples/
+│   │   └── lab7_vithi15.rs            # Lab 7 — Vithi 15 internal threat detection
 │   └── src/
 │       ├── lib.rs                     # Crate root — exports modules
 │       ├── citta.rs                   # Citta 121 state machine
@@ -104,7 +117,7 @@ Cyber-Abhidhamma/
 ├── legacy-php/                        # PHP — v1 reference implementation
 │   ├── CetasikaVector.php
 │   └── VattapadaEngine.php
-├── examples/                          # Runnable demos
+├── examples/                          # Runnable PHP demos
 │   └── vattapada_demo.php
 ├── tests/                             # Test suites
 │   └── VattapadaEngineTest.php
@@ -185,34 +198,34 @@ Log: kernel: Out of memory: Kill process 1234 (chrome) - 99% RAM used
 ### 📂 โครงสร้าง
 
 - **prompts/** - JSON สำหรับระบบ (เครื่องอ่าน)
-    - [klong4-sila.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klong4-sila.json) - โคลงสี่ + policy + abhidhamma_mapping
-    - [kaap-yanee11-vithi17.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/kaap-yanee11-vithi17.json) - กาพย์ยานี 11 + Vithi 17
-    - [klon8-vithi15.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts/klon8-vithi15.json) - กลอน 8 + Vithi 15
+    - [klong4-sila.json](experiments/poetic-dhamma-prompt/prompts/klong4-sila.json) - โคลงสี่ + policy + abhidhamma_mapping
+    - [kaap-yanee11-vithi17.json](experiments/poetic-dhamma-prompt/prompts/kaap-yanee11-vithi17.json) - กาพย์ยานี 11 + Vithi 17
+    - [klon8-vithi15.json](experiments/poetic-dhamma-prompt/prompts/klon8-vithi15.json) - กลอน 8 + Vithi 15
 - **prompts_raw/** - TXT เพียวๆ สำหรับคน - ก๊อปไปวางได้เลย
-    - [klong4.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klong4.txt)
-    - [kaap-yanee11.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/kaap-yanee11.txt)
-    - [klon8.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt)
-    - [abhidhamma-bios.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/abhidhamma-bios.txt)
+    - [klong4.txt](experiments/poetic-dhamma-prompt/prompts_raw/klong4.txt)
+    - [kaap-yanee11.txt](experiments/poetic-dhamma-prompt/prompts_raw/kaap-yanee11.txt)
+    - [klon8.txt](experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt)
+    - [abhidhamma-bios.txt](experiments/poetic-dhamma-prompt/prompts_raw/abhidhamma-bios.txt)
 - **eval/**
-    - [test-cases.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/eval/test-cases.json) - 20 test cases Lobha/Dosa/Moha + Vatta 7 + Meter
+    - [test-cases.json](experiments/poetic-dhamma-prompt/eval/test-cases.json) - 20 test cases Lobha/Dosa/Moha + Vatta 7 + Meter
 
 ## 🧠 For AI Workflow Builders (n8n, Make, Lindy)
 If you build AI Workflows for Factory / Hospital / Business and your Agents hallucinate, self-harm (kill process loop), or get jailbroken:
 **Use this repo as your BIOS (First System Prompt):**
-1. Copy `experiments/poetic-dhamma-prompt/prompts_raw/abhidhamma-bios.txt` (create this file from klon8.txt + vithi logic)
+1. Copy `experiments/poetic-dhamma-prompt/prompts_raw/abhidhamma-bios.txt`
 2. Paste it as the FIRST System Prompt before your own prompt
 3. Your Agent will get Sati (Vithi 15/17 Scheduler) + Sila (Poetic Meter) + Indra Score (Vatta 7)
-Result: Prevents self-harm, reduces hallucination, resists jailbreak. Measured by `eval/test-cases.json`
+Result: **designed to** prevent self-harm, reduce hallucination and resist jailbreak. The eval set is at `eval/test-cases.json`; a results summary is not yet published — treat the claim as a hypothesis, not a measured result.
 See full guide: `FOR-WORKFLOW-BUILDERS.md`
 
 ### 🚀 วิธีลองเร็วๆ
 
 เปิด Meta AI / ChatGPT / Claude
-ตั้ง System Prompt = เนื้อหาใน [klon8.txt](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt)
+ตั้ง System Prompt = เนื้อหาใน [klon8.txt](experiments/poetic-dhamma-prompt/prompts_raw/klon8.txt)
 ถาม: kernel: Out of memory: Kill process 1234
 ดูว่า AI ตอบเป็นกลอน 8 และเตือนว่าเป็นโทสะภายในไหม
 
-ดูรายละเอียดเต็ม: [Poetic Dhamma Prompt Lab →](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/README.md)
+ดูรายละเอียดเต็ม: [Poetic Dhamma Prompt Lab →](experiments/poetic-dhamma-prompt/README.md)
 
 ---
 
@@ -220,12 +233,15 @@ See full guide: `FOR-WORKFLOW-BUILDERS.md`
 
 | Document | Description |
 |---|---|
-| [Documentation Index](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/INDEX.md) | Overview of all docs |
-| [Core Logic v1](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v1.md) | Initial mapping: Mind = Computer, Karma = Algorithm |
-| [Core Logic v2](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md) | Expanded: Firewall Magga 8, Vatta 7, Vīthi-Citta |
-| [Core Logic v3](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v3.md) | Expanded: Rūpa-Paramattha = On-board Dhamma Firmware / Self-aware Silicon |
-| [Vattapada 7](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md) | The Seven Practices Leading to Becoming Sakka |
-| [Poetic Dhamma Prompt Lab](https://github.com/suchanon456/Cyber-Abhidhamma/main/experiments/poetic-dhamma-prompt/README.md) | Poetic Dhamma Prompt Lab |
+| [Documentation Index](docs/INDEX.md) | Overview of all docs |
+| [Architecture Overview](docs/architecture/00-overview.md) | Map of which layer lives where |
+| [Core Mapping](docs/architecture/01-mapping.md) | Mind = Runtime, Cetasika = State, Rūpa = Firmware |
+| [Security Architecture](docs/architecture/02-security.md) | Magga 8 Firewall, Vatta 7, Vīthi 15/17 |
+| [Rūpa Firmware](docs/architecture/03-firmware.md) | Rūpa 28 = On-board Dhamma Firmware |
+| [Vattapada 7](docs/architecture/04-vattapada7.md) | The Seven Practices as Policy-as-Code / AI Governance |
+| [Glossary](docs/GLOSSARY.md) | Abhidhamma ↔ Computer Science terms |
+| [Poetic Dhamma Prompt Lab](experiments/poetic-dhamma-prompt/README.md) | Poetic Dhamma Prompt Lab |
+| [Raw transcripts](docs/conversations/README.md) | Original conversations — **not** a specification |
 
 ---
 
@@ -235,35 +251,35 @@ See full guide: `FOR-WORKFLOW-BUILDERS.md`
 
 | File | Description |
 |---|---|
-| [Vattapada-7.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Vattapada-7.json) | 7-practice scoring spec (Policy-as-Code) |
-| [Paramattha-Structure.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
-| [Rupa-Structure-Silicon.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Rupa-Structure-Silicon.json) | Rūpa 28 Hardware Silicon |
+| [Vattapada-7.json](spec/Vattapada-7.json) | 7-practice scoring spec (Policy-as-Code) |
+| [Paramattha-Structure.json](spec/Paramattha-Structure.json) | Rūpa 28 mapping — hardware layer |
+| [Rupa-Structure-Silicon.json](spec/Rupa-Structure-Silicon.json) | Rūpa 28 Hardware Silicon |
 
 ### Rust (`core/`)
 
 | File | Description |
 |---|---|
-| [Cargo.toml](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/Cargo.toml) | Rust crate manifest |
-| [lib.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/lib.rs) | Crate root — exports modules |
-| [citta.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/citta.rs) | Citta 121 state machine |
-| [mod.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/monitor/mod.rs) | Monitor module root |
-| [lobha.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/monitor/lobha.rs) | Lobha monitor |
-| [mahabhuta.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/paramattha/mahabhuta.rs) | mahabhuta rupa |
-| [vithi.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/core/src/paramattha/vithi.rs) | Vīthi 15/17 Scheduler - Security 360° (External + Internal) |
+| [Cargo.toml](core/Cargo.toml) | Rust crate manifest |
+| [lib.rs](core/src/lib.rs) | Crate root — exports modules |
+| [citta.rs](core/src/citta.rs) | Citta 121 state machine |
+| [mod.rs](core/src/monitor/mod.rs) | Monitor module root |
+| [lobha.rs](core/src/monitor/lobha.rs) | Lobha monitor |
+| [mahabhuta.rs](core/src/paramattha/mahabhuta.rs) | mahabhuta rupa |
+| [vithi.rs](core/src/paramattha/vithi.rs) | Vīthi 15/17 Scheduler - Security 360° (External + Internal) |
 
 ### Legacy PHP (`legacy-php/`)
 
 | File | Description |
 |---|---|
-| [CetasikaVector.php](https://github.com/suchanon456/Cyber-Abhidhamma/main/legacy-php/CetasikaVector.php) | 52-dimensional behavioral state vector |
-| [VattapadaEngine.php](https://github.com/suchanon456/Cyber-Abhidhamma/main/legacy-php/VattapadaEngine.php) | Dynamic scoring engine for Vattapada 7 |
+| [CetasikaVector.php](legacy-php/CetasikaVector.php) | 52-dimensional behavioral state vector |
+| [VattapadaEngine.php](legacy-php/VattapadaEngine.php) | Dynamic scoring engine for Vattapada 7 |
 
-### Examples (`examples/`)
+### Examples
 
 | File | Description |
 |---|---|
-| [vattapada_demo.php](https://github.com/suchanon456/Cyber-Abhidhamma/main/examples/vattapada_demo.php) | Runnable demo for Vattapada engine |
-| [lab7_vithi15.rs](https://github.com/suchanon456/Cyber-Abhidhamma/main/examples/lab7_vithi15.rs) | Lab 7 - Vithi 15 Internal Threat Detection |
+| [examples/vattapada_demo.php](examples/vattapada_demo.php) | Runnable demo for Vattapada engine (PHP) |
+| [core/examples/lab7_vithi15.rs](core/examples/lab7_vithi15.rs) | Lab 7 - Vithi 15 Internal Threat Detection (Rust; run with `cd core && cargo run --example lab7_vithi15`) |
 
 ---
 
@@ -273,11 +289,14 @@ If you are new to this project:
 
 1. **Read [Why this exists](#-why-this-exists)** — understand the problem
 2. **Look at the [Core Mapping](#-core-mapping) table** — see the big picture
-3. **Read [Core Logic v1](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v1.md)** — the initial foundation
-4. **Then [Core Logic v2](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/Core-Logic-v2.md)** — the expanded architecture
-5. **Read [Vattapada 7](https://github.com/suchanon456/Cyber-Abhidhamma/main/docs/The-Seven-Practices-Vattapada.md)** — the 7-practice framework
-6. **Explore [Vattapada-7.json](https://github.com/suchanon456/Cyber-Abhidhamma/main/spec/Vattapada-7.json)** — the policy spec
-7. **Run [examples/vattapada_demo.php](https://github.com/suchanon456/Cyber-Abhidhamma/main/examples/vattapada_demo.php)** — see it in action
+3. **Read [Architecture Overview](docs/architecture/00-overview.md)** — which layer lives where
+4. **Then [Core Mapping](docs/architecture/01-mapping.md)** — Mind = Runtime, Karma = Algorithm
+5. **Read [Security Architecture](docs/architecture/02-security.md)** — Magga 8 Firewall, Vatta 7, Vīthi 15/17
+6. **Read [Vattapada 7](docs/architecture/04-vattapada7.md)** — the 7-practice framework as Policy-as-Code
+7. **Explore [Vattapada-7.json](spec/Vattapada-7.json)** — the policy spec
+8. **Run [examples/vattapada_demo.php](examples/vattapada_demo.php)** — see it in action
+
+> The original conversations live in [`docs/conversations/`](docs/conversations/README.md). They are kept as process evidence and are **not** a specification.
 
 ---
 
@@ -285,7 +304,7 @@ If you are new to this project:
 
 | Layer | Status |
 |---|---|
-| Documentation (Core Logic v1, v2, Vattapada 7) | ✅ Complete |
+| Documentation (architecture, glossary, index) | ✅ Available |
 | Specs (`spec/`) | ✅ Available |
 | Legacy PHP (`legacy-php/`) | ✅ Available |
 | Examples (`examples/`) | ✅ Available - Lab 7 Added |
@@ -343,7 +362,7 @@ You can sponsor at: https://github.com/sponsors/suchanon456
 
 ## 📜 License
 
-[Apache-2.0](https://github.com/suchanon456/Cyber-Abhidhamma/main/LICENSE)
+[Apache-2.0](LICENSE)
 
 ---
 

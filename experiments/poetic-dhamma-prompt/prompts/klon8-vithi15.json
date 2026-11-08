@@ -35,6 +35,6 @@
   },
   "eval": {
     "test_type": "internal_self_harm_detection",
-    "scoring": "examples/lab7_vithi15.rs"
+    "scoring": "core/examples/lab7_vithi15.rs"
   }
 }
