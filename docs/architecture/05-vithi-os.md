@@ -175,7 +175,9 @@ cluster.degradation();                    // 0.0 = สมบูรณ์, 1.0 = 
 | `VithiMapper` (ขั้น → จิต 121) | ✅ **มีแล้ว** | [`vithi_mapper.rs`](../../core/src/paramattha/vithi_mapper.rs) |
 | ชวนะ → ผลต่อรูป 4 ธาตุ | ✅ **มีแล้ว** (analogy) | [`kamma_impact.rs`](../../core/src/paramattha/kamma_impact.rs) — `RupaImpact`, `RupaCluster` |
 | เจตสิก 52 มิติ | ✅ **มีแล้ว** | [`vithi.rs`](../../core/src/paramattha/vithi.rs) — `CetasikaVector` เป็น `[f32; 52]` เรียงตาม index ของ [`cetasika.rs`](../../core/src/paramattha/cetasika.rs) |
-| `CetasikaVector` 52 มิติ | ❌ มีแค่ 6 มิติ | `lobha/dosa/moha/mana/sati/metta` |
+| `CetasikaVector` 52 มิติ | ✅ **มีแล้ว** | `values: [f32; 52]` + accessor เดิม (`lobha()` ฯลฯ) และ `get(IDX)` |
+| Vipaka Loop (รูปเสื่อม → ปัจจัย) | ✅ **มีแล้ว** (analogy) | [`vipaka_loop.rs`](../../core/src/paramattha/vipaka_loop.rs) — `VipakaLoop::pressure()`, `condition()` |
+| Simulation Engine (ท่อครบเส้น) | ✅ **มีแล้ว** (analogy) | [`examples/simulation.rs`](../../core/examples/simulation.rs) — `cargo run --example simulation` |
 | append `Bhavanga` ปิดท้ายวิถี | ❌ ยังไม่ทำ | `from_internal_log` จบที่ตทาลัมพนะ 2 |
 | จัดคิว thread จริงตามวิถีจิต | ❌ **ไม่มี และไม่มีแผนในเฟสนี้** | เป็นแบบจำลองตีความ log |
 
@@ -183,7 +185,61 @@ cluster.degradation();                    // 0.0 = สมบูรณ์, 1.0 = 
 
 ---
 
-## 9. ดูต่อ
+## 9. Vipaka Loop — ผลของกรรมย้อนกลับมาเป็นปัจจัย
+
+§ 7 อธิบายทิศเดียว: ชวนะ (กรรม) → รูป (ผล) [`vipaka_loop.rs`](../../core/src/paramattha/vipaka_loop.rs)
+เติมทิศกลับ: รูปที่เสื่อม → เงื่อนไขที่ทำให้วิถีถัดไปเกิดอกุศลง่ายขึ้น
+
+| ธาตุที่เสื่อม | ตัววัด | หนุนเจตสิก |
+|---|---|---|
+| อาโป (เกาะกุมลด) | `1.0 - cohesion_strength` | โลภะ |
+| เตโช (ร้อนเกิน) | `(temp_c - AMBIENT_C) / 100` | โทสะ |
+| วาโย (ฟุ้ง) | `vayo_turbulence` | โมหะ |
+
+```rust
+let mut loop_ = VipakaLoop::new();
+let cetasika = loop_.condition(base);   // รูปที่เสื่อมหนุนจิตของวิถีนี้
+loop_.absorb_vithi17(&vithi);           // รับผลของกรรม
+loop_.pressure();                        // แรงหนุนที่ส่งไปรอบถัดไป
+```
+
+**จุดที่ต้องจำ:**
+
+1. **รูปที่สมบูรณ์ไม่หนุนอะไร** — `degradation() == 0.0` → `pressure()` คืน `CetasikaVector::new()`
+2. **การบวกแบบอิ่มตัวที่ 1.0** — รูปที่เสื่อมทำให้กิเลสที่มีอยู่แล้วหนักขึ้น แต่ไม่สร้างเกินเพดาน
+3. **การจับคู่สมมาตรกับ § 7** — ธาตุที่เสื่อมจากกิเลสตัวใด ย้อนกลับไปหนุนกิเลสตัวนั้น
+4. **วิถีที่ถูกบล็อกยังนับ `vithi_seen`** แต่ไม่เปลี่ยนรูปและไม่เพิ่มแรงหนุน
+
+> ⚠️ เป็น **อุปมา (analogy)** ตามกติกา [`docs/GLOSSARY.md`](../GLOSSARY.md) ข้อ 5 และ `PRESSURE_GAIN = 0.8`
+> ตั้งขึ้นเพื่อให้ทดสอบได้ ไม่ได้มาจากคัมภีร์
+
+---
+
+## 10. Simulation Engine — รันท่อทั้งเส้นด้วยคำสั่งเดียว
+
+[`core/examples/simulation.rs`](../../core/examples/simulation.rs) ต่อทุกชั้นที่อธิบายไว้ข้างบนเข้าด้วยกัน
+
+```
+Request → Firewall (PDP/โวฏฐัพพนะ) → Vithi17 → VithiMapper (จิต 121)
+        → KammaImpact → RupaCluster (ธาตุ 4)
+        ↺ VipakaLoop (รูปเสื่อม → หนุนวิถีถัดไป) → รายงาน
+```
+
+รันด้วย:
+
+```bash
+cd core && cargo run --example simulation
+```
+
+ผลลัพธ์เป็นตารางต่อเหตุการณ์: จำนวนขณะที่เกิดจริง (17 หรือ 8), จำนวนชวนะ, ชวนจิตที่แมปได้,
+ผลต่อรูป, อุณหภูมิเตโช, ค่าความเสื่อมสะสม, และแรงหนุนที่ส่งเข้าวิถีถัดไป
+พร้อมสรุป ALLOW/THROTTLE/BLOCK และผล `sila_check`
+
+⚠️ ทั้งหมดเป็นการคำนวณในหน่วยความจำ ไม่มีการสั่งการฮาร์ดแวร์จริง (ดู [`docs/GLOSSARY.md`](../GLOSSARY.md) ข้อ 5)
+
+---
+
+## 11. ดูต่อ
 
 - [02-security.md](./02-security.md) — วิถีจิตในฐานะกลไกความปลอดภัย, มรรค 8
 - [01-mapping.md](./01-mapping.md) — ตารางแมปหลัก จิต/เจตสิก/รูป/กรรม
@@ -193,3 +249,5 @@ cluster.degradation();                    // 0.0 = สมบูรณ์, 1.0 = 
 - [`core/src/paramattha/vithi17.rs`](../../core/src/paramattha/vithi17.rs) — วิถี 17 ขณะ
 - [`core/src/paramattha/kamma_impact.rs`](../../core/src/paramattha/kamma_impact.rs) — ชวนะ → รูป 4 ธาตุ
 - [`core/src/firewall/vithi_gate.rs`](../../core/src/firewall/vithi_gate.rs) — firewall ↔ วิถี 17
+- [`core/src/paramattha/vipaka_loop.rs`](../../core/src/paramattha/vipaka_loop.rs) — ผลกรรมย้อนกลับเป็นปัจจัย
+- [`core/examples/simulation.rs`](../../core/examples/simulation.rs) — รันท่อทั้งเส้น

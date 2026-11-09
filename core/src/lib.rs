@@ -23,6 +23,9 @@ pub use paramattha::mahabhuta::{
     TejoDriver, VayoDriver,
 };
 
+// Vipaka Loop — รูปที่เสื่อมย้อนกลับมาเป็นปัจจัยให้เกิดอกุศล
+pub use paramattha::vipaka_loop::VipakaLoop;
+
 // Vithi 15 - มโนทวารวิถี
 pub use paramattha::vithi::{CetasikaVector, CittaJati, InternalCause, Vithi15, JAVANA_COUNT};
 

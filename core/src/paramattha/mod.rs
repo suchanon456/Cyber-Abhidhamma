@@ -2,6 +2,7 @@
 pub mod cetasika;
 pub mod kamma_impact;
 pub mod mahabhuta;
+pub mod vipaka_loop;
 pub mod vithi;
 pub mod vithi17;
 pub mod vithi_mapper;
@@ -14,6 +15,7 @@ pub use mahabhuta::{
     paramattha_execute, ApoDriver, DhammaViolation, Lakkhana, MahabhutaRupa, PathaviDriver,
     TejoDriver, VayoDriver,
 };
+pub use vipaka_loop::{VipakaLoop, PRESSURE_GAIN, PRESSURE_TEJO_SPAN};
 pub use vithi::Vithi15;
 pub use vithi17::{CittaJati17, Dvara, GateContext, PdpOutcome, Vithi17};
 pub use vithi_mapper::{
